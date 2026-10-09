@@ -1,0 +1,19 @@
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=2284041)[0;0m WARNING 09-27 03:08:11 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2284041)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=2284041)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:02,  1.57it/s]
+[1;36m(EngineCore_DP0 pid=2284041)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:01<00:02,  1.41it/s]
+[1;36m(EngineCore_DP0 pid=2284041)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:02<00:01,  1.38it/s]
+[1;36m(EngineCore_DP0 pid=2284041)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:02<00:00,  1.44it/s]
+[1;36m(EngineCore_DP0 pid=2284041)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:03<00:00,  1.76it/s]
+[1;36m(EngineCore_DP0 pid=2284041)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:03<00:00,  1.60it/s]
+[1;36m(EngineCore_DP0 pid=2284041)[0;0m 
+[1;36m(EngineCore_DP0 pid=2284041)[0;0m WARNING 09-27 03:08:23 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+wrote 6 initial and 16 final rows -> results/raw/g28a_smoke_qwen3-8b.jsonl
+unparsed 0 digit-mass<0.5 0 rationale caps 0

@@ -1,0 +1,88 @@
+[0m
+> build · mimo-v2.6-flash-free
+I'll audit each of the 50 pairs from the attachment, then write the JSONL and summary.
+[0m← [0mWrite results/audits/g28a_irrelevant_control_audit/audit_batch_03.jsonl
+Created file successfully: results/audits/g28a_irrelevant_control_audit/audit_batch_03.jsonl
+> build · mimo-v2.6-flash-free
+The input file is confirmed intact (50 unique IDs, matches the attachment). Now I'll write my per-pair judgments.
+[0m← [0mWrite results/audits/g28a_irrelevant_control_audit/audit_batch_03.jsonl
+Wrote file successfully: results/audits/g28a_irrelevant_control_audit/audit_batch_03.jsonl
+> build · mimo-v2.6-flash-free
+Now verify the output and write the summary.
+[0m$ [0mcd /home/xiang/research_hun/try_clone/results/audits/g28a_irrelevant_control_audit && python3 - <<'EOF'
+import json, collections
+ids=[]; rel=collections.Counter(); nat=collections.Counter(); bad=[]
+for i,line in enumerate(open('audit_batch_03.jsonl'),1):
+    line=line.strip()
+    if not line: continue
+    try: r=json.loads(line)
+    except Exception as e: bad.append((i,str(e))); continue
+    assert set(r)== {'id','relevance','naturalness','issue'}, (i, set(r))
+    ids.append(r['id']); rel[r['relevance']]+=1; nat[r['naturalness']]+=1
+print("records:", len(ids))
+print("unique:", len(set(ids)), "dupes:", [k for k,v in collections.Counter(ids).items() if v>1])
+print("relevance:", dict(rel))
+print("naturalness:", dict(nat))
+print("bad json:", bad)
+blind=[json.loads(l)['id'] for l in open('blind_batch_03.jsonl') if l.strip()]
+print("missing vs blind:", set(blind)-set(ids))
+print("extra vs blind:", set(ids)-set(blind))
+EOF
+records: 50
+unique: 50 dupes: []
+relevance: {'irrelevant': 50}
+naturalness: {'natural': 42, 'awkward': 7, 'broken': 1}
+bad json: []
+missing vs blind: set()
+extra vs blind: set()
+> build · mimo-v2.6-flash-free
+All 50 records verified: 50 unique IDs, exact match with the blind input, valid JSON. Now the summary.
+[0m← [0mWrite results/audits/g28a_irrelevant_control_audit/summary_batch_03.md
+Created file successfully: results/audits/g28a_irrelevant_control_audit/summary_batch_03.md
+> build · mimo-v2.6-flash-free
+[0m$ [0mcd /home/xiang/research_hun/try_clone/results/audits/g28a_irrelevant_control_audit && wc -l audit_batch_03.jsonl && grep -c '"relevance": "irrelevant"' audit_batch_03.jsonl && ls -la
+50 audit_batch_03.jsonl
+50
+total 112
+drwxr-xr-x 2 xiang cr   327 Sep 27 03:30 .
+drwxr-xr-x 4 xiang cr  4096 Sep 27 03:23 ..
+-rw-r--r-- 1 xiang cr  8601 Sep 27 03:29 audit_batch_02.jsonl
+-rw-r--r-- 1 xiang cr  8856 Sep 27 03:29 audit_batch_03.jsonl
+-rw-r--r-- 1 xiang cr  9649 Sep 27 03:27 audit_batch_04.jsonl
+-rw-r--r-- 1 xiang cr 12501 Sep 27 03:23 blind_batch_01.jsonl
+-rw-r--r-- 1 xiang cr 12512 Sep 27 03:23 blind_batch_02.jsonl
+-rw-r--r-- 1 xiang cr 12183 Sep 27 03:23 blind_batch_03.jsonl
+-rw-r--r-- 1 xiang cr 13127 Sep 27 03:23 blind_batch_04.jsonl
+-rw-r--r-- 1 xiang cr  2755 Sep 27 03:27 summary_batch_02.md
+-rw-r--r-- 1 xiang cr  2468 Sep 27 03:30 summary_batch_03.md
+-rw-r--r-- 1 xiang cr  2316 Sep 27 03:27 summary_batch_04.md
+> build · mimo-v2.6-flash-free
+Batch 03 is complete and verified (the restart didn't lose anything — no batch-03 output existed before, and the input file was untouched).
+
+**Output:** `results/audits/g28a_irrelevant_control_audit/audit_batch_03.jsonl`
+
+- 50 records, exactly 50 unique IDs, ID set identical to `blind_batch_03.jsonl`, all valid JSON, fields exactly `id` / `relevance` / `naturalness` / `issue`
+- Relevance: **50 irrelevant**, 0 potentially_relevant, 0 relevant
+- Naturalness: **42 natural, 7 awkward, 1 broken**
+
+**How I judged:** every sentence was cross-domain from its claim, with no support, refutation, or indirect decision-relevant link. I checked and rejected the near-misses: `g24cfb_155` (Florida/Georgia only as band members' hometowns), `g24cfb_190`/`g24cfb_213` (UMG/Vivendi HQ doesn't bear on those album/person claims), `g24cfb_206` (birth date is of a different drummer), and `g24cfb_173`/`g24cfb_189` (anaphoric "It" has no referent in the claim).
+
+**Naturalness flags:**
+- broken: `g24cfb_177` (caption fragment, stray `'' ''` artifacts, no predicate)
+- awkward (7): `g24cfb_158` (dropped entity "known in Japan as ,"), `g24cfb_169` (truncated, trailing comma, run-on), `g24cfb_174` ("wEST"), `g24cfb_189` ("priase"), `g24cfb_200` ("good timed"/"fantasic", unbalanced quotes), `g24cfb_201` ("2012–13.Notable" run-on), `g24cfb_217` ("MeasuresCrowley" glued text)
+
+**Summary:** `results/audits/g28a_irrelevant_control_audit/summary_batch_03.md` — includes totals tables, borderline-call rationale, and the per-ID naturalness flag list. No frozen data was edited.
+[0m$ [0mls -la results/audits/g28a_irrelevant_control_audit/ 2>/dev/null; echo "---"; wc -l results/audits/g28a_irrelevant_control_audit/audit_batch_03.jsonl 2>/dev/null
+合計 64
+drwxr-xr-x 2 xiang cr   138  9月 27 03:23 .
+drwxr-xr-x 4 xiang cr  4096  9月 27 03:23 ..
+-rw-r--r-- 1 xiang cr 12501  9月 27 03:23 blind_batch_01.jsonl
+-rw-r--r-- 1 xiang cr 12512  9月 27 03:23 blind_batch_02.jsonl
+-rw-r--r-- 1 xiang cr 12183  9月 27 03:23 blind_batch_03.jsonl
+-rw-r--r-- 1 xiang cr 13127  9月 27 03:23 blind_batch_04.jsonl
+---
+[0m✱ [0mGlob "results/audits/g28a_irrelevant_control_audit/*" [90m4 matches[0m
+No output file exists yet — no completed batch-03 work to preserve. Let me verify the input file and ID count.
+[0m$ [0mcd results/audits/g28a_irrelevant_control_audit && grep -c '"id"' blind_batch_03.jsonl && grep -o '"id": "[^"]*"' blind_batch_03.jsonl | sort | uniq -d | head
+50
+[0m→ [0mRead results/audits/g28a_irrelevant_control_audit/blind_batch_03.jsonl 

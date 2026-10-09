@@ -1,0 +1,39 @@
+WARNING 09-25 19:00:06 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 09-25 19:00:06 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=3921048) Failed to get device capability: SM 12.x requires CUDA >= 12.9.
+(EngineCore pid=3921048) Failed to get device capability: SM 12.x requires CUDA >= 12.9.
+(EngineCore pid=3921048) Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+(EngineCore pid=3921048) Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:01<00:06,  1.68s/it]
+(EngineCore pid=3921048) Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:03<00:05,  1.84s/it]
+(EngineCore pid=3921048) Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:05<00:03,  1.89s/it]
+(EngineCore pid=3921048) Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:07<00:01,  1.79s/it]
+(EngineCore pid=3921048) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.41s/it]
+(EngineCore pid=3921048) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.59s/it]
+(EngineCore pid=3921048) 
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408] Module vllm.third_party.deep_gemm was found but failed to import
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408] Traceback (most recent call last):
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/utils/import_utils.py", line 406, in _has_module
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]     importlib.import_module(module_name)
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/importlib/__init__.py", line 90, in import_module
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]     return _bootstrap._gcd_import(name[level:], package, level)
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]   File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/third_party/deep_gemm/__init__.py", line 16, in <module>
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408]     from . import _C
+(EngineCore pid=3921048) WARNING 09-25 19:00:38 [import_utils.py:408] ImportError: libnvrtc.so.13: cannot open shared object file: No such file or directory
+(EngineCore pid=3921048) 2026-09-25 19:00:38,131 - INFO - autotuner.py:622 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=3921048) 2026-09-25 19:00:38,407 - INFO - autotuner.py:641 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(EngineCore pid=3921048) WARNING 09-25 19:00:42 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=3921048) WARNING 09-25 19:00:42 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+Rendering prompts:   0%|          | 0/5 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 5/5 [00:00<00:00, 109.18it/s]
+Processed prompts:   0%|          | 0/5 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:  20%|██        | 1/5 [00:02<00:09,  2.39s/it, est. speed input: 49.87 toks/s, output: 17.60 toks/s]Processed prompts: 100%|██████████| 5/5 [00:03<00:00,  1.92it/s, est. speed input: 285.01 toks/s, output: 71.49 toks/s]Processed prompts: 100%|██████████| 5/5 [00:03<00:00,  1.92it/s, est. speed input: 285.01 toks/s, output: 71.49 toks/s]Processed prompts: 100%|██████████| 5/5 [00:03<00:00,  1.58it/s, est. speed input: 285.01 toks/s, output: 71.49 toks/s]
+Rendering prompts:   0%|          | 0/5 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 5/5 [00:00<00:00, 1735.48it/s]
+Processed prompts:   0%|          | 0/5 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s](EngineCore pid=3921048) WARNING 09-25 19:00:45 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _topk_log_softmax_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+Processed prompts:  20%|██        | 1/5 [00:00<00:00,  4.40it/s, est. speed input: 712.75 toks/s, output: 4.40 toks/s]Processed prompts: 100%|██████████| 5/5 [00:00<00:00,  4.40it/s, est. speed input: 4954.44 toks/s, output: 21.94 toks/s]Processed prompts: 100%|██████████| 5/5 [00:00<00:00, 21.91it/s, est. speed input: 4954.44 toks/s, output: 21.94 toks/s]
+wrote 5 rows -> logs/smoke_g24a_p1.jsonl
+  decisions 5 (unparsed 0, digit-mass<0.5 0, rationale hit token cap 0)

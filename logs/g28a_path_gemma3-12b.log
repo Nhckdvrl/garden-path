@@ -1,0 +1,50 @@
+G28A gemma3-12b on GPU 1; environment verl-clean; 2026-09-27T03:10:23+09:00
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m WARNING 09-27 03:11:08 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:48<03:12, 48.06s/it]
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [01:32<02:17, 45.70s/it]
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [02:19<01:32, 46.43s/it]
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [03:07<00:47, 47.14s/it]
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [03:55<00:00, 47.27s/it]
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [03:55<00:00, 47.03s/it]
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m 
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m WARNING 09-27 03:16:38 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m [rank0]:W0927 03:16:59.583000 2285099 site-packages/torch/_dynamo/convert_frame.py:1016] [0/8] torch._dynamo hit config.recompile_limit (8)
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m [rank0]:W0927 03:16:59.583000 2285099 site-packages/torch/_dynamo/convert_frame.py:1016] [0/8]    function: 'forward_static' (/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/layernorm.py:287)
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m [rank0]:W0927 03:16:59.583000 2285099 site-packages/torch/_dynamo/convert_frame.py:1016] [0/8]    last reason: 0/7: expected type of 'residual' to be a tensor type, ' but found <class 'NoneType'>
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m [rank0]:W0927 03:16:59.583000 2285099 site-packages/torch/_dynamo/convert_frame.py:1016] [0/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[1;36m(EngineCore_DP0 pid=2285099)[0;0m [rank0]:W0927 03:16:59.583000 2285099 site-packages/torch/_dynamo/convert_frame.py:1016] [0/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+wrote 600 initial and 1600 final rows -> results/raw/gemma3-12b_g28a_path_v1.jsonl
+unparsed 0 digit-mass<0.5 0 rationale caps 0
+`torch_dtype` is deprecated! Use `dtype` instead!
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m WARNING 09-27 03:19:19 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:03,  1.28it/s]
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:01<00:02,  1.02it/s]
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:03<00:02,  1.05s/it]
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:04<00:01,  1.12s/it]
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:05<00:00,  1.14s/it]
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:05<00:00,  1.09s/it]
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m 
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m WARNING 09-27 03:20:24 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m [rank0]:W0927 03:20:47.494000 2287651 site-packages/torch/_dynamo/convert_frame.py:1016] [0/8] torch._dynamo hit config.recompile_limit (8)
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m [rank0]:W0927 03:20:47.494000 2287651 site-packages/torch/_dynamo/convert_frame.py:1016] [0/8]    function: 'forward_static' (/home/xiang/miniconda3/envs/verl-clean/lib/python3.12/site-packages/vllm/model_executor/layers/layernorm.py:287)
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m [rank0]:W0927 03:20:47.494000 2287651 site-packages/torch/_dynamo/convert_frame.py:1016] [0/8]    last reason: 0/7: expected type of 'residual' to be a tensor type, ' but found <class 'NoneType'>
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m [rank0]:W0927 03:20:47.494000 2287651 site-packages/torch/_dynamo/convert_frame.py:1016] [0/8] To log all recompilation reasons, use TORCH_LOGS="recompiles".
+[1;36m(EngineCore_DP0 pid=2287651)[0;0m [rank0]:W0927 03:20:47.494000 2287651 site-packages/torch/_dynamo/convert_frame.py:1016] [0/8] To diagnose recompilation issues, see https://pytorch.org/docs/main/torch.compiler_troubleshooting.html.
+Terminated

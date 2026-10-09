@@ -1,0 +1,27 @@
+Loading weights:   0%|          | 0/1065 [00:00<?, ?it/s]Loading weights:   0%|          | 1/1065 [00:00<03:29,  5.09it/s]Loading weights:   2%|▏         | 17/1065 [00:00<00:16, 65.35it/s]Loading weights:   3%|▎         | 31/1065 [00:00<00:12, 85.50it/s]Loading weights:   5%|▍         | 48/1065 [00:00<00:09, 109.97it/s]Loading weights:   6%|▌         | 63/1065 [00:00<00:08, 119.99it/s]Loading weights:   7%|▋         | 76/1065 [00:00<00:08, 114.28it/s]Loading weights:   8%|▊         | 88/1065 [00:00<00:09, 107.47it/s]Loading weights:   9%|▉         | 100/1065 [00:01<00:09, 105.77it/s]Loading weights:  10%|█         | 111/1065 [00:01<00:09, 102.40it/s]Loading weights:  11%|█▏        | 122/1065 [00:01<00:09, 96.90it/s] Loading weights:  13%|█▎        | 135/1065 [00:01<00:09, 98.22it/s]Loading weights:  14%|█▍        | 147/1065 [00:01<00:09, 96.80it/s]Loading weights:  15%|█▌        | 161/1065 [00:01<00:08, 101.46it/s]Loading weights:  16%|█▋        | 174/1065 [00:01<00:08, 101.95it/s]Loading weights:  18%|█▊        | 187/1065 [00:01<00:08, 103.57it/s]Loading weights:  19%|█▉        | 200/1065 [00:02<00:08, 107.53it/s]Loading weights:  20%|██        | 213/1065 [00:02<00:07, 109.99it/s]Loading weights:  21%|██        | 226/1065 [00:02<00:07, 112.20it/s]Loading weights:  22%|██▏       | 239/1065 [00:02<00:07, 109.77it/s]Loading weights:  24%|██▎       | 252/1065 [00:02<00:07, 110.40it/s]Loading weights:  25%|██▍       | 265/1065 [00:02<00:07, 110.79it/s]Loading weights:  26%|██▌       | 278/1065 [00:02<00:06, 112.69it/s]Loading weights:  27%|██▋       | 291/1065 [00:02<00:06, 113.99it/s]Loading weights:  29%|██▊       | 304/1065 [00:02<00:06, 112.01it/s]Loading weights:  30%|██▉       | 316/1065 [00:03<00:06, 113.87it/s]Loading weights:  31%|███       | 329/1065 [00:03<00:06, 113.50it/s]Loading weights:  32%|███▏      | 342/1065 [00:03<00:06, 113.61it/s]Loading weights:  33%|███▎      | 355/1065 [00:03<00:06, 112.13it/s]Loading weights:  35%|███▍      | 368/1065 [00:03<00:06, 112.41it/s]Loading weights:  36%|███▌      | 381/1065 [00:03<00:06, 111.58it/s]Loading weights:  37%|███▋      | 394/1065 [00:03<00:05, 112.95it/s]Loading weights:  38%|███▊      | 407/1065 [00:03<00:05, 114.89it/s]Loading weights:  39%|███▉      | 420/1065 [00:03<00:05, 114.14it/s]Loading weights:  41%|████      | 433/1065 [00:04<00:05, 110.50it/s]Loading weights:  42%|████▏     | 446/1065 [00:04<00:05, 111.33it/s]Loading weights:  43%|████▎     | 459/1065 [00:04<00:05, 114.43it/s]Loading weights:  44%|████▍     | 472/1065 [00:04<00:05, 116.27it/s]Loading weights:  46%|████▌     | 485/1065 [00:04<00:04, 116.61it/s]Loading weights:  47%|████▋     | 498/1065 [00:04<00:05, 107.17it/s]Loading weights:  48%|████▊     | 512/1065 [00:04<00:05, 110.22it/s]Loading weights:  49%|████▉     | 525/1065 [00:04<00:04, 108.74it/s]Loading weights:  51%|█████     | 538/1065 [00:05<00:04, 109.05it/s]Loading weights:  52%|█████▏    | 550/1065 [00:05<00:04, 110.12it/s]Loading weights:  53%|█████▎    | 563/1065 [00:05<00:04, 106.05it/s]Loading weights:  54%|█████▍    | 576/1065 [00:05<00:04, 104.07it/s]Loading weights:  55%|█████▌    | 589/1065 [00:05<00:04, 102.27it/s]Loading weights:  56%|█████▋    | 601/1065 [00:05<00:04, 105.20it/s]Loading weights:  57%|█████▋    | 612/1065 [00:05<00:04, 104.53it/s]Loading weights:  58%|█████▊    | 623/1065 [00:05<00:04, 100.80it/s]Loading weights:  72%|███████▏  | 762/1065 [00:05<00:00, 444.87it/s]Loading weights:  87%|████████▋ | 927/1065 [00:06<00:00, 772.78it/s]Loading weights: 100%|██████████| 1065/1065 [00:06<00:00, 173.09it/s]
+capture 32/512
+capture 64/512
+capture 96/512
+capture 128/512
+capture 160/512
+capture 192/512
+capture 224/512
+capture 256/512
+capture 288/512
+capture 320/512
+capture 352/512
+capture 384/512
+capture 416/512
+capture 448/512
+capture 480/512
+capture 512/512
+baseline complete
+layer 5 complete
+layer 11 complete
+layer 17 complete
+layer 23 complete
+layer 29 complete
+layer 35 complete
+layer 41 complete
+layer 47 complete
+{"out": "/home/xiang/research_hun/try_clone/results/mech/g13_shared_outcome.json", "states": "/home/xiang/research_hun/try_clone/results/mech/g13_shared_outcome_states.npz", "records": 2048}

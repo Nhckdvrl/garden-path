@@ -1,0 +1,6 @@
+Error: Standalone server exited before reporting readiness
+    at <anonymous> (/$bunfs/root/chunk-0f6ea9g0.js:2:974)
+    at cli.standalone.endpoint (/$bunfs/root/chunk-wkaycsrr.js:3:63)
+    at cli.standalone.endpoint (definition) (/$bunfs/root/chunk-0f6ea9g0.js:2:795)
+    at cli.server-connection.resolve (/$bunfs/root/chunk-j7nt7p6n.js:2:900)
+    at cli.server-connection.resolve (definition) (/$bunfs/root/chunk-wkaycsrr.js:2:399)

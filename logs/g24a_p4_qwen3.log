@@ -1,0 +1,42 @@
+=== G24A P4 qwen3-8b gpu2 2026-09-26 04:12:21 items=data/items/g24a_p4_v1.jsonl ids=data/items/g24a_p4_ids.json ===
+=== runner: mode reasoned, reason-tokens 110, max-model-len 4096, tp 1, temp 0 ===
+WARNING 09-26 04:13:21 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 09-26 04:13:21 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=4013406) Failed to get device capability: SM 12.x requires CUDA >= 12.9.
+(EngineCore pid=4013406) Failed to get device capability: SM 12.x requires CUDA >= 12.9.
+(EngineCore pid=4013406) Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+(EngineCore pid=4013406) Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:02<00:09,  2.31s/it]
+(EngineCore pid=4013406) Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:04<00:06,  2.17s/it]
+(EngineCore pid=4013406) Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:06<00:04,  2.10s/it]
+(EngineCore pid=4013406) Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:08<00:01,  1.93s/it]
+(EngineCore pid=4013406) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:08<00:00,  1.54s/it]
+(EngineCore pid=4013406) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:08<00:00,  1.78s/it]
+(EngineCore pid=4013406) 
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408] Module vllm.third_party.deep_gemm was found but failed to import
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408] Traceback (most recent call last):
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/utils/import_utils.py", line 406, in _has_module
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]     importlib.import_module(module_name)
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/importlib/__init__.py", line 90, in import_module
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]     return _bootstrap._gcd_import(name[level:], package, level)
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]   File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/third_party/deep_gemm/__init__.py", line 16, in <module>
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408]     from . import _C
+(EngineCore pid=4013406) WARNING 09-26 04:13:52 [import_utils.py:408] ImportError: libnvrtc.so.13: cannot open shared object file: No such file or directory
+(EngineCore pid=4013406) 2026-09-26 04:13:52,797 - INFO - autotuner.py:622 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=4013406) 2026-09-26 04:13:53,081 - INFO - autotuner.py:641 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(EngineCore pid=4013406) WARNING 09-26 04:13:56 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=4013406) WARNING 09-26 04:13:56 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+Rendering prompts:   0%|          | 0/400 [00:00<?, ?it/s]Rendering prompts:  26%|██▋       | 106/400 [00:00<00:00, 1057.13it/s]Rendering prompts:  92%|█████████▏| 367/400 [00:00<00:00, 1966.19it/s]Rendering prompts: 100%|██████████| 400/400 [00:00<00:00, 1871.76it/s]
+Processed prompts:   0%|          | 0/400 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   0%|          | 1/400 [00:04<31:27,  4.73s/it, est. speed input: 33.41 toks/s, output: 5.50 toks/s]Processed prompts:   0%|          | 2/400 [00:04<13:40,  2.06s/it, est. speed input: 64.19 toks/s, output: 11.17 toks/s]Processed prompts:   1%|          | 4/400 [00:05<05:20,  1.24it/s, est. speed input: 132.63 toks/s, output: 22.96 toks/s]Processed prompts:   2%|▎         | 10/400 [00:05<01:31,  4.25it/s, est. speed input: 343.18 toks/s, output: 59.06 toks/s]Processed prompts:   5%|▌         | 20/400 [00:05<00:35, 10.62it/s, est. speed input: 673.83 toks/s, output: 120.15 toks/s]Processed prompts:  10%|▉         | 39/400 [00:05<00:14, 25.74it/s, est. speed input: 1234.37 toks/s, output: 237.60 toks/s]Processed prompts:  18%|█▊        | 73/400 [00:05<00:05, 58.12it/s, est. speed input: 2255.57 toks/s, output: 455.13 toks/s]Processed prompts:  26%|██▌       | 102/400 [00:05<00:03, 85.47it/s, est. speed input: 3095.47 toks/s, output: 641.99 toks/s]Processed prompts:  34%|███▍      | 138/400 [00:05<00:02, 123.26it/s, est. speed input: 4175.96 toks/s, output: 880.64 toks/s]Processed prompts:  47%|████▋     | 189/400 [00:05<00:01, 183.82it/s, est. speed input: 5740.69 toks/s, output: 1226.46 toks/s]Processed prompts:  57%|█████▋    | 228/400 [00:06<00:00, 217.38it/s, est. speed input: 6840.25 toks/s, output: 1487.73 toks/s]Processed prompts:  66%|██████▋   | 266/400 [00:06<00:00, 245.10it/s, est. speed input: 7900.73 toks/s, output: 1745.04 toks/s]Processed prompts:  75%|███████▍  | 299/400 [00:06<00:00, 242.21it/s, est. speed input: 8774.40 toks/s, output: 1959.42 toks/s]Processed prompts:  83%|████████▎ | 331/400 [00:06<00:00, 248.06it/s, est. speed input: 9585.08 toks/s, output: 2172.49 toks/s]Processed prompts:  90%|████████▉ | 359/400 [00:06<00:00, 224.23it/s, est. speed input: 10195.38 toks/s, output: 2345.53 toks/s]Processed prompts:  96%|█████████▌| 384/400 [00:06<00:00, 167.18it/s, est. speed input: 10517.84 toks/s, output: 2463.90 toks/s]Processed prompts: 100%|██████████| 400/400 [00:08<00:00, 167.18it/s, est. speed input: 8810.69 toks/s, output: 2101.49 toks/s] Processed prompts: 100%|██████████| 400/400 [00:08<00:00, 46.92it/s, est. speed input: 8810.69 toks/s, output: 2101.49 toks/s] 
+Rendering prompts:   0%|          | 0/400 [00:00<?, ?it/s]Rendering prompts:  59%|█████▉    | 236/400 [00:00<00:00, 2352.30it/s]Rendering prompts: 100%|██████████| 400/400 [00:00<00:00, 2490.28it/s]
+Processed prompts:   0%|          | 0/400 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s](EngineCore pid=4013406) WARNING 09-26 04:14:05 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _topk_log_softmax_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+Processed prompts:   0%|          | 1/400 [00:00<01:21,  4.90it/s, est. speed input: 926.02 toks/s, output: 4.90 toks/s]Processed prompts:   1%|          | 3/400 [00:01<02:18,  2.87it/s, est. speed input: 655.76 toks/s, output: 2.99 toks/s]Processed prompts: 100%|██████████| 400/400 [00:01<00:00,  2.87it/s, est. speed input: 91709.55 toks/s, output: 394.18 toks/s]Processed prompts: 100%|██████████| 400/400 [00:01<00:00, 394.00it/s, est. speed input: 91709.55 toks/s, output: 394.18 toks/s]
+wrote 400 rows -> results/raw/qwen3-8b_g24a_p4.jsonl
+  decisions 400 (unparsed 0, digit-mass<0.5 0, rationale hit token cap 0)
+G24A P4 DONE: qwen3-8b (400 rows)

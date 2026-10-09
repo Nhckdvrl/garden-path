@@ -1,0 +1,23 @@
+=== G24A §14 meta arm+ llama31-8b gpu2 2026-09-26 22:55:15 items=data/items/g24a_p2_v1.jsonl ids=data/items/g24a_p2_ids_plus.json ===
+=== runner: mode reasoned, reason-tokens 110, max-model-len 4096, tp 1, temp 0 ===
+WARNING 09-26 22:55:46 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 09-26 22:55:46 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=2275470) Loading safetensors checkpoint shards:   0% Completed | 0/4 [00:00<?, ?it/s]
+(EngineCore pid=2275470) Loading safetensors checkpoint shards:  25% Completed | 1/4 [00:01<00:04,  1.59s/it]
+(EngineCore pid=2275470) Loading safetensors checkpoint shards:  50% Completed | 2/4 [00:02<00:02,  1.39s/it]
+(EngineCore pid=2275470) Loading safetensors checkpoint shards:  75% Completed | 3/4 [00:03<00:01,  1.22s/it]
+(EngineCore pid=2275470) Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:04<00:00,  1.09it/s]
+(EngineCore pid=2275470) Loading safetensors checkpoint shards: 100% Completed | 4/4 [00:04<00:00,  1.08s/it]
+(EngineCore pid=2275470) 
+(EngineCore pid=2275470) WARNING 09-26 22:56:06 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=2275470) WARNING 09-26 22:56:06 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=2275470) Exception in thread Thread-4 (process_output_sockets):
+(EngineCore pid=2275470) Traceback (most recent call last):
+(EngineCore pid=2275470)   File "/home/xiang/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/threading.py", line 1075, in _bootstrap_inner
+(EngineCore pid=2275470)     self.run()
+(EngineCore pid=2275470)   File "/home/xiang/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/threading.py", line 1012, in run
+(EngineCore pid=2275470)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=2275470)   File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1609, in process_output_sockets
+(EngineCore pid=2275470)     if not tracker.done:
+(EngineCore pid=2275470)            ^^^^^^^^^^^^
+(EngineCore pid=2275470) AttributeError: 'NoneType' object has no attribute 'done'

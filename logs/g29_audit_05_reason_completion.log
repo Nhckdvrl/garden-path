@@ -1,0 +1,67 @@
+[0m
+> build · longcat-2.5-preview-free
+[0m→ [0mRead data/items/g29_blind_audit_v1/audit_05.jsonl 
+[0m→ [0mRead data/items/g29_blind_audit_v1/blind_05.jsonl 
+> build · longcat-2.5-preview-free
+I've read both files. Now let me verify each of the 20 rows against the claim and evidence texts before rewriting.
+
+**Verification summary (claim vs. evidence_a / evidence_b):**
+
+- **g29_080** ✓ A: $61.6M > $61M and $107M > $106.5M → support; B: $60M < $61M, $106M < $106.5M → refute
+- **g29_081** ✓ A: 62 < 63 of 105 → support; B: 63 is not < 63 → refute
+- **g29_082** ✓ A: 30% not < 29.5%, 74 not > 74 → refute; B: 29% < 29.5%, 75 > 74 → support
+- **g29_083** ✓ A: 87% > 86%, 62 < 65 → support; B: 85% not > 86%, 71 not < 65 → refute
+- **g29_084** ✓ A names "More Than Words" (wrong song) → refute; B names "More Than Water" on March 23, 1991 → support
+- **g29_085** ✓ A: Ministry of Women and Child Development ≠ MHRD → refute; B: MHRD → support
+- **g29_086** ✓ A: 2 stars < 3 → support; B: 4 stars not < 3 → refute
+- **g29_087** ✓ A: 127 < 130, 0.38% < 0.4% → support; B: 140, 0.42% → refute
+- **g29_088** ✓ A: 78 not > 78, 24 not < 24 → refute; B: 79 > 78, 23 < 24 → support
+- **g29_089** ✓ A: Dec 5, 2006 after July 2006 → support; B: May 5, 2006 before → refute
+- **g29_090** ✗ **B is wrong**: B reports Jan 1, 2015 (not Feb 1) — it neither confirms nor contradicts the Feb 1 claim, so "refute" is incorrect → **neutral** (same date-mismatch pattern as g29_098 A, which is labeled ambiguous). pair_valid → false
+- **g29_091** ✓ A: seventh-highest ≠ eighth → refute; B: eighth-highest → support
+- **g29_092** ✓ A: sixth album ≠ fifth → refute; B: fifth studio album → support
+- **g29_093** ✓ A: 57 not < 55 → refute; B: 53 < 55 → support
+- **g29_094** ✓ A: 16.50 not > 17.50 → refute; B: 19.08 > 17.50 → support
+- **g29_095** ✓ A: "mixed reviews" → ambiguous; B: "positive reviews" → support; pair_valid false
+- **g29_096** ✓ A: Kate O'Sullivan ≠ Jules de Jongh → refute; B: Jules de Jongh → support
+- **g29_097** ✗ **B is wrong**: B confirms the return for season Hotel but only says she debuts in episode 11 — no promo mention and no contradiction → "refute" is incorrect → **neutral**. pair_valid → false
+- **g29_098** ✓ A: Feb 2018 figure can't confirm/refute June 2016 → ambiguous; B: $20T < $22T as of June 2016 → support; pair_valid false
+- **g29_099** ✓ A: 37% not < 36%, 51 not < 40 → refute; B: 35% < 36% but 55 not < 40 → internally conflicting → ambiguous; pair_valid false
+
+Two wrong verdicts found (g29_090 B, g29_097 B). Now rewriting `audit_05.jsonl` with all 20 issue fields filled (each explaining both A and B), corrected verdicts, and preserved ID order and six-key schema:
+[0m← [0mWrite data/items/g29_blind_audit_v1/audit_05.jsonl
+Wrote file successfully: data/items/g29_blind_audit_v1/audit_05.jsonl
+> build · longcat-2.5-preview-free
+Now let me validate the output — 20 valid JSONL rows, six keys each, no empty issues, ID order preserved:
+[0m⚙ [0mexecute {"code":"const fs = require('fs');\nconst raw = fs.readFileSync('/home/xiang/research_hun/try_clone/data/items/g29_blind_audit_v1/audit_05.jsonl', 'utf8');\nconst lines = raw.split('\\n').filter(l => l.trim());\nconsole.log('rows:', lines.length);\nlet ok = true;\nconst expectedIds = Array.from({length: 20}, (_, i) => 'g29_' + String(80 + i).padStart(3, '0'));\nlines.forEach((l, i) => {\n  let o;\n  try { o = JSON.parse(l); } catch (e) { console.log('INVALID JSON line', i + 1); ok = false; return; }\n  const keys = Object.keys(o);\n  const six = ['id','relation_a','relation_b','pair_valid','naturalness','issue'];\n  if (keys.length !== 6 || !six.every(k => keys.includes(k))) { console.log('BAD SCHEMA line', i + 1, keys); ok = false; }\n  if (o.id !== expectedIds[i]) { console.log('ORDER MISMATCH line', i + 1, o.id, 'expected', expectedIds[i]); ok = false; }\n  if (!o.issue || !o.issue.trim()) { console.log('EMPTY ISSUE line', i + 1); ok = false; }\n  if (!['support','refute','neutral','ambiguous'].includes(o.relation_a) || !['support','refute','neutral','ambiguous'].includes(o.relation_b)) { console.log('BAD REL line', i + 1); ok = false; }\n});\nconsole.log(ok ? 'ALL CHECKS PASSED' : 'CHECKS FAILED');"} 
+> build · longcat-2.5-preview-free
+[0m⚙ [0mexecute {"code":"const raw = await tools.browser.preview({path: \"/dev/null\"}).catch(() => null);"} 
+> build · longcat-2.5-preview-free
+The JS runtime lacks `require`; I'll validate with the shell instead:
+[0m$ [0mcd /home/xiang/research_hun/try_clone/data/items/g29_blind_audit_v1 && python3 -c "
+import json
+lines = [l for l in open('audit_05.jsonl') if l.strip()]
+print('rows:', len(lines))
+six = ['id','relation_a','relation_b','pair_valid','naturalness','issue']
+ok = True
+for i, l in enumerate(lines):
+    o = json.loads(l)
+    if list(o.keys()) != six: print('BAD SCHEMA line', i+1, list(o.keys())); ok = False
+    if o['id'] != 'g29_%03d' % (80+i): print('ORDER MISMATCH line', i+1, o['id']); ok = False
+    if not o['issue'].strip(): print('EMPTY ISSUE line', i+1); ok = False
+    for r in ('relation_a','relation_b'):
+        if o[r] not in ('support','refute','neutral','ambiguous'): print('BAD REL line', i+1); ok = False
+print('ALL CHECKS PASSED' if ok else 'CHECKS FAILED')
+"
+rows: 20
+ALL CHECKS PASSED
+> build · longcat-2.5-preview-free
+Blind audit for batch 05 complete. `audit_05.jsonl` rewritten and validated: 20 valid JSONL rows, six-key schema, ID order g29_080–g29_099 preserved, zero empty issue fields.
+
+**Verdict corrections (2):**
+- **g29_090** — relation_b `refute` → `neutral`: evidence_b reports "over 88 million posts" but as of **January 1, 2015**, not February 1. A different date can neither confirm nor contradict the claim (consistent with g29_098's treatment of the same date-mismatch pattern as ambiguous). `pair_valid` → false.
+- **g29_097** — relation_b `refute` → `neutral`: evidence_b confirms Sidibe returns for season Hotel but only says she debuts in the eleventh episode — it never mentions a promo and nothing contradicts one, so it neither supports nor refutes the promo-specific claim. `pair_valid` → false.
+
+**Issue text:** All 20 rows now carry a concise semantic explanation covering both evidence texts — the specific numbers, names, dates, or wording that make A and B support/refute/neutral/ambiguous (e.g., g29_080: A's $61.6M/$107M vs. B's $60M/$106M against the $61M/$106.5M thresholds; g29_099: B's internal conflict of 35% < 36% but 55 reviews ≮ 40). Existing artifact notes (typos in g29_081, wiki markup in g29_085) were retained and folded into the fuller explanations.
+
+The other 18 verdict pairs checked out as correct against the claims and were left unchanged.

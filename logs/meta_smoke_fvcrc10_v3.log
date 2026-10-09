@@ -1,0 +1,43 @@
+=== SMOKE: 4 ids/arm, outputs carry suffix '_smoke' ===
+=== G24A §14 meta arm+ qwen3-8b gpu0 2026-09-26 19:28:35 items=data/items/g24a_p2_v1.jsonl ids=logs/g24a_meta_smoke_ids_plus.json ===
+=== runner: mode reasoned, reason-tokens 110, max-model-len 4096, tp 1, temp 0 ===
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 313, in <module>
+    main()
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 103, in main
+    from vllm import LLM, SamplingParams
+  File "<frozen importlib._bootstrap>", line 1412, in _handle_fromlist
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/vllm/__init__.py", line 70, in __getattr__
+    module = import_module(module_name, __package__)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/.local/share/uv/python/cpython-3.12.13-linux-x86_64-gnu/lib/python3.12/importlib/__init__.py", line 90, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 14, in <module>
+    from vllm.config import (
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/vllm/config/__init__.py", line 20, in <module>
+    from vllm.config.model import (
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/vllm/config/model.py", line 30, in <module>
+    from vllm.transformers_utils.config import (
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/vllm/transformers_utils/config.py", line 19, in <module>
+    from transformers.models.auto.image_processing_auto import get_image_processor_config
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/transformers/models/auto/image_processing_auto.py", line 24, in <module>
+    from ...image_processing_utils import ImageProcessingMixin
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/transformers/image_processing_utils.py", line 34, in <module>
+    from .processing_utils import ImagesKwargs, Unpack
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/transformers/processing_utils.py", line 83, in <module>
+    from .modeling_utils import PreTrainedAudioTokenizerBase
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/transformers/modeling_utils.py", line 87, in <module>
+    from .loss.loss_utils import LOSS_MAPPING
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/transformers/loss/loss_utils.py", line 27, in <module>
+    from .loss_rnnt import ParakeetForRNNTLoss
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/transformers/loss/loss_rnnt.py", line 23, in <module>
+    import torchaudio
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/torchaudio/__init__.py", line 7, in <module>
+    from . import _extension  # noqa  # usort: skip
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/torchaudio/_extension/__init__.py", line 36, in <module>
+    _check_cuda_version()
+  File "/home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/torchaudio/_extension/utils.py", line 124, in _check_cuda_version
+    raise RuntimeError(
+RuntimeError: Detected that PyTorch and TorchAudio were compiled with different CUDA versions. PyTorch has CUDA version 12.9 whereas TorchAudio has CUDA version 12.8. Please install the TorchAudio version that matches your PyTorch version.

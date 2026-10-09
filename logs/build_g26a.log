@@ -1,0 +1,13 @@
+[build] sweeping train+dev through the audit funnel ...
+[build] all 23 audit assertions OK (train survivors 3642)
+[build] furnished 500/3642
+[build] furnished 1000/3642
+[build] furnished 1500/3642
+[build] furnished 2000/3642
+[build] furnished 2500/3642
+[build] furnished 3000/3642
+[build] furnished 3500/3642
+[build] fast-path: 3614 items, deep mix-search rescued: 26
+[build] FEASIBILITY EXCLUSION n=2 (tokenizer-geometry, detail -> logs/g26a_furnish_fails.json): ['3dbe1a3e-b448-4dc0-b1d6-2e3a2ada88bc', '4b84c748-0cf2-4981-b526-bab6e8759040']
+[build] wrote data/items/g26_phasea_pool_v1.jsonl n=3640 sha256=ad0ac715a609f49f
+[build] report -> data/items/g26_phasea_pool_report_v1.json / data/items/g26_phasea_pool_report_v1.md

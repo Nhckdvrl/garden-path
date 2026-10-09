@@ -1,0 +1,9 @@
+[lane 2] starting qwen38-27b at 00:32:57
+breadth batch finished (status 1)
+[lane 2] FAILED qwen38-27b
+[lane 2] finished qwen38-27b at 01:13:42
+[lane 2] starting qwen3-8b at 01:13:44
+breadth batch finished (status 1)
+[lane 2] FAILED qwen3-8b
+[lane 2] finished qwen3-8b at 01:44:03
+[lane 2] all done

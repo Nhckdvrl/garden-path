@@ -1,0 +1,50 @@
+{
+ "n": 2,
+ "item_ids": [
+  "g26a_3dbe1a3e-b448-4dc0-b1d6-2e3a2ada88bc",
+  "g26a_4b84c748-0cf2-4981-b526-bab6e8759040"
+ ],
+ "uids": [
+  "3dbe1a3e-b448-4dc0-b1d6-2e3a2ada88bc",
+  "4b84c748-0cf2-4981-b526-bab6e8759040"
+ ],
+ "gate": "filler feasibility (pre-tag, zero-model, outcome-blind)",
+ "excluded": [
+  {
+   "item_id": "g26a_3dbe1a3e-b448-4dc0-b1d6-2e3a2ada88bc",
+   "uid": "3dbe1a3e-b448-4dc0-b1d6-2e3a2ada88bc",
+   "reason": "tokenizer_geometry_infeasible",
+   "criterion": "frozen bank v2 + frozen search budget never reached max spread <= 10 across 4 tokenizers x 2 rule arms x T0/T1/T2",
+   "best_effort_max": 13,
+   "best_effort_spreads": {
+    "excl_llama31-8b": 13,
+    "excl_qwen3-8b": 2,
+    "excl_qwen35-9b": 10,
+    "excl_gemma3-12b": 8,
+    "admit_llama31-8b": 13,
+    "admit_qwen3-8b": 2,
+    "admit_qwen35-9b": 10,
+    "admit_gemma3-12b": 8
+   },
+   "search": "fast TOPK grid, then K_MIX deep mix search"
+  },
+  {
+   "item_id": "g26a_4b84c748-0cf2-4981-b526-bab6e8759040",
+   "uid": "4b84c748-0cf2-4981-b526-bab6e8759040",
+   "reason": "tokenizer_geometry_infeasible",
+   "criterion": "frozen bank v2 + frozen search budget never reached max spread <= 10 across 4 tokenizers x 2 rule arms x T0/T1/T2",
+   "best_effort_max": 13,
+   "best_effort_spreads": {
+    "excl_llama31-8b": 13,
+    "excl_qwen3-8b": 2,
+    "excl_qwen35-9b": 10,
+    "excl_gemma3-12b": 8,
+    "admit_llama31-8b": 13,
+    "admit_qwen3-8b": 2,
+    "admit_qwen35-9b": 10,
+    "admit_gemma3-12b": 8
+   },
+   "search": "fast TOPK grid, then K_MIX deep mix search"
+  }
+ ]
+}

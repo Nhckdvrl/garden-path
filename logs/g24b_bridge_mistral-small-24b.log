@@ -1,0 +1,19 @@
+[transformers] The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Loading weights:   0%|          | 0/363 [00:00<?, ?it/s]Loading weights: 100%|██████████| 363/363 [00:00<00:00, 4396.94it/s]
+75 items, 40 layers, frozen patch layers [4, 14, 24], phase=bridge, design=g24b-donor-recipient-factorization-design-v1
+  5/75
+  10/75
+  15/75
+  20/75
+  25/75
+  30/75
+  35/75
+  40/75
+  45/75
+  50/75
+  55/75
+  60/75
+  65/75
+  70/75
+  75/75
+wrote 75 records -> /home/xiang/research_hun/try_clone/src/mech/../../results/mech/g24b_bridge_mistral-small-24b.json

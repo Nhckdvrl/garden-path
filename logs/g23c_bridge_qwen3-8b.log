@@ -1,0 +1,18 @@
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 4283.25it/s]
+75 items, 36 layers, frozen patch layers [4, 14, 24], phase=bridge, design=g23c-target-conditioned-policy-state-design-v1
+  5/75
+  10/75
+  15/75
+  20/75
+  25/75
+  30/75
+  35/75
+  40/75
+  45/75
+  50/75
+  55/75
+  60/75
+  65/75
+  70/75
+  75/75
+wrote 75 records -> /home/xiang/research_hun/try_clone/src/mech/../../results/mech/g23c_bridge_qwen3-8b.json

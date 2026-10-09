@@ -1,0 +1,54 @@
+G28A mistral-small-24b on GPU 0; environment verl-clean; 2026-09-27T03:10:23+09:00
+The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m WARNING 09-27 03:11:03 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards:  10% Completed | 1/10 [00:00<00:07,  1.25it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards:  20% Completed | 2/10 [00:01<00:07,  1.07it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards:  30% Completed | 3/10 [00:02<00:06,  1.05it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards:  40% Completed | 4/10 [00:03<00:05,  1.05it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards:  50% Completed | 5/10 [00:04<00:04,  1.05it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards:  60% Completed | 6/10 [00:05<00:03,  1.05it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards:  70% Completed | 7/10 [00:06<00:02,  1.04it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards:  80% Completed | 8/10 [00:07<00:01,  1.05it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards:  90% Completed | 9/10 [00:08<00:00,  1.03it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:09<00:00,  1.05it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:09<00:00,  1.05it/s]
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m 
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m WARNING 09-27 03:11:18 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=2284974)[0;0m The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+wrote 600 initial and 1600 final rows -> results/raw/mistral-small-24b_g28a_path_v1.jsonl
+unparsed 0 digit-mass<0.5 0 rationale caps 0
+The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+`torch_dtype` is deprecated! Use `dtype` instead!
+The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[Gloo] Rank 0 is connected to 0 peer ranks. Expected number of connected peer ranks is : 0
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m WARNING 09-27 03:15:41 [topk_topp_sampler.py:66] FlashInfer is not available. Falling back to the PyTorch-native implementation of top-p & top-k sampling. For the best performance, please install FlashInfer.
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards:   0% Completed | 0/10 [00:00<?, ?it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards:  10% Completed | 1/10 [00:00<00:06,  1.39it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards:  20% Completed | 2/10 [00:01<00:06,  1.18it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards:  30% Completed | 3/10 [00:02<00:06,  1.13it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards:  40% Completed | 4/10 [00:03<00:05,  1.13it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards:  50% Completed | 5/10 [00:04<00:04,  1.14it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards:  60% Completed | 6/10 [00:05<00:03,  1.12it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards:  70% Completed | 7/10 [00:06<00:02,  1.11it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards:  80% Completed | 8/10 [00:07<00:01,  1.10it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards:  90% Completed | 9/10 [00:08<00:00,  1.10it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:08<00:00,  1.11it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m Loading safetensors checkpoint shards: 100% Completed | 10/10 [00:08<00:00,  1.13it/s]
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m 
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m WARNING 09-27 03:15:56 [cudagraph_dispatcher.py:106] cudagraph dispatching keys are not initialized. No cudagraph will be used.
+[1;36m(EngineCore_DP0 pid=2286296)[0;0m The tokenizer you are loading from 'data/mistral_small_24b_hf' with an incorrect regex pattern: https://huggingface.co/mistralai/Mistral-Small-3.1-24B-Instruct-2503/discussions/84#69121093e8b480e709447d5e. This will lead to incorrect tokenization. You should set the `fix_mistral_regex=True` flag when loading this tokenizer to fix this issue.
+Terminated

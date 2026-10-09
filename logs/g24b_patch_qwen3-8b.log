@@ -1,0 +1,18 @@
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  50%|█████     | 200/399 [00:00<00:00, 1988.70it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 2307.52it/s]
+75 items, 36 layers, frozen patch layers [4, 14, 24], phase=patch, design=g24b-donor-recipient-factorization-design-v1
+  5/75
+  10/75
+  15/75
+  20/75
+  25/75
+  30/75
+  35/75
+  40/75
+  45/75
+  50/75
+  55/75
+  60/75
+  65/75
+  70/75
+  75/75
+wrote 75 records -> /home/xiang/research_hun/try_clone/src/mech/../../results/mech/g24b_patch_qwen3-8b.json

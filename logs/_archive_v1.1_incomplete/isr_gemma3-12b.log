@@ -1,0 +1,10 @@
+WARNING 08-30 00:19:39 [cuda.py:243] Forcing --disable_chunked_mm_input for models with multimodal-bidirectional attention.
+[transformers] Deprecated: `processor.image_token` will switch from returning `tokenizer.image_token` to `tokenizer.boi_token` in v5.11.
+(EngineCore pid=1173592) Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+(EngineCore pid=1173592) Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:03,  1.32it/s]
+(EngineCore pid=1173592) Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:01<00:02,  1.27it/s]
+(EngineCore pid=1173592) Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:02<00:01,  1.25it/s]
+(EngineCore pid=1173592) Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:03<00:00,  1.06it/s]
+(EngineCore pid=1173592) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:05<00:00,  1.28s/it]
+(EngineCore pid=1173592) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:05<00:00,  1.08s/it]
+(EngineCore pid=1173592) 

@@ -1,0 +1,298 @@
+{
+ "layer": "Layer-2 feasibility census (observations only; no gates)",
+ "inputs": {
+  "candidates": "data/items/g24a_candidates_v1.jsonl",
+  "candidates_lines": 13283,
+  "discovery_items": 600,
+  "candidate_source_split": {
+   "fever": 12648,
+   "scifact": 635
+  }
+ },
+ "freshness_rules": [
+  "drop the 600 discovery item_ids from the candidate pool",
+  "byte-exact critical_evidence equality defines a group; group must contain >=1 increase and >=1 decrease claim",
+  "drop groups whose evidence SHA256[:10] is among the 53 discovery opposite-direction evidence groups"
+ ],
+ "excluded_600_items": 600,
+ "both_direction_groups_before_53_exclusion": 1608,
+ "groups_removed_by_53_sha": 26,
+ "fresh_groups": 1582,
+ "fresh_items": 10119,
+ "groups_by_source": {
+  "fever": 1515,
+  "scifact": 67
+ },
+ "items_by_source": {
+  "fever": 9971,
+  "scifact": 148
+ },
+ "topology_full": {
+  "1,1": 243,
+  "1,2": 87,
+  "1,3": 50,
+  "1,4": 14,
+  "1,5": 5,
+  "1,6": 4,
+  "1,7": 1,
+  "1,8": 1,
+  "1,9": 1,
+  "2,1": 107,
+  "2,2": 87,
+  "2,3": 34,
+  "2,4": 29,
+  "2,5": 19,
+  "2,6": 12,
+  "2,7": 2,
+  "2,8": 3,
+  "2,9": 3,
+  "3,1": 50,
+  "3,2": 64,
+  "3,3": 48,
+  "3,4": 32,
+  "3,5": 28,
+  "3,6": 11,
+  "3,7": 10,
+  "3,8": 4,
+  "3,9": 3,
+  "4,1": 42,
+  "4,2": 40,
+  "4,3": 51,
+  "4,4": 26,
+  "4,5": 20,
+  "4,6": 20,
+  "4,7": 14,
+  "4,8": 7,
+  "4,9": 3,
+  "4,10": 4,
+  "4,12": 1,
+  "4,15": 1,
+  "5,1": 12,
+  "5,2": 28,
+  "5,3": 24,
+  "5,4": 25,
+  "5,5": 27,
+  "5,6": 20,
+  "5,7": 18,
+  "5,8": 9,
+  "5,9": 6,
+  "5,10": 5,
+  "5,11": 4,
+  "5,12": 2,
+  "6,1": 8,
+  "6,2": 16,
+  "6,3": 20,
+  "6,4": 17,
+  "6,5": 20,
+  "6,6": 19,
+  "6,7": 14,
+  "6,8": 11,
+  "6,9": 6,
+  "6,11": 6,
+  "7,2": 2,
+  "7,3": 8,
+  "7,4": 7,
+  "7,5": 9,
+  "7,6": 6,
+  "7,7": 2,
+  "7,8": 7,
+  "7,9": 3,
+  "7,10": 1,
+  "7,12": 1,
+  "8,1": 1,
+  "8,2": 1,
+  "8,3": 3,
+  "8,4": 2,
+  "8,5": 5,
+  "8,6": 3,
+  "8,7": 2,
+  "8,8": 3,
+  "8,9": 5,
+  "8,10": 2,
+  "9,3": 4,
+  "9,4": 1,
+  "9,6": 1,
+  "9,8": 1,
+  "9,10": 1,
+  "10,3": 1,
+  "10,6": 1,
+  "11,9": 1
+ },
+ "freshness_note": {
+  "groups_whose_evidence_appears_in_discovery600_but_not_among_53": 242,
+  "groups_with_evidence_never_seen_in_discovery": 1340
+ },
+ "auto_taxonomy": {
+  "status": "deterministic rules (rough per-group tags); landscape proportions audited blind (see blind_audit)",
+  "precedence": "explicit_negation > exclusive_alternative > numeric_value (token-set differs) > antonym_opposite > indirect_contradiction",
+  "counts": {
+   "indirect_contradiction": 422,
+   "explicit_negation": 490,
+   "exclusive_alternative": 339,
+   "numeric_value": 312,
+   "antonym_opposite": 19
+  },
+  "negation_present": {
+   "no": 1092,
+   "yes": 490
+  },
+  "blind_audit": {
+   "design": {
+    "seed": 20260925,
+    "n": 120,
+    "strata": {
+     "fever": 100,
+     "scifact": 20
+    },
+    "population": {
+     "fresh_groups": 1582,
+     "fever": 1515,
+     "scifact": 67
+    },
+    "coders": "3 local agents, blind to auto labels, 1 batch each"
+   },
+   "validity": {
+    "manifest_rows": 120,
+    "batch_headers": [
+     40,
+     40,
+     40
+    ],
+    "coded_records": 120,
+    "sha_sets_match": true,
+    "label_domains_ok": true
+   },
+   "agreement": {
+    "five_way_exact": {
+     "overall": 62,
+     "n": 120,
+     "pct": 51.7,
+     "fever": {
+      "exact": 57,
+      "n": 100,
+      "pct": 57.0
+     },
+     "scifact": {
+      "exact": 5,
+      "n": 20,
+      "pct": 25.0
+     }
+    },
+    "negation_flag": {
+     "exact": 108,
+     "n": 120,
+     "pct": 90.0,
+     "fever_pct": 89.0,
+     "scifact_pct": 95.0
+    },
+    "confusion_auto_rows_blind_cols": {
+     "explicit_negation": {
+      "indirect_contradiction": 7,
+      "explicit_negation": 20,
+      "exclusive_alternative": 2,
+      "numeric_value": 1
+     },
+     "antonym_opposite": {
+      "antonym_opposite": 3
+     },
+     "exclusive_alternative": {
+      "indirect_contradiction": 8,
+      "exclusive_alternative": 7,
+      "explicit_negation": 1,
+      "numeric_value": 3
+     },
+     "numeric_value": {
+      "antonym_opposite": 4,
+      "indirect_contradiction": 6,
+      "numeric_value": 12
+     },
+     "indirect_contradiction": {
+      "antonym_opposite": 17,
+      "indirect_contradiction": 20,
+      "explicit_negation": 8,
+      "numeric_value": 1
+     }
+    }
+   },
+   "distributions": {
+    "auto_on_sample": {
+     "numeric_value": 22,
+     "exclusive_alternative": 19,
+     "antonym_opposite": 3,
+     "indirect_contradiction": 46,
+     "explicit_negation": 30
+    },
+    "blind_on_sample": {
+     "antonym_opposite": 24,
+     "indirect_contradiction": 41,
+     "exclusive_alternative": 9,
+     "explicit_negation": 29,
+     "numeric_value": 17
+    },
+    "blind_sample_by_source": {
+     "scifact": {
+      "antonym_opposite": 16,
+      "explicit_negation": 1,
+      "indirect_contradiction": 2,
+      "numeric_value": 1
+     },
+     "fever": {
+      "indirect_contradiction": 39,
+      "exclusive_alternative": 9,
+      "explicit_negation": 28,
+      "numeric_value": 16,
+      "antonym_opposite": 8
+     }
+    },
+    "blind_population_weighted_pct": {
+     "explicit_negation": 27.0,
+     "antonym_opposite": 11.0,
+     "exclusive_alternative": 8.6,
+     "numeric_value": 15.5,
+     "indirect_contradiction": 37.8
+    },
+    "auto_population_pct": null,
+    "negation_flag": {
+     "auto": {
+      "no": 90,
+      "yes": 30
+     },
+     "blind": {
+      "no": 80,
+      "yes": 40
+     },
+     "blind_population_weighted_pct": {
+      "no": 63.2,
+      "yes": 36.8
+     }
+    }
+   },
+   "notes": "auto labels are deterministic tags; blind proportions are the audited landscape estimate. Agreement is reported, not silently reconciled."
+  }
+ },
+ "similarity_description_only": {
+  "claim_pair_token_jaccard": {
+   "n": 1582,
+   "min": 0.0714,
+   "p10": 0.2308,
+   "p25": 0.2983,
+   "median": 0.375,
+   "p75": 0.4788,
+   "p90": 0.625,
+   "max": 1.0,
+   "mean": 0.40297895069532236
+  },
+  "claim_pair_entity_overlap": {
+   "n": 1582,
+   "min": 0.0,
+   "p10": 0.25,
+   "p25": 0.4256,
+   "median": 0.61425,
+   "p75": 0.9167,
+   "p90": 1.0,
+   "max": 1.0,
+   "mean": 0.626595575221239
+  }
+ },
+ "no_model_output_read": true
+}

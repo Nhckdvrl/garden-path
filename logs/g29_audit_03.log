@@ -1,0 +1,48 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g29_blind_audit_v1/blind_03.jsonl 
+> build · mimo-v2.6-flash-free
+[0m← [0mWrite data/items/g29_blind_audit_v1/audit_03.jsonl
+Created file successfully: data/items/g29_blind_audit_v1/audit_03.jsonl
+> build · mimo-v2.6-flash-free
+[0m⚙ [0mexecute {"code":"const r = await tools.search({query:\"run shell command execute bash\", limit:5}); return r;"} 
+> build · mimo-v2.6-flash-free
+[0m$ [0mpython3 -c "
+import json
+src=[json.loads(l) for l in open('data/items/g29_blind_audit_v1/blind_03.jsonl')]
+out=[json.loads(l) for l in open('data/items/g29_blind_audit_v1/audit_03.jsonl')]
+print('src',len(src),'out',len(out))
+print('id order match:', [r['id'] for r in src]==[r['id'] for r in out])
+keys=['id','relation_a','relation_b','pair_valid','naturalness','issue']
+print('keys ok:', all(list(r.keys())==keys for r in out))
+vals={'support','refute','neutral','ambiguous'}
+print('rel ok:', all(r['relation_a'] in vals and r['relation_b'] in vals for r in out))
+print('nat ok:', all(r['naturalness'] in {'natural','awkward','broken'} for r in out))
+print('bool ok:', all(isinstance(r['pair_valid'],bool) for r in out))
+print('valid count:', sum(r['pair_valid'] for r in out))
+"
+src 20 out 20
+id order match: True
+keys ok: True
+rel ok: True
+nat ok: True
+bool ok: True
+valid count: 14
+> build · mimo-v2.6-flash-free
+Wrote `data/items/g29_blind_audit_v1/audit_03.jsonl` — 20 records, audited solely from `blind_03.jsonl` (no labels, pool, prior reviews, or model outputs read).
+
+**Verification:** JSONL parses; 20/20 ids in input order (`g29_040`–`g29_059`); keys exactly `id,relation_a,relation_b,pair_valid,naturalness,issue`; relation values in {support, refute, neutral, ambiguous}; naturalness in {natural, awkward, broken}; `pair_valid` boolean.
+
+**pair_valid = true (14):** g29_040, 041, 042, 044, 045, 046, 048, 049, 051, 052, 053, 054, 057, 059 — each has exactly one side satisfying all claim bounds and the other violating them.
+
+**pair_valid = false (6), on semantics not expected effect:**
+- **g29_043** — A is dated 23 Apr (claim: 22 Apr) and neither sentence names Tamil Nadu → A `ambiguous`, B `support`.
+- **g29_047** — B covers the chart dated 6 Apr, before the claim's "after 10 Apr" window → A `support`, B `neutral`.
+- **g29_050** — "over 70 appearances" cannot establish "less than 75" → A `neutral`, B `refute`.
+- **g29_055** — "Welsh" is a subset of British, so it does not genuinely refute → both `support`.
+- **g29_056** — "over 15 million" cannot establish "less than 16 million" → A `neutral`, B `refute`.
+- **g29_058** — A names the deceased only as Lowell, relation to Rice unstated → A `ambiguous`, B `support`.
+
+**Naturalness:** `awkward` for g29_040 (stray leading commas), g29_044 (typo "MOrton", unnamed group), g29_049 ("from 1776 and 1781"), g29_056 (", ," artifacts), g29_059 (subject-less fragments); the remaining 15 are `natural`. No `broken`.
+
+No other files were edited.

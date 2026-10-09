@@ -1,0 +1,13 @@
+[lane 3] starting qwen3-4b at 01:18:52
+breadth batch finished (status 0)
+[lane 3] finished qwen3-4b at 01:37:21
+[lane 3] starting qwen25-7b at 01:37:21
+breadth batch finished (status 0)
+[lane 3] finished qwen25-7b at 01:43:11
+[lane 3] starting qwen3-8b at 01:43:11
+breadth batch finished (status 0)
+[lane 3] finished qwen3-8b at 01:46:59
+[lane 3] starting qwen3-14b at 01:46:59
+breadth batch finished (status 0)
+[lane 3] finished qwen3-14b at 01:51:15
+[lane 3] all done

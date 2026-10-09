@@ -1,0 +1,243 @@
+WARNING 09-25 18:55:56 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 09-25 18:55:56 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=3919766) Failed to get device capability: SM 12.x requires CUDA >= 12.9.
+(EngineCore pid=3919766) Failed to get device capability: SM 12.x requires CUDA >= 12.9.
+(EngineCore pid=3919766) Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+(EngineCore pid=3919766) Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:01<00:06,  1.68s/it]
+(EngineCore pid=3919766) Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:03<00:05,  1.80s/it]
+(EngineCore pid=3919766) Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:05<00:03,  1.87s/it]
+(EngineCore pid=3919766) Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:07<00:01,  1.76s/it]
+(EngineCore pid=3919766) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.38s/it]
+(EngineCore pid=3919766) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:07<00:00,  1.57s/it]
+(EngineCore pid=3919766) 
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408] Module vllm.third_party.deep_gemm was found but failed to import
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408] Traceback (most recent call last):
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/utils/import_utils.py", line 406, in _has_module
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]     importlib.import_module(module_name)
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/importlib/__init__.py", line 90, in import_module
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]     return _bootstrap._gcd_import(name[level:], package, level)
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 1387, in _gcd_import
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 1360, in _find_and_load
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 1331, in _find_and_load_unlocked
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 935, in _load_unlocked
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]   File "<frozen importlib._bootstrap_external>", line 999, in exec_module
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]   File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/third_party/deep_gemm/__init__.py", line 16, in <module>
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408]     from . import _C
+(EngineCore pid=3919766) WARNING 09-25 18:56:27 [import_utils.py:408] ImportError: libnvrtc.so.13: cannot open shared object file: No such file or directory
+(EngineCore pid=3919766) 2026-09-25 18:56:27,409 - INFO - autotuner.py:622 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=3919766) 2026-09-25 18:56:27,668 - INFO - autotuner.py:641 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195] EngineCore failed to start.
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195] Traceback (most recent call last):
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     super().__init__(
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 290, in _initialize_kv_caches
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     self.model_executor.initialize_from_config(kv_cache_configs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 124, in initialize_from_config
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     compilation_times: list[CompilationTimes] = self.collective_rpc(
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]                                                 ^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 92, in collective_rpc
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 707, in compile_or_warm_up_model
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     warmup_kernels(self.model_runner, self.execute_model, self.sample_tokens)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/warmup.py", line 118, in warmup_kernels
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     worker_sample_tokens(grammar_output)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 803, in sample_tokens
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return self.model_runner.sample_tokens(grammar_output)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/eplb_utils.py", line 37, in wrapper
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     result = fn(self, *args, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]              ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 1344, in sample_tokens
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     sampler_output, num_sampled, num_rejected = self.sample(
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]                                                 ^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 1029, in sample
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     sampler_output = self.sampler(logits, input_batch)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/sampler.py", line 93, in __call__
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     sampled, processed_logits = self.sample(
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]                                 ^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/sampler.py", line 219, in sample
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     sampled = flashinfer_sample(processed_logits, top_k, top_p).to(torch.int64)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 493, in flashinfer_sample
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     next_token_ids = flashinfer.sampling.top_k_top_p_sampling_from_logits(
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/api_logging.py", line 2333, in _auto_dump_wrapper
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return _inner(*args, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 1414, in top_k_top_p_sampling_from_logits
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     masked_logits = top_k_mask_logits(logits, top_k)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/api_logging.py", line 2333, in _auto_dump_wrapper
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return _inner(*args, **kwargs)
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 1820, in top_k_mask_logits
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return get_sampling_module().top_k_mask_logits(
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 68, in get_sampling_module
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     module = gen_sampling_module().build_and_load()
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]              ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/sampling.py", line 22, in gen_sampling_module
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     return gen_jit_spec(
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]            ^^^^^^^^^^^^^
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/core.py", line 413, in gen_jit_spec
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     check_cuda_arch()
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/core.py", line 108, in check_cuda_arch
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195]     raise RuntimeError("FlashInfer requires GPUs with sm75 or higher")
+(EngineCore pid=3919766) ERROR 09-25 18:56:29 [core.py:1195] RuntimeError: FlashInfer requires GPUs with sm75 or higher
+(EngineCore pid=3919766) Process EngineCore:
+(EngineCore pid=3919766) Traceback (most recent call last):
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=3919766)     self.run()
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=3919766)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1199, in run_engine_core
+(EngineCore pid=3919766)     raise e
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=3919766)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=3919766)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3919766)     return func(*args, **kwargs)
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=3919766)     super().__init__(
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=3919766)     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=3919766)                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3919766)     return func(*args, **kwargs)
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 290, in _initialize_kv_caches
+(EngineCore pid=3919766)     self.model_executor.initialize_from_config(kv_cache_configs)
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 124, in initialize_from_config
+(EngineCore pid=3919766)     compilation_times: list[CompilationTimes] = self.collective_rpc(
+(EngineCore pid=3919766)                                                 ^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 92, in collective_rpc
+(EngineCore pid=3919766)     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore pid=3919766)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+(EngineCore pid=3919766)     return func(*args, **kwargs)
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=3919766)     return func(*args, **kwargs)
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 707, in compile_or_warm_up_model
+(EngineCore pid=3919766)     warmup_kernels(self.model_runner, self.execute_model, self.sample_tokens)
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3919766)     return func(*args, **kwargs)
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/warmup.py", line 118, in warmup_kernels
+(EngineCore pid=3919766)     worker_sample_tokens(grammar_output)
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3919766)     return func(*args, **kwargs)
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 803, in sample_tokens
+(EngineCore pid=3919766)     return self.model_runner.sample_tokens(grammar_output)
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=3919766)     return func(*args, **kwargs)
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/eplb_utils.py", line 37, in wrapper
+(EngineCore pid=3919766)     result = fn(self, *args, **kwargs)
+(EngineCore pid=3919766)              ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 1344, in sample_tokens
+(EngineCore pid=3919766)     sampler_output, num_sampled, num_rejected = self.sample(
+(EngineCore pid=3919766)                                                 ^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 1029, in sample
+(EngineCore pid=3919766)     sampler_output = self.sampler(logits, input_batch)
+(EngineCore pid=3919766)                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/sampler.py", line 93, in __call__
+(EngineCore pid=3919766)     sampled, processed_logits = self.sample(
+(EngineCore pid=3919766)                                 ^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/sampler.py", line 219, in sample
+(EngineCore pid=3919766)     sampled = flashinfer_sample(processed_logits, top_k, top_p).to(torch.int64)
+(EngineCore pid=3919766)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 493, in flashinfer_sample
+(EngineCore pid=3919766)     next_token_ids = flashinfer.sampling.top_k_top_p_sampling_from_logits(
+(EngineCore pid=3919766)                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/api_logging.py", line 2333, in _auto_dump_wrapper
+(EngineCore pid=3919766)     return _inner(*args, **kwargs)
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 1414, in top_k_top_p_sampling_from_logits
+(EngineCore pid=3919766)     masked_logits = top_k_mask_logits(logits, top_k)
+(EngineCore pid=3919766)                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/api_logging.py", line 2333, in _auto_dump_wrapper
+(EngineCore pid=3919766)     return _inner(*args, **kwargs)
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 1820, in top_k_mask_logits
+(EngineCore pid=3919766)     return get_sampling_module().top_k_mask_logits(
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 68, in get_sampling_module
+(EngineCore pid=3919766)     module = gen_sampling_module().build_and_load()
+(EngineCore pid=3919766)              ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/sampling.py", line 22, in gen_sampling_module
+(EngineCore pid=3919766)     return gen_jit_spec(
+(EngineCore pid=3919766)            ^^^^^^^^^^^^^
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/core.py", line 413, in gen_jit_spec
+(EngineCore pid=3919766)     check_cuda_arch()
+(EngineCore pid=3919766)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/core.py", line 108, in check_cuda_arch
+(EngineCore pid=3919766)     raise RuntimeError("FlashInfer requires GPUs with sm75 or higher")
+(EngineCore pid=3919766) RuntimeError: FlashInfer requires GPUs with sm75 or higher
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 310, in <module>
+    main()
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 176, in main
+    llm = LLM(model=args.model, tensor_parallel_size=args.tp,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 349, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 170, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 104, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 102, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 771, in __init__
+    super().__init__(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 570, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1190, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1249, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

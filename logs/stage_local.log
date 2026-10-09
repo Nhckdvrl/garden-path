@@ -1,0 +1,16 @@
+staging gemma3-4b
+done gemma3-4b
+staging phi4-mini
+done phi4-mini
+staging llama31-8b
+done llama31-8b
+ALLSTAGED
+staging qwen3-4b 01:12:43
+done qwen3-4b 01:13:22
+staging qwen25-7b 01:13:22
+done qwen25-7b 01:18:53
+staging qwen3-8b 01:18:53
+done qwen3-8b 01:23:23
+staging qwen3-14b 01:23:23
+done qwen3-14b 01:34:44
+ALLSTAGED2

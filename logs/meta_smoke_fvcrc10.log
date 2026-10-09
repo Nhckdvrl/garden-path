@@ -1,0 +1,110 @@
+=== SMOKE: 4 ids/arm, outputs carry suffix '_smoke' ===
+=== G24A §14 meta arm+ qwen3-8b gpu0 2026-09-26 18:14:37 items=data/items/g24a_p2_v1.jsonl ids=logs/g24a_meta_smoke_ids_plus.json ===
+=== runner: mode reasoned, reason-tokens 110, max-model-len 4096, tp 1, temp 0 ===
+WARNING 09-26 18:15:12 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 09-26 18:15:12 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195] EngineCore failed to start.
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195] Traceback (most recent call last):
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     super().__init__(
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 122, in __init__
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 109, in __init__
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     self._init_executor()
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 63, in _init_executor
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     self.driver_worker.init_device()
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/worker_base.py", line 325, in init_device
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     self.worker.init_device()  # type: ignore
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     return func(*args, **kwargs)
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 286, in init_device
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     torch.accelerator.set_device_index(self.device)
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/accelerator/__init__.py", line 191, in set_device_index
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     torch._C._accelerator_setDeviceIndex(device_index)
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/cuda/__init__.py", line 478, in _lazy_init
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195]     torch._C._cuda_init()
+(EngineCore pid=2259486) ERROR 09-26 18:15:16 [core.py:1195] RuntimeError: The NVIDIA driver on your system is too old (found version 12040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver.
+(EngineCore pid=2259486) Process EngineCore:
+(EngineCore pid=2259486) Traceback (most recent call last):
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=2259486)     self.run()
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=2259486)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1199, in run_engine_core
+(EngineCore pid=2259486)     raise e
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=2259486)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=2259486)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=2259486)     return func(*args, **kwargs)
+(EngineCore pid=2259486)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=2259486)     super().__init__(
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 122, in __init__
+(EngineCore pid=2259486)     self.model_executor = executor_class(vllm_config)
+(EngineCore pid=2259486)                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=2259486)     return func(*args, **kwargs)
+(EngineCore pid=2259486)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 109, in __init__
+(EngineCore pid=2259486)     self._init_executor()
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 63, in _init_executor
+(EngineCore pid=2259486)     self.driver_worker.init_device()
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/worker_base.py", line 325, in init_device
+(EngineCore pid=2259486)     self.worker.init_device()  # type: ignore
+(EngineCore pid=2259486)     ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=2259486)     return func(*args, **kwargs)
+(EngineCore pid=2259486)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 286, in init_device
+(EngineCore pid=2259486)     torch.accelerator.set_device_index(self.device)
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/accelerator/__init__.py", line 191, in set_device_index
+(EngineCore pid=2259486)     torch._C._accelerator_setDeviceIndex(device_index)
+(EngineCore pid=2259486)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/cuda/__init__.py", line 478, in _lazy_init
+(EngineCore pid=2259486)     torch._C._cuda_init()
+(EngineCore pid=2259486) RuntimeError: The NVIDIA driver on your system is too old (found version 12040). Please update your GPU driver by downloading and installing a new version from the URL: http://www.nvidia.com/Download/index.aspx Alternatively, go to: https://pytorch.org to install a PyTorch version that has been compiled with your version of the CUDA driver.
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 313, in <module>
+    main()
+  File "/home/xiang/research_hun/try_clone/src/run_model.py", line 179, in main
+    llm = LLM(model=args.model, tensor_parallel_size=args.tp,
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 349, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 170, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 104, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 102, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 771, in __init__
+    super().__init__(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 570, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1190, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1249, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {'EngineCore': 1}

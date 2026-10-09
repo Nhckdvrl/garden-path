@@ -1,0 +1,101 @@
++ UV=/home/xiang/.local/bin/uv
++ VENV=/home/xiang/.venvs/vllm023-cu128
++ /home/xiang/.local/bin/uv pip install --python /home/xiang/.venvs/vllm023-cu128/bin/python https://github.com/vllm-project/vllm/releases/download/v0.23.0/vllm-0.23.0+cu129-cp38-abi3-manylinux_2_28_x86_64.whl torch==2.11.0+cu129 --extra-index-url https://download.pytorch.org/whl/cu129
+Using Python 3.12.13 environment at: .venvs/vllm023-cu128
+Resolved 196 packages in 26.02s
+Downloading nvidia-curand-cu12 (65.1MiB)
+Downloading nvidia-cuda-nvcc-cu12 (38.7MiB)
+Downloading torch (1.1GiB)
+Downloading vllm (476.9MiB)
+Downloading nvidia-cuda-nvrtc-cu12 (85.4MiB)
+Downloading nvidia-cublas-cu12 (554.3MiB)
+Downloading nvidia-cusparse-cu12 (349.5MiB)
+Downloading nvidia-cufft-cu12 (191.6MiB)
+Downloading nvidia-cuda-cupti-cu12 (10.3MiB)
+Downloading nvidia-cufile-cu12 (1.2MiB)
+Downloading nvidia-cusolver-cu12 (322.5MiB)
+Downloading nvidia-cuda-cccl-cu12 (3.0MiB)
+Downloading nvidia-cuda-runtime-cu12 (3.3MiB)
+Downloading nvidia-nvjitlink-cu12 (37.9MiB)
+Downloading nvidia-cudnn-cu12 (617.8MiB)
+ Downloaded nvidia-cufile-cu12
+ Downloaded nvidia-cuda-runtime-cu12
+ Downloaded nvidia-cuda-cupti-cu12
+ Downloaded nvidia-nvjitlink-cu12
+ Downloaded nvidia-cuda-nvrtc-cu12
+ Downloaded nvidia-curand-cu12
+ Downloaded nvidia-cuda-cccl-cu12
+ Downloaded nvidia-cuda-nvcc-cu12
+Downloading nvidia-cusparse-cu12 (349.5MiB)
+ Downloaded nvidia-cufft-cu12
+Downloading nvidia-cublas-cu12 (554.3MiB)
+Downloading nvidia-cusolver-cu12 (322.5MiB)
+Downloading nvidia-cudnn-cu12 (617.8MiB)
+ Downloaded nvidia-cusparse-cu12
+ Downloaded nvidia-cusolver-cu12
+ Downloaded nvidia-cudnn-cu12
+ Downloaded nvidia-cublas-cu12
+ Downloaded vllm
+ Downloaded torch
+Prepared 18 packages in 3m 14s
+Uninstalled 18 packages in 25.40s
+Installed 20 packages in 51.66s
+ - cuda-toolkit==12.8.1
+ + cuda-toolkit==12.9.1
+ - fastapi-cloud-cli==0.26.0
+ + fastapi-cloud-cli==0.24.0
+ - huggingface-hub==1.20.1
+ + huggingface-hub==0.36.2
+ - nvidia-cublas-cu12==12.8.4.1
+ + nvidia-cublas-cu12==12.9.1.4
+ + nvidia-cuda-cccl-cu12==12.9.27
+ - nvidia-cuda-cupti-cu12==12.8.90
+ + nvidia-cuda-cupti-cu12==12.9.79
+ + nvidia-cuda-nvcc-cu12==12.9.86
+ - nvidia-cuda-nvrtc-cu12==12.8.93
+ + nvidia-cuda-nvrtc-cu12==12.9.86
+ - nvidia-cuda-runtime-cu12==12.8.90
+ + nvidia-cuda-runtime-cu12==12.9.79
+ - nvidia-cudnn-cu12==9.19.0.56
+ + nvidia-cudnn-cu12==9.17.1.4
+ - nvidia-cufft-cu12==11.3.3.83
+ + nvidia-cufft-cu12==11.4.1.4
+ - nvidia-cufile-cu12==1.13.1.3
+ + nvidia-cufile-cu12==1.14.1.1
+ - nvidia-curand-cu12==10.3.9.90
+ + nvidia-curand-cu12==10.3.10.19
+ - nvidia-cusolver-cu12==11.7.3.90
+ + nvidia-cusolver-cu12==11.7.5.82
+ - nvidia-cusparse-cu12==12.5.8.93
+ + nvidia-cusparse-cu12==12.5.10.65
+ - nvidia-nvjitlink-cu12==12.8.93
+ + nvidia-nvjitlink-cu12==12.9.86
+ - nvidia-nvtx-cu12==12.8.90
+ + nvidia-nvtx-cu12==12.9.79
+ - torch==2.11.0+cu128
+ + torch==2.11.0+cu129
+ - transformers==5.12.1
+ + transformers==4.57.6
+ - vllm==0.23.0
+ + vllm==0.23.0+cu129 (from https://github.com/vllm-project/vllm/releases/download/v0.23.0/vllm-0.23.0+cu129-cp38-abi3-manylinux_2_28_x86_64.whl)
++ /home/xiang/.local/bin/uv pip install --python /home/xiang/.venvs/vllm023-cu128/bin/python transformers==5.12.1 huggingface-hub==1.20.1
+Using Python 3.12.13 environment at: .venvs/vllm023-cu128
+Resolved 27 packages in 186ms
+Uninstalled 2 packages in 4.20s
+Installed 2 packages in 11.86s
+ - huggingface-hub==0.36.2
+ + huggingface-hub==1.20.1
+ - transformers==4.57.6
+ + transformers==5.12.1
++ /home/xiang/.venvs/vllm023-cu128/bin/python -c 'import vllm,torch,transformers,huggingface_hub,tokenizers; print('\''BUILT2 vllm'\'',vllm.__version__,'\''torch'\'',torch.__version__,'\''tf'\'',transformers.__version__,'\''hub'\'',huggingface_hub.__version__,'\''tok'\'',tokenizers.__version__)'
+BUILT2 vllm 0.23.0 torch 2.11.0+cu129 tf 5.12.1 hub 1.20.1 tok 0.22.2
++ ldd /home/xiang/.venvs/vllm023-cu128/lib/python3.12/site-packages/vllm/_C.abi3.so
++ grep -E 'cudart|not found'
+	libtorch.so => not found
+	libcudart.so.12 => /usr/local/cuda/targets/x86_64-linux/lib/libcudart.so.12 (0x00001499fee00000)
+	libtorch_cpu.so => not found
+	libtorch_cuda.so => not found
+	libc10_cuda.so => not found
+	libc10.so => not found
++ echo INSTALL_DONE
+INSTALL_DONE

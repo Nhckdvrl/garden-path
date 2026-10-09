@@ -1,0 +1,9 @@
+[lane 3] starting qwen35-35b-a3b at 00:32:57
+breadth batch finished (status 1)
+[lane 3] FAILED qwen35-35b-a3b
+[lane 3] finished qwen35-35b-a3b at 01:41:03
+[lane 3] starting qwen3-14b at 01:41:03
+breadth batch finished (status 1)
+[lane 3] FAILED qwen3-14b
+[lane 3] finished qwen3-14b at 01:43:18
+[lane 3] all done

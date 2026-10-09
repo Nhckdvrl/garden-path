@@ -1,0 +1,96 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m← [0mWrite results/audits/g28a_irrelevant_control_audit/audit_batch_01.jsonl
+Created file successfully: results/audits/g28a_irrelevant_control_audit/audit_batch_01.jsonl
+> build · mimo-v2.6-flash-free
+[0m← [0mEdit results/audits/g28a_irrelevant_control_audit/audit_batch_01.jsonl
+Index: results/audits/g28a_irrelevant_control_audit/audit_batch_01.jsonl
+===================================================================
+--- results/audits/g28a_irrelevant_control_audit/audit_batch_01.jsonl
++++ results/audits/g28a_irrelevant_control_audit/audit_batch_01.jsonl
+@@ -35,9 +35,9 @@
+ {"id": "g24cfb_045", "relevance": "genuinely irrelevant", "naturalness": "natural", "issue": "none"}
+ {"id": "g24cfb_046", "relevance": "genuinely irrelevant", "naturalness": "awkward", "issue": "missing sentence boundary/space: 'since 1989.Born and raised ...'"}
+ {"id": "g24cfb_047", "relevance": "genuinely irrelevant", "naturalness": "natural", "issue": "sentence starts with unresolved pronoun 'She'"}
+ {"id": "g24cfb_048", "relevance": "genuinely irrelevant", "naturalness": "natural", "issue": "none"}
+-{"id": "g24cfb_051", "relevance": "genuently irrelevant".replace("genuently", "genuinely"), "naturalness": "natural", "issue": "only tenuous association is the country name 'Iran' (claim subject's nationality); sentence says nothing about the player or any club"}
++{"id": "g24cfb_051", "relevance": "genuinely irrelevant", "naturalness": "natural", "issue": "only tenuous association is the country name 'Iran' (claim subject's nationality); sentence says nothing about the player or any club"}
+ {"id": "g24cfb_052", "relevance": "genuinely irrelevant", "naturalness": "natural", "issue": "none"}
+ {"id": "g24cfb_053", "relevance": "genuinely irrelevant", "naturalness": "natural", "issue": "none"}
+ {"id": "g24cfb_054", "relevance": "genuinely irrelevant", "naturalness": "awkward", "issue": "tense/wording errors: 'By the end of 2018 , the album has earned' and 'the second best-selling hip hop in pure album sales'"}
+ {"id": "g24cfb_055", "relevance": "genuinely irrelevant", "naturalness": "natural", "issue": "none"}
+
+> build · mimo-v2.6-flash-free
+[0m$ [0mcd /home/xiang/research_hun/try_clone && python3 - <<'PY'
+import json, collections
+p='results/audits/g28a_irrelevant_control_audit/audit_batch_01.jsonl'
+ids=[]; rel=collections.Counter(); nat=collections.Counter(); iss=0
+with open(p) as f:
+    for i,line in enumerate(f,1):
+        line=line.strip()
+        if not line: continue
+        try:
+            o=json.loads(line)
+        except Exception as e:
+            print('BAD JSON line',i,e); raise SystemExit
+        assert set(o)== {'id','relevance','naturalness','issue'}, (i,set(o))
+        ids.append(o['id']); rel[o['relevance']]+=1; nat[o['naturalness']]+=1
+        if o['issue']!='none': iss+=1
+print('records:',len(ids))
+print('unique ids:',len(set(ids)))
+d=[k for k,v in collections.Counter(ids).items() if v>1]
+print('dupes:',d)
+print('relevance:',dict(rel))
+print('naturalness:',dict(nat))
+print('records with issue != none:',iss)
+expected=['g24cfb_000','g24cfb_001','g24cfb_002','g24cfb_003','g24cfb_004','g24cfb_005','g24cfb_007','g24cfb_008','g24cfb_009','g24cfb_010','g24cfb_012','g24cfb_013','g24cfb_014','g24cfb_015','g24cfb_016','g24cfb_017','g24cfb_020','g24cfb_021','g24cfb_022','g24cfb_024','g24cfb_025','g24cfb_026','g24cfb_027','g24cfb_028','g24cfb_029','g24cfb_030','g24cfb_032','g24cfb_034','g24cfb_035','g24cfb_037','g24cfb_038','g24cfb_040','g24cfb_041','g24cfb_042','g24cfb_045','g24cfb_046','g24cfb_047','g24cfb_048','g24cfb_051','g24cfb_052','g24cfb_053','g24cfb_054','g24cfb_055','g24cfb_056','g24cfb_058','g24cfb_059','g24cfb_060','g24cfb_061','g24cfb_062','g24cfb_063']
+print('expected count:',len(expected))
+print('missing:',[e for e in expected if e not in ids])
+print('extra:',[x for x in ids if x not in expected])
+print('order matches:', ids==expected)
+PY
+records: 50
+unique ids: 50
+dupes: []
+relevance: {'genuinely irrelevant': 50}
+naturalness: {'natural': 42, 'awkward': 7, 'broken': 1}
+records with issue != none: 16
+expected count: 50
+missing: []
+extra: []
+order matches: True
+> build · mimo-v2.6-flash-free
+[0m← [0mWrite results/audits/g28a_irrelevant_control_audit/summary_batch_01.md
+Created file successfully: results/audits/g28a_irrelevant_control_audit/summary_batch_01.md
+> build · mimo-v2.6-flash-free
+[0m← [0mEdit results/audits/g28a_irrelevant_control_audit/summary_batch_01.md
+Index: results/audits/g28a_irrelevant_control_audit/summary_batch_01.md
+===================================================================
+--- results/audits/g28a_irrelevant_control_audit/summary_batch_01.md
++++ results/audits/g28a_irrelevant_control_audit/summary_batch_01.md
+@@ -23,9 +23,9 @@
+ | naturalness | natural | 42 |
+ | naturalness | awkward | 7 |
+ | naturalness | broken | 1 |
+ 
+-Non-`natural` sentences (9): `g24cfb_003`, `g24cfb_012`, `g24cfb_026`, `g24cfb_032` (broken), `g24cfb_046`, `g24cfb_054`, `g24cfb_058`, `g24cfb_063`, plus `g24cfb_003`/`g24cfb_058` quote-markup cases. Records carrying a non-`none` issue: 16.
++Non-`natural` sentences (8): `g24cfb_003`, `g24cfb_012`, `g24cfb_026`, `g24cfb_032` (broken), `g24cfb_046`, `g24cfb_054`, `g24cfb_058`, `g24cfb_063`. Records carrying a non-`none` issue: 16.
+ 
+ ## Closest calls (checked, then rejected)
+ 
+ These were the only pairs with any surface overlap; each was rejected as genuinely irrelevant because the overlap is not a link to the claim:
+
+> build · mimo-v2.6-flash-free
+Audit complete. Both files written to `results/audits/g28a_irrelevant_control_audit/`.
+
+**What I did:** read only the attached `blind_batch_01.jsonl` (50 pairs) and judged each sentence against its exact claim for links (shared entity, event, place, date, relation — direct or indirect) and for how well the sentence reads.
+
+**`audit_batch_01.jsonl` — 50 records, fields `id`, `relevance`, `naturalness`, `issue`:**
+
+- Relevance: **50 genuinely irrelevant**, 0 potentially relevant, 0 relevant. No pair shared an entity or event with its claim — the closest were surface coincidences (review-score wording in `g24cfb_035`, the country name "Iran" in `g24cfb_051`, the shared year 2018 in `g24cfb_054`, "the band" referring to a different group in `g24cfb_061`, boxing as a topic in `g24cfb_030`/`063`, matching date-template phrasing in `g24cfb_007`/`008`/`014`). Each is documented in `issue` with the reason for rejection.
+- Naturalness: **42 natural, 7 awkward, 1 broken**. Broken: `g24cfb_032` (incoherent splice of two unrelated sentences joined by "and"). Awkward: `g24cfb_003` and `g24cfb_058` (malformed wiki quote markup), `g24cfb_012` (two disjoint statements concatenated), `g24cfb_026` (cast-list fragment with no verb), `g24cfb_046` (missing boundary "1989.Born"), `g24cfb_054` (tense/wording errors), `g24cfb_063` (ambiguous modifier attachment).
+- 16 records carry a non-`none` issue; `issue` is `none` otherwise. Claim-side typo noted for `g24cfb_027` ("row German" → "Low German").
+
+**Verification:** 50 records, all valid JSON, exactly 50 unique IDs, no duplicates/missing/extra, IDs and order match the attachment exactly, every record has exactly the four required keys with in-vocabulary values. No input files were modified.
+
+**`summary_batch_01.md`** records scope, decision rules, distributions, the six closest-call rejections with reasoning, the duplicate-sentence notes (`021`/`056` identical, `030`/`063` near-duplicates), and the verification results.

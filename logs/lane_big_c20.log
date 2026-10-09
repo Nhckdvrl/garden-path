@@ -1,0 +1,9 @@
+[big] qwen25-32b start 01:57:23
+[big] qwen25-32b FAILED/timeout 01:58:51
+[big] qwen38-27b start 01:58:52
+[big] qwen38-27b FAILED/timeout 02:01:32
+[big] qwen3-32b start 02:01:32
+[big] qwen3-32b FAILED/timeout 02:02:39
+[big] qwen35-35b-a3b start 02:02:39
+[big] qwen35-35b-a3b FAILED/timeout 02:05:18
+[big] lane finished

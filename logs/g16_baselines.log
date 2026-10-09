@@ -1,0 +1,9 @@
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights:  80%|███████▉  | 319/399 [00:00<00:00, 3188.55it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 3185.34it/s]
+  baselines 15/75
+  baselines 30/75
+  baselines 45/75
+  baselines 60/75
+  baselines 75/75
+
+mean bridge = -8.11 rating points (gate 1 floor 5.0); wrote /home/xiang/research_hun/try_clone/src/mech/../../results/mech/g16_baselines.json
+run the analyzer for the bootstrap CI before starting the patched phase

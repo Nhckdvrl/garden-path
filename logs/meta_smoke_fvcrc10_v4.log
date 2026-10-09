@@ -1,0 +1,43 @@
+=== SMOKE: 4 ids/arm, outputs carry suffix '_smoke' ===
+=== G24A §14 meta arm+ qwen3-8b gpu0 2026-09-26 19:32:42 items=data/items/g24a_p2_v1.jsonl ids=logs/g24a_meta_smoke_ids_plus.json ===
+=== runner: mode reasoned, reason-tokens 110, max-model-len 4096, tp 1, temp 0 ===
+WARNING 09-26 19:33:36 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 09-26 19:33:36 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=2264981) Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+(EngineCore pid=2264981) Loading safetensors checkpoint shards:  20% Completed | 1/5 [02:55<11:41, 175.49s/it]
+(EngineCore pid=2264981) Loading safetensors checkpoint shards:  40% Completed | 2/5 [02:56<03:38, 72.75s/it]
+(EngineCore pid=2264981)  Loading safetensors checkpoint shards:  60% Completed | 3/5 [02:57<01:19, 39.90s/it]
+(EngineCore pid=2264981) Loading safetensors checkpoint shards:  80% Completed | 4/5 [02:57<00:24, 24.42s/it]
+(EngineCore pid=2264981) Loading safetensors checkpoint shards: 100% Completed | 5/5 [02:58<00:00, 15.75s/it]
+(EngineCore pid=2264981) Loading safetensors checkpoint shards: 100% Completed | 5/5 [02:58<00:00, 35.64s/it]
+(EngineCore pid=2264981) 
+(EngineCore pid=2264981) WARNING 09-26 19:37:29 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=2264981) WARNING 09-26 19:37:29 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+Rendering prompts:   0%|          | 0/28 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 28/28 [00:00<00:00, 1208.06it/s]
+Processed prompts:   0%|          | 0/28 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▎         | 1/28 [00:01<00:32,  1.20s/it, est. speed input: 184.57 toks/s, output: 26.72 toks/s]Processed prompts:  14%|█▍        | 4/28 [00:01<00:06,  3.78it/s, est. speed input: 590.03 toks/s, output: 102.45 toks/s]Processed prompts:  32%|███▏      | 9/28 [00:01<00:01,  9.67it/s, est. speed input: 1315.60 toks/s, output: 240.71 toks/s]Processed prompts:  54%|█████▎    | 15/28 [00:01<00:01, 11.97it/s, est. speed input: 1719.46 toks/s, output: 339.85 toks/s]Processed prompts:  64%|██████▍   | 18/28 [00:01<00:00, 13.86it/s, est. speed input: 1861.01 toks/s, output: 399.15 toks/s]Processed prompts:  82%|████████▏ | 23/28 [00:02<00:00, 18.90it/s, est. speed input: 2251.23 toks/s, output: 512.84 toks/s]Processed prompts:  96%|█████████▋| 27/28 [00:02<00:00, 19.40it/s, est. speed input: 2452.78 toks/s, output: 584.79 toks/s]Processed prompts: 100%|██████████| 28/28 [00:02<00:00, 19.40it/s, est. speed input: 2342.90 toks/s, output: 569.33 toks/s]Processed prompts: 100%|██████████| 28/28 [00:02<00:00, 11.33it/s, est. speed input: 2342.90 toks/s, output: 569.33 toks/s]
+Rendering prompts:   0%|          | 0/28 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 28/28 [00:00<00:00, 3341.79it/s]
+Processed prompts:   0%|          | 0/28 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s](EngineCore pid=2264981) WARNING 09-26 19:37:32 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _topk_log_softmax_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+Processed prompts:   4%|▎         | 1/28 [00:00<00:07,  3.65it/s, est. speed input: 639.37 toks/s, output: 3.65 toks/s]Processed prompts: 100%|██████████| 28/28 [00:00<00:00,  3.65it/s, est. speed input: 26239.34 toks/s, output: 102.04 toks/s]Processed prompts: 100%|██████████| 28/28 [00:00<00:00, 101.98it/s, est. speed input: 26239.34 toks/s, output: 102.04 toks/s]
+wrote 28 rows -> results/raw/qwen3-8b_g24a_meta_smoke_plus.jsonl
+  decisions 28 (unparsed 0, digit-mass<0.5 0, rationale hit token cap 0)
+=== G24A §14 meta arm- qwen3-8b gpu0 2026-09-26 19:37:35 items=data/items/g24a_p2_v1.jsonl ids=logs/g24a_meta_smoke_ids_minus.json ===
+WARNING 09-26 19:38:09 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+WARNING 09-26 19:38:09 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+(EngineCore pid=2265643) Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+(EngineCore pid=2265643) Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:00<00:02,  1.37it/s]
+(EngineCore pid=2265643) Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:01<00:02,  1.26it/s]
+(EngineCore pid=2265643) Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:02<00:01,  1.32it/s]
+(EngineCore pid=2265643) Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:02<00:00,  1.41it/s]
+(EngineCore pid=2265643) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:03<00:00,  1.78it/s]
+(EngineCore pid=2265643) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:03<00:00,  1.55it/s]
+(EngineCore pid=2265643) 
+(EngineCore pid=2265643) WARNING 09-26 19:38:26 [vllm.py:1055] Enforce eager set, disabling torch.compile and CUDAGraphs. This is equivalent to setting -cc.mode=none -cc.cudagraph_mode=none
+(EngineCore pid=2265643) WARNING 09-26 19:38:26 [vllm.py:1097] Inductor compilation was disabled by user settings, optimizations settings that are only active during inductor compilation will be ignored.
+Rendering prompts:   0%|          | 0/24 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 24/24 [00:00<00:00, 271.84it/s]
+Processed prompts:   0%|          | 0/24 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   4%|▍         | 1/24 [00:01<00:25,  1.12s/it, est. speed input: 184.98 toks/s, output: 34.85 toks/s]Processed prompts:  29%|██▉       | 7/24 [00:01<00:02,  7.25it/s, est. speed input: 1259.96 toks/s, output: 234.20 toks/s]Processed prompts:  42%|████▏     | 10/24 [00:01<00:01,  9.97it/s, est. speed input: 1668.82 toks/s, output: 317.87 toks/s]Processed prompts:  54%|█████▍    | 13/24 [00:01<00:00, 13.08it/s, est. speed input: 1999.04 toks/s, output: 404.65 toks/s]Processed prompts:  79%|███████▉  | 19/24 [00:01<00:00, 21.33it/s, est. speed input: 2658.71 toks/s, output: 592.63 toks/s]Processed prompts:  96%|█████████▌| 23/24 [00:01<00:00, 24.78it/s, est. speed input: 2994.03 toks/s, output: 704.09 toks/s]Processed prompts: 100%|██████████| 24/24 [00:01<00:00, 24.78it/s, est. speed input: 2818.21 toks/s, output: 675.09 toks/s]Processed prompts: 100%|██████████| 24/24 [00:01<00:00, 12.74it/s, est. speed input: 2818.21 toks/s, output: 675.09 toks/s]
+Rendering prompts:   0%|          | 0/24 [00:00<?, ?it/s]Rendering prompts: 100%|██████████| 24/24 [00:00<00:00, 6720.29it/s]
+Processed prompts:   0%|          | 0/24 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s](EngineCore pid=2265643) WARNING 09-26 19:38:28 [jit_monitor.py:103] Triton kernel JIT compilation during inference: _topk_log_softmax_kernel. This causes a latency spike; consider extending warmup to cover this shape/config.
+Processed prompts: 100%|██████████| 24/24 [00:00<00:00, 377.64it/s, est. speed input: 103607.56 toks/s, output: 377.71 toks/s]Processed prompts: 100%|██████████| 24/24 [00:00<00:00, 376.79it/s, est. speed input: 103607.56 toks/s, output: 377.71 toks/s]
+wrote 24 rows -> results/raw/qwen3-8b_g24a_meta_smoke_minus.jsonl
+  decisions 24 (unparsed 0, digit-mass<0.5 0, rationale hit token cap 0)
+G24A §14 meta DONE: qwen3-8b (arm+ 1400 rows, arm- 1200 rows)

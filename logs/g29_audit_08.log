@@ -1,0 +1,46 @@
+[0m
+> build · mimo-v2.6-flash-free
+[0m→ [0mRead data/items/g29_blind_audit_v1/blind_08.jsonl 
+> build · mimo-v2.6-flash-free
+I'll audit each record strictly from the claim and its two evidence sentences, then write the output file.
+[0m← [0mWrite data/items/g29_blind_audit_v1/audit_08.jsonl
+Created file successfully: data/items/g29_blind_audit_v1/audit_08.jsonl
+> build · mimo-v2.6-flash-free
+[0m$ [0mcd /home/xiang/research_hun/try_clone && python3 -c "
+import json
+inp=[json.loads(l) for l in open('data/items/g29_blind_audit_v1/blind_08.jsonl')]
+out=[json.loads(l) for l in open('data/items/g29_blind_audit_v1/audit_08.jsonl')]
+keys=['id','relation_a','relation_b','pair_valid','naturalness','issue']
+print('n_in',len(inp),'n_out',len(out))
+print('ids match order:', [r['id'] for r in inp]==[r['id'] for r in out])
+print('keys ok:', all(list(r.keys())==keys for r in out))
+print('relations ok:', all(r['relation_a'] in ('support','refute','neutral','ambiguous') and r['relation_b'] in ('support','refute','neutral','ambiguous') for r in out))
+print('nat ok:', all(r['naturalness'] in ('natural','awkward','broken') for r in out))
+print('bool ok:', all(isinstance(r['pair_valid'],bool) for r in out))
+print('valid count:', sum(r['pair_valid'] for r in out))
+print('non-valid ids:', [r['id'] for r in out if not r['pair_valid']])
+"
+n_in 20 n_out 20
+ids match order: True
+keys ok: True
+relations ok: True
+nat ok: True
+bool ok: True
+valid count: 14
+non-valid ids: ['g29_146', 'g29_147', 'g29_154', 'g29_155', 'g29_156', 'g29_157']
+> build · mimo-v2.6-flash-free
+Audit complete: `data/items/g29_blind_audit_v1/audit_08.jsonl` written with exactly 20 JSONL records, one per input id in input order (verified parseable, ids match, key order/names correct, enum values valid).
+
+Summary of findings (judged only from each claim + its two evidence sentences):
+
+- **14 pairs judged valid** (one support, one genuine refute): `g29_140, 141, 142, 143, 144, 145, 148, 149, 150, 151, 152, 153, 158, 159` — mostly strict-boundary flips (e.g. exactly 5'10" vs "shorter than", 42 vs "less than 42", 148 vs "less than 148").
+- **6 pairs flagged invalid**:
+  - `g29_146` — evidence_a names "Millitarne Retail Resorts International", a near-variant of the claim's Milligan; unclear if a different firm, so no clean contradiction (ambiguous).
+  - `g29_147` — evidence_a uses a non-exhaustive "such as" list, never denies Blood Walk (neutral); only b supports.
+  - `g29_154` — b's "Czech-born" omits the Austria-Hungary qualifier: consistent but neither confirms nor refutes.
+  - `g29_155` — b's "including the Joker and Anarky" is non-exhaustive and never denies Dahmer/Gacy, so it does not genuinely refute.
+  - `g29_156` — a confirms only the thief role, silent on planning robberies; nothing refutes.
+  - `g29_157` — b's 146,444 is a 2017 estimate, not a pre-2014 census, so it does not refute the time-scoped claim (ambiguous).
+- **Naturalness**: `awkward` for `g29_141` (mangled nested quote marks), `g29_144` (unbalanced quote markup), `g29_154` (merged dates "191727 September 2012" + "a Austria-Hungarian"); the remaining 17 are `natural`; none reached `broken`.
+
+No other files were read or modified.

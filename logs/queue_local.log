@@ -1,0 +1,12 @@
+[queue] waiting for G5 deliberation to finish  01:51:17
+[queue] G8 packet swap  02:03:18
+G8 batch finished
+[queue] G9 numeric track  02:06:32
+G9 numeric batch finished
+[queue] G9 anchor analysis skipped (expected: needs the numeric-track loader)
+[queue] G10 few-shot  02:09:28
+G10 few-shot batch finished
+[queue] G5 state-arm full-text pass (qualitative only)  02:16:52
+[queue] G6 validation sweep, 4 units  02:24:16
+G6 sweep batch finished (status 0)
+[queue] done  02:24:16

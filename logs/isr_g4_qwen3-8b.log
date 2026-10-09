@@ -1,0 +1,173 @@
+[qwen3-8b] gpu=3 path=/var/tmp/xiang-isr-models/qwen3-8b
+(EngineCore pid=3047949) Loading safetensors checkpoint shards:   0% Completed | 0/5 [00:00<?, ?it/s]
+(EngineCore pid=3047949) Loading safetensors checkpoint shards:  20% Completed | 1/5 [00:01<00:04,  1.13s/it]
+(EngineCore pid=3047949) Loading safetensors checkpoint shards:  40% Completed | 2/5 [00:01<00:02,  1.23it/s]
+(EngineCore pid=3047949) Loading safetensors checkpoint shards:  60% Completed | 3/5 [00:02<00:01,  1.45it/s]
+(EngineCore pid=3047949) Loading safetensors checkpoint shards:  80% Completed | 4/5 [00:02<00:00,  1.68it/s]
+(EngineCore pid=3047949) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:02<00:00,  2.19it/s]
+(EngineCore pid=3047949) Loading safetensors checkpoint shards: 100% Completed | 5/5 [00:02<00:00,  1.71it/s]
+(EngineCore pid=3047949) 
+(EngineCore pid=3047949) 2026-09-01 01:45:47,663 - INFO - autotuner.py:622 - flashinfer.jit: [Autotuner]: Autotuning process starts ...
+(EngineCore pid=3047949) 2026-09-01 01:45:47,770 - INFO - autotuner.py:641 - flashinfer.jit: [Autotuner]: Autotuning process ends
+(EngineCore pid=3047949) Capturing CUDA graphs (PIECEWISE):   0%|          | 0/19 [00:00<?, ?it/s]Capturing CUDA graphs (PIECEWISE):  16%|█▌        | 3/19 [00:00<00:00, 24.69it/s]Capturing CUDA graphs (PIECEWISE):  32%|███▏      | 6/19 [00:00<00:00, 26.51it/s]Capturing CUDA graphs (PIECEWISE):  47%|████▋     | 9/19 [00:00<00:00, 27.03it/s]Capturing CUDA graphs (PIECEWISE):  63%|██████▎   | 12/19 [00:00<00:00, 27.45it/s]Capturing CUDA graphs (PIECEWISE):  79%|███████▉  | 15/19 [00:00<00:00, 27.23it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 19/19 [00:00<00:00, 27.05it/s]Capturing CUDA graphs (PIECEWISE): 100%|██████████| 19/19 [00:00<00:00, 26.95it/s]
+(EngineCore pid=3047949) Capturing CUDA graphs (FULL):   0%|          | 0/11 [00:00<?, ?it/s]Capturing CUDA graphs (FULL):   9%|▉         | 1/11 [00:00<00:01,  6.27it/s]Capturing CUDA graphs (FULL):  45%|████▌     | 5/11 [00:00<00:00, 21.66it/s]Capturing CUDA graphs (FULL):  82%|████████▏ | 9/11 [00:00<00:00, 28.31it/s]Capturing CUDA graphs (FULL): 100%|██████████| 11/11 [00:00<00:00, 25.95it/s]
+Rendering prompts:   0%|          | 0/1536 [00:00<?, ?it/s]Rendering prompts:  12%|█▏        | 188/1536 [00:00<00:00, 1877.69it/s]Rendering prompts:  43%|████▎     | 666/1536 [00:00<00:00, 3579.44it/s]Rendering prompts:  75%|███████▌  | 1153/1536 [00:00<00:00, 4165.19it/s]Rendering prompts: 100%|██████████| 1536/1536 [00:00<00:00, 4071.96it/s]
+Processed prompts:   0%|          | 0/1536 [00:00<?, ?it/s, est. speed input: 0.00 toks/s, output: 0.00 toks/s]Processed prompts:   0%|          | 1/1536 [00:02<59:23,  2.32s/it, est. speed input: 519.52 toks/s, output: 1.29 toks/s]Processed prompts:   4%|▍         | 61/1536 [00:03<01:05, 22.58it/s, est. speed input: 29474.78 toks/s, output: 37.53 toks/s]Processed prompts:   4%|▍         | 65/1536 [00:04<01:25, 17.12it/s, est. speed input: 25042.33 toks/s, output: 32.72 toks/s]Processed prompts:   6%|▋         | 97/1536 [00:04<00:45, 31.85it/s, est. speed input: 36589.68 toks/s, output: 46.74 toks/s]Processed prompts:   8%|▊         | 122/1536 [00:05<00:48, 29.14it/s, est. speed input: 37046.68 toks/s, output: 47.62 toks/s]Processed prompts:   9%|▊         | 131/1536 [00:06<00:58, 23.84it/s, est. speed input: 34773.97 toks/s, output: 45.02 toks/s]Processed prompts:  10%|█         | 155/1536 [00:06<00:41, 33.02it/s, est. speed input: 39533.64 toks/s, output: 50.96 toks/s]Processed prompts:  12%|█▏        | 185/1536 [00:07<00:42, 31.60it/s, est. speed input: 40154.55 toks/s, output: 52.93 toks/s]Processed prompts:  13%|█▎        | 193/1536 [00:08<00:57, 23.39it/s, est. speed input: 37325.94 toks/s, output: 48.93 toks/s]Processed prompts:  14%|█▍        | 217/1536 [00:08<00:39, 33.17it/s, est. speed input: 41447.79 toks/s, output: 53.63 toks/s]Processed prompts:  16%|█▌        | 246/1536 [00:09<00:36, 35.28it/s, est. speed input: 43025.70 toks/s, output: 55.85 toks/s]Processed prompts:  17%|█▋        | 257/1536 [00:10<00:46, 27.26it/s, est. speed input: 41008.48 toks/s, output: 53.55 toks/s]Processed prompts:  18%|█▊        | 279/1536 [00:10<00:36, 33.98it/s, est. speed input: 43172.18 toks/s, output: 56.22 toks/s]Processed prompts:  20%|██        | 310/1536 [00:10<00:31, 39.17it/s, est. speed input: 45146.83 toks/s, output: 58.84 toks/s]Processed prompts:  21%|██        | 318/1536 [00:12<00:47, 25.84it/s, est. speed input: 42506.94 toks/s, output: 55.22 toks/s]Processed prompts:  22%|██▏       | 338/1536 [00:12<00:38, 31.08it/s, est. speed input: 43736.07 toks/s, output: 57.10 toks/s]Processed prompts:  24%|██▍       | 374/1536 [00:13<00:32, 36.22it/s, est. speed input: 45433.66 toks/s, output: 59.45 toks/s]Processed prompts:  25%|██▍       | 380/1536 [00:14<00:49, 23.34it/s, est. speed input: 42754.13 toks/s, output: 55.71 toks/s]Processed prompts:  26%|██▌       | 401/1536 [00:14<00:36, 31.33it/s, est. speed input: 44748.51 toks/s, output: 58.01 toks/s]Processed prompts:  28%|██▊       | 434/1536 [00:15<00:29, 37.08it/s, est. speed input: 46374.52 toks/s, output: 59.88 toks/s]Processed prompts:  29%|██▉       | 444/1536 [00:16<00:42, 25.76it/s, est. speed input: 44379.10 toks/s, output: 57.46 toks/s]Processed prompts:  30%|███       | 464/1536 [00:16<00:34, 31.07it/s, est. speed input: 45233.33 toks/s, output: 58.75 toks/s]Processed prompts:  32%|███▏      | 496/1536 [00:17<00:30, 34.48it/s, est. speed input: 46249.34 toks/s, output: 59.85 toks/s]Processed prompts:  33%|███▎      | 508/1536 [00:18<00:40, 25.67it/s, est. speed input: 44803.03 toks/s, output: 57.92 toks/s]Processed prompts:  34%|███▍      | 526/1536 [00:18<00:34, 29.04it/s, est. speed input: 45606.29 toks/s, output: 58.63 toks/s]Processed prompts:  36%|███▋      | 558/1536 [00:19<00:27, 36.13it/s, est. speed input: 46817.51 toks/s, output: 60.29 toks/s]Processed prompts:  37%|███▋      | 572/1536 [00:20<00:34, 27.61it/s, est. speed input: 45880.72 toks/s, output: 58.84 toks/s]Processed prompts:  38%|███▊      | 589/1536 [00:20<00:30, 30.61it/s, est. speed input: 46187.40 toks/s, output: 59.43 toks/s]Processed prompts:  40%|████      | 620/1536 [00:21<00:24, 36.81it/s, est. speed input: 47217.30 toks/s, output: 60.74 toks/s]Processed prompts:  41%|████▏     | 635/1536 [00:22<00:34, 26.25it/s, est. speed input: 45866.98 toks/s, output: 59.03 toks/s]Processed prompts:  42%|████▏     | 651/1536 [00:23<00:36, 24.47it/s, est. speed input: 45519.71 toks/s, output: 58.46 toks/s]Processed prompts:  44%|████▍     | 678/1536 [00:23<00:27, 31.64it/s, est. speed input: 46964.33 toks/s, output: 59.70 toks/s]Processed prompts:  45%|████▌     | 696/1536 [00:24<00:29, 28.13it/s, est. speed input: 46677.84 toks/s, output: 59.16 toks/s]Processed prompts:  46%|████▋     | 711/1536 [00:25<00:30, 27.00it/s, est. speed input: 46548.43 toks/s, output: 58.96 toks/s]Processed prompts:  48%|████▊     | 738/1536 [00:25<00:23, 34.63it/s, est. speed input: 47353.26 toks/s, output: 60.22 toks/s]Processed prompts:  49%|████▉     | 759/1536 [00:26<00:25, 30.95it/s, est. speed input: 47190.22 toks/s, output: 60.14 toks/s]Processed prompts:  50%|█████     | 773/1536 [00:27<00:27, 27.54it/s, est. speed input: 46855.82 toks/s, output: 59.64 toks/s]Processed prompts:  52%|█████▏    | 795/1536 [00:27<00:22, 32.67it/s, est. speed input: 47289.15 toks/s, output: 60.41 toks/s]Processed prompts:  53%|█████▎    | 813/1536 [00:28<00:22, 31.63it/s, est. speed input: 47340.06 toks/s, output: 60.61 toks/s]Processed prompts:  54%|█████▍    | 831/1536 [00:28<00:22, 31.07it/s, est. speed input: 47256.62 toks/s, output: 60.94 toks/s]Processed prompts:  55%|█████▌    | 851/1536 [00:29<00:21, 31.32it/s, est. speed input: 47276.06 toks/s, output: 61.20 toks/s]Processed prompts:  57%|█████▋    | 872/1536 [00:29<00:20, 32.56it/s, est. speed input: 47470.02 toks/s, output: 61.67 toks/s]Processed prompts:  58%|█████▊    | 891/1536 [00:30<00:20, 31.69it/s, est. speed input: 47507.15 toks/s, output: 61.79 toks/s]Processed prompts:  59%|█████▉    | 907/1536 [00:31<00:21, 29.85it/s, est. speed input: 47309.94 toks/s, output: 61.70 toks/s]Processed prompts:  61%|██████    | 934/1536 [00:31<00:16, 36.25it/s, est. speed input: 47955.54 toks/s, output: 62.71 toks/s]Processed prompts:  62%|██████▏   | 948/1536 [00:32<00:21, 27.40it/s, est. speed input: 47280.53 toks/s, output: 61.80 toks/s]Processed prompts:  63%|██████▎   | 968/1536 [00:32<00:17, 33.01it/s, est. speed input: 47710.63 toks/s, output: 62.61 toks/s]Processed prompts:  65%|██████▍   | 994/1536 [00:33<00:14, 37.60it/s, est. speed input: 48274.52 toks/s, output: 63.27 toks/s]Processed prompts:  65%|██████▌   | 1005/1536 [00:34<00:19, 27.65it/s, est. speed input: 47568.17 toks/s, output: 62.42 toks/s]Processed prompts:  67%|██████▋   | 1026/1536 [00:34<00:14, 34.41it/s, est. speed input: 47970.12 toks/s, output: 63.27 toks/s]Processed prompts:  68%|██████▊   | 1049/1536 [00:35<00:14, 33.79it/s, est. speed input: 48030.02 toks/s, output: 63.48 toks/s]Processed prompts:  70%|██████▉   | 1069/1536 [00:36<00:16, 28.01it/s, est. speed input: 47637.73 toks/s, output: 63.05 toks/s]Processed prompts:  71%|███████   | 1085/1536 [00:36<00:16, 27.66it/s, est. speed input: 47511.54 toks/s, output: 62.92 toks/s]Processed prompts:  72%|███████▏  | 1104/1536 [00:37<00:14, 29.87it/s, est. speed input: 47801.30 toks/s, output: 63.20 toks/s]Processed prompts:  73%|███████▎  | 1127/1536 [00:38<00:12, 32.07it/s, est. speed input: 48077.59 toks/s, output: 63.62 toks/s]Processed prompts:  74%|███████▍  | 1143/1536 [00:38<00:13, 30.04it/s, est. speed input: 47971.63 toks/s, output: 63.57 toks/s]Processed prompts:  76%|███████▌  | 1161/1536 [00:39<00:11, 33.70it/s, est. speed input: 48218.57 toks/s, output: 64.01 toks/s]Processed prompts:  77%|███████▋  | 1182/1536 [00:39<00:10, 33.41it/s, est. speed input: 48188.78 toks/s, output: 64.23 toks/s]Processed prompts:  78%|███████▊  | 1205/1536 [00:40<00:09, 34.16it/s, est. speed input: 48222.37 toks/s, output: 64.57 toks/s]Processed prompts:  79%|███████▉  | 1218/1536 [00:41<00:10, 29.19it/s, est. speed input: 48010.72 toks/s, output: 64.18 toks/s]Processed prompts:  80%|████████  | 1233/1536 [00:41<00:09, 32.06it/s, est. speed input: 48111.61 toks/s, output: 64.55 toks/s]Processed prompts:  82%|████████▏ | 1265/1536 [00:41<00:06, 41.95it/s, est. speed input: 48667.27 toks/s, output: 65.67 toks/s]Processed prompts:  83%|████████▎ | 1280/1536 [00:42<00:08, 29.24it/s, est. speed input: 48058.73 toks/s, output: 64.85 toks/s]Processed prompts:  84%|████████▍ | 1291/1536 [00:43<00:08, 29.91it/s, est. speed input: 48031.14 toks/s, output: 64.93 toks/s]Processed prompts:  86%|████████▌ | 1317/1536 [00:43<00:05, 38.73it/s, est. speed input: 48585.53 toks/s, output: 65.71 toks/s]Processed prompts:  87%|████████▋ | 1334/1536 [00:44<00:06, 30.38it/s, est. speed input: 48152.05 toks/s, output: 65.39 toks/s]Processed prompts:  88%|████████▊ | 1352/1536 [00:44<00:05, 32.37it/s, est. speed input: 48223.96 toks/s, output: 65.69 toks/s]Processed prompts:  89%|████████▉ | 1368/1536 [00:45<00:05, 29.96it/s, est. speed input: 48168.99 toks/s, output: 65.56 toks/s]Processed prompts:  91%|█████████ | 1392/1536 [00:46<00:04, 31.13it/s, est. speed input: 48212.89 toks/s, output: 65.92 toks/s]Processed prompts:  92%|█████████▏| 1413/1536 [00:47<00:03, 30.94it/s, est. speed input: 48235.68 toks/s, output: 65.98 toks/s]Processed prompts:  93%|█████████▎| 1428/1536 [00:47<00:03, 28.81it/s, est. speed input: 48224.33 toks/s, output: 65.79 toks/s]Processed prompts:  94%|█████████▍| 1450/1536 [00:48<00:02, 30.97it/s, est. speed input: 48197.26 toks/s, output: 65.96 toks/s]Processed prompts:  96%|█████████▌| 1470/1536 [00:49<00:02, 29.45it/s, est. speed input: 48097.53 toks/s, output: 65.88 toks/s]Processed prompts:  97%|█████████▋| 1487/1536 [00:49<00:01, 28.64it/s, est. speed input: 48082.15 toks/s, output: 65.86 toks/s]Processed prompts: 100%|██████████| 1536/1536 [00:49<00:00, 28.64it/s, est. speed input: 49542.78 toks/s, output: 68.26 toks/s]Processed prompts: 100%|██████████| 1536/1536 [00:49<00:00, 30.88it/s, est. speed input: 49542.78 toks/s, output: 68.26 toks/s]
+wrote 1536 rows to results/raw/isr_qwen3-8b_btf3_large_replication_v1.jsonl
+longest prompt: 4552 tokens; decision parse failures: 1; probe parse failures: 0
+ File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/sampler.py", line 219, in sample
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]     sampled = flashinfer_sample(processed_logits, top_k, top_p).to(torch.int64)
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 493, in flashinfer_sample
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]     next_token_ids = flashinfer.sampling.top_k_top_p_sampling_from_logits(
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/api_logging.py", line 2333, in _auto_dump_wrapper
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]     return _inner(*args, **kwargs)
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 1414, in top_k_top_p_sampling_from_logits
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]     masked_logits = top_k_mask_logits(logits, top_k)
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/api_logging.py", line 2333, in _auto_dump_wrapper
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]     return _inner(*args, **kwargs)
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 1820, in top_k_mask_logits
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]     return get_sampling_module().top_k_mask_logits(
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 68, in get_sampling_module
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]     module = gen_sampling_module().build_and_load()
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]              ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/sampling.py", line 22, in gen_sampling_module
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]     return gen_jit_spec(
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]            ^^^^^^^^^^^^^
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/core.py", line 413, in gen_jit_spec
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]     check_cuda_arch()
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/core.py", line 108, in check_cuda_arch
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195]     raise RuntimeError("FlashInfer requires GPUs with sm75 or higher")
+(EngineCore pid=2354508) ERROR 09-01 01:43:57 [core.py:1195] RuntimeError: FlashInfer requires GPUs with sm75 or higher
+(EngineCore pid=2354508) Process EngineCore:
+(EngineCore pid=2354508) Traceback (most recent call last):
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 314, in _bootstrap
+(EngineCore pid=2354508)     self.run()
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/multiprocessing/process.py", line 108, in run
+(EngineCore pid=2354508)     self._target(*self._args, **self._kwargs)
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1199, in run_engine_core
+(EngineCore pid=2354508)     raise e
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 1164, in run_engine_core
+(EngineCore pid=2354508)     engine_core = EngineCoreProc(*args, engine_index=dp_rank, **kwargs)
+(EngineCore pid=2354508)                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=2354508)     return func(*args, **kwargs)
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 930, in __init__
+(EngineCore pid=2354508)     super().__init__(
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 132, in __init__
+(EngineCore pid=2354508)     kv_cache_config = self._initialize_kv_caches(vllm_config)
+(EngineCore pid=2354508)                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=2354508)     return func(*args, **kwargs)
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core.py", line 290, in _initialize_kv_caches
+(EngineCore pid=2354508)     self.model_executor.initialize_from_config(kv_cache_configs)
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/abstract.py", line 124, in initialize_from_config
+(EngineCore pid=2354508)     compilation_times: list[CompilationTimes] = self.collective_rpc(
+(EngineCore pid=2354508)                                                 ^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/executor/uniproc_executor.py", line 92, in collective_rpc
+(EngineCore pid=2354508)     result = run_method(self.driver_worker, method, args, kwargs)
+(EngineCore pid=2354508)              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/serial_utils.py", line 510, in run_method
+(EngineCore pid=2354508)     return func(*args, **kwargs)
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+(EngineCore pid=2354508)     return func(*args, **kwargs)
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 707, in compile_or_warm_up_model
+(EngineCore pid=2354508)     warmup_kernels(self.model_runner, self.execute_model, self.sample_tokens)
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=2354508)     return func(*args, **kwargs)
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/warmup.py", line 118, in warmup_kernels
+(EngineCore pid=2354508)     worker_sample_tokens(grammar_output)
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=2354508)     return func(*args, **kwargs)
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu_worker.py", line 803, in sample_tokens
+(EngineCore pid=2354508)     return self.model_runner.sample_tokens(grammar_output)
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 124, in decorate_context
+(EngineCore pid=2354508)     return func(*args, **kwargs)
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/eplb_utils.py", line 37, in wrapper
+(EngineCore pid=2354508)     result = fn(self, *args, **kwargs)
+(EngineCore pid=2354508)              ^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 1344, in sample_tokens
+(EngineCore pid=2354508)     sampler_output, num_sampled, num_rejected = self.sample(
+(EngineCore pid=2354508)                                                 ^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/model_runner.py", line 1029, in sample
+(EngineCore pid=2354508)     sampler_output = self.sampler(logits, input_batch)
+(EngineCore pid=2354508)                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/sampler.py", line 93, in __call__
+(EngineCore pid=2354508)     sampled, processed_logits = self.sample(
+(EngineCore pid=2354508)                                 ^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/worker/gpu/sample/sampler.py", line 219, in sample
+(EngineCore pid=2354508)     sampled = flashinfer_sample(processed_logits, top_k, top_p).to(torch.int64)
+(EngineCore pid=2354508)               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/sample/ops/topk_topp_sampler.py", line 493, in flashinfer_sample
+(EngineCore pid=2354508)     next_token_ids = flashinfer.sampling.top_k_top_p_sampling_from_logits(
+(EngineCore pid=2354508)                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/api_logging.py", line 2333, in _auto_dump_wrapper
+(EngineCore pid=2354508)     return _inner(*args, **kwargs)
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 1414, in top_k_top_p_sampling_from_logits
+(EngineCore pid=2354508)     masked_logits = top_k_mask_logits(logits, top_k)
+(EngineCore pid=2354508)                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/api_logging.py", line 2333, in _auto_dump_wrapper
+(EngineCore pid=2354508)     return _inner(*args, **kwargs)
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 1820, in top_k_mask_logits
+(EngineCore pid=2354508)     return get_sampling_module().top_k_mask_logits(
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/sampling.py", line 68, in get_sampling_module
+(EngineCore pid=2354508)     module = gen_sampling_module().build_and_load()
+(EngineCore pid=2354508)              ^^^^^^^^^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/sampling.py", line 22, in gen_sampling_module
+(EngineCore pid=2354508)     return gen_jit_spec(
+(EngineCore pid=2354508)            ^^^^^^^^^^^^^
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/core.py", line 413, in gen_jit_spec
+(EngineCore pid=2354508)     check_cuda_arch()
+(EngineCore pid=2354508)   File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/flashinfer/jit/core.py", line 108, in check_cuda_arch
+(EngineCore pid=2354508)     raise RuntimeError("FlashInfer requires GPUs with sm75 or higher")
+(EngineCore pid=2354508) RuntimeError: FlashInfer requires GPUs with sm75 or higher
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/run_information_set.py", line 213, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/home/xiang/research_hun/try_clone/src/run_information_set.py", line 149, in main
+    llm = LLM(
+          ^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/entrypoints/llm.py", line 349, in __init__
+    self.llm_engine = LLMEngine.from_engine_args(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 170, in from_engine_args
+    return cls(
+           ^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/llm_engine.py", line 104, in __init__
+    self.engine_core = EngineCoreClient.make_client(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 102, in make_client
+    return SyncMPClient(vllm_config, executor_class, log_stats)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/tracing/otel.py", line 178, in sync_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 771, in __init__
+    super().__init__(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/core_client.py", line 570, in __init__
+    with launch_core_engines(
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/contextlib.py", line 144, in __exit__
+    next(self.gen)
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1190, in launch_core_engines
+    wait_for_engine_startup(
+  File "/home/xiang/miniconda3/envs/fgvd/lib/python3.12/site-packages/vllm/v1/engine/utils.py", line 1249, in wait_for_engine_startup
+    raise RuntimeError(
+RuntimeError: Engine core initialization failed. See root cause above. Failed core proc(s): {}

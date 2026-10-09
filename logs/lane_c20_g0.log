@@ -1,0 +1,9 @@
+[lane 0] starting qwen25-32b at 00:32:57
+breadth batch finished (status 1)
+[lane 0] FAILED qwen25-32b
+[lane 0] finished qwen25-32b at 01:21:17
+[lane 0] starting qwen25-7b at 01:21:17
+breadth batch finished (status 1)
+[lane 0] FAILED qwen25-7b
+[lane 0] finished qwen25-7b at 01:41:26
+[lane 0] all done

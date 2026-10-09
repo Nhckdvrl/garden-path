@@ -1,0 +1,13 @@
+[lane 3] starting qwen25-14b at 00:33:07
+breadth batch finished (status 0)
+[lane 3] finished qwen25-14b at 00:44:08
+[lane 3] starting llama31-8b at 00:44:08
+breadth batch finished (status 0)
+[lane 3] finished llama31-8b at 00:51:18
+[lane 3] starting gemma3-4b at 00:51:18
+breadth batch finished (status 0)
+[lane 3] finished gemma3-4b at 01:06:02
+[lane 3] starting phi4-mini at 01:06:02
+breadth batch finished (status 0)
+[lane 3] finished phi4-mini at 01:12:54
+[lane 3] all done

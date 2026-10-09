@@ -1,0 +1,8 @@
+Loading weights:   0%|          | 0/399 [00:00<?, ?it/s]Loading weights: 100%|██████████| 399/399 [00:00<00:00, 17625.35it/s]
+75 items x 5 conditions, direct readout
+  15/75
+  30/75
+  45/75
+  60/75
+  75/75
+wrote results/mech/readout_validity_binding.json

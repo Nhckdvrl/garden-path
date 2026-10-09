@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/analyze_information_set_pilot.py", line 11, in <module>
+    from .information_set_metrics import InformationSetScores, summarize
+ImportError: attempted relative import with no known parent package
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/xiang/research_hun/try_clone/src/analyze_information_set_pilot.py", line 13, in <module>
+    from information_set_metrics import InformationSetScores, summarize
+  File "/home/xiang/research_hun/try_clone/src/information_set_metrics.py", line 8, in <module>
+    from .metrics_policy_nonuse import paired_cluster_bootstrap_mean
+ImportError: attempted relative import with no known parent package

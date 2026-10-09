@@ -1,0 +1,199 @@
+#!/usr/bin/env python3
+"""Fetch the pinned external sources into the ignored raw cache.
+
+Run with the repository's existing environment:
+  /home/xiang/miniconda3/envs/fgvd/bin/python scripts/fetch_external_sources.py
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+from pathlib import Path
+import tarfile
+import urllib.request
+import zipfile
+
+
+SOURCES = {
+    "fantom/fantom.tar.gz": (
+        "https://storage.googleapis.com/ai2-mosaic-public/projects/fantom/fantom.tar.gz",
+        "1d08dfa0ea474c7f83b9bc7e3a7b466eab25194043489dd618b4c5223e1253a4",
+    ),
+    "forecastbench/2025-03-02-llm.json": (
+        "https://raw.githubusercontent.com/forecastingresearch/forecastbench-datasets/d4834ccc58310539400974fc4664923db7b71417/datasets/question_sets/2025-03-02-llm.json",
+        "0ff5ecc9a77890c6b2499ba3a9914d30fad2e30306d2e61d703ad9182d924eab",
+    ),
+    "forecastbench/2025-03-02_resolution_set.json": (
+        "https://raw.githubusercontent.com/forecastingresearch/forecastbench-datasets/d4834ccc58310539400974fc4664923db7b71417/datasets/resolution_sets/2025-03-02_resolution_set.json",
+        "8259019c962b58b8179d3550c9577ec882efd13924d939add62f1ea19fe62ac0",
+    ),
+    "btf3/README.md": (
+        "https://huggingface.co/datasets/BTF-2/BTF-3/resolve/4b426627e19cd86202de69a40bc9dadb7f5ccd59/README.md",
+        "3ad491f7df03f6b986107a5650899905392539ae95130872196db82783752c34",
+    ),
+    "btf3/btf3_binary_questions_and_forecasts.parquet": (
+        "https://huggingface.co/datasets/BTF-2/BTF-3/resolve/4b426627e19cd86202de69a40bc9dadb7f5ccd59/btf3_binary_questions_and_forecasts.parquet",
+        "b28f8fe5634f81afa8e4b37d815f875b6e33c24edf590484f1948efea8db051a",
+    ),
+    "btf3/btf3_numeric_questions_and_forecasts.parquet": (
+        "https://huggingface.co/datasets/BTF-2/BTF-3/resolve/4b426627e19cd86202de69a40bc9dadb7f5ccd59/btf3_numeric_questions_and_forecasts.parquet",
+        "1bee10210dabcfcc41d052e7d6458d3674f87b40e1a8f07ab1796fc040ca0747",
+    ),
+    "aiyer/20189_replication.csv": (
+        "https://osf.io/download/hdgsf/",
+        "d238fddea76a2aa64af11c9dbc1bde26c2eab8db0b4c366ceebaa9801f00936d",
+    ),
+    "aiyer/OutcomeBiasAnalysis-v4-Raj.Rmd": (
+        "https://osf.io/download/tpabz/",
+        "69cb879b96f4f46a7a2a37fed2c7255b42db19d4a207aba490265286c0b25ca6",
+    ),
+    "aiyer/codebook.xlsx": (
+        "https://osf.io/download/rhcmd/",
+        "eee40c419b8e63d97435e1d04926c9a22ed8f6df0078361a9ecb5fcddad43bca",
+    ),
+    "aiyer/outcome_bias.qsf": (
+        "https://osf.io/download/u9dbp/",
+        "6a7ae91c9e6a583f22a9152228a2492eb34eb7c2691c0c22e501509073e638c4",
+    ),
+    # --- G24A natural-evidence sources (added 2026-09-24) ---
+    # FEVER v1.0 official release (fever.ai). Labels: CC-BY-SA-3.0, code GPL-3.0
+    # per the official fever/fever dataset card; wiki-pages.zip ships
+    # license.html (the Wikipedia/FEVER notice) alongside the shards.
+    "fever/shared_task_dev.jsonl": (
+        "https://fever.ai/download/fever/shared_task_dev.jsonl",
+        "e89865bfe1b4dd054e03dd57d7241a6fde24862905f31117cf0cd719f7c78df7",
+    ),
+    "fever/train.jsonl": (
+        "https://fever.ai/download/fever/train.jsonl",
+        "eba7e8f87076753f8494718b9a857827af7bf73e76c9e4b75420207d26e588b6",
+    ),
+    "fever/wiki-pages.zip": (
+        "https://fever.ai/download/fever/wiki-pages.zip",
+        "4b06d95da6adf7fe02d2796176c670dacccb21348da89cba4c50676ab99665f2",
+    ),
+    # SciFact official release (allenai). License CC-BY-NC-2.0 per the
+    # allenai/scifact dataset card. The S3 object has been unchanged since
+    # 2021-01-26 (Last-Modified header); the SHA-256 below pins it regardless.
+    "scifact/data.tar.gz": (
+        "https://scifact.s3-us-west-2.amazonaws.com/release/latest/data.tar.gz",
+        "11c621288d41ac144d29b13b0f8503b3820b7d6e8b1f6ff24dff335c196d76be",
+    ),
+    # --- VitaminC official release (added 2026-09-25) ---
+    # Get Your Vitamin C! (Schuster et al., NAACL 2021); official release by
+    # the first author, HF dataset tals/vitaminc. URLs are pinned to the
+    # dataset repo commit be6febb761b0b2807687e61e0b5282e459df2fa0 (verified
+    # byte-identical to the main-branch download). License: annotations
+    # CC-BY-SA-3.0 (Wikipedia-derived), per the release LICENSE file.
+    # Zero-model triplet audit uses revision_type=="real" rows only;
+    # synthetic FEVER-derived rows are excluded by rule at census time.
+    "vitaminc/train.jsonl": (
+        "https://huggingface.co/datasets/tals/vitaminc/resolve/be6febb761b0b2807687e61e0b5282e459df2fa0/train.jsonl",
+        "7461c6fd1a13459590317c5ccdc8651dd2daf7c1ad8ae4b10ccd88d164fccd5a",
+    ),
+    "vitaminc/dev.jsonl": (
+        "https://huggingface.co/datasets/tals/vitaminc/resolve/be6febb761b0b2807687e61e0b5282e459df2fa0/dev.jsonl",
+        "544934677f5d133873e6d38f4557f8966f4efa5d3d70874ffe6913f2091b86b5",
+    ),
+    "vitaminc/test.jsonl": (
+        "https://huggingface.co/datasets/tals/vitaminc/resolve/be6febb761b0b2807687e61e0b5282e459df2fa0/test.jsonl",
+        "7ad1808dbc30c62e0a1427a53022d0dfaff668a1fde3c4b612a2d266edd753ad",
+    ),
+}
+
+
+def sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def fetch(path: Path, url: str, expected: str) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if path.exists() and sha256(path) == expected:
+        print(f"verified {path}")
+        return
+    temporary = path.with_suffix(path.suffix + ".partial")
+    with urllib.request.urlopen(url) as response, temporary.open("wb") as output:
+        while chunk := response.read(1024 * 1024):
+            output.write(chunk)
+    actual = sha256(temporary)
+    if actual != expected:
+        temporary.unlink(missing_ok=True)
+        raise RuntimeError(f"hash mismatch for {path}: expected {expected}, got {actual}")
+    temporary.replace(path)
+    print(f"downloaded {path}")
+
+
+def extract_fantom(root: Path) -> None:
+    archive = root / "fantom/fantom.tar.gz"
+    target = root / "fantom"
+    with tarfile.open(archive) as bundle:
+        members = bundle.getmembers()
+        for member in members:
+            destination = (target / member.name).resolve()
+            if target.resolve() not in destination.parents and destination != target.resolve():
+                raise RuntimeError(f"unsafe archive member: {member.name}")
+        bundle.extractall(target, filter="data")
+
+
+def extract_fever(root: Path) -> None:
+    """Unpack the FEVER Wikipedia shards (wiki-pages/*.jsonl) plus license.html.
+
+    The zip also contains macOS metadata (__MACOSX/), which is skipped.
+    """
+    archive = root / "fever/wiki-pages.zip"
+    target = root / "fever"
+    if (target / "wiki-pages/wiki-001.jsonl").exists():
+        print(f"verified {target / 'wiki-pages'}")
+        return
+    with zipfile.ZipFile(archive) as bundle:
+        members = [name for name in bundle.namelist()
+                   if (name.startswith("wiki-pages/") or name == "license.html")
+                   and not name.endswith("/")]
+        if not members:
+            raise RuntimeError("wiki-pages.zip: no wiki-pages/ shards found")
+        for member in members:
+            destination = (target / member).resolve()
+            if target.resolve() not in destination.parents and destination != target.resolve():
+                raise RuntimeError(f"unsafe archive member: {member}")
+        bundle.extractall(target, members=members)
+    print(f"extracted {len(members)} members into {target}")
+
+
+def extract_scifact(root: Path) -> None:
+    """Unpack SciFact data/*.jsonl (claims_train/dev/test + corpus)."""
+    archive = root / "scifact/data.tar.gz"
+    target = root / "scifact"
+    if (target / "data/corpus.jsonl").exists():
+        print(f"verified {target / 'data'}")
+        return
+    with tarfile.open(archive) as bundle:
+        members = [member for member in bundle.getmembers()
+                   if member.name.split("/")[0] == "data" and not member.name.endswith("/")]
+        if not members:
+            raise RuntimeError("data.tar.gz: no data/ members found")
+        for member in members:
+            destination = (target / member.name).resolve()
+            if target.resolve() not in destination.parents and destination != target.resolve():
+                raise RuntimeError(f"unsafe archive member: {member.name}")
+        bundle.extractall(target, members=members, filter="data")
+    print(f"extracted {len(members)} members into {target}")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", default="data/external/raw")
+    args = parser.parse_args()
+    root = Path(args.root)
+    for relative, (url, expected) in SOURCES.items():
+        fetch(root / relative, url, expected)
+    extract_fantom(root)
+    extract_fever(root)
+    extract_scifact(root)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
