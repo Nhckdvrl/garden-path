@@ -1,6 +1,6 @@
 # 历史结果核验说明
 
-2026-10-09 用户已授权重启，当前状态见 [STATUS.md](STATUS.md)。此页继续只用于核验已有档案；新研究方案尚未制定。原 reproduction guide 原文见[快照](archive/abandoned_unring_the_bell_2026_09_30/snapshots/REPRODUCE.md.txt)；其中生成实验的命令是历史记录。
+2026-10-09 用户已授权重启，当前状态见 [STATUS.md](STATUS.md)。此页继续只用于核验已有档案；新研究设计 v0.1 见 [research/RESEARCH_PLAN.md](research/RESEARCH_PLAN.md)，但尚无任何可复现的新模型实验。原 reproduction guide 原文见[快照](archive/abandoned_unring_the_bell_2026_09_30/snapshots/REPRODUCE.md.txt)；其中生成实验的命令是历史记录。
 
 ## G33 最终结果
 
@@ -14,3 +14,8 @@
 ## 其他历史记录
 
 [归档资产地图](archive/abandoned_unring_the_bell_2026_09_30/README.md)索引 ConfA/ConfB、G28–G32、旧 mechanism/Stage-5、注册和材料审查。原文件路径保留，以维持脚本与 provenance 链；它们均不是活跃研究方向。
+
+
+## 新设计资产（仅静态检验）
+
+新一轮源材料按 [research/MEASUREMENT_PROTOCOL.md](research/MEASUREMENT_PROTOCOL.md) 审查。Python校验入口为 `python3 research/tools/validate_manifest.py --pilot A path/to/manifest.jsonl`（或 `--pilot B`）；单元测试入口为 `python3 -m unittest discover -s research/tests -p 'test_*.py'`。这些脚本仅执行材料格式/条件一致性检查，不加载模型，不验证语法、语义或实验效应。

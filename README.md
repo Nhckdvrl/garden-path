@@ -5,7 +5,16 @@
 - 本地位置：`/home/xiang/garden-path`
 - GitHub：<https://github.com/Nhckdvrl/garden-path>
 - Git 历史：仅当前完整工作区快照作为新的初始提交，不继承旧提交历史。
-- 当前阶段：仓库整理与迁移；新的研究问题、方法和实验计划尚未确定。本次迁移不运行实验。
+- 当前阶段（2026-10-12）：**Garden Path 行为研究方案 v0.1 已建立**，包括两个可证伪 Pilot、测量协议、文献知识库与来源迁移。**尚未运行新的模型实验**；旧 G0–G33 仅为历史研究。
+
+## 当前研究入口
+
+- **[新研究问题与路线](research/RESEARCH_PLAN.md)** — 先从行为规律寻找解释空白，不预设机制故事。
+- **[测量与金标协议](research/MEASUREMENT_PROTOCOL.md)** — 源蕴含、关系依赖、独立问答/生成、材料质量。
+- **[Pilot A：语义依赖损害的拓扑](research/PILOT_A.md)** / **[Pilot B：错误解析的额外结构启动](research/PILOT_B.md)** — 独立问题，不强行合并。
+- **[可复用论文知识库](library/README.md)** — 36份带原始读书范围的文献卡、逆向实验设计图谱、Related Work ownership与阅读债务。
+- **[SSN研究资产迁移说明](imports/ssn-incremental-revision/README.md)** — 精选结果/代码，外置原始数据仍在来源路径；不能当作新研究结果。
+- **[研究决策树](research/DECISIONS.md)** — 清楚的 Go/No-go、负结果处理与算力约束。
 
 ## 仓库导航
 

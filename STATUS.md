@@ -1,10 +1,18 @@
 # garden-path 当前状态
 
-日期：2026-10-09。状态：**RESTART_AUTHORIZED**。
+日期：2026-10-12。状态：**RESEARCH_DESIGN_V0.1 / NO_NEW_MODEL_RUNS**（保留2026-10-09重启授权）。
 
 用户明确决定重启，指出此前研究方式存在重大问题。仓库改名为 `garden-path`，迁至 `/home/xiang/garden-path`，以当前完整快照建立新的 Git 历史并上传到 `Nhckdvrl/garden-path`。
 
-当前任务仅为整理与迁移。新的研究问题、方法、实验方案与论文方向尚未确立，未启动新实验。旧材料与结果保持原样；不把旧失败改写为成功，也不因重启自动认可旧方法。
+2026-10-12 已将研究问题、两条候选行为 Pilot、材料与推断合同、知识库以及精选 SSN 历史资产写入本仓库。**目前没有新实验结果、没有新的GPU/API运行、没有已确认paper idea，也不自动复活旧方案。** 旧材料与结果保持原样；旧失败不改写为成功。新路线详见 [RESEARCH_PLAN](research/RESEARCH_PLAN.md) 和 [library](library/README.md)。
+
+## 新一轮行为研究：当前边界
+
+- 主问题：Garden Path 造成的关系失败遵循什么规律，是否存在超出常规结构启动的后效应？
+- Pilot A：局部错误 vs 依赖拓扑和整体理解；最近邻 Ceháková & Chromý 2025、旧 SSN E70/E107。
+- Pilot B：词汇独立、标点和普通 priming 控制下的错误解析特异性影响；最近邻 van Gompel 2006、Sinclair TACL 2022。
+- 先审材料和真正可证伪的行为规律，再考虑白盒机制；不从Bates的早层组件故事或SAE开始。
+- [文件来源与外置数据界限](imports/ssn-incremental-revision/README.md)、[stop/gates](research/DECISIONS.md)。
 
 ## 历史结果
 
