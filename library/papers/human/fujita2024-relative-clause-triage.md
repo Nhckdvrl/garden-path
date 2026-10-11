@@ -1,0 +1,16 @@
+# Fujita (2024) — Online revision process in clause-boundary garden-path sentences
+
+[Springer Nature full article](https://link.springer.com/article/10.3758/s13421-023-01444-0); Memory & Cognition 52:73–90 (online 2023-07-19); released [OSF stimuli/analysis](https://osf.io/78vmz/). **READ SCOPE:** main introduction, Experiments 1 and 2 methods/results and conclusion/discussion sections checked in primary publisher HTML 2026-10-12; full appendices and raw data not reanalyzed.
+
+## Idea generation RECONSTRUCTED
+
+- **Parent tension:** Slattery-style binding shows revised parse *may* become operational, while some GP structures appear to resist repair. A late main verb's surprisal alone cannot prove whether its subject was successfully reattached.
+- **Changed design object:** Use a **grammatical functional dependency** that would only work if an earlier local object has become the late main subject: gender agreement with a subsequent reflexive.
+- **Competing hypotheses:** Full online reanalysis predicts subject/reflexive mismatch sensitivity after the GP and cue; a triaged/incomplete parse predicts missing GP-condition mismatch sensitivity even when a new main clause continues.
+- **Revealing manipulation:** Keep clause boundary ambiguity but place a subject relative clause (`that visited Rebecca`) inside the locally ambiguous noun versus an object relative clause (`that Rebecca visited`).
+- **Experiment 1 SRC:** 24 sets, 2×2 GP/cue×gender match/mismatch, 140 English participants after exclusion. GP surprisal/reading slowdown at disambiguation; mismatch cost still present downstream, consistent with online successful role recovery under this embedded SRC.
+- **Experiment 2 ORC:** analogous ORC embeds the inverse subject/object order. Mismatch signature not observed similarly; other latency patterns support possible triage/incomplete reconstruction. The author discusses whether ORC disadvantage, grammatical case or interfering relatives rather than absolute memory load causes the contrast.
+- **Scale of novelty:** **condition under which repair differs**, via a diagnostic reflexive dependency. No novel model architecture, no presumption that old incorrect parse must be stored as separate latent representation.
+- **Strength/limits:** Targeted grammatical constraint predicts opposite outcomes; author cautions lack of observed mismatch is not a direct 'neural parser' trace. Relatively small stimuli; study itself unpreregistered; nested ORC shifts multiple cognitive factors, so not a clean single-variable mechanistic dissection.
+- **Nearest neighbors:** Slattery2013 (reanalysis functional evidence), Chromý2022 (some reanalysis fails), Ceháková/Chromý2023 (representational diversity), Tabor&Hutchins2004 (ambiguity extension), Ceháková/Chromý2025 (comprehension beyond wrong initial attachment).
+- **For us:** The “repair selectively fails on graph-shaped dependencies” question already has an excellent **human** ancestor. Our new model experiment must go beyond reproducing the SRC/ORC contrast by offering an out-of-sample relation-use prediction and excluding general RC difficulty. Consider adapting **functional reflexive binding probes** where logically licensed, instead of inventing arbitrary bridge questions. Explicitly separate source assertion from world possibility.
