@@ -1,25 +1,51 @@
-# E003 — Is the priming residue the same thing as the comprehension residue?
+# E003 — Lingering misinterpretation vs misparse priming on the *same* human items
 
-**Status:** designed 2026-10-12. **Not run**: GPU use is held until the user approves going beyond the 4-card budget (the E001/E002 panels already use 4). Owner: this session. E001/E002 belong to the parallel session; E003 only *reads* their outputs (`results/gp/E002/<tag>.family_A.csv`).
+**Status:** v2 design, 2026-10-12. Not yet run (GPU: per the user, waits for freed cards; no extra cards). Owner: this session. E001/E002/E004 belong to the parallel session; E003 reads nothing from them except, optionally, per-family A for the Amouyal subset.
 
-## Gap
+## Why the design changed (v1 → v2, before any E003 data existed)
 
-Humans show both lingering misinterpretation (Christianson 2001: "Did the man hunt the deer?" → Yes) and misparse priming (van Gompel 2006). van Gompel could not tell whether these are one residue or two. Slattery et al. (2013) showed that the correct structure can be built while the wrong interpretation lingers, which suggests the two can dissociate. In LMs we can measure both on the **same items in the same model** with no participant noise, and ask whether item-level priming residue predicts item-level comprehension residue.
+v1 used Amouyal's 69 NP/Z families with one Yes/No question. A literature check before running changed this:
+- **Christianson et al. 2001** (full text read) published the canonical items *with* the manipulations that carry diagnostic information: ambiguous-region **length** (*the deer that was brown and graceful*), **plausibility** of the misinterpretation (*ran into the woods* vs *paced in the zoo*), a natural no-comma **control** (*hunted the pheasant the deer…*), and a **verb class** contrast (optionally transitive OT vs reflexive absolute transitive RAT, where pragmatic inference to the object is blocked). Human rates for each condition are reported (Tables 2, 3, 7).
+- **van Gompel et al. 2006**, Exp. 2: plausibility did **not** modulate misparse *priming*. Christianson: plausibility **does** modulate lingering *comprehension*. In humans, the two residues respond differently to the same manipulation.
+- **Fujita & Cunnings 2020** (Applied Psycholinguistics): structural priming and lingering comprehension errors in the same design; priming changed reading times but not comprehension accuracy. Another human dissociation.
 
-## Measures (69 Amouyal NP/Z families; GP vs E001 comma-CUE sentences)
+So the right high-information experiment uses the 54 Christianson families and measures **both residues, plus garden-path strength, on every cell**. The question is no longer just "do they correlate?" but **"do they respond to the same manipulations, the way humans' do or don't?"**
 
-- `OBS` residue: `Δ_obs = logodds(Yes | GP, Q_obs) − logodds(Yes | CUE, Q_obs)`, with Q_obs = *Did the secretary type the memo?*. Q_obs is NOT_ENTAILED in both forms, so only the GP−CUE **shift** is interpreted. No absolute truth label is assumed.
-- `FINAL` residue: `Δ_fin = logodds(Yes | GP, Q_final) − logodds(Yes | CUE, Q_final)`, with Q_final = *Did the memo near completion?* (entailed in both). Negative values mean failure to build the final relation. This is distinct from lingering.
-- Priming residue: per-family `A = (GP−NB) − (CUE−NC)` on the comma-free target-surprisal measure S (E002, defined post hoc by its owner after two models; exploratory).
-- Positive control: logodds(Yes | CUE, Q_final) > 0. Models failing it are reported but not interpreted.
-- Two prompt formats (plain `Answer:` and chat template where available). Comprehension reliability = cross-format item correlation. A reliability = split-half over target families (Spearman–Brown). The correlation ceiling is sqrt(rel_A · rel_comp).
+## Materials (data/gp_behavior/derived/christianson2001_families_v1.jsonl; 42 OT + 12 RAT)
 
-## Competing predictions
+Sentence forms per family × length (S/L) × plausibility (P/I; OT only):
 
-| Account | Item level (within model) | Model level |
+| Form | Example (OT1, short, plausible) | Role |
 |---|---|---|
-| One shared residue (the transient object analysis drives both) | corr(A, Δ_obs) > 0, near the reliability ceiling | models with larger rA show larger Δ_obs |
-| Dissociation (Slattery-like: priming residue ≠ interpretation) | corr ≈ 0 despite reliable A and Δ_obs | no relation |
-| Priming tracks failure to build the final structure | corr(A, −Δ_fin) > corr(A, Δ_obs) | — |
+| GP | While the man hunted the deer ran into the woods. | target condition |
+| CUE | While the man hunted, the deer ran into the woods. | comma control (van Gompel) |
+| CTL | While the man hunted the pheasant the deer ran into the woods. | Christianson's control: no comma, V has its own object |
+| TB / TC | …hunted the deer (,) it ran into the woods. | genuinely transitive reference |
+| NB / NC | While the man slept (,) the deer ran into the woods. | strictly intransitive verb (priming A only) |
+| REORD | The deer ran into the woods while the man hunted. | Christianson Exp. 3 control |
 
-Item-level correlations need reliable item measures. If either reliability is < .5, the item-level test is declared uninformative and only model-level results are reported. With 69 families, the detectable correlation at 80% power is about |r| ≥ .33. Model level has ~20 models, so it is only descriptive.
+## Readouts (all per family × cell, saved unaggregated)
+
+1. **Comprehension:** logodds(Yes) − logodds(No) for OBS (*Did the man hunt the deer?*) and FINAL (*Did the deer run into the woods?*). Two question sets (author wording; uniform template *Is it true that …?*), two prompt formats (plain; chat template), and both answer orders in the instruction.
+2. **Priming:** prime → E001 target families (content-disjoint). Target comma-placement `L` and target GP surprisal `S`. Per-family A = (GP−NB) − (CUE−NC), plus GP−CTL and GP−TB.
+3. **Garden-path strength in the sentence itself:** disambiguating-word surprisal GP vs CUE per cell; object expectation at the verb.
+
+## Key comparisons and what each would tell us
+
+| Comparison | Human result | If an LM matches | If it differs |
+|---|---|---|---|
+| comp: GP − CTL, GP − CUE (OBS) | GP > CTL | human-like lingering on canonical items | — |
+| comp: long > short; plausible > implausible | both main effects (Exp. 1a/1b) | residue sensitive to commitment duration and to semantics | — |
+| priming A: long > short | weak, mixed (van Gompel Exp. 1) | — | — |
+| priming A: plausible vs implausible | **no difference** (van Gompel Exp. 2) | priming is structural, comprehension is semantic: two residues | if LM priming *is* plausibility-sensitive, its residue is semantic, not human-like |
+| RAT vs OT, CUE/REORD baseline | OT control 49% vs RAT 12.5%; GP high for both | LM separates pragmatic inference from syntactic lingering | — |
+| comp fraction (GP−CUE)/(TC−CUE) vs priming fraction rA | unknown in humans | — | a quantitative LM-internal comparison of the two residues |
+| item level: corr(A, comp residue) within cell | unknown | one shared residue | dissociation |
+
+Positive controls: FINAL logodds in CUE > 0; OBS logodds in TC > OBS logodds in CUE. Models failing these are reported but not interpreted. Unit = family (42 OT; RAT analysed separately, n = 12, descriptive). Inference by family bootstrap; for priming, two-way bootstrap over prime × target families.
+
+## Known limitations recorded up front
+
+- Christianson's implausible items are human-authored; some remain fairly plausible (e.g. *played on the phonograph*). We use them as published.
+- TB/TC use a resumptive pronoun (*it/they*), so they are a structural reference, not a natural sentence class.
+- Base models answering Yes/No are a weak instrument. The positive controls decide which models count.
