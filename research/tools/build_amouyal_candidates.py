@@ -66,16 +66,16 @@ def build_candidates(source_dir: Path) -> list[dict]:
             pair = {}
             for condition in ("GP", "CUE"):
                 qrows = cells[condition]
-                if len(qrows) != 2 or {q["quest_type"] for q in qrows} != {
-                    "GP_question", "simple_question"
+                if len(qrows) != 2 or {q["quest_type"].lower() for q in qrows} != {
+                    "gp_question", "simple_question"
                 }:
                     raise ValueError(f"Malformed published two-question pair: {nickname}:{key}:{condition}")
                 sentences = {q["sentence"] for q in qrows}
                 if len(sentences) != 1:
                     raise ValueError(f"Question rows disagree on sentence: {nickname}:{key}:{condition}")
                 sent = next(iter(sentences))
-                old = next(q for q in qrows if q["quest_type"] == "GP_question")
-                new = next(q for q in qrows if q["quest_type"] == "simple_question")
+                old = next(q for q in qrows if q["quest_type"].lower() == "gp_question")
+                new = next(q for q in qrows if q["quest_type"].lower() == "simple_question")
                 # Source dataset questions are NOT independent semantic gold.
                 # New 'INDEPENDENT' / 'BRIDGE' probes must be authored, audited
                 # and frozen later, before the primary Pilot A can run.
