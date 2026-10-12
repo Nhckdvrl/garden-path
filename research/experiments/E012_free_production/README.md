@@ -37,3 +37,25 @@ Failure of P1/P2 would mean the log-prob residue does not reach actual productio
   - INTR correct 29/30. One error: a participial modifier read as the main verb ("dressed the bathroom mirror downloaded from…").
   - AMBIG (2%) is mostly resolvable: "V and V" is usually intransitive; NP + VBG/relative clause is usually transitive. Excluded as frozen.
   There is no reason for these errors to differ by prime condition, but this is not tested.
+
+## Results (8 models; v1 frozen coding; v2 gives the same verdicts)
+
+| model | p(TRANS) GP / CUE / NB / NC / TB / NONE | vG | A_gen | r_gen | gp_style GP vs CUE |
+|---|---|---|---|---|---|
+| gemma2-2b | .54 / .47 / .53 / .49 / .59 / .54 | +.074* | +.036* | .30 | .055 vs .002 |
+| llama3.1-8b-instruct | .56 / .63 / .51 / .67 / .73 / .68 | −.075* | +.089* | .23 | .245 vs .017 |
+| llama3.2-3b | .58 / .71 / .56 / .72 / .71 / .73 | −.139* | +.033* | .13 | .210 vs .024 |
+| mistral-7b | .50 / .37 / .51 / .42 / .59 / .48 | +.120* | +.039* | n/a (TB−NB small) | .098 vs .008 |
+| pythia-1.4b | .68 / .50 / .67 / .53 / .65 / .57 | +.177* | +.040* | n/a (TB−NB < 0) | .028 vs .009 |
+| qwen2.5-7b-instruct | .62 / .60 / .58 / .67 / .76 / .79 | +.008 | +.097* | .20 | .214 vs .004 |
+| qwen2.5-7b | .59 / .68 / .54 / .72 / .71 / .76 | −.098* | +.082* | .30 | .239 vs .012 |
+| qwen3-8b-base | .59 / .73 / .55 / .74 / .74 / .79 | −.145* | +.046* | .22 | .244 vs .009 |
+
+(* = two-way bootstrap CI excludes 0.)
+
+**Frozen predictions:** P1 (A_gen > 0) **8/8 confirmed**. P2 (vG > 0) **3/8, not confirmed**. P3 (style GP > CUE) **8/8 confirmed**. P4 (A_gen vs E002 A_L across models) **ρ = 0.81, p = .015, confirmed**; vs A_S ρ = 0.60, p = .12.
+
+**Reading:**
+1. The abandoned-object residue **reaches free production in every model**, after punctuation style and verb bias are controlled (A_gen +0.03 to +0.10, about 13–30% of a full transitive prime where that ratio is defined). Its size across models tracks the log-prob production measure L (ρ = .81).
+2. The raw van Gompel contrast (GP vs comma), the human paradigm's statistic, is **not** a valid LM statistic. It is dominated by punctuation-style alignment, which differs by model family: Llama and Qwen produce comma-less garden-path sentences after comma-less primes (21–25% vs 0.4–2.4%), so vG < 0. Gemma-2, Mistral and Pythia do so much less, so vG > 0. Humans completed orally, without punctuation.
+3. **Models write garden-path sentences after reading one.** Up to a quarter of completions after a GP prime are themselves comma-less NP/Z garden paths. This is production-level alignment to the prime's *resolved* structure plus its punctuation style.

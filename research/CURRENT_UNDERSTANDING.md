@@ -2,6 +2,17 @@
 
 Living document. Each entry says what we believed, what changed it, and what is still open. Newest first. Experiments: `research/experiments/E00x_*` (cards are written before runs; post-hoc steps are labelled).
 
+## 2026-10-13 (evening) — the residue reaches free production (E012); comprehension lingering is not processing history (E003c)
+
+**E012 (free production, 8 models, frozen predictions):** with punctuation style and verb bias controlled, garden-path primes raise transitive *completions* in 8/8 models (A_gen +0.03 to +0.10). The cross-model size tracks the log-prob production measure L (ρ = .81). The raw human statistic (GP vs comma) is dominated by punctuation-style alignment: models reproduce the prime's comma-less resolved structure, writing garden-path sentences themselves in up to 25% of completions, so vG is negative in Llama/Qwen and positive in Gemma/Mistral/Pythia. Transfer of the van Gompel paradigm to LMs therefore *requires* the style control.
+
+**E003 complete (21 models) + E003c (7):** comprehension lingering (Christianson items) is large and grows with ambiguous-region length. It is uncorrelated with the priming residue at the item level in 10/10 valid models (reliabilities ≈ .9). A context that states only the main clause reduces it (7/7). But a full reordered paraphrase that removes the garden path *more* completely reduces it *less*. So LM comprehension lingering is not simply "having been garden-pathed": inferential support available at answer time is a candidate.
+
+**Overall picture (three separable phenomena, each measurement-specific):**
+1. **Production residue** of the abandoned object analysis: needs a licensed object reading (E011), scales with commitment, reaches generation (E012). This is the van Gompel transfer, robust across models and item sets.
+2. **Error-driven adaptation** toward the resolved parse: comprehension-like surprisal measure; causal within family (E006); reanalysis-type dependent (NP/Z, MV/RR, not NP/S).
+3. **Comprehension lingering** (QA): large, length-sensitive, dissociated from (1) item by item, and not tracking garden-path removal.
+
 ## 2026-10-13 (evening) — free production (E012, interim), comprehension lingering (E003 final, E003c), and where the story stands
 
 **E012 (free completions, 3/8 models so far; frozen P1–P4):** after a prime, models complete `While the nurse washed …`, coded by POS rules (gold 99.7%; audit on real generations ~90–97% per class).
