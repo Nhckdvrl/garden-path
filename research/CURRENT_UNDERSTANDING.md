@@ -2,6 +2,23 @@
 
 Living document. Each entry says what we believed, what changed it, and what is still open. Newest first. Experiments: `research/experiments/E00x_*` (cards are written before runs; post-hoc steps are labelled).
 
+## 2026-10-13 (evening) — free production (E012, interim), comprehension lingering (E003 final, E003c), and where the story stands
+
+**E012 (free completions, 3/8 models so far; frozen P1–P4):** after a prime, models complete `While the nurse washed …`, coded by POS rules (gold 99.7%; audit on real generations ~90–97% per class).
+- **P1 holds 3/3:** A_gen (comma- and verb-matched) is +0.03 … +0.10, i.e. 13–22% of a full transitive prime. The abandoned-object residue reaches actual production, but it is small.
+- **P2 fails 0/3:** the raw van Gompel contrast GP − CUE is −0.14, +0.01, −0.14 (humans +4.5 points). Primes without a comma (GP and NB) make models write comma-less clauses whose NP is a new subject.
+- **P3 holds 3/3, large:** after a GP prime, 21–25% of completions are themselves garden-path sentences (intransitive and comma-less), against 0.4–2.4% after CUE. Production is dominated by alignment to the prime's *resolved structure and punctuation style*. Human completions were spoken, so they could not show this.
+
+**E003 final (21 models; 10 pass the comprehension controls):** comprehension lingering (*Did the man hunt the deer?*) and the priming residue are unrelated at the item level in 10/10 models (r = −.30 … +.15; reliabilities .77–.98). Priming falls with disambiguation error on prefix-matched items (10/10 negative).
+**E003c (3 instruction models):** a disambiguating context line ("The deer ran into the woods.") removes most lingering (3/3). A full matrix-subordinate paraphrase removes the garden path *more* completely (disambiguator surprisal) yet reduces lingering less. The neutral-label order effect is inconsistent across models (−2.8, −0.3, +2.7), so the E003b order effect is **not** evidence for processing history. Lingering is not a simple function of whether the GP sentence was garden-pathed.
+
+**Where the story stands (significance check):**
+1. Robust: van Gompel's abandoned-analysis residue transfers to LMs (17/17 on L; 3/3 in free production). It requires a licensed object analysis (E011) and scales with commitment.
+2. Robust: the same garden path drives error-driven adaptation toward the resolved parse (S; causal within family, E006; prefix-matched human items, E003).
+3. New and potentially important for anyone transferring the paradigm: in free production the raw human contrast **reverses** because of punctuation and structure alignment. A naive replication would conclude "LMs show the opposite of humans".
+4. Comprehension lingering is a separate phenomenon from the priming residue.
+**Gaps:** a causal commitment manipulation; a single crisp headline (currently four findings); generality beyond NP/Z for the residue (MV/RR, NP/S showed no commitment slope on S).
+
 ## 2026-10-13 (afternoon) — E011: the production-like residue needs a licensed object analysis (configuration account rejected)
 
 **Frozen test (17 models, 81 families):** passive primes (*While the man was hunted the deer ran…*) contain the same adjacency `hunted the deer` but never license an object reading. On L, A_pass / A_GP has median **0.10** (plausible half −0.08). A_pass > 0 in only 5/17 and **< 0 in 7/17**. Pre-registered verdict: **analysis account**. The post-hoc configuration hypothesis from E004 (L) is rejected for the panel as a whole.
