@@ -61,7 +61,11 @@ def comp_contrasts(g, qset):
         defs["linger_mean"] = C(lambda m: np.mean([lin(m, L, P) for L, P in cells], axis=0))
         defs["length_eff"] = C(lambda m: np.mean([lin(m, "L", P) - lin(m, "S", P) for P in {p for _, p in cells}], axis=0))
         if vc == "OT":
-            defs["plaus_eff"] = C(lambda m: np.mean([lin(m, L, "P") - lin(m, L, "I") for L in ("S", "L")], axis=0))
+            # DiD: does plausibility change the GP-specific lingering (GP-CUE)?
+            defs["plaus_x_GPCUE"] = C(lambda m: np.mean([lin(m, L, "P") - lin(m, L, "I") for L in ("S", "L")], axis=0))
+            # simple plausibility effects (P-I) within one form; GP is the human-comparable one
+            for form in ("GP", "CUE", "TC", "REORD"):
+                defs[f"plaus_{form}"] = C(lambda m, form=form: np.mean([m[(form, L, "P")] - m[(form, L, "I")] for L in ("S", "L")], axis=0))
         defs["comp_frac"] = lambda m: float(np.nanmean(np.mean([lin(m, L, P) for L, P in cells], axis=0)) /
                                             np.nanmean(np.mean([m[("TC", L, P)] - m[("CUE", L, P)] for L, P in cells], axis=0)))
         for k, f in defs.items():
@@ -221,7 +225,7 @@ def main():
         f = lambda k: f"{s.loc[k].est:+.2f}[{s.loc[k].lo:+.2f},{s.loc[k].hi:+.2f}]"
         print(f"== {t} ({fmt}; order eff {oe:+.2f})")
         print("  comp OT:  linger", f(("comp_OBS_author", "OT", "linger_mean")), "length", f(("comp_OBS_author", "OT", "length_eff")),
-              "plaus", f(("comp_OBS_author", "OT", "plaus_eff")), "frac", f(("comp_OBS_author", "OT", "comp_frac")))
+              "plaus(GP)", f(("comp_OBS_author", "OT", "plaus_GP")), "plaus(TC)", f(("comp_OBS_author", "OT", "plaus_TC")), "plausxGP-CUE", f(("comp_OBS_author", "OT", "plaus_x_GPCUE")), "frac", f(("comp_OBS_author", "OT", "comp_frac")))
         print("  prime OT: A", f(("prime_S", "OT", "A_mean")), "rA", f(("prime_S", "OT", "rA")), "length", f(("prime_S", "OT", "A_length_eff")),
               "plaus", f(("prime_S", "OT", "A_plaus_eff")), "GP-CTL", f(("prime_S", "OT", "GP-CTL_mean")))
         print("  RAT comp: GP-REORD_LP", f(("comp_OBS_author", "RAT", "GP-REORD_LP")), "CUE-REORD_LP", f(("comp_OBS_author", "RAT", "CUE-REORD_LP")),
