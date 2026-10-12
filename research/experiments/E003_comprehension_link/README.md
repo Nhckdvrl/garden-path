@@ -81,3 +81,5 @@ Presentations: GP1, GP2 (read again), CUE1, CUE2, GP_CUE (GP then the punctuated
 | Final parse never built (incomplete reanalysis; string-level repetition adds no information) | no drop | ≈ CUE1 (punctuation supplies the parse) | no change |
 
 Primary statistic: `reread = (GP2 − GP1) − (CUE2 − CUE1)` on OBS (author), family bootstrap, per model. Secondary: the same on FINAL (sign flipped: does rereading restore the final relation?), and GP_CUE − CUE1.
+- 2026-10-12: E003b gets a manipulation check before running (prompted by the parallel session's E002 finding that a sentence differing from the previous one only by a dropped comma is a *deviant copy* and is still garden-pathed). `<tag>.probes.csv` stores the disambiguator surprisal in GP1, CUE1, the second copy of GP2, CUE_GP and GP_CUE, in the same prompt frame. CUE_GP is interpreted only if its second-copy GP effect is near zero; GP_CUE and GP2 are the primary conditions.
+- Mistral-Small-24B-Instruct is excluded from all panels: the local HF cache holds only 4/10 weight shards (the E002 run failed for the same reason). Re-downloading (~48 GB) needs user authorization.

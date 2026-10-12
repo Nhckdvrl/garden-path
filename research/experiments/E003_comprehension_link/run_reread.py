@@ -67,6 +67,28 @@ def items(tok, cells):
     return its, keys
 
 
+def probes(cells):
+    """Manipulation check: surprisal of the disambiguating word in the relevant copy, inside the
+    same prompt frame (plain format, YN instruction). Exact repeats should lose the GP effect;
+    a deviant copy (CUE then GP) may not (E002/E004)."""
+    ins = INSTR["YN"]
+    its, keys = [], []
+    for c in cells:
+        f = c["forms"]
+        pre, w1 = c["probes"]["GP_dis"]
+        cpre, _ = c["probes"]["CUE_dis"]
+        for name, ctx in {
+            "GP1": f"{ins}\n\nSentence: {pre}",
+            "CUE1": f"{ins}\n\nSentence: {cpre}",
+            "GP2_second": f"{ins}\n\nSentence: {f['GP']}\nSentence (read again): {pre}",
+            "CUE_GP_second": f"{ins}\n\nSentence: {f['CUE']}\nSame sentence without punctuation: {pre}",
+            "GP_CUE_second": f"{ins}\n\nSentence: {f['GP']}\nSame sentence with punctuation: {cpre}",
+        }.items():
+            its.append((ctx, w1))
+            keys.append((c, name))
+    return its, keys
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--models", nargs="+", required=True)
@@ -92,6 +114,12 @@ def main():
                 f.write("family,verb_class,length,plaus,cond,qkey,format,order,lpYes,lpNo,logodds\n")
                 for k, d in acc.items():
                     f.write(",".join(k) + f",{d['Yes']:.5f},{d['No']:.5f},{d['Yes']-d['No']:.5f}\n")
+            pits, pkeys = probes(cells)
+            pres = lmscore.score(model, tok, pits, batch_size=a.batch)
+            with open(OUT / f"{tag}.probes.csv", "w") as f:
+                f.write("family,verb_class,length,plaus,probe,lp\n")
+                for (c, name), r in zip(pkeys, pres):
+                    f.write(f"{c['family_id']},{c['verb_class']},{c['length']},{c['plaus']},{name},{r['lp']:.5f}\n")
             json.dump({"tag": tag, "model": path, "n": len(its), "seconds": time.time() - t0},
                       open(OUT / f"{tag}.meta.json", "w"))
             print(f"[{tag}] done {time.time()-t0:.0f}s", flush=True)
