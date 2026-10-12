@@ -2,6 +2,20 @@
 
 Living document. Each entry says what we believed, what changed it, and what is still open. Newest first. Experiments: `research/experiments/E00x_*` (cards are written before runs; post-hoc steps are labelled).
 
+## 2026-10-13 (late morning) — the two forces separate by MEASURE: production-like residue vs comprehension-like adaptation (post-hoc; prospective test E010 pending)
+
+Checking the item-level structure on the second target measure (L = comma-placement attachment choice, comma-matched within A's pairs) against S (target disambiguation surprisal):
+
+| Prime set | net A_L > 0 | error slope on S < 0 | error slope on L < 0 | commitment slope L > 0 / S > 0 |
+|---|---|---|---|---|
+| E002 discovery | 18/18 | 17/18 | 3/18 | 18/18 / 18/18 |
+| E005 held-out | 17/17 | 15/17 | 10/17 | 13/17 / **8/17** |
+| E009 case controls | 17/17 | 15/17 | 5/17 | 15/17 / 17/17 |
+
+**Revised understanding:** a garden-path prime (i) **raises production-like choice of the abandoned object attachment**, net positive in every model on every item set, scaling with commitment and showing no error slope: the van Gompel (2006) human pattern transfers robustly. (ii) It also **lowers the surprise of later garden-path resolutions**, scaled by the disambiguation error and causal within family (E006): the human syntactic-adaptation pattern (Fine et al. 2013). In humans these come from different literatures and tasks. In LMs they coexist in one context and the **measure** determines which dominates. The earlier conclusion that the net effect is model-dependent was a property of S alone.
+
+**Caveats:** discovered post-hoc (E009 L analysis), then checked on existing E002/E005 data, so not yet confirmatory. Prospective test on independent Christianson items (peer session E003) is frozen in E010. The commitment slope on S is weak on held-out items (8/17), so commitment is more robust on L. The constructions beyond NP/Z (E007/E008) have only S.
+
 ## 2026-10-13 (morning) — CORRECTION: the commitment residue survives punctuation-free disambiguation (E009)
 
 The previous entry claimed the NP/Z commitment residue was "entangled with comma-omission salience" and that evidence for a lingering residue was weak. **E009 tested that and refuted it.** With case disambiguation (*hunted they ran* vs *hunted the deer ran*: same verb, same omitted comma), the commitment slope is positive in **17/17** models (12 significant) and the error slope negative in 15/17. The comma coefficient persists even where punctuation salience cancels, so it reflects low object commitment, not punctuation. Comma-omission salience (NB/NC, 17/17) is real, but it is a separate stylistic adaptation, not the source of the residue.
