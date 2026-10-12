@@ -21,7 +21,7 @@ We deliberately start with **behavioral phenomena and rival explanations**, not 
 
 ## 2. Two independent pilots (not a forced unified hypothesis)
 
-### A. Relation-dependency footprint after disambiguation — primary
+### A. Relation-dependency footprint after disambiguation — parallel explanatory route
 
 **RQ-A:** Does Garden Path cause merely a localized obsolete attachment, or a broader, systematically structured inability to establish/coordinate the correct dependencies of the sentence?
 
@@ -34,7 +34,7 @@ We deliberately start with **behavioral phenomena and rival explanations**, not 
 
 A combination of explanations may win. We do not label any one an internal parser mechanism. See [Pilot A](PILOT_A.md).
 
-### B. Misparse-specific structural persistence — parallel, independent
+### B. Misparse-specific structural persistence — first-priority human→LLM transfer where valid source data are available
 
 **RQ-B:** Does an *initially supported but ultimately ruled-out* syntactic analysis alter a subsequent **lexically unrelated** production decision more than ordinary exposure to the final sentence's structure does?
 
@@ -88,3 +88,7 @@ Success might be: a concise account predicting *where GP-induced errors propagat
 ## 8. Updated data governance (2026-10-12)
 
 Published 189 family pairs (four different types of GP/cue) are present as [PENDING source candidates](../data/gp_behavior/README.md). Existing 24/40/69-family studies set scientific precedents but not mandatory final n. A 20–30-family instrument smoke is **not final evidence**; expand or narrow based on family-level variance, outcome rarity and the smallest scientifically meaningful contrast. Natural sentences and validated controls outrank artificial data volume. For review, use automatic checks for all, high-risk/edited item review, plus stratified random QC; OpenCode free models may be one support channel, **not** a replacement for semantic truth or an excuse to audit every original stimulus four times. See [DATA_STRATEGY](DATA_STRATEGY.md) and [DATA_ASSISTED_REVIEW](DATA_ASSISTED_REVIEW.md).
+
+## 9. Execution and evidence summary (2026-10-12)
+
+[Data & novelty recalibration log](DATA_EXECUTION_DECISION_2026-10-12.md) records the tested source import, 30 offline checks, 57-family selected review queue, and the scientific reason to give the **van Gompel human→modern LLM** behavioral transfer its own credible publication opportunity. Prioritize natural source stimuli and adequate independent sample size, not forced mechanism. As of this entry neither Pilot has actual new model outputs.

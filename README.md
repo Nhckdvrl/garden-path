@@ -17,6 +17,7 @@
 - **[研究决策树](research/DECISIONS.md)** — 竞争假设、负结果处理与后续实验选择。
 - **[创新性标准](research/SCIENTIFIC_NOVELTY_STANDARD.md)** — 人类经典心理语言学问题迁移到 LLM 本身可能成立；不人为设定“必须全新机制”的门槛。
 - **[数据战略](research/DATA_STRATEGY.md)** / **[OpenCode 辅助数据审核](research/DATA_ASSISTED_REVIEW.md)** — 数据来源、样本量、自然度、质量控制、定点复核与免费模型使用边界。
+- **[2026-10-12 数据与创新性审计记录](research/DATA_EXECUTION_DECISION_2026-10-12.md)** — 189句族、57家族审核队列、30离线测试通过、真实研究仍未启动。
 
 ## 仓库导航
 

@@ -13,7 +13,7 @@
 - Pilot B：词汇独立、标点和普通 priming 控制下的错误解析特异性影响；最近邻 van Gompel 2006、Sinclair TACL 2022。
 - **2026-10-12 科研原则更新：** 不追求完全空白问题；2006 年人类实验迁移到 LLM 可以有原创价值，不以“必须发现统一新机制”为门槛。[创新性标准](research/SCIENTIFIC_NOVELTY_STANDARD.md)。
 - **数据战略：** 现成发表数据优先；依独立句族数量、效应尺度与方差决定扩增。质量复核风险导向，不全量机械重审；OpenCode 免费模型可用于关键构造/审核，但没有任何已执行免费 API 调用。[完整数据标准](research/DATA_STRATEGY.md)。
-- **工程现状：** 189 已发表句族（378 GP/对照候选），均为 PENDING；已建有分层审核队列生成器与样本量估算脚本，均是离线工具。新模型实验仍未运行。
+- **工程现状：** 189 已发表句族（378 GP/对照候选），均为 PENDING。GitHub Actions 已验证 **30项测试**与源数据一致性；事前抽样+定点风险队列覆盖 57 family / 29 OpenCode *待审核批次*，**尚未调用任何外部审核模型**。[证据与下一动作](research/DATA_EXECUTION_DECISION_2026-10-12.md)。
 - 先验证具有科学价值且可证伪的行为规律；仅在必要时进入白盒机制。
 - [文件来源与外置数据界限](imports/ssn-incremental-revision/README.md)、[stop/gates](research/DECISIONS.md)。
 
