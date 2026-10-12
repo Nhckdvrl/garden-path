@@ -113,3 +113,22 @@ Statistic: `hist = [(GP−CUE) | CTX_DIS] − [(GP−CUE) | CTX_NEU]`. Processin
   - **Item-level dissociation holds in 10/10:** r(lingering, A) = −0.30 … +0.15. None is significantly positive; Qwen2.5-14B-Instruct is significantly negative (−0.30 [−0.57, −0.02]). Reliabilities: lingering .89–.98, A (Spearman–Brown) .77–.97.
   - **Error-driven priming:** prefix-matched slope of A on gp_eff is negative in 10/10 valid models (3 CIs exclude 0) and in 18/21 overall (the other three ≈ 0: Pythia-160m, Pythia-410m, Qwen3-8B-Base).
   - **Correction to the pre-data prediction** "human-like comprehension predicts slope(lingering) > 0": that was poorly grounded. Within (family, length) the only variation is plausibility, and in humans implausible continuations *reduce* lingering, so the human-like sign of a lingering slope on gp_eff depends on how plausibility moves gp_eff. Observed: lingering slope negative in 8/10 (3 significant). Entangled with plausibility; **not interpreted**.
+
+### E003c results (7 instruction / strong models; `analyze_history.py`; card-defined statistics)
+
+| model | lin_NEU | hist (DIS−NEU) | hist_reord | order (V1/V2 labels) | GP disambiguator lp NEU / DIS / REORD |
+|---|---|---|---|---|---|
+| gemma3-12b-it | +9.58 | −2.85* | −0.92 | +2.69* | −15.9 / −8.3 / −0.7 |
+| llama3.1-8b-instruct | +3.11 | −1.45* | −1.09* | +0.49* | −13.2 / −5.3 / −0.9 |
+| mistral-7b | +0.56 | −0.11* | −0.09 | +0.07* | −12.4 / −4.8 / −1.3 |
+| qwen2.5-14b-instruct | +6.11 | −8.13* | −2.12 | −2.84* | −14.5 / −3.8 / −0.9 |
+| qwen2.5-7b-instruct | +6.92 | −2.96* | +0.67 | +7.48* | −16.3 / −6.9 / −1.7 |
+| qwen3-32b | +4.59 | −1.97* | −0.78 | +0.61* | −15.2 / −4.8 / −0.7 |
+| qwen3-8b | +3.98 | −3.78* | −1.45* | −0.32 | −17.7 / −7.2 / −0.7 |
+
+(* = 95% family-bootstrap CI excludes 0; OBS_author; logodds.)
+
+- **hist < 0 in 7/7**: a context line stating only the main clause ("The deer ran into the woods.") reduces lingering.
+- **But lingering does not track garden-path removal.** The REORD context ("The deer ran into the woods while the man hunted.") removes the garden path almost completely (disambiguator lp −0.7 to −1.7), much more than DIS (−3.8 to −8.3). Yet it reduces lingering much less (significant in 2/7). The processing-history account predicts the opposite ordering. So the account in which lingering is "the residue of having been garden-pathed" is **not supported** as the main driver of LM comprehension lingering.
+- Candidate explanation (post-hoc, untested): REORD also re-asserts the intransitive hunting event ("the man hunted"), which may support the inference *the man hunted the deer* at question time. If so, lingering reflects inferential support present at answer time rather than parsing history. A decomposing test would use separate contexts: "The man hunted." alone, and "The deer ran into the woods." + "The man hunted." as two sentences.
+- The neutral-label order effect is mixed (4 significantly +, 1 significantly −), so E003b's order effect does not establish processing history either.
