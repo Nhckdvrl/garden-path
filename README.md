@@ -14,7 +14,9 @@
 - **[Pilot A：语义依赖损害的拓扑](research/PILOT_A.md)** / **[Pilot B：错误解析的额外结构启动](research/PILOT_B.md)** — 独立问题，不强行合并。
 - **[可复用论文知识库](library/README.md)** — 36份带原始读书范围的文献卡、逆向实验设计图谱、Related Work ownership与阅读债务。
 - **[SSN研究资产迁移说明](imports/ssn-incremental-revision/README.md)** — 精选结果/代码，外置原始数据仍在来源路径；不能当作新研究结果。
-- **[研究决策树](research/DECISIONS.md)** — 清楚的 Go/No-go、负结果处理与算力约束。
+- **[研究决策树](research/DECISIONS.md)** — 竞争假设、负结果处理与后续实验选择。
+- **[创新性标准](research/SCIENTIFIC_NOVELTY_STANDARD.md)** — 人类经典心理语言学问题迁移到 LLM 本身可能成立；不人为设定“必须全新机制”的门槛。
+- **[数据战略](research/DATA_STRATEGY.md)** / **[OpenCode 辅助数据审核](research/DATA_ASSISTED_REVIEW.md)** — 数据来源、样本量、自然度、质量控制、定点复核与免费模型使用边界。
 
 ## 仓库导航
 

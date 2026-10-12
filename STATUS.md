@@ -11,7 +11,10 @@
 - 主问题：Garden Path 造成的关系失败遵循什么规律，是否存在超出常规结构启动的后效应？
 - Pilot A：局部错误 vs 依赖拓扑和整体理解；最近邻 Ceháková & Chromý 2025、旧 SSN E70/E107。
 - Pilot B：词汇独立、标点和普通 priming 控制下的错误解析特异性影响；最近邻 van Gompel 2006、Sinclair TACL 2022。
-- 先审材料和真正可证伪的行为规律，再考虑白盒机制；不从Bates的早层组件故事或SAE开始。
+- **2026-10-12 科研原则更新：** 不追求完全空白问题；2006 年人类实验迁移到 LLM 可以有原创价值，不以“必须发现统一新机制”为门槛。[创新性标准](research/SCIENTIFIC_NOVELTY_STANDARD.md)。
+- **数据战略：** 现成发表数据优先；依独立句族数量、效应尺度与方差决定扩增。质量复核风险导向，不全量机械重审；OpenCode 免费模型可用于关键构造/审核，但没有任何已执行免费 API 调用。[完整数据标准](research/DATA_STRATEGY.md)。
+- **工程现状：** 189 已发表句族（378 GP/对照候选），均为 PENDING；已建有分层审核队列生成器与样本量估算脚本，均是离线工具。新模型实验仍未运行。
+- 先验证具有科学价值且可证伪的行为规律；仅在必要时进入白盒机制。
 - [文件来源与外置数据界限](imports/ssn-incremental-revision/README.md)、[stop/gates](research/DECISIONS.md)。
 
 ## 历史结果

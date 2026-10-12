@@ -1,6 +1,6 @@
 # Pilot A — what survives: local wrong attachment vs disrupted sentence-wide interpretation?
 
-**Pre-experiment DESIGN DRAFT (2026-10-12).** Not preregistered/frozen. No data have been newly collected, evaluated or run. [Rationale](RESEARCH_PLAN.md), [semantic measurement contract](MEASUREMENT_PROTOCOL.md), [closest existing result](../imports/ssn-incremental-revision/README.md).
+**Pre-experiment DESIGN DRAFT v0.2 (2026-10-12).** Human→LLM translation may be a contribution; detailed explanatory topology is a *stretch question*, not a mandatory prerequisite. [Data/sample-size strategy](DATA_STRATEGY.md). Not preregistered/frozen. No data have been newly collected, evaluated or run. [Rationale](RESEARCH_PLAN.md), [semantic measurement contract](MEASUREMENT_PROTOCOL.md), [closest existing result](../imports/ssn-incremental-revision/README.md).
 
 ## A1. Core estimand (cannot be reduced to “final question also wrong”)
 
@@ -14,7 +14,7 @@ The sought explanatory claim is a **predictive boundary**, not “LLMs have ling
 - Check candidate natural English with blinded native-level audit; source preserved byte-exact; repaired entries get new `derived_item_id` with full provenance rather than overwriting originals.
 - Use a balanced GP/cue pairing as primary; ambiguous source and its cue version describe the *same asserted core relations*. For MV/RR, ensure passive/reduced-relative paraphrase is actually grammatical and semantically comparable.
 - Add a small **matched difficult non-GP control** with similar clause count, lexical frequency, question complexity and length. It serves as falsification control, not an opportunity to optimize a benchmark.
-- Primary first pass may be ~12–16 well-audited families per construction to check instrument reliability. This does *not* support three-factor formal hypothesis tests. Move to all qualifying released 48 families and new independent lexical families only if meaningful separation appears.
+- First do a *technical smoke* on ~20–40 mixed families (small for debugging, not a science result). For discovery prefer **all qualified original published families** in relevant construction(s); use the released 24+24 Ceháková and 69/40/40/40 Amouyal materials where their exact semantic task and control condition fit. If precision or needed controls are insufficient, expand with **natural independently sourced lexical families** guided by observed family variance and minimum worthwhile effects; do not require an arbitrary fixed expansion, and do not prematurely conclude from ~12 items.
 
 ## A3. Four source-grounded probe roles
 
@@ -53,7 +53,7 @@ These patterns are **hypotheses, not reported findings**. They may coexist or fa
 
 ## A6. Strong falsification / stop
 
-- If published 2025 measurement is fully reproduced and no **new dependency-sensitive predictive pattern** appears, **do not** relabel the replication as a novel contribution.
+- If a reliable modern-LLM adaptation of the 2025 *human* multi-region effect occurs, that may already be valuable; situate it against the earlier SSN LLM evidence and all directly overlapping LM papers. **Do not claim a new global-fragmentation mechanism without evidence**, but also do not automatically reject the cross-system contribution.
 - If GP and cue differ only for polar Yes/No, or source-gold labels are unstable, the result is measurement-limited.
 - If the new pattern appears just as strongly for nonGP difficult sentences, downgrade GP-specificity.
 - If BRIDGE defects are completely predicted by local wrong dependencies without independent residual, stop the fragmentation story; examine local error account, don't add SAE just to save it.

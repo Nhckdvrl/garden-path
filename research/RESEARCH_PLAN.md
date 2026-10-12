@@ -1,6 +1,6 @@
 # Garden Path: from transient misinterpretation to a predictive theory of revision behavior
 
-**Scientific program v0.1 — 2026-10-12. No new model experiments have been run.** Primary working repository: this repository. Historical source: [SSN imported assets](../imports/ssn-incremental-revision/README.md). Literature understanding: [genesis atlas](../library/RESEARCH_GENESIS_ATLAS.md), [ownership table](../library/RELATED_WORK_OWNERSHIP.md).
+**Scientific program v0.2 — 2026-10-12. No new model experiments have been run.** **[Scientific novelty calibration](SCIENTIFIC_NOVELTY_STANDARD.md)** and **[data strategy](DATA_STRATEGY.md)** supersede earlier overly restrictive gates. Human→modern LLM translation may itself be original research. Primary working repository: this repository. Historical source: [SSN imported assets](../imports/ssn-incremental-revision/README.md). Literature understanding: [genesis atlas](../library/RESEARCH_GENESIS_ATLAS.md), [ownership table](../library/RELATED_WORK_OWNERSHIP.md).
 
 ## 0. Question, not a pre-written paper story
 
@@ -25,7 +25,7 @@ We deliberately start with **behavioral phenomena and rival explanations**, not 
 
 **RQ-A:** Does Garden Path cause merely a localized obsolete attachment, or a broader, systematically structured inability to establish/coordinate the correct dependencies of the sentence?
 
-**Novelty bar:** Ceháková & Chromý 2025 already measured both initial and disambiguating-region comprehension; SSN E70 already measured atomic roles. Thus “late question also wrong” or “some roles omitted” is **not** sufficient. The useful addition would be a **dependency-sensitive failure topology and out-of-sample prediction** that a local error model, general hard-syntax baseline, lexical surprisal, plausibility and task prompts cannot explain.
+**Research opportunity (not an automatic novelty veto):** Classic human studies already measured initial and disambiguating region comprehension; SSN E70 began LLM atomic-role measurement. A careful modern-LLM adaptation with faithful human-comparable stimuli, actual free use, real source semantics, and sufficiently powered behavioral evidence can itself be valuable. We additionally *seek*, but do not make obligatory, a dependency-sensitive rule predicting which mistakes generalize across tasks.
 
 - **H-A1 Local stale attachment:** GP errors concentrate in the old NP→V relation and specific dependent consequences. Once those relations are controlled, independently supported late facts remain intact.
 - **H-A2 Global/fragmented composition:** GP increases errors in additional **unaffected** dependencies and in combining valid facts, beyond generic syntax difficulty or QA format.
@@ -38,7 +38,7 @@ A combination of explanations may win. We do not label any one an internal parse
 
 **RQ-B:** Does an *initially supported but ultimately ruled-out* syntactic analysis alter a subsequent **lexically unrelated** production decision more than ordinary exposure to the final sentence's structure does?
 
-**Novelty bar:** Wrong-analysis priming has human precedent (van Gompel 2006), and structural priming in LMs is well established (Sinclair TACL 2022; Pucci 2026). A mere nonzero priming effect or GP vs comma difference is insufficient. Test the **GP × expected wrong-target structure interaction**, subtract punctuation and generic context effects, and verify it on unseen lexical targets.
+**Research opportunity (positive starting point):** The precise 2006 *human* wrong-analysis priming paradigm predates LLMs. Generic LM priming (Sinclair TACL 2022; Pucci 2026) does not automatically establish a temporary-*wrong-parse*-specific effect in modern LLMs. A well-controlled, genuinely first modern-model reproduction, difference, or informative absence is a potential standalone contribution. Test GP-specific versus ordinary structural priming and punctuation effects to know what has actually been found; a unified latent mechanism is optional, not an entry gate.
 
 - **H-B1 Transient wrong-analysis additional effect:** After NP/Z, the extra bias toward a *transitive* target exceeds matched ordinary priming, cue, nonambiguous and punctuation controls.
 - **H-B2 Only final-structure priming:** GP and cue primes produce comparable target effects after lexical/punctuation adjustment.
@@ -70,11 +70,11 @@ The repository's existing G0–G33/Unring-the-Bell archives test prospective evi
 
 **Gate 3 — Strong falsification.** On a held-out material set, test what the leading profile predicted, including non-GP difficult structures, plausible and implausible words, and independent model family. If only one task wording works, downgrade the claim.
 
-**Gate 4 — Explain or abandon.** If one stable, important, broadly predictive failure pattern survives, choose among additional cognitive/computational tests. If neither pilot yields new explanatory leverage, revise the scientific question; no huge grid to rescue an attractive narrative.
+**Gate 4 — Evaluate the real contribution.** A robust modern-LLM transfer of a classic human behavior, a credible model/human divergence, or a new condition-specific effect can justify focused study even without a single unifying mechanism. If data are inconclusive, improve precision/material diversity as justified by [sample-size plan](DATA_STRATEGY.md), not by chasing positive models or endlessly tuning prompts.
 
 ## 6. Minimum publishable contribution, and non-goals
 
-A paper would require at least one important *new* regularity with predeclared opposite predictions for established alternatives, an auditable source-grounded semantic outcome, robustness outside discovery items, and honest ownership relative to 2025–2026 prior works. Mechanistic diagrams, cross-model averaging, unusually high n or a method artifact are **not** substitutes.
+A valuable paper may establish how a classic human psycholinguistic behavior does—or does not—appear in modern LLMs, with credible matched tasks and source-grounded measures, or it may go further to discover a new boundary or explanation. The necessary standards are important question, natural/valid data, sufficient independent observations and honest inference. **Do not require a never-before-studied problem, a mechanism paper, a large benchmark, or a cross-architecture universal law as a formal prerequisite.**
 
 Success might be: a concise account predicting *where GP-induced errors propagate* and a replicated functional test that separates competing accounts. A null may constrain some widely used story without itself justifying a full paper. We do not assume a particular venue, title, or mechanism in advance.
 
@@ -82,5 +82,9 @@ Success might be: a concise account predicting *where GP-induced errors propagat
 
 - **Imported existing evidence only**; no new GP model runs, annotation calls, GPU use or study results as of this document.
 - Existing raw archives from SSN may live only on old external filesystem; inspect hashes/availability before designing any claimed reproduction.
-- Current action: validate released datasets and probes, then the two small behavioral pilots, not retrain LMs or build SAEs.
+- Current action: review community datasets, determine study-specific sample size and data construction/review scope, then run measurement smoke and sufficiently populated behavioral pilots; do not immediately retrain LMs or build SAEs.
 - Read [measurement protocol](MEASUREMENT_PROTOCOL.md), [Pilot A](PILOT_A.md), [Pilot B](PILOT_B.md), [decision gates](DECISIONS.md) and [SSN import boundaries](../imports/ssn-incremental-revision/README.md) in that order.
+
+## 8. Updated data governance (2026-10-12)
+
+Published 189 family pairs (four different types of GP/cue) are present as [PENDING source candidates](../data/gp_behavior/README.md). Existing 24/40/69-family studies set scientific precedents but not mandatory final n. A 20–30-family instrument smoke is **not final evidence**; expand or narrow based on family-level variance, outcome rarity and the smallest scientifically meaningful contrast. Natural sentences and validated controls outrank artificial data volume. For review, use automatic checks for all, high-risk/edited item review, plus stratified random QC; OpenCode free models may be one support channel, **not** a replacement for semantic truth or an excuse to audit every original stimulus four times. See [DATA_STRATEGY](DATA_STRATEGY.md) and [DATA_ASSISTED_REVIEW](DATA_ASSISTED_REVIEW.md).

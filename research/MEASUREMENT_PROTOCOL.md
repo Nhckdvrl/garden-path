@@ -22,7 +22,7 @@ Also classify model outputs as `ASSERTED_SOURCE`, `DENIED_SOURCE`, `UNSPECIFIED`
 - Do not call "barked" a weak-transitive equivalent to "chased": it removes the competing analysis instead of only decreasing strength. Where verb preference is studied, include naturally optional verbs, independent cloze/probability measurements and controls for selection/semantic plausibility.
 - Record verb argument structure, parser analysis, word/token length, crucial word position, referent identities, event structure, ambiguity span, punctuation, acceptability, semantic plausibility, target task.
 - Avoid non-natural hand-generated stimuli with malformed relative clauses or invalid source-question pairs. Hold out new lexical families; no cherry-picked selected successes.
-- The test material is not inferred from model answers. Require independent material acceptance before running inferential statistics.
+- Material acceptance must be independent of student model answers. **Published, unchanged community data** first pass automatic integrity + targeted high-risk and stratified random QA, not compulsory exhaustive manual rereview. **New or semantically altered Gold/conditions** require qualified independent validation before inference. See [DATA_STRATEGY](DATA_STRATEGY.md).
 
 ## 3. Independent behavioral measurements
 
@@ -52,7 +52,7 @@ Also classify model outputs as `ASSERTED_SOURCE`, `DENIED_SOURCE`, `UNSPECIFIED`
 - Model-family estimates separately; any pooled estimate should preserve nested pairing and not be interpreted as 10,000 independent tasks. Prefer mixed effects / hierarchical uncertainty when data volume allows.
 - Predeclare one primary contrast per pilot; bootstrap paired families and show 95% intervals, plus observed per-family scatter and direction counts.
 - Model heterogeneity and controls for output format, cue behavior, construction, question order and invalid generation must be visible (not excluded from plots).
-- Pilot sample sizes are for **instrument validation/effect discovery only**, not three-factor coefficient significance or theoretical confirmation. Expand based on independent effect-size/power analysis and hold-out groups, not after choosing a lucky subset.
+- **20–40 items are instrument smoke**, not necessarily a scientifically adequate pilot or final study. Draw many community item families when available (current 189 paired families across 4 constructions); decide the effective n using family-level variance, target minimum effect, family/target nesting and independent confirmation. Add naturally sourced distinct items if published material cannot support a meaningful inference. Do not treat repeated questions, targets or model runs as independent families. [Size estimates](tools/sample_size_sensitivity.py).
 - When comparing multiple alternative predictors, use nested or held-out evaluation and uncertainty in their incremental value; a significant coefficient is not causal evidence.
 
 ## 6. Proposed schema

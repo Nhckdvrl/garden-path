@@ -1,6 +1,6 @@
 # Pilot B — does an inappropriate parse prime later production beyond ordinary context?
 
-**DESIGN DRAFT; no current run.** Nearest direct human ancestor: [van Gompel et al. 2006](https://doi.org/10.1016/j.jml.2006.06.004). Nearest LM instrument: [Prime-LM / Sinclair et al. 2022](https://aclanthology.org/2022.tacl-1.60/).
+**DESIGN DRAFT v0.2; no current run.** A strong human→LLM transfer of the *specific 2006 wrong-parse priming paradigm* is potentially scientifically original, even before a detailed mechanism. [Scientific novelty standard](SCIENTIFIC_NOVELTY_STANDARD.md) and [data strategy](DATA_STRATEGY.md). Nearest direct human ancestor: [van Gompel et al. 2006](https://doi.org/10.1016/j.jml.2006.06.004). Nearest LM instrument: [Prime-LM / Sinclair et al. 2022](https://aclanthology.org/2022.tacl-1.60/).
 
 ## B1. A precise direction (Gemini's earlier proposal inverted it)
 
@@ -19,7 +19,7 @@ The effect is a conditional distribution shift, not a private residual hidden st
 - All four use the *same later main event* when possible, no item scored unless sentences are grammatical/natural and comparable. An omitted comma after an introductory subordinate clause can itself be an oddity; test naturalness and keep this confound explicit. Do not use 'barked' versus 'chased' as if only a scalar verb bias changed.
 - Additionally compare matched ordinary `TRANSITIVE_PRIME` and `INTRANSITIVE_PRIME` sentences to establish that this model/target really responds to syntactic priming at all.
 
-First stage: 20–30 independently checked NP/Z lexical families, no MV/RR mixture until the NP/Z protocol is demonstrably valid. Include multiple independently created target families, lexically disjoint from all prime content words.
+First **instrument smoke**: ~20–30 independently checked NP/Z source families, only for target parsing/probability/format. **Science discovery** should use the full qualified community set available for the actual GP-vs-comma question, aiming for diverse dozens to 100+ **independent prime families** as effect precision demands; augment with naturally sourced, independently audited variants rather than duplicating a 24-sentence template. The imported 69 Amouyal NP/Z controls are REORDERED, not comma controls: they may seed review, **not** count as pure comma-contrast pairs. To support a smaller effect or model/structure interaction, use [family-level sensitivity calculation](tools/sample_size_sensitivity.py) and a true held-out set. Target families may multiply repeated observations, not independent source families.
 
 ## B3. Target and metric
 
@@ -59,7 +59,7 @@ This difference-in-differences is **not magic causal identification**: the four 
 
 ## B6. Potential research contribution *if* replication survives
 
-Find a **boundary law** (e.g. initial plausibility × disambiguator strength × downstream target structure) with controlled opposite predictions for (1) initial-error persistence, (2) ordinary priming by the final parse, (3) semantic alignment and (4) punctuation/length effects, and independent validation. Simply observing a difference from a comma condition is not enough; the human literature already knew that.
+**Minimum valuable step:** establish with correct modern-LLM controls whether the 2006 human effect transfers, weakens, reverses or fails, and whether generic LM priming can already explain it. **If the result motivates it**, develop a predictive boundary (e.g. initial preference × disambiguation strength × target structure) with independent validation. Since the human paper predates LLMs, do not deny scientific originality merely because the *human* GP-vs-comma result is old. A neural attractor or grand theory is not required.
 
 ## B7. Data handling
 
