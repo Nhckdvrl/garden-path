@@ -49,3 +49,11 @@ Positive controls: FINAL logodds in CUE > 0; OBS logodds in TC > OBS logodds in 
 - Christianson's implausible items are human-authored; some remain fairly plausible (e.g. *played on the phonograph*). We use them as published.
 - TB/TC use a resumptive pronoun (*it/they*), so they are a structural reference, not a natural sentence class.
 - Base models answering Yes/No are a weak instrument. The positive controls decide which models count.
+
+## Addition before any E003 data (2026-10-12): within-family cell-level slopes
+
+The parallel session reports a two-force pattern in E005 (held-out): priming rises with commitment (object expectation at V) and falls with the disambiguation error (garden-path surprisal). E003's length and plausibility manipulations change the garden-path surprisal *within a family* (same verb, same NP), so they give a within-family test of the error force. Added to `analyze_v2.py`:
+- per (family, cell): A on S, comprehension lingering (GP − CUE on OBS_author), gp_eff = lp(CUE_dis) − lp(GP_dis);
+- family-demeaned slopes of A on gp_eff and of lingering on gp_eff (family bootstrap).
+
+Prediction under the two-force account: slope(A) < 0. Human-like comprehension predicts slope(lingering) > 0, since in humans harder or longer garden paths leave *more* lingering. Opposite signs would be a clean dissociation of the two residues. A pipeline smoke test (GPT-2, CPU, 4 OT + 3 RAT families, 6 targets) ran end to end. Its numbers are not results.
