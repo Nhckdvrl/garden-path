@@ -18,6 +18,8 @@ Checking the item-level structure on the second target measure (L = comma-placem
 
 **Caveats:** first discovered post-hoc; E010 is the prospective check.
 
+**Peer-session corroboration (E003, Christianson OT items, 42 families, reliabilities ≥ .90; reported by the peer, not re-analysed here):** A_L tracks object expectation at the verb in 4/4 models (r = +.27 to +.59): the commitment force on independent items. Comprehension lingering (Yes rates to *Did the man hunt the deer?*, .74–.93) is near ceiling. Its item variance follows the CUE-condition pragmatic baseline, not obj_expect, gp_eff or A_L, and corr(lingering, A_L) ranges −.31 to +.14. Comprehension lingering and the production-like residue are both large but governed by different item properties: the two "residues" dissociate.
+
 **Further hypothesis (post-hoc, E004 on L):** the two forces may differ in *kind*. On L, an exact non-garden-pathed GP copy adds roughly as much object-attachment residue as a TB copy (in the 5 models where repetition is not saturated), unlike on S. So the production-like residue may be **configuration-level** (local coherence of `V the N`), not a lingering misanalysis episode, while the comprehension-like adaptation needs the garden-path error. Test: E011. The commitment slope on S is weak on held-out items (8/17), so commitment is more robust on L. The constructions beyond NP/Z (E007/E008) have only S.
 
 ## 2026-10-13 (morning) — CORRECTION: the commitment residue survives punctuation-free disambiguation (E009)
