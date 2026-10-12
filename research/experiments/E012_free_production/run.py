@@ -3,6 +3,10 @@
 Usage: python run.py --models tag=path [...] [--n 2]
 Writes results/gp/E012/<tag>.gen.csv.gz (one row per sample, with coding) and <tag>.meta.json.
 """
+import os
+
+os.environ.setdefault("VLLM_WORKER_MULTIPROC_METHOD", "spawn")  # CUDA must not be initialised before fork
+
 import argparse
 import gc
 import gzip
@@ -13,7 +17,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[3]
 sys.path.insert(0, str(ROOT / "research/tools"))
-from transitivity import classify  # noqa: E402
 
 SPEC = ROOT / "research/experiments/E002_surface_vs_analysis/spec.jsonl"
 FAMS = ROOT / "data/gp_behavior/derived/npz_prime_families_v1.jsonl"
@@ -63,11 +66,14 @@ def main():
             continue
         try:
             t0 = time.time()
-            llm = LLM(model=path, dtype="bfloat16", max_model_len=256, gpu_memory_utilization=a.gpu_mem,
-                      seed=0, enforce_eager=False)
+            # vLLM 0.11.0 sizes its sampled-token pinned buffer by max_model_len, not max_num_seqs:
+            # keep max_model_len >= max_num_seqs or the engine crashes in _to_list.
+            llm = LLM(model=path, dtype="bfloat16", max_model_len=1024, max_num_seqs=512,
+                      gpu_memory_utilization=a.gpu_mem, seed=0)
             sp = SamplingParams(n=a.n, temperature=1.0, top_p=1.0, max_tokens=24, seed=0, stop=["\n"])
             outs = llm.generate(prompts, sp)
             tg = time.time() - t0
+            from transitivity import classify  # imported after generation (spaCy pulls in torch)
             with gzip.open(OUT / f"{tag}.gen.csv.gz", "wt") as f:
                 f.write("prime_family\tcond\ttarget_family\tsample\tcls\tcomma\tgp_style\tcontinuation\n")
                 for (pf, c, tf, frag), o in zip(keys, outs):

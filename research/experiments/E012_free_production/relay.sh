@@ -10,7 +10,7 @@ L1="qwen3-8b-base=Qwen/Qwen3-8B-Base qwen2.5-7b-instruct=Qwen/Qwen2.5-7B-Instruc
 lane() {  # gpu pid models log
   while kill -0 "$2" 2>/dev/null; do sleep 60; done
   echo "$(date) GPU$1 free (pid $2 exited); starting E012" >> "$4"
-  CUDA_VISIBLE_DEVICES=$1 $PY $R --models $3 >> "$4" 2>&1
+  research/experiments/E012_free_production/lane.sh $1 "$4" $3
 }
 mkdir -p logs/gp
 lane 0 "$1" "$L0" logs/gp/E012_lane0.log &
