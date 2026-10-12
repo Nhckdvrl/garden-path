@@ -21,3 +21,9 @@ Statistic (S = −lpD, comma-free target measure; L also reported):
 | Manipulation failure | the GP copy-2 garden-path effect stays well above 0. Then no inference. |
 
 Unit = prime family (93), two-way bootstrap. Same targets as E002.
+
+## Post-hoc reading of the L measure (recorded 2026-10-13; L was reported, not the primary measure)
+
+- **S (primary, 10 models):** the exact second GP copy (manipulation check passes: garden-path effect ≈ 0) never adds transitive residue (dA −0.23 to +0.07), while TB copies add where repetition adds at all. The adaptation/residue on S depends on the garden-path episode.
+- **L (comma-placement, production-like; 17 models):** single-copy GP residue is large (rA1 ≈ 0.4–1.5). Where repetition adds anything on L, the non-garden-pathed GP copy adds about as much as a TB copy, or more: Gemma-2-2B 0.19 vs 0.21; Qwen2.5-3B 0.63 vs 0.70; Qwen3-1.7B 0.14 vs 0.27; Pythia-1.4B 0.11 vs 0.04; Qwen2.5-0.5B 0.14 vs 0.04. Many models saturate (dAfull ≈ 0) and are uninformative.
+- **Hypothesis (not established):** the production-like residue is **configuration-level** priming. The locally coherent substring `V the N` primes object attachment regardless of its global parse or processing history (cf. local-coherence effects, Tabor, Galantucci & Richardson 2004). It is not a lingering misanalysis *episode*. The comprehension-like adaptation is episode-dependent. Test planned: E011.
