@@ -1,0 +1,320 @@
+{"family_id": "amouyal_nps:s1", "cond": "GP", "prime": "The student forgot the solution was in the back of the book.", "extra_stems": ["hoped"], "probes": [["The student forgot the solution", " was", "GP_dis"], ["The student forgot that the solution", " was", "CUE_dis"], ["The student forgot", " the", "V_the"], ["The student forgot", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s1", "cond": "CUE", "prime": "The student forgot that the solution was in the back of the book.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s1", "cond": "NB", "prime": "The student hoped the solution was in the back of the book.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s1", "cond": "NC", "prime": "The student hoped that the solution was in the back of the book.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s1", "cond": "TB", "prime": "The student forgot the solution which was in the back of the book.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s2", "cond": "GP", "prime": "The chef remembered the recipe required two hours of cooking.", "extra_stems": ["thoug"], "probes": [["The chef remembered the recipe", " required", "GP_dis"], ["The chef remembered that the recipe", " required", "CUE_dis"], ["The chef remembered", " the", "V_the"], ["The chef remembered", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s2", "cond": "CUE", "prime": "The chef remembered that the recipe required two hours of cooking.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s2", "cond": "NB", "prime": "The chef thought the recipe required two hours of cooking.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s2", "cond": "NC", "prime": "The chef thought that the recipe required two hours of cooking.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s2", "cond": "TB", "prime": "The chef remembered the recipe which required two hours of cooking.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s3", "cond": "GP", "prime": "The coach discovered the player tried to show off all the time.", "extra_stems": ["insis"], "probes": [["The coach discovered the player", " tried", "GP_dis"], ["The coach discovered that the player", " tried", "CUE_dis"], ["The coach discovered", " the", "V_the"], ["The coach discovered", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s3", "cond": "CUE", "prime": "The coach discovered that the player tried to show off all the time.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s3", "cond": "NB", "prime": "The coach insisted the player tried to show off all the time.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s3", "cond": "NC", "prime": "The coach insisted that the player tried to show off all the time.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s3", "cond": "TB", "prime": "The coach discovered the player who tried to show off all the time.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s4", "cond": "GP", "prime": "The student understood the question was too hard.", "extra_stems": ["prete"], "probes": [["The student understood the question", " was", "GP_dis"], ["The student understood that the question", " was", "CUE_dis"], ["The student understood", " the", "V_the"], ["The student understood", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s4", "cond": "CUE", "prime": "The student understood that the question was too hard.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s4", "cond": "NB", "prime": "The student pretended the question was too hard.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s4", "cond": "NC", "prime": "The student pretended that the question was too hard.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s4", "cond": "TB", "prime": "The student understood the question which was too hard.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s5", "cond": "GP", "prime": "The musician heard the song was good.", "extra_stems": ["wishe"], "probes": [["The musician heard the song", " was", "GP_dis"], ["The musician heard that the song", " was", "CUE_dis"], ["The musician heard", " the", "V_the"], ["The musician heard", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s5", "cond": "CUE", "prime": "The musician heard that the song was good.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s5", "cond": "NB", "prime": "The musician wished the song was good.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s5", "cond": "NC", "prime": "The musician wished that the song was good.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s5", "cond": "TB", "prime": "The musician heard the song which was good.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s6", "cond": "GP", "prime": "The reporter believed the story turned out problematic.", "extra_stems": ["boast"], "probes": [["The reporter believed the story", " turned", "GP_dis"], ["The reporter believed that the story", " turned", "CUE_dis"], ["The reporter believed", " the", "V_the"], ["The reporter believed", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s6", "cond": "CUE", "prime": "The reporter believed that the story turned out problematic.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s6", "cond": "NB", "prime": "The reporter boasted the story turned out problematic.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s6", "cond": "NC", "prime": "The reporter boasted that the story turned out problematic.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s6", "cond": "TB", "prime": "The reporter believed the story which turned out problematic.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s7", "cond": "GP", "prime": "She recalled the conversation ended abruptly.", "extra_stems": ["recko"], "probes": [["She recalled the conversation", " ended", "GP_dis"], ["She recalled that the conversation", " ended", "CUE_dis"], ["She recalled", " the", "V_the"], ["She recalled", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s7", "cond": "CUE", "prime": "She recalled that the conversation ended abruptly.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s7", "cond": "NB", "prime": "She reckoned the conversation ended abruptly.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s7", "cond": "NC", "prime": "She reckoned that the conversation ended abruptly.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s7", "cond": "TB", "prime": "She recalled the conversation which ended abruptly.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s8", "cond": "GP", "prime": "Tom noticed the murderer left town.", "extra_stems": ["compl"], "probes": [["Tom noticed the murderer", " left", "GP_dis"], ["Tom noticed that the murderer", " left", "CUE_dis"], ["Tom noticed", " the", "V_the"], ["Tom noticed", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s8", "cond": "CUE", "prime": "Tom noticed that the murderer left town.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s8", "cond": "NB", "prime": "Tom complained the murderer left town.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s8", "cond": "NC", "prime": "Tom complained that the murderer left town.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s8", "cond": "TB", "prime": "Tom noticed the murderer who left town.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s9", "cond": "GP", "prime": "The policeman saw the lights were off.", "extra_stems": ["hoped"], "probes": [["The policeman saw the lights", " were", "GP_dis"], ["The policeman saw that the lights", " were", "CUE_dis"], ["The policeman saw", " the", "V_the"], ["The policeman saw", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s9", "cond": "CUE", "prime": "The policeman saw that the lights were off.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s9", "cond": "NB", "prime": "The policeman hoped the lights were off.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s9", "cond": "NC", "prime": "The policeman hoped that the lights were off.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s9", "cond": "TB", "prime": "The policeman saw the lights which were off.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s10", "cond": "GP", "prime": "The journalist shared the scoop was fake.", "extra_stems": ["thoug"], "probes": [["The journalist shared the scoop", " was", "GP_dis"], ["The journalist shared that the scoop", " was", "CUE_dis"], ["The journalist shared", " the", "V_the"], ["The journalist shared", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s10", "cond": "CUE", "prime": "The journalist shared that the scoop was fake.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s10", "cond": "NB", "prime": "The journalist thought the scoop was fake.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s10", "cond": "NC", "prime": "The journalist thought that the scoop was fake.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s10", "cond": "TB", "prime": "The journalist shared the scoop which was fake.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s11", "cond": "GP", "prime": "The manager noticed the report was overdue.", "extra_stems": ["insis"], "probes": [["The manager noticed the report", " was", "GP_dis"], ["The manager noticed that the report", " was", "CUE_dis"], ["The manager noticed", " the", "V_the"], ["The manager noticed", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s11", "cond": "CUE", "prime": "The manager noticed that the report was overdue.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s11", "cond": "NB", "prime": "The manager insisted the report was overdue.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s11", "cond": "NC", "prime": "The manager insisted that the report was overdue.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s11", "cond": "TB", "prime": "The manager noticed the report which was overdue.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s12", "cond": "GP", "prime": "The art curator explained the painting sold for 4 million dollars.", "extra_stems": ["prete"], "probes": [["The art curator explained the painting", " sold", "GP_dis"], ["The art curator explained that the painting", " sold", "CUE_dis"], ["The art curator explained", " the", "V_the"], ["The art curator explained", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s12", "cond": "CUE", "prime": "The art curator explained that the painting sold for 4 million dollars.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s12", "cond": "NB", "prime": "The art curator pretended the painting sold for 4 million dollars.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s12", "cond": "NC", "prime": "The art curator pretended that the painting sold for 4 million dollars.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s12", "cond": "TB", "prime": "The art curator explained the painting which sold for 4 million dollars.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s13", "cond": "GP", "prime": "The driver knew the road was slippery.", "extra_stems": ["wishe"], "probes": [["The driver knew the road", " was", "GP_dis"], ["The driver knew that the road", " was", "CUE_dis"], ["The driver knew", " the", "V_the"], ["The driver knew", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s13", "cond": "CUE", "prime": "The driver knew that the road was slippery.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s13", "cond": "NB", "prime": "The driver wished the road was slippery.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s13", "cond": "NC", "prime": "The driver wished that the road was slippery.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s13", "cond": "TB", "prime": "The driver knew the road which was slippery.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s14", "cond": "GP", "prime": "The professor realized the experiment failed due to contamination.", "extra_stems": ["boast"], "probes": [["The professor realized the experiment", " failed", "GP_dis"], ["The professor realized that the experiment", " failed", "CUE_dis"], ["The professor realized", " the", "V_the"], ["The professor realized", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s14", "cond": "CUE", "prime": "The professor realized that the experiment failed due to contamination.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s14", "cond": "NB", "prime": "The professor boasted the experiment failed due to contamination.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s14", "cond": "NC", "prime": "The professor boasted that the experiment failed due to contamination.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s14", "cond": "TB", "prime": "The professor realized the experiment which failed due to contamination.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s15", "cond": "GP", "prime": "The plaintiff accepted the verdict was unfair.", "extra_stems": ["recko"], "probes": [["The plaintiff accepted the verdict", " was", "GP_dis"], ["The plaintiff accepted that the verdict", " was", "CUE_dis"], ["The plaintiff accepted", " the", "V_the"], ["The plaintiff accepted", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s15", "cond": "CUE", "prime": "The plaintiff accepted that the verdict was unfair.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s15", "cond": "NB", "prime": "The plaintiff reckoned the verdict was unfair.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s15", "cond": "NC", "prime": "The plaintiff reckoned that the verdict was unfair.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s15", "cond": "TB", "prime": "The plaintiff accepted the verdict which was unfair.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s16", "cond": "GP", "prime": "The committee found the proposal was flawed.", "extra_stems": ["compl"], "probes": [["The committee found the proposal", " was", "GP_dis"], ["The committee found that the proposal", " was", "CUE_dis"], ["The committee found", " the", "V_the"], ["The committee found", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s16", "cond": "CUE", "prime": "The committee found that the proposal was flawed.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s16", "cond": "NB", "prime": "The committee complained the proposal was flawed.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s16", "cond": "NC", "prime": "The committee complained that the proposal was flawed.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s16", "cond": "TB", "prime": "The committee found the proposal which was flawed.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s17", "cond": "GP", "prime": "The editor mentioned the errors were corrected.", "extra_stems": ["hoped"], "probes": [["The editor mentioned the errors", " were", "GP_dis"], ["The editor mentioned that the errors", " were", "CUE_dis"], ["The editor mentioned", " the", "V_the"], ["The editor mentioned", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s17", "cond": "CUE", "prime": "The editor mentioned that the errors were corrected.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s17", "cond": "NB", "prime": "The editor hoped the errors were corrected.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s17", "cond": "NC", "prime": "The editor hoped that the errors were corrected.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s17", "cond": "TB", "prime": "The editor mentioned the errors which were corrected.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s18", "cond": "GP", "prime": "The archaeologist revealed the artifact broke during extraction.", "extra_stems": ["thoug"], "probes": [["The archaeologist revealed the artifact", " broke", "GP_dis"], ["The archaeologist revealed that the artifact", " broke", "CUE_dis"], ["The archaeologist revealed", " the", "V_the"], ["The archaeologist revealed", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s18", "cond": "CUE", "prime": "The archaeologist revealed that the artifact broke during extraction.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s18", "cond": "NB", "prime": "The archaeologist thought the artifact broke during extraction.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s18", "cond": "NC", "prime": "The archaeologist thought that the artifact broke during extraction.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s18", "cond": "TB", "prime": "The archaeologist revealed the artifact which broke during extraction.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s19", "cond": "GP", "prime": "The new hire learned Spanish was mandatory for client meetings.", "extra_stems": ["insis"], "probes": [["The new hire learned Spanish", " was", "GP_dis"], ["The new hire learned that Spanish", " was", "CUE_dis"], ["The new hire learned", " the", "V_the"], ["The new hire learned", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s19", "cond": "CUE", "prime": "The new hire learned that Spanish was mandatory for client meetings.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s19", "cond": "NB", "prime": "The new hire insisted Spanish was mandatory for client meetings.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s19", "cond": "NC", "prime": "The new hire insisted that Spanish was mandatory for client meetings.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s19", "cond": "TB", "prime": "The new hire learned Spanish which was mandatory for client meetings.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s20", "cond": "GP", "prime": "The detective disclosed the evidence was only recently found.", "extra_stems": ["prete"], "probes": [["The detective disclosed the evidence", " was", "GP_dis"], ["The detective disclosed that the evidence", " was", "CUE_dis"], ["The detective disclosed", " the", "V_the"], ["The detective disclosed", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s20", "cond": "CUE", "prime": "The detective disclosed that the evidence was only recently found.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s20", "cond": "NB", "prime": "The detective pretended the evidence was only recently found.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s20", "cond": "NC", "prime": "The detective pretended that the evidence was only recently found.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s20", "cond": "TB", "prime": "The detective disclosed the evidence which was only recently found.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s21", "cond": "GP", "prime": "The scientist proved the theory was incorrect after experiments.", "extra_stems": ["wishe"], "probes": [["The scientist proved the theory", " was", "GP_dis"], ["The scientist proved that the theory", " was", "CUE_dis"], ["The scientist proved", " the", "V_the"], ["The scientist proved", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s21", "cond": "CUE", "prime": "The scientist proved that the theory was incorrect after experiments.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s21", "cond": "NB", "prime": "The scientist wished the theory was incorrect after experiments.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s21", "cond": "NC", "prime": "The scientist wished that the theory was incorrect after experiments.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s21", "cond": "TB", "prime": "The scientist proved the theory which was incorrect after experiments.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s22", "cond": "GP", "prime": "The president announced the policy was approved unanimously.", "extra_stems": ["boast"], "probes": [["The president announced the policy", " was", "GP_dis"], ["The president announced that the policy", " was", "CUE_dis"], ["The president announced", " the", "V_the"], ["The president announced", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s22", "cond": "CUE", "prime": "The president announced that the policy was approved unanimously.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s22", "cond": "NB", "prime": "The president boasted the policy was approved unanimously.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s22", "cond": "NC", "prime": "The president boasted that the policy was approved unanimously.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s22", "cond": "TB", "prime": "The president announced the policy which was approved unanimously.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s23", "cond": "GP", "prime": "The tennisman conceded the point was beautiful.", "extra_stems": ["recko"], "probes": [["The tennisman conceded the point", " was", "GP_dis"], ["The tennisman conceded that the point", " was", "CUE_dis"], ["The tennisman conceded", " the", "V_the"], ["The tennisman conceded", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s23", "cond": "CUE", "prime": "The tennisman conceded that the point was beautiful.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s23", "cond": "NB", "prime": "The tennisman reckoned the point was beautiful.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s23", "cond": "NC", "prime": "The tennisman reckoned that the point was beautiful.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s23", "cond": "TB", "prime": "The tennisman conceded the point which was beautiful.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s24", "cond": "GP", "prime": "The president declared war was not an option.", "extra_stems": ["compl"], "probes": [["The president declared war", " was", "GP_dis"], ["The president declared that war", " was", "CUE_dis"], ["The president declared", " the", "V_the"], ["The president declared", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s24", "cond": "CUE", "prime": "The president declared that war was not an option.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s24", "cond": "NB", "prime": "The president complained war was not an option.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s24", "cond": "NC", "prime": "The president complained that war was not an option.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s24", "cond": "TB", "prime": "The president declared war which was not an option.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s25", "cond": "GP", "prime": "The filmmaker showed the movie was bad.", "extra_stems": ["hoped"], "probes": [["The filmmaker showed the movie", " was", "GP_dis"], ["The filmmaker showed that the movie", " was", "CUE_dis"], ["The filmmaker showed", " the", "V_the"], ["The filmmaker showed", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s25", "cond": "CUE", "prime": "The filmmaker showed that the movie was bad.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s25", "cond": "NB", "prime": "The filmmaker hoped the movie was bad.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s25", "cond": "NC", "prime": "The filmmaker hoped that the movie was bad.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s25", "cond": "TB", "prime": "The filmmaker showed the movie which was bad.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s26", "cond": "GP", "prime": "The guard recognized the visitor was armed.", "extra_stems": ["thoug"], "probes": [["The guard recognized the visitor", " was", "GP_dis"], ["The guard recognized that the visitor", " was", "CUE_dis"], ["The guard recognized", " the", "V_the"], ["The guard recognized", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s26", "cond": "CUE", "prime": "The guard recognized that the visitor was armed.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s26", "cond": "NB", "prime": "The guard thought the visitor was armed.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s26", "cond": "NC", "prime": "The guard thought that the visitor was armed.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s26", "cond": "TB", "prime": "The guard recognized the visitor who was armed.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s27", "cond": "GP", "prime": "The couple regretted the wedding lasted only 2 hours.", "extra_stems": ["insis"], "probes": [["The couple regretted the wedding", " lasted", "GP_dis"], ["The couple regretted that the wedding", " lasted", "CUE_dis"], ["The couple regretted", " the", "V_the"], ["The couple regretted", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s27", "cond": "CUE", "prime": "The couple regretted that the wedding lasted only 2 hours.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s27", "cond": "NB", "prime": "The couple insisted the wedding lasted only 2 hours.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s27", "cond": "NC", "prime": "The couple insisted that the wedding lasted only 2 hours.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s27", "cond": "TB", "prime": "The couple regretted the wedding which lasted only 2 hours.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s28", "cond": "GP", "prime": "The reporter repeated the claim was false.", "extra_stems": ["prete"], "probes": [["The reporter repeated the claim", " was", "GP_dis"], ["The reporter repeated that the claim", " was", "CUE_dis"], ["The reporter repeated", " the", "V_the"], ["The reporter repeated", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s28", "cond": "CUE", "prime": "The reporter repeated that the claim was false.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s28", "cond": "NB", "prime": "The reporter pretended the claim was false.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s28", "cond": "NC", "prime": "The reporter pretended that the claim was false.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s28", "cond": "TB", "prime": "The reporter repeated the claim which was false.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s29", "cond": "GP", "prime": "The driver forgot the car slowed down at night.", "extra_stems": ["wishe"], "probes": [["The driver forgot the car", " slowed", "GP_dis"], ["The driver forgot that the car", " slowed", "CUE_dis"], ["The driver forgot", " the", "V_the"], ["The driver forgot", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s29", "cond": "CUE", "prime": "The driver forgot that the car slowed down at night.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s29", "cond": "NB", "prime": "The driver wished the car slowed down at night.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s29", "cond": "NC", "prime": "The driver wished that the car slowed down at night.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s29", "cond": "TB", "prime": "The driver forgot the car which slowed down at night.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s30", "cond": "GP", "prime": "The guard remembered the code changed last night.", "extra_stems": ["boast"], "probes": [["The guard remembered the code", " changed", "GP_dis"], ["The guard remembered that the code", " changed", "CUE_dis"], ["The guard remembered", " the", "V_the"], ["The guard remembered", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s30", "cond": "CUE", "prime": "The guard remembered that the code changed last night.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s30", "cond": "NB", "prime": "The guard boasted the code changed last night.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s30", "cond": "NC", "prime": "The guard boasted that the code changed last night.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s30", "cond": "TB", "prime": "The guard remembered the code which changed last night.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s31", "cond": "GP", "prime": "The tourist discovered the bridge was closed for the holiday.", "extra_stems": ["recko"], "probes": [["The tourist discovered the bridge", " was", "GP_dis"], ["The tourist discovered that the bridge", " was", "CUE_dis"], ["The tourist discovered", " the", "V_the"], ["The tourist discovered", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s31", "cond": "CUE", "prime": "The tourist discovered that the bridge was closed for the holiday.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s31", "cond": "NB", "prime": "The tourist reckoned the bridge was closed for the holiday.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s31", "cond": "NC", "prime": "The tourist reckoned that the bridge was closed for the holiday.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s31", "cond": "TB", "prime": "The tourist discovered the bridge which was closed for the holiday.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s32", "cond": "GP", "prime": "The undergrad understood the formula was too complicated for him.", "extra_stems": ["compl"], "probes": [["The undergrad understood the formula", " was", "GP_dis"], ["The undergrad understood that the formula", " was", "CUE_dis"], ["The undergrad understood", " the", "V_the"], ["The undergrad understood", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s32", "cond": "CUE", "prime": "The undergrad understood that the formula was too complicated for him.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s32", "cond": "NB", "prime": "The undergrad complained the formula was too complicated for him.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s32", "cond": "NC", "prime": "The undergrad complained that the formula was too complicated for him.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s32", "cond": "TB", "prime": "The undergrad understood the formula which was too complicated for him.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s33", "cond": "GP", "prime": "The manager heard the plan fell through.", "extra_stems": ["hoped"], "probes": [["The manager heard the plan", " fell", "GP_dis"], ["The manager heard that the plan", " fell", "CUE_dis"], ["The manager heard", " the", "V_the"], ["The manager heard", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s33", "cond": "CUE", "prime": "The manager heard that the plan fell through.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s33", "cond": "NB", "prime": "The manager hoped the plan fell through.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s33", "cond": "NC", "prime": "The manager hoped that the plan fell through.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s33", "cond": "TB", "prime": "The manager heard the plan which fell through.", "extra_stems": ["hoped"]}
+{"family_id": "amouyal_nps:s34", "cond": "GP", "prime": "The analyst believed the numbers were wrong.", "extra_stems": ["thoug"], "probes": [["The analyst believed the numbers", " were", "GP_dis"], ["The analyst believed that the numbers", " were", "CUE_dis"], ["The analyst believed", " the", "V_the"], ["The analyst believed", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s34", "cond": "CUE", "prime": "The analyst believed that the numbers were wrong.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s34", "cond": "NB", "prime": "The analyst thought the numbers were wrong.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s34", "cond": "NC", "prime": "The analyst thought that the numbers were wrong.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s34", "cond": "TB", "prime": "The analyst believed the numbers which were wrong.", "extra_stems": ["thoug"]}
+{"family_id": "amouyal_nps:s35", "cond": "GP", "prime": "The painter recalled the model stood him up.", "extra_stems": ["insis"], "probes": [["The painter recalled the model", " stood", "GP_dis"], ["The painter recalled that the model", " stood", "CUE_dis"], ["The painter recalled", " the", "V_the"], ["The painter recalled", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s35", "cond": "CUE", "prime": "The painter recalled that the model stood him up.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s35", "cond": "NB", "prime": "The painter insisted the model stood him up.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s35", "cond": "NC", "prime": "The painter insisted that the model stood him up.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s35", "cond": "TB", "prime": "The painter recalled the model who stood him up.", "extra_stems": ["insis"]}
+{"family_id": "amouyal_nps:s36", "cond": "GP", "prime": "The guard saw the diamond disappeared overnight.", "extra_stems": ["prete"], "probes": [["The guard saw the diamond", " disappeared", "GP_dis"], ["The guard saw that the diamond", " disappeared", "CUE_dis"], ["The guard saw", " the", "V_the"], ["The guard saw", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s36", "cond": "CUE", "prime": "The guard saw that the diamond disappeared overnight.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s36", "cond": "NB", "prime": "The guard pretended the diamond disappeared overnight.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s36", "cond": "NC", "prime": "The guard pretended that the diamond disappeared overnight.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s36", "cond": "TB", "prime": "The guard saw the diamond which disappeared overnight.", "extra_stems": ["prete"]}
+{"family_id": "amouyal_nps:s37", "cond": "GP", "prime": "The critic knew the song was very popular.", "extra_stems": ["wishe"], "probes": [["The critic knew the song", " was", "GP_dis"], ["The critic knew that the song", " was", "CUE_dis"], ["The critic knew", " the", "V_the"], ["The critic knew", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s37", "cond": "CUE", "prime": "The critic knew that the song was very popular.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s37", "cond": "NB", "prime": "The critic wished the song was very popular.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s37", "cond": "NC", "prime": "The critic wished that the song was very popular.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s37", "cond": "TB", "prime": "The critic knew the song which was very popular.", "extra_stems": ["wishe"]}
+{"family_id": "amouyal_nps:s38", "cond": "GP", "prime": "The student learned the lesson was canceled.", "extra_stems": ["boast"], "probes": [["The student learned the lesson", " was", "GP_dis"], ["The student learned that the lesson", " was", "CUE_dis"], ["The student learned", " the", "V_the"], ["The student learned", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s38", "cond": "CUE", "prime": "The student learned that the lesson was canceled.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s38", "cond": "NB", "prime": "The student boasted the lesson was canceled.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s38", "cond": "NC", "prime": "The student boasted that the lesson was canceled.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s38", "cond": "TB", "prime": "The student learned the lesson which was canceled.", "extra_stems": ["boast"]}
+{"family_id": "amouyal_nps:s39", "cond": "GP", "prime": "The experiment proved the claim was incorrect.", "extra_stems": ["recko"], "probes": [["The experiment proved the claim", " was", "GP_dis"], ["The experiment proved that the claim", " was", "CUE_dis"], ["The experiment proved", " the", "V_the"], ["The experiment proved", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s39", "cond": "CUE", "prime": "The experiment proved that the claim was incorrect.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s39", "cond": "NB", "prime": "The experiment reckoned the claim was incorrect.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s39", "cond": "NC", "prime": "The experiment reckoned that the claim was incorrect.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s39", "cond": "TB", "prime": "The experiment proved the claim which was incorrect.", "extra_stems": ["recko"]}
+{"family_id": "amouyal_nps:s40", "cond": "GP", "prime": "The musician recognized the song was catchy.", "extra_stems": ["compl"], "probes": [["The musician recognized the song", " was", "GP_dis"], ["The musician recognized that the song", " was", "CUE_dis"], ["The musician recognized", " the", "V_the"], ["The musician recognized", " that", "V_that"]]}
+{"family_id": "amouyal_nps:s40", "cond": "CUE", "prime": "The musician recognized that the song was catchy.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s40", "cond": "NB", "prime": "The musician complained the song was catchy.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s40", "cond": "NC", "prime": "The musician complained that the song was catchy.", "extra_stems": ["compl"]}
+{"family_id": "amouyal_nps:s40", "cond": "TB", "prime": "The musician recognized the song which was catchy.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:1", "cond": "GP", "prime": "The suspect showed the file deserved further investigation during the murder trial.", "extra_stems": ["hoped"], "probes": [["The suspect showed the file", " deserved", "GP_dis"], ["The suspect showed that the file", " deserved", "CUE_dis"], ["The suspect showed", " the", "V_the"], ["The suspect showed", " that", "V_that"]]}
+{"family_id": "sap_nps:1", "cond": "CUE", "prime": "The suspect showed that the file deserved further investigation during the murder trial.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:1", "cond": "NB", "prime": "The suspect hoped the file deserved further investigation during the murder trial.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:1", "cond": "NC", "prime": "The suspect hoped that the file deserved further investigation during the murder trial.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:1", "cond": "TB", "prime": "The suspect showed the file which deserved further investigation during the murder trial.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:2", "cond": "GP", "prime": "The corrupt politician mentioned the bill received unwelcome attention from southern voters.", "extra_stems": ["thoug"], "probes": [["The corrupt politician mentioned the bill", " received", "GP_dis"], ["The corrupt politician mentioned that the bill", " received", "CUE_dis"], ["The corrupt politician mentioned", " the", "V_the"], ["The corrupt politician mentioned", " that", "V_that"]]}
+{"family_id": "sap_nps:2", "cond": "CUE", "prime": "The corrupt politician mentioned that the bill received unwelcome attention from southern voters.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:2", "cond": "NB", "prime": "The corrupt politician thought the bill received unwelcome attention from southern voters.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:2", "cond": "NC", "prime": "The corrupt politician thought that the bill received unwelcome attention from southern voters.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:2", "cond": "TB", "prime": "The corrupt politician mentioned the bill which received unwelcome attention from southern voters.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:3", "cond": "GP", "prime": "The woman maintained the mail disappeared mysteriously from her front porch.", "extra_stems": ["insis"], "probes": [["The woman maintained the mail", " disappeared", "GP_dis"], ["The woman maintained that the mail", " disappeared", "CUE_dis"], ["The woman maintained", " the", "V_the"], ["The woman maintained", " that", "V_that"]]}
+{"family_id": "sap_nps:3", "cond": "CUE", "prime": "The woman maintained that the mail disappeared mysteriously from her front porch.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:3", "cond": "NB", "prime": "The woman insisted the mail disappeared mysteriously from her front porch.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:3", "cond": "NC", "prime": "The woman insisted that the mail disappeared mysteriously from her front porch.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:3", "cond": "TB", "prime": "The woman maintained the mail which disappeared mysteriously from her front porch.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:4", "cond": "GP", "prime": "The boy found the chicken stayed surprisingly happy in the new barn.", "extra_stems": ["prete"], "probes": [["The boy found the chicken", " stayed", "GP_dis"], ["The boy found that the chicken", " stayed", "CUE_dis"], ["The boy found", " the", "V_the"], ["The boy found", " that", "V_that"]]}
+{"family_id": "sap_nps:4", "cond": "CUE", "prime": "The boy found that the chicken stayed surprisingly happy in the new barn.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:4", "cond": "NB", "prime": "The boy pretended the chicken stayed surprisingly happy in the new barn.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:4", "cond": "NC", "prime": "The boy pretended that the chicken stayed surprisingly happy in the new barn.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:4", "cond": "TB", "prime": "The boy found the chicken which stayed surprisingly happy in the new barn.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:5", "cond": "GP", "prime": "The new doctor demonstrated the operation appeared increasingly likely to succeed.", "extra_stems": ["wishe"], "probes": [["The new doctor demonstrated the operation", " appeared", "GP_dis"], ["The new doctor demonstrated that the operation", " appeared", "CUE_dis"], ["The new doctor demonstrated", " the", "V_the"], ["The new doctor demonstrated", " that", "V_that"]]}
+{"family_id": "sap_nps:5", "cond": "CUE", "prime": "The new doctor demonstrated that the operation appeared increasingly likely to succeed.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:5", "cond": "NB", "prime": "The new doctor wished the operation appeared increasingly likely to succeed.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:5", "cond": "NC", "prime": "The new doctor wished that the operation appeared increasingly likely to succeed.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:5", "cond": "TB", "prime": "The new doctor demonstrated the operation which appeared increasingly likely to succeed.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:6", "cond": "GP", "prime": "The professor noticed the grant gained more attention from marine biologists.", "extra_stems": ["boast"], "probes": [["The professor noticed the grant", " gained", "GP_dis"], ["The professor noticed that the grant", " gained", "CUE_dis"], ["The professor noticed", " the", "V_the"], ["The professor noticed", " that", "V_that"]]}
+{"family_id": "sap_nps:6", "cond": "CUE", "prime": "The professor noticed that the grant gained more attention from marine biologists.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:6", "cond": "NB", "prime": "The professor boasted the grant gained more attention from marine biologists.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:6", "cond": "NC", "prime": "The professor boasted that the grant gained more attention from marine biologists.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:6", "cond": "TB", "prime": "The professor noticed the grant which gained more attention from marine biologists.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:7", "cond": "GP", "prime": "The technician reported the service stopped working almost immediately after the storm started.", "extra_stems": ["recko"], "probes": [["The technician reported the service", " stopped", "GP_dis"], ["The technician reported that the service", " stopped", "CUE_dis"], ["The technician reported", " the", "V_the"], ["The technician reported", " that", "V_that"]]}
+{"family_id": "sap_nps:7", "cond": "CUE", "prime": "The technician reported that the service stopped working almost immediately after the storm started.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:7", "cond": "NB", "prime": "The technician reckoned the service stopped working almost immediately after the storm started.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:7", "cond": "NC", "prime": "The technician reckoned that the service stopped working almost immediately after the storm started.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:7", "cond": "TB", "prime": "The technician reported the service which stopped working almost immediately after the storm started.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:8", "cond": "GP", "prime": "The mechanic observed the truck needed several more hours to be repaired.", "extra_stems": ["compl"], "probes": [["The mechanic observed the truck", " needed", "GP_dis"], ["The mechanic observed that the truck", " needed", "CUE_dis"], ["The mechanic observed", " the", "V_the"], ["The mechanic observed", " that", "V_that"]]}
+{"family_id": "sap_nps:8", "cond": "CUE", "prime": "The mechanic observed that the truck needed several more hours to be repaired.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:8", "cond": "NB", "prime": "The mechanic complained the truck needed several more hours to be repaired.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:8", "cond": "NC", "prime": "The mechanic complained that the truck needed several more hours to be repaired.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:8", "cond": "TB", "prime": "The mechanic observed the truck which needed several more hours to be repaired.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:9", "cond": "GP", "prime": "The guitarist knew the song failed dramatically because of the tensions within the band.", "extra_stems": ["hoped"], "probes": [["The guitarist knew the song", " failed", "GP_dis"], ["The guitarist knew that the song", " failed", "CUE_dis"], ["The guitarist knew", " the", "V_the"], ["The guitarist knew", " that", "V_that"]]}
+{"family_id": "sap_nps:9", "cond": "CUE", "prime": "The guitarist knew that the song failed dramatically because of the tensions within the band.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:9", "cond": "NB", "prime": "The guitarist hoped the song failed dramatically because of the tensions within the band.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:9", "cond": "NC", "prime": "The guitarist hoped that the song failed dramatically because of the tensions within the band.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:9", "cond": "TB", "prime": "The guitarist knew the song which failed dramatically because of the tensions within the band.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:10", "cond": "GP", "prime": "The player revealed the bonus remained essentially the same as in the original contract.", "extra_stems": ["thoug"], "probes": [["The player revealed the bonus", " remained", "GP_dis"], ["The player revealed that the bonus", " remained", "CUE_dis"], ["The player revealed", " the", "V_the"], ["The player revealed", " that", "V_that"]]}
+{"family_id": "sap_nps:10", "cond": "CUE", "prime": "The player revealed that the bonus remained essentially the same as in the original contract.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:10", "cond": "NB", "prime": "The player thought the bonus remained essentially the same as in the original contract.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:10", "cond": "NC", "prime": "The player thought that the bonus remained essentially the same as in the original contract.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:10", "cond": "TB", "prime": "The player revealed the bonus which remained essentially the same as in the original contract.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:11", "cond": "GP", "prime": "The recent hire claimed the job prepared many students for careers in media.", "extra_stems": ["insis"], "probes": [["The recent hire claimed the job", " prepared", "GP_dis"], ["The recent hire claimed that the job", " prepared", "CUE_dis"], ["The recent hire claimed", " the", "V_the"], ["The recent hire claimed", " that", "V_that"]]}
+{"family_id": "sap_nps:11", "cond": "CUE", "prime": "The recent hire claimed that the job prepared many students for careers in media.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:11", "cond": "NB", "prime": "The recent hire insisted the job prepared many students for careers in media.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:11", "cond": "NC", "prime": "The recent hire insisted that the job prepared many students for careers in media.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:11", "cond": "TB", "prime": "The recent hire claimed the job which prepared many students for careers in media.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:12", "cond": "GP", "prime": "The assistant manager discovered the training seemed unnecessarily demanding for new staff.", "extra_stems": ["prete"], "probes": [["The assistant manager discovered the training", " seemed", "GP_dis"], ["The assistant manager discovered that the training", " seemed", "CUE_dis"], ["The assistant manager discovered", " the", "V_the"], ["The assistant manager discovered", " that", "V_that"]]}
+{"family_id": "sap_nps:12", "cond": "CUE", "prime": "The assistant manager discovered that the training seemed unnecessarily demanding for new staff.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:12", "cond": "NB", "prime": "The assistant manager pretended the training seemed unnecessarily demanding for new staff.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:12", "cond": "NC", "prime": "The assistant manager pretended that the training seemed unnecessarily demanding for new staff.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:12", "cond": "TB", "prime": "The assistant manager discovered the training which seemed unnecessarily demanding for new staff.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:13", "cond": "GP", "prime": "The mayor showed the document provided sufficient evidence to prove her innocence.", "extra_stems": ["wishe"], "probes": [["The mayor showed the document", " provided", "GP_dis"], ["The mayor showed that the document", " provided", "CUE_dis"], ["The mayor showed", " the", "V_the"], ["The mayor showed", " that", "V_that"]]}
+{"family_id": "sap_nps:13", "cond": "CUE", "prime": "The mayor showed that the document provided sufficient evidence to prove her innocence.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:13", "cond": "NB", "prime": "The mayor wished the document provided sufficient evidence to prove her innocence.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:13", "cond": "NC", "prime": "The mayor wished that the document provided sufficient evidence to prove her innocence.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:13", "cond": "TB", "prime": "The mayor showed the document which provided sufficient evidence to prove her innocence.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:14", "cond": "GP", "prime": "The basketball player mentioned the contract created another controversy in the NBA.", "extra_stems": ["boast"], "probes": [["The basketball player mentioned the contract", " created", "GP_dis"], ["The basketball player mentioned that the contract", " created", "CUE_dis"], ["The basketball player mentioned", " the", "V_the"], ["The basketball player mentioned", " that", "V_that"]]}
+{"family_id": "sap_nps:14", "cond": "CUE", "prime": "The basketball player mentioned that the contract created another controversy in the NBA.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:14", "cond": "NB", "prime": "The basketball player boasted the contract created another controversy in the NBA.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:14", "cond": "NC", "prime": "The basketball player boasted that the contract created another controversy in the NBA.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:14", "cond": "TB", "prime": "The basketball player mentioned the contract which created another controversy in the NBA.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:15", "cond": "GP", "prime": "The engineer maintained the equipment required constant supervision from senior technicians.", "extra_stems": ["recko"], "probes": [["The engineer maintained the equipment", " required", "GP_dis"], ["The engineer maintained that the equipment", " required", "CUE_dis"], ["The engineer maintained", " the", "V_the"], ["The engineer maintained", " that", "V_that"]]}
+{"family_id": "sap_nps:15", "cond": "CUE", "prime": "The engineer maintained that the equipment required constant supervision from senior technicians.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:15", "cond": "NB", "prime": "The engineer reckoned the equipment required constant supervision from senior technicians.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:15", "cond": "NC", "prime": "The engineer reckoned that the equipment required constant supervision from senior technicians.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:15", "cond": "TB", "prime": "The engineer maintained the equipment which required constant supervision from senior technicians.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:16", "cond": "GP", "prime": "The little girl found the lamb remained relatively calm despite the absence of its mother.", "extra_stems": ["compl"], "probes": [["The little girl found the lamb", " remained", "GP_dis"], ["The little girl found that the lamb", " remained", "CUE_dis"], ["The little girl found", " the", "V_the"], ["The little girl found", " that", "V_that"]]}
+{"family_id": "sap_nps:16", "cond": "CUE", "prime": "The little girl found that the lamb remained relatively calm despite the absence of its mother.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:16", "cond": "NB", "prime": "The little girl complained the lamb remained relatively calm despite the absence of its mother.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:16", "cond": "NC", "prime": "The little girl complained that the lamb remained relatively calm despite the absence of its mother.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:16", "cond": "TB", "prime": "The little girl found the lamb which remained relatively calm despite the absence of its mother.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:17", "cond": "GP", "prime": "The yoga instructor demonstrated the position demanded immense physical effort from everyone.", "extra_stems": ["hoped"], "probes": [["The yoga instructor demonstrated the position", " demanded", "GP_dis"], ["The yoga instructor demonstrated that the position", " demanded", "CUE_dis"], ["The yoga instructor demonstrated", " the", "V_the"], ["The yoga instructor demonstrated", " that", "V_that"]]}
+{"family_id": "sap_nps:17", "cond": "CUE", "prime": "The yoga instructor demonstrated that the position demanded immense physical effort from everyone.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:17", "cond": "NB", "prime": "The yoga instructor hoped the position demanded immense physical effort from everyone.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:17", "cond": "NC", "prime": "The yoga instructor hoped that the position demanded immense physical effort from everyone.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:17", "cond": "TB", "prime": "The yoga instructor demonstrated the position which demanded immense physical effort from everyone.", "extra_stems": ["hoped"]}
+{"family_id": "sap_nps:18", "cond": "GP", "prime": "The governor noticed the contract received sweeping support across the entire state.", "extra_stems": ["thoug"], "probes": [["The governor noticed the contract", " received", "GP_dis"], ["The governor noticed that the contract", " received", "CUE_dis"], ["The governor noticed", " the", "V_the"], ["The governor noticed", " that", "V_that"]]}
+{"family_id": "sap_nps:18", "cond": "CUE", "prime": "The governor noticed that the contract received sweeping support across the entire state.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:18", "cond": "NB", "prime": "The governor thought the contract received sweeping support across the entire state.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:18", "cond": "NC", "prime": "The governor thought that the contract received sweeping support across the entire state.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:18", "cond": "TB", "prime": "The governor noticed the contract which received sweeping support across the entire state.", "extra_stems": ["thoug"]}
+{"family_id": "sap_nps:19", "cond": "GP", "prime": "The patient reported the treatment continued causing uncomfortable side effects like nausea.", "extra_stems": ["insis"], "probes": [["The patient reported the treatment", " continued", "GP_dis"], ["The patient reported that the treatment", " continued", "CUE_dis"], ["The patient reported", " the", "V_the"], ["The patient reported", " that", "V_that"]]}
+{"family_id": "sap_nps:19", "cond": "CUE", "prime": "The patient reported that the treatment continued causing uncomfortable side effects like nausea.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:19", "cond": "NB", "prime": "The patient insisted the treatment continued causing uncomfortable side effects like nausea.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:19", "cond": "NC", "prime": "The patient insisted that the treatment continued causing uncomfortable side effects like nausea.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:19", "cond": "TB", "prime": "The patient reported the treatment which continued causing uncomfortable side effects like nausea.", "extra_stems": ["insis"]}
+{"family_id": "sap_nps:20", "cond": "GP", "prime": "The operator observed the machine started working efficiently all of a sudden.", "extra_stems": ["prete"], "probes": [["The operator observed the machine", " started", "GP_dis"], ["The operator observed that the machine", " started", "CUE_dis"], ["The operator observed", " the", "V_the"], ["The operator observed", " that", "V_that"]]}
+{"family_id": "sap_nps:20", "cond": "CUE", "prime": "The operator observed that the machine started working efficiently all of a sudden.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:20", "cond": "NB", "prime": "The operator pretended the machine started working efficiently all of a sudden.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:20", "cond": "NC", "prime": "The operator pretended that the machine started working efficiently all of a sudden.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:20", "cond": "TB", "prime": "The operator observed the machine which started working efficiently all of a sudden.", "extra_stems": ["prete"]}
+{"family_id": "sap_nps:21", "cond": "GP", "prime": "The dancer knew the ballet achieved incredible success for a small local production.", "extra_stems": ["wishe"], "probes": [["The dancer knew the ballet", " achieved", "GP_dis"], ["The dancer knew that the ballet", " achieved", "CUE_dis"], ["The dancer knew", " the", "V_the"], ["The dancer knew", " that", "V_that"]]}
+{"family_id": "sap_nps:21", "cond": "CUE", "prime": "The dancer knew that the ballet achieved incredible success for a small local production.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:21", "cond": "NB", "prime": "The dancer wished the ballet achieved incredible success for a small local production.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:21", "cond": "NC", "prime": "The dancer wished that the ballet achieved incredible success for a small local production.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:21", "cond": "TB", "prime": "The dancer knew the ballet which achieved incredible success for a small local production.", "extra_stems": ["wishe"]}
+{"family_id": "sap_nps:22", "cond": "GP", "prime": "The contestant revealed the money became unavailable to him when the show\\'s budget shrank.", "extra_stems": ["boast"], "probes": [["The contestant revealed the money", " became", "GP_dis"], ["The contestant revealed that the money", " became", "CUE_dis"], ["The contestant revealed", " the", "V_the"], ["The contestant revealed", " that", "V_that"]]}
+{"family_id": "sap_nps:22", "cond": "CUE", "prime": "The contestant revealed that the money became unavailable to him when the show\\'s budget shrank.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:22", "cond": "NB", "prime": "The contestant boasted the money became unavailable to him when the show\\'s budget shrank.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:22", "cond": "NC", "prime": "The contestant boasted that the money became unavailable to him when the show\\'s budget shrank.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:22", "cond": "TB", "prime": "The contestant revealed the money which became unavailable to him when the show\\'s budget shrank.", "extra_stems": ["boast"]}
+{"family_id": "sap_nps:23", "cond": "GP", "prime": "The new chef claimed the restaurant separated mediocre cooks from gifted ones.", "extra_stems": ["recko"], "probes": [["The new chef claimed the restaurant", " separated", "GP_dis"], ["The new chef claimed that the restaurant", " separated", "CUE_dis"], ["The new chef claimed", " the", "V_the"], ["The new chef claimed", " that", "V_that"]]}
+{"family_id": "sap_nps:23", "cond": "CUE", "prime": "The new chef claimed that the restaurant separated mediocre cooks from gifted ones.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:23", "cond": "NB", "prime": "The new chef reckoned the restaurant separated mediocre cooks from gifted ones.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:23", "cond": "NC", "prime": "The new chef reckoned that the restaurant separated mediocre cooks from gifted ones.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:23", "cond": "TB", "prime": "The new chef claimed the restaurant which separated mediocre cooks from gifted ones.", "extra_stems": ["recko"]}
+{"family_id": "sap_nps:24", "cond": "GP", "prime": "The apprentice baker discovered the oven produced smaller cakes because it heated too fast.", "extra_stems": ["compl"], "probes": [["The apprentice baker discovered the oven", " produced", "GP_dis"], ["The apprentice baker discovered that the oven", " produced", "CUE_dis"], ["The apprentice baker discovered", " the", "V_the"], ["The apprentice baker discovered", " that", "V_that"]]}
+{"family_id": "sap_nps:24", "cond": "CUE", "prime": "The apprentice baker discovered that the oven produced smaller cakes because it heated too fast.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:24", "cond": "NB", "prime": "The apprentice baker complained the oven produced smaller cakes because it heated too fast.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:24", "cond": "NC", "prime": "The apprentice baker complained that the oven produced smaller cakes because it heated too fast.", "extra_stems": ["compl"]}
+{"family_id": "sap_nps:24", "cond": "TB", "prime": "The apprentice baker discovered the oven which produced smaller cakes because it heated too fast.", "extra_stems": ["compl"]}
