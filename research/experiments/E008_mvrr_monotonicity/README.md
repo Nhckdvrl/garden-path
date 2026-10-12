@@ -31,3 +31,9 @@ Two documented overrides: upstream metadata typos are bypassed by deriving the v
 - **M2:** NP/Z discovery t_gp ≤ −2 → predict b_gp < 0.
 
 OLS `A ~ z(commit) + z(gp_strength)` over the 64 families, one-sided t > 1.645, sign test across models. The verdict on the two accounts uses M1 and M2 jointly, with E007 as the contrast.
+
+## Interim result (6 models; frozen rule)
+
+M1 (commitment b_obj > 0): **0/5**. M2 (error b_gp < 0): **3/4** (Llama-3.2-3B t = −3.5, Pythia-2.8b −3.2, Pythia-1.4b −1.9; Qwen2.5-0.5B −1.6 not confirmed). MV/RR garden paths are weak in these models (mean 0.9–2.4 nats), yet the error slope appears. NP/S (E007) had larger errors (2.3–3.0) and no error slope. So, for the **error** component, the monotonic/non-monotonic split fits. The commitment residue has appeared only in NP/Z. Caveat: the MV/RR commitment proxy (log[P(the)+P(a)] − log P(by) at the verb) is crude and especially poor for the SAP ditransitive items, so "commitment is NP/Z-specific" vs "proxy invalid outside NP/Z" is unresolved.
+
+(A counting bug in the printed summary, which showed M2 as 1/4, was fixed; the per-model table was correct.)

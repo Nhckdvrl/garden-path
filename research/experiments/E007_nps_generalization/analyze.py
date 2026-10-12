@@ -46,7 +46,7 @@ def main():
     print(r.round(2).to_string(index=False))
     w = r[r.exp == "E007_within"]
     for g in ("G1", "G2"):
-        x = w[g].dropna()
+        x = w[g].dropna().map(bool)
         if len(x):
             print(f"{g}: {int(x.sum())}/{len(x)} confirmed; sign test p={binomtest(int(x.sum()), len(x), 0.5, alternative='greater').pvalue:.4f}")
 

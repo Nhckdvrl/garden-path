@@ -25,6 +25,6 @@ for f in sorted(glob.glob(str(ROOT / f"results/gp/{EXP}/*.meta.json"))):
 r = pd.DataFrame(rows); r.to_csv(ROOT / f"results/gp/{EXP}/summary.csv", index=False)
 print(r.round(2).to_string(index=False))
 for g in ("M1", "M2"):
-    x = r[g].dropna()
+    x = r[g].dropna().map(bool)
     if len(x):
         print(f"{g}: {int(x.sum())}/{len(x)} confirmed; sign test p={binomtest(int(x.sum()), len(x), 0.5, alternative='greater').pvalue:.4f}")
