@@ -1,0 +1,276 @@
+{"family_id": "amouyal:set_10", "form": "GP", "qtype": "OBS", "sentence": "While the secretary typed the memo neared completion.", "question": "Did the secretary type the memo?"}
+{"family_id": "amouyal:set_10", "form": "GP", "qtype": "FINAL", "sentence": "While the secretary typed the memo neared completion.", "question": "Did the memo near completion?"}
+{"family_id": "amouyal:set_10", "form": "CUE", "qtype": "OBS", "sentence": "While the secretary typed, the memo neared completion.", "question": "Did the secretary type the memo?"}
+{"family_id": "amouyal:set_10", "form": "CUE", "qtype": "FINAL", "sentence": "While the secretary typed, the memo neared completion.", "question": "Did the memo near completion?"}
+{"family_id": "amouyal:set_11", "form": "GP", "qtype": "OBS", "sentence": "While the explorer paddled the canoe headed toward a waterfall.", "question": "Did the explorer paddle the canoe?"}
+{"family_id": "amouyal:set_11", "form": "GP", "qtype": "FINAL", "sentence": "While the explorer paddled the canoe headed toward a waterfall.", "question": "Did the canoe head toward a waterfall?"}
+{"family_id": "amouyal:set_11", "form": "CUE", "qtype": "OBS", "sentence": "While the explorer paddled, the canoe headed toward a waterfall.", "question": "Did the explorer paddle the canoe?"}
+{"family_id": "amouyal:set_11", "form": "CUE", "qtype": "FINAL", "sentence": "While the explorer paddled, the canoe headed toward a waterfall.", "question": "Did the canoe head toward a waterfall?"}
+{"family_id": "amouyal:set_12", "form": "GP", "qtype": "OBS", "sentence": "While the cowboy rode the horse sweated profusely.", "question": "Did the cowboy ride the horse?"}
+{"family_id": "amouyal:set_12", "form": "GP", "qtype": "FINAL", "sentence": "While the cowboy rode the horse sweated profusely.", "question": "Did the horse sweat profusely?"}
+{"family_id": "amouyal:set_12", "form": "CUE", "qtype": "OBS", "sentence": "While the cowboy rode, the horse sweated profusely.", "question": "Did the cowboy ride the horse?"}
+{"family_id": "amouyal:set_12", "form": "CUE", "qtype": "FINAL", "sentence": "While the cowboy rode, the horse sweated profusely.", "question": "Did the horse sweat profusely?"}
+{"family_id": "amouyal:set_13", "form": "GP", "qtype": "OBS", "sentence": "While Tom grilled the hot dog began to burn.", "question": "Did Tom grill the hot dog?"}
+{"family_id": "amouyal:set_13", "form": "GP", "qtype": "FINAL", "sentence": "While Tom grilled the hot dog began to burn.", "question": "Did the hot dog begin to burn?"}
+{"family_id": "amouyal:set_13", "form": "CUE", "qtype": "OBS", "sentence": "While Tom grilled, the hot dog began to burn.", "question": "Did Tom grill the hot dog?"}
+{"family_id": "amouyal:set_13", "form": "CUE", "qtype": "FINAL", "sentence": "While Tom grilled, the hot dog began to burn.", "question": "Did the hot dog begin to burn?"}
+{"family_id": "amouyal:set_14", "form": "GP", "qtype": "OBS", "sentence": "While the architect drew the building represented modern times style.", "question": "Did the architect draw the building?"}
+{"family_id": "amouyal:set_14", "form": "GP", "qtype": "FINAL", "sentence": "While the architect drew the building represented modern times style.", "question": "Did the building represent modern time style?"}
+{"family_id": "amouyal:set_14", "form": "CUE", "qtype": "OBS", "sentence": "While the architect drew, the building represented modern times style.", "question": "Did the architect draw the building?"}
+{"family_id": "amouyal:set_14", "form": "CUE", "qtype": "FINAL", "sentence": "While the architect drew, the building represented modern times style.", "question": "Did the building represent modern time style?"}
+{"family_id": "amouyal:set_15", "form": "GP", "qtype": "OBS", "sentence": "While the chef stirred the soup boiled over.", "question": "Did the chef stir the soup?"}
+{"family_id": "amouyal:set_15", "form": "GP", "qtype": "FINAL", "sentence": "While the chef stirred the soup boiled over.", "question": "Did the soup boil over?"}
+{"family_id": "amouyal:set_15", "form": "CUE", "qtype": "OBS", "sentence": "While the chef stirred, the soup boiled over.", "question": "Did the chef stir the soup?"}
+{"family_id": "amouyal:set_15", "form": "CUE", "qtype": "FINAL", "sentence": "While the chef stirred, the soup boiled over.", "question": "Did the soup boil over?"}
+{"family_id": "amouyal:set_16", "form": "GP", "qtype": "OBS", "sentence": "While the tourist explored the tunnel echoed with mysterious sounds.", "question": "Did the tourist explore the tunnel?"}
+{"family_id": "amouyal:set_16", "form": "GP", "qtype": "FINAL", "sentence": "While the tourist explored the tunnel echoed with mysterious sounds.", "question": "Did the tunnel echo with mysterious sounds?"}
+{"family_id": "amouyal:set_16", "form": "CUE", "qtype": "OBS", "sentence": "While the tourist explored, the tunnel echoed with mysterious sounds.", "question": "Did the tourist explore the tunnel?"}
+{"family_id": "amouyal:set_16", "form": "CUE", "qtype": "FINAL", "sentence": "While the tourist explored, the tunnel echoed with mysterious sounds.", "question": "Did the tunnel echo with mysterious sounds?"}
+{"family_id": "amouyal:set_17", "form": "GP", "qtype": "OBS", "sentence": "While the woman drank the water spilled on the floor.", "question": "Did the woman drink the water?"}
+{"family_id": "amouyal:set_17", "form": "GP", "qtype": "FINAL", "sentence": "While the woman drank the water spilled on the floor.", "question": "Did the water spill on the floor?"}
+{"family_id": "amouyal:set_17", "form": "CUE", "qtype": "OBS", "sentence": "While the woman drank, the water spilled on the floor.", "question": "Did the woman drink the water?"}
+{"family_id": "amouyal:set_17", "form": "CUE", "qtype": "FINAL", "sentence": "While the woman drank, the water spilled on the floor.", "question": "Did the water spill on the floor?"}
+{"family_id": "amouyal:set_18", "form": "GP", "qtype": "OBS", "sentence": "While the snake swallowed the frog kicked vigorously.", "question": "Did the snake swallow the frog?"}
+{"family_id": "amouyal:set_18", "form": "GP", "qtype": "FINAL", "sentence": "While the snake swallowed the frog kicked vigorously.", "question": "Did the frog kick vigorously?"}
+{"family_id": "amouyal:set_18", "form": "CUE", "qtype": "OBS", "sentence": "While the snake swallowed, the frog kicked vigorously.", "question": "Did the snake swallow the frog?"}
+{"family_id": "amouyal:set_18", "form": "CUE", "qtype": "FINAL", "sentence": "While the snake swallowed, the frog kicked vigorously.", "question": "Did the frog kick vigorously?"}
+{"family_id": "amouyal:set_19", "form": "GP", "qtype": "OBS", "sentence": "While the lion attacked the baboon screamed in terror.", "question": "Did the lion attack the baboon?"}
+{"family_id": "amouyal:set_19", "form": "GP", "qtype": "FINAL", "sentence": "While the lion attacked the baboon screamed in terror.", "question": "Did the baboon scream in terror?"}
+{"family_id": "amouyal:set_19", "form": "CUE", "qtype": "OBS", "sentence": "While the lion attacked, the baboon screamed in terror.", "question": "Did the lion attack the baboon?"}
+{"family_id": "amouyal:set_19", "form": "CUE", "qtype": "FINAL", "sentence": "While the lion attacked, the baboon screamed in terror.", "question": "Did the baboon scream in terror?"}
+{"family_id": "amouyal:set_20", "form": "GP", "qtype": "OBS", "sentence": "While the maid dusted the picture tipped over.", "question": "Did the maid dust the picture?"}
+{"family_id": "amouyal:set_20", "form": "GP", "qtype": "FINAL", "sentence": "While the maid dusted the picture tipped over.", "question": "Did the picture tip over?"}
+{"family_id": "amouyal:set_20", "form": "CUE", "qtype": "OBS", "sentence": "While the maid dusted, the picture tipped over.", "question": "Did the maid dust the picture?"}
+{"family_id": "amouyal:set_20", "form": "CUE", "qtype": "FINAL", "sentence": "While the maid dusted, the picture tipped over.", "question": "Did the picture tip over?"}
+{"family_id": "amouyal:set_21", "form": "GP", "qtype": "OBS", "sentence": "While the teacher counted the children formed a line.", "question": "Did the teacher count the children?"}
+{"family_id": "amouyal:set_21", "form": "GP", "qtype": "FINAL", "sentence": "While the teacher counted the children formed a line.", "question": "Did the children form a line?"}
+{"family_id": "amouyal:set_21", "form": "CUE", "qtype": "OBS", "sentence": "While the teacher counted, the children formed a line.", "question": "Did the teacher count the children?"}
+{"family_id": "amouyal:set_21", "form": "CUE", "qtype": "FINAL", "sentence": "While the teacher counted, the children formed a line.", "question": "Did the children form a line?"}
+{"family_id": "amouyal:set_22", "form": "GP", "qtype": "OBS", "sentence": "While the champion raced the challenger stumbled and fell.", "question": "Did the champion race the challenger?"}
+{"family_id": "amouyal:set_22", "form": "GP", "qtype": "FINAL", "sentence": "While the champion raced the challenger stumbled and fell.", "question": "Did the challenger stumble and fall?"}
+{"family_id": "amouyal:set_22", "form": "CUE", "qtype": "OBS", "sentence": "While the champion raced, the challenger stumbled and fell.", "question": "Did the champion race the challenger?"}
+{"family_id": "amouyal:set_22", "form": "CUE", "qtype": "FINAL", "sentence": "While the champion raced, the challenger stumbled and fell.", "question": "Did the challenger stumble and fall?"}
+{"family_id": "amouyal:set_23", "form": "GP", "qtype": "OBS", "sentence": "While Jerry played the violin went out of tune.", "question": "Did Jerry play the violin?"}
+{"family_id": "amouyal:set_23", "form": "GP", "qtype": "FINAL", "sentence": "While Jerry played the violin went out of tune.", "question": "Did the violin go out of tune?"}
+{"family_id": "amouyal:set_23", "form": "CUE", "qtype": "OBS", "sentence": "While Jerry played, the violin went out of tune.", "question": "Did Jerry play the violin?"}
+{"family_id": "amouyal:set_23", "form": "CUE", "qtype": "FINAL", "sentence": "While Jerry played, the violin went out of tune.", "question": "Did the violin go out of tune?"}
+{"family_id": "amouyal:set_24", "form": "GP", "qtype": "OBS", "sentence": "While the girl painted the rainbow slowly faded outside.", "question": "Did the girl paint the rainbow?"}
+{"family_id": "amouyal:set_24", "form": "GP", "qtype": "FINAL", "sentence": "While the girl painted the rainbow slowly faded outside.", "question": "Did the rainbow slowly fade outside?"}
+{"family_id": "amouyal:set_24", "form": "CUE", "qtype": "OBS", "sentence": "While the girl painted, the rainbow slowly faded outside.", "question": "Did the girl paint the rainbow?"}
+{"family_id": "amouyal:set_24", "form": "CUE", "qtype": "FINAL", "sentence": "While the girl painted, the rainbow slowly faded outside.", "question": "Did the rainbow slowly fade outside?"}
+{"family_id": "amouyal:set_25", "form": "GP", "qtype": "OBS", "sentence": "While Kendra parked the van bumped the curb.", "question": "Did Kendra park the van?"}
+{"family_id": "amouyal:set_25", "form": "GP", "qtype": "FINAL", "sentence": "While Kendra parked the van bumped the curb.", "question": "Did the van bump the curb?"}
+{"family_id": "amouyal:set_25", "form": "CUE", "qtype": "OBS", "sentence": "While Kendra parked, the van bumped the curb.", "question": "Did Kendra park the van?"}
+{"family_id": "amouyal:set_25", "form": "CUE", "qtype": "FINAL", "sentence": "While Kendra parked, the van bumped the curb.", "question": "Did the van bump the curb?"}
+{"family_id": "amouyal:set_26", "form": "GP", "qtype": "OBS", "sentence": "While Angela cleaned the dog stood in the yard.", "question": "Did Angela clean the dog?"}
+{"family_id": "amouyal:set_26", "form": "GP", "qtype": "FINAL", "sentence": "While Angela cleaned the dog stood in the yard.", "question": "Did the dog stand in the yard?"}
+{"family_id": "amouyal:set_26", "form": "CUE", "qtype": "OBS", "sentence": "While Angela cleaned, the dog stood in the yard.", "question": "Did Angela clean the dog?"}
+{"family_id": "amouyal:set_26", "form": "CUE", "qtype": "FINAL", "sentence": "While Angela cleaned, the dog stood in the yard.", "question": "Did the dog stand in the yard?"}
+{"family_id": "amouyal:set_27", "form": "GP", "qtype": "OBS", "sentence": "While the sailor smoked the pipe glowed brightly.", "question": "Did the sailor smoke the pipe?"}
+{"family_id": "amouyal:set_27", "form": "GP", "qtype": "FINAL", "sentence": "While the sailor smoked the pipe glowed brightly.", "question": "Did the pipe glow brightly?"}
+{"family_id": "amouyal:set_27", "form": "CUE", "qtype": "OBS", "sentence": "While the sailor smoked, the pipe glowed brightly.", "question": "Did the sailor smoke the pipe?"}
+{"family_id": "amouyal:set_27", "form": "CUE", "qtype": "FINAL", "sentence": "While the sailor smoked, the pipe glowed brightly.", "question": "Did the pipe glow brightly?"}
+{"family_id": "amouyal:set_28", "form": "GP", "qtype": "OBS", "sentence": "While the tourist filmed the dancer blocked the sidewalk.", "question": "Did the tourist film the dancer?"}
+{"family_id": "amouyal:set_28", "form": "GP", "qtype": "FINAL", "sentence": "While the tourist filmed the dancer blocked the sidewalk.", "question": "Did the dancer block the sidewalk?"}
+{"family_id": "amouyal:set_28", "form": "CUE", "qtype": "OBS", "sentence": "While the tourist filmed, the dancer blocked the sidewalk.", "question": "Did the tourist film the dancer?"}
+{"family_id": "amouyal:set_28", "form": "CUE", "qtype": "FINAL", "sentence": "While the tourist filmed, the dancer blocked the sidewalk.", "question": "Did the dancer block the sidewalk?"}
+{"family_id": "amouyal:set_29", "form": "GP", "qtype": "OBS", "sentence": "While the athlete wrestled the opponent shouted insults.", "question": "Did the athlete wrestle the opponent?"}
+{"family_id": "amouyal:set_29", "form": "GP", "qtype": "FINAL", "sentence": "While the athlete wrestled the opponent shouted insults.", "question": "Did the opponent shout insults?"}
+{"family_id": "amouyal:set_29", "form": "CUE", "qtype": "OBS", "sentence": "While the athlete wrestled, the opponent shouted insults.", "question": "Did the athlete wrestle the opponent?"}
+{"family_id": "amouyal:set_29", "form": "CUE", "qtype": "FINAL", "sentence": "While the athlete wrestled, the opponent shouted insults.", "question": "Did the opponent shout insults?"}
+{"family_id": "amouyal:set_30", "form": "GP", "qtype": "OBS", "sentence": "While the warrior fought the enemy retreated.", "question": "Did the warrior fight the enemy?"}
+{"family_id": "amouyal:set_30", "form": "GP", "qtype": "FINAL", "sentence": "While the warrior fought the enemy retreated.", "question": "Did the enemy retreat?"}
+{"family_id": "amouyal:set_30", "form": "CUE", "qtype": "OBS", "sentence": "While the warrior fought, the enemy retreated.", "question": "Did the warrior fight the enemy?"}
+{"family_id": "amouyal:set_30", "form": "CUE", "qtype": "FINAL", "sentence": "While the warrior fought, the enemy retreated.", "question": "Did the enemy retreat?"}
+{"family_id": "amouyal:set_31", "form": "GP", "qtype": "OBS", "sentence": "While Harry chewed the steak fell to the floor.", "question": "Did Harry chew the steak?"}
+{"family_id": "amouyal:set_31", "form": "GP", "qtype": "FINAL", "sentence": "While Harry chewed the steak fell to the floor.", "question": "Did the steak fall to the floor?"}
+{"family_id": "amouyal:set_31", "form": "CUE", "qtype": "OBS", "sentence": "While Harry chewed, the steak fell to the floor.", "question": "Did Harry chew the steak?"}
+{"family_id": "amouyal:set_31", "form": "CUE", "qtype": "FINAL", "sentence": "While Harry chewed, the steak fell to the floor.", "question": "Did the steak fall to the floor?"}
+{"family_id": "amouyal:set_32", "form": "GP", "qtype": "OBS", "sentence": "While Bill ate the turkey sat on the table.", "question": "Did Bill eat the turkey?"}
+{"family_id": "amouyal:set_32", "form": "GP", "qtype": "FINAL", "sentence": "While Bill ate the turkey sat on the table.", "question": "Did the turkey sit on the table?"}
+{"family_id": "amouyal:set_32", "form": "CUE", "qtype": "OBS", "sentence": "While Bill ate, the turkey sat on the table.", "question": "Did Bill eat the turkey?"}
+{"family_id": "amouyal:set_32", "form": "CUE", "qtype": "FINAL", "sentence": "While Bill ate, the turkey sat on the table.", "question": "Did the turkey sit on the table?"}
+{"family_id": "amouyal:set_33", "form": "GP", "qtype": "OBS", "sentence": "While Janet baked the bread rose in the oven.", "question": "Did Janet bake the bread?"}
+{"family_id": "amouyal:set_33", "form": "GP", "qtype": "FINAL", "sentence": "While Janet baked the bread rose in the oven.", "question": "Did the bread rise in the oven?"}
+{"family_id": "amouyal:set_33", "form": "CUE", "qtype": "OBS", "sentence": "While Janet baked, the bread rose in the oven.", "question": "Did Janet bake the bread?"}
+{"family_id": "amouyal:set_33", "form": "CUE", "qtype": "FINAL", "sentence": "While Janet baked, the bread rose in the oven.", "question": "Did the bread rise in the oven?"}
+{"family_id": "amouyal:set_34", "form": "GP", "qtype": "OBS", "sentence": "While the public cheered the team left the restaurant.", "question": "Did the public cheer the team?"}
+{"family_id": "amouyal:set_34", "form": "GP", "qtype": "FINAL", "sentence": "While the public cheered the team left the restaurant.", "question": "Did the team leave the restaurant?"}
+{"family_id": "amouyal:set_34", "form": "CUE", "qtype": "OBS", "sentence": "While the public cheered, the team left the restaurant.", "question": "Did the public cheer the team?"}
+{"family_id": "amouyal:set_34", "form": "CUE", "qtype": "FINAL", "sentence": "While the public cheered, the team left the restaurant.", "question": "Did the team leave the restaurant?"}
+{"family_id": "amouyal:set_35", "form": "GP", "qtype": "OBS", "sentence": "While the cleaner mopped the floor was filled with stains.", "question": "Did the cleaner mop the floor?"}
+{"family_id": "amouyal:set_35", "form": "GP", "qtype": "FINAL", "sentence": "While the cleaner mopped the floor was filled with stains.", "question": "Was the floor filled with stains?"}
+{"family_id": "amouyal:set_35", "form": "CUE", "qtype": "OBS", "sentence": "While the cleaner mopped, the floor was filled with stains.", "question": "Did the cleaner mop the floor?"}
+{"family_id": "amouyal:set_35", "form": "CUE", "qtype": "FINAL", "sentence": "While the cleaner mopped, the floor was filled with stains.", "question": "Was the floor filled with stains?"}
+{"family_id": "amouyal:set_36", "form": "GP", "qtype": "OBS", "sentence": "While the chef cooked the meal impressed the couple.", "question": "Did the chef cook the meal?"}
+{"family_id": "amouyal:set_36", "form": "GP", "qtype": "FINAL", "sentence": "While the chef cooked the meal impressed the couple.", "question": "Did the meal impress the couple?"}
+{"family_id": "amouyal:set_36", "form": "CUE", "qtype": "OBS", "sentence": "While the chef cooked, the meal impressed the couple.", "question": "Did the chef cook the meal?"}
+{"family_id": "amouyal:set_36", "form": "CUE", "qtype": "FINAL", "sentence": "While the chef cooked, the meal impressed the couple.", "question": "Did the meal impress the couple?"}
+{"family_id": "amouyal:set_37", "form": "GP", "qtype": "OBS", "sentence": "While the child finished the homework waited on the table.", "question": "Did the child finish the homework?"}
+{"family_id": "amouyal:set_37", "form": "GP", "qtype": "FINAL", "sentence": "While the child finished the homework waited on the table.", "question": "Did the homework wait on the table?"}
+{"family_id": "amouyal:set_37", "form": "CUE", "qtype": "OBS", "sentence": "While the child finished, the homework waited on the table.", "question": "Did the child finish the homework?"}
+{"family_id": "amouyal:set_37", "form": "CUE", "qtype": "FINAL", "sentence": "While the child finished, the homework waited on the table.", "question": "Did the homework wait on the table?"}
+{"family_id": "amouyal:set_38", "form": "GP", "qtype": "OBS", "sentence": "While the student knitted the sweater sold to the highest bidder.", "question": "Did the student knit the sweater?"}
+{"family_id": "amouyal:set_38", "form": "GP", "qtype": "FINAL", "sentence": "While the student knitted the sweater sold to the highest bidder.", "question": "Did the sweater sell to the highest bidder?"}
+{"family_id": "amouyal:set_38", "form": "CUE", "qtype": "OBS", "sentence": "While the student knitted, the sweater sold to the highest bidder.", "question": "Did the student knit the sweater?"}
+{"family_id": "amouyal:set_38", "form": "CUE", "qtype": "FINAL", "sentence": "While the student knitted, the sweater sold to the highest bidder.", "question": "Did the sweater sell to the highest bidder?"}
+{"family_id": "amouyal:set_39", "form": "GP", "qtype": "OBS", "sentence": "While the astronomer observed the comet lit up the room.", "question": "Did the astronomer observe the comet?"}
+{"family_id": "amouyal:set_39", "form": "GP", "qtype": "FINAL", "sentence": "While the astronomer observed the comet lit up the room.", "question": "Did the comet light up the room?"}
+{"family_id": "amouyal:set_39", "form": "CUE", "qtype": "OBS", "sentence": "While the astronomer observed, the comet lit up the room.", "question": "Did the astronomer observe the comet?"}
+{"family_id": "amouyal:set_39", "form": "CUE", "qtype": "FINAL", "sentence": "While the astronomer observed, the comet lit up the room.", "question": "Did the comet light up the room?"}
+{"family_id": "amouyal:set_40", "form": "GP", "qtype": "OBS", "sentence": "While the players started the game bored the children.", "question": "Did the players start the game?"}
+{"family_id": "amouyal:set_40", "form": "GP", "qtype": "FINAL", "sentence": "While the players started the game bored the children.", "question": "Did the game bore the children?"}
+{"family_id": "amouyal:set_40", "form": "CUE", "qtype": "OBS", "sentence": "While the players started, the game bored the children.", "question": "Did the players start the game?"}
+{"family_id": "amouyal:set_40", "form": "CUE", "qtype": "FINAL", "sentence": "While the players started, the game bored the children.", "question": "Did the game bore the children?"}
+{"family_id": "amouyal:set_41", "form": "GP", "qtype": "OBS", "sentence": "While the professor taught the students looked at the board.", "question": "Did the professor teach the students?"}
+{"family_id": "amouyal:set_41", "form": "GP", "qtype": "FINAL", "sentence": "While the professor taught the students looked at the board.", "question": "Did the students look at the board?"}
+{"family_id": "amouyal:set_41", "form": "CUE", "qtype": "OBS", "sentence": "While the professor taught, the students looked at the board.", "question": "Did the professor teach the students?"}
+{"family_id": "amouyal:set_41", "form": "CUE", "qtype": "FINAL", "sentence": "While the professor taught, the students looked at the board.", "question": "Did the students look at the board?"}
+{"family_id": "amouyal:set_42", "form": "GP", "qtype": "OBS", "sentence": "While the pianist practiced the melody echoed through the hall.", "question": "Did the pianist practice the melody?"}
+{"family_id": "amouyal:set_42", "form": "GP", "qtype": "FINAL", "sentence": "While the pianist practiced the melody echoed through the hall.", "question": "Did the melody echo through the hall?"}
+{"family_id": "amouyal:set_42", "form": "CUE", "qtype": "OBS", "sentence": "While the pianist practiced, the melody echoed through the hall.", "question": "Did the pianist practice the melody?"}
+{"family_id": "amouyal:set_42", "form": "CUE", "qtype": "FINAL", "sentence": "While the pianist practiced, the melody echoed through the hall.", "question": "Did the melody echo through the hall?"}
+{"family_id": "amouyal:set_43", "form": "GP", "qtype": "OBS", "sentence": "While the couple left the bar buzzed with activity.", "question": "Did the couple leave the bar?"}
+{"family_id": "amouyal:set_43", "form": "GP", "qtype": "FINAL", "sentence": "While the couple left the bar buzzed with activity.", "question": "Did the bar buzz with activity?"}
+{"family_id": "amouyal:set_43", "form": "CUE", "qtype": "OBS", "sentence": "While the couple left, the bar buzzed with activity.", "question": "Did the couple leave the bar?"}
+{"family_id": "amouyal:set_43", "form": "CUE", "qtype": "FINAL", "sentence": "While the couple left, the bar buzzed with activity.", "question": "Did the bar buzz with activity?"}
+{"family_id": "amouyal:set_44", "form": "GP", "qtype": "OBS", "sentence": "While the gardener harvested the tomatoes hanged on the vine.", "question": "Did the gardener harvest the tomatoes?"}
+{"family_id": "amouyal:set_44", "form": "GP", "qtype": "FINAL", "sentence": "While the gardener harvested the tomatoes hanged on the vine.", "question": "Did the tomatoes hang on the vine?"}
+{"family_id": "amouyal:set_44", "form": "CUE", "qtype": "OBS", "sentence": "While the gardener harvested, the tomatoes hanged on the vine.", "question": "Did the gardener harvest the tomatoes?"}
+{"family_id": "amouyal:set_44", "form": "CUE", "qtype": "FINAL", "sentence": "While the gardener harvested, the tomatoes hanged on the vine.", "question": "Did the tomatoes hang on the vine?"}
+{"family_id": "amouyal:set_45", "form": "GP", "qtype": "OBS", "sentence": "While the horse pulled the cart moved silently.", "question": "Did the horse pull the cart?"}
+{"family_id": "amouyal:set_45", "form": "GP", "qtype": "FINAL", "sentence": "While the horse pulled the cart moved silently.", "question": "Did the cart move silently?"}
+{"family_id": "amouyal:set_45", "form": "CUE", "qtype": "OBS", "sentence": "While the horse pulled, the cart moved silently.", "question": "Did the horse pull the cart?"}
+{"family_id": "amouyal:set_45", "form": "CUE", "qtype": "FINAL", "sentence": "While the horse pulled, the cart moved silently.", "question": "Did the cart move silently?"}
+{"family_id": "amouyal:set_hyp5_1", "form": "GP", "qtype": "OBS", "sentence": "While Jim bathed the child giggled with delight.", "question": "Did Jim bathe the child?"}
+{"family_id": "amouyal:set_hyp5_1", "form": "GP", "qtype": "FINAL", "sentence": "While Jim bathed the child giggled with delight.", "question": "Did the child giggle with delight?"}
+{"family_id": "amouyal:set_hyp5_1", "form": "CUE", "qtype": "OBS", "sentence": "While Jim bathed, the child giggled with delight.", "question": "Did Jim bathe the child?"}
+{"family_id": "amouyal:set_hyp5_1", "form": "CUE", "qtype": "FINAL", "sentence": "While Jim bathed, the child giggled with delight.", "question": "Did the child giggle with delight?"}
+{"family_id": "amouyal:set_hyp5_2", "form": "GP", "qtype": "OBS", "sentence": "While the chimps groomed the baboons sat in the grass.", "question": "Did the chimps groom the baboons?"}
+{"family_id": "amouyal:set_hyp5_2", "form": "GP", "qtype": "FINAL", "sentence": "While the chimps groomed the baboons sat in the grass.", "question": "Did the baboons sit in the grass?"}
+{"family_id": "amouyal:set_hyp5_2", "form": "CUE", "qtype": "OBS", "sentence": "While the chimps groomed, the baboons sat in the grass.", "question": "Did the chimps groom the baboons?"}
+{"family_id": "amouyal:set_hyp5_2", "form": "CUE", "qtype": "FINAL", "sentence": "While the chimps groomed, the baboons sat in the grass.", "question": "Did the baboons sit in the grass?"}
+{"family_id": "amouyal:set_hyp5_3", "form": "GP", "qtype": "OBS", "sentence": "While Frank dried off the car sat in the driveway.", "question": "Did Frank dry off the car?"}
+{"family_id": "amouyal:set_hyp5_3", "form": "GP", "qtype": "FINAL", "sentence": "While Frank dried off the car sat in the driveway.", "question": "Did the car sit in the driveway?"}
+{"family_id": "amouyal:set_hyp5_3", "form": "CUE", "qtype": "OBS", "sentence": "While Frank dried off, the car sat in the driveway.", "question": "Did Frank dry off the car?"}
+{"family_id": "amouyal:set_hyp5_3", "form": "CUE", "qtype": "FINAL", "sentence": "While Frank dried off, the car sat in the driveway.", "question": "Did the car sit in the driveway?"}
+{"family_id": "amouyal:set_hyp5_4", "form": "GP", "qtype": "OBS", "sentence": "While Betty woke up the neighbor coughed loudly.", "question": "Did Betty wake up the neighbor?"}
+{"family_id": "amouyal:set_hyp5_4", "form": "GP", "qtype": "FINAL", "sentence": "While Betty woke up the neighbor coughed loudly.", "question": "Did the neighbor cough loudly?"}
+{"family_id": "amouyal:set_hyp5_4", "form": "CUE", "qtype": "OBS", "sentence": "While Betty woke up, the neighbor coughed loudly.", "question": "Did Betty wake up the neighbor?"}
+{"family_id": "amouyal:set_hyp5_4", "form": "CUE", "qtype": "FINAL", "sentence": "While Betty woke up, the neighbor coughed loudly.", "question": "Did the neighbor cough loudly?"}
+{"family_id": "amouyal:set_hyp5_5", "form": "GP", "qtype": "OBS", "sentence": "While the thief hid the jewelry sparkled brightly.", "question": "Did the thief hide the jewelry?"}
+{"family_id": "amouyal:set_hyp5_5", "form": "GP", "qtype": "FINAL", "sentence": "While the thief hid the jewelry sparkled brightly.", "question": "Did the jewelry sparkle brightly?"}
+{"family_id": "amouyal:set_hyp5_5", "form": "CUE", "qtype": "OBS", "sentence": "While the thief hid, the jewelry sparkled brightly.", "question": "Did the thief hide the jewelry?"}
+{"family_id": "amouyal:set_hyp5_5", "form": "CUE", "qtype": "FINAL", "sentence": "While the thief hid, the jewelry sparkled brightly.", "question": "Did the jewelry sparkle brightly?"}
+{"family_id": "amouyal:set_hyp5_6", "form": "GP", "qtype": "OBS", "sentence": "While Anna dressed the baby spit up on the bed.", "question": "Did Anna dress the baby?"}
+{"family_id": "amouyal:set_hyp5_6", "form": "GP", "qtype": "FINAL", "sentence": "While Anna dressed the baby spit up on the bed.", "question": "Did the baby spit up on the bed?"}
+{"family_id": "amouyal:set_hyp5_6", "form": "CUE", "qtype": "OBS", "sentence": "While Anna dressed, the baby spit up on the bed.", "question": "Did Anna dress the baby?"}
+{"family_id": "amouyal:set_hyp5_6", "form": "CUE", "qtype": "FINAL", "sentence": "While Anna dressed, the baby spit up on the bed.", "question": "Did the baby spit up on the bed?"}
+{"family_id": "amouyal:set_hyp5_7", "form": "GP", "qtype": "OBS", "sentence": "While the boy washed the dog barked loudly.", "question": "Did the boy wash the dog?"}
+{"family_id": "amouyal:set_hyp5_7", "form": "GP", "qtype": "FINAL", "sentence": "While the boy washed the dog barked loudly.", "question": "Did the dog bark loudly?"}
+{"family_id": "amouyal:set_hyp5_7", "form": "CUE", "qtype": "OBS", "sentence": "While the boy washed, the dog barked loudly.", "question": "Did the boy wash the dog?"}
+{"family_id": "amouyal:set_hyp5_7", "form": "CUE", "qtype": "FINAL", "sentence": "While the boy washed, the dog barked loudly.", "question": "Did the dog bark loudly?"}
+{"family_id": "amouyal:set_hyp5_8", "form": "GP", "qtype": "OBS", "sentence": "While the jockey settled down the horse stood in the stall.", "question": "Did the jockey settle down the horse?"}
+{"family_id": "amouyal:set_hyp5_8", "form": "GP", "qtype": "FINAL", "sentence": "While the jockey settled down the horse stood in the stall.", "question": "Did the horse stand in the stall?"}
+{"family_id": "amouyal:set_hyp5_8", "form": "CUE", "qtype": "OBS", "sentence": "While the jockey settled down, the horse stood in the stall.", "question": "Did the jockey settle down the horse?"}
+{"family_id": "amouyal:set_hyp5_8", "form": "CUE", "qtype": "FINAL", "sentence": "While the jockey settled down, the horse stood in the stall.", "question": "Did the horse stand in the stall?"}
+{"family_id": "amouyal:set_hyp5_9", "form": "GP", "qtype": "OBS", "sentence": "While the mother undressed the baby cried softly.", "question": "Did the mother undress the baby?"}
+{"family_id": "amouyal:set_hyp5_9", "form": "GP", "qtype": "FINAL", "sentence": "While the mother undressed the baby cried softly.", "question": "Did the baby cry softly?"}
+{"family_id": "amouyal:set_hyp5_9", "form": "CUE", "qtype": "OBS", "sentence": "While the mother undressed, the baby cried softly.", "question": "Did the mother undress the baby?"}
+{"family_id": "amouyal:set_hyp5_9", "form": "CUE", "qtype": "FINAL", "sentence": "While the mother undressed, the baby cried softly.", "question": "Did the baby cry softly?"}
+{"family_id": "amouyal:set_hyp5_10", "form": "GP", "qtype": "OBS", "sentence": "While the nurse shaved the patient watched TV.", "question": "Did the nurse shave the patient?"}
+{"family_id": "amouyal:set_hyp5_10", "form": "GP", "qtype": "FINAL", "sentence": "While the nurse shaved the patient watched TV.", "question": "Did the patient watch TV?"}
+{"family_id": "amouyal:set_hyp5_10", "form": "CUE", "qtype": "OBS", "sentence": "While the nurse shaved, the patient watched TV.", "question": "Did the nurse shave the patient?"}
+{"family_id": "amouyal:set_hyp5_10", "form": "CUE", "qtype": "FINAL", "sentence": "While the nurse shaved, the patient watched TV.", "question": "Did the patient watch TV?"}
+{"family_id": "amouyal:set_hyp5_11", "form": "GP", "qtype": "OBS", "sentence": "While the girl scratched the cat stared at the dog.", "question": "Did the girl scratch the cat?"}
+{"family_id": "amouyal:set_hyp5_11", "form": "GP", "qtype": "FINAL", "sentence": "While the girl scratched the cat stared at the dog.", "question": "Did the cat stare at the dog?"}
+{"family_id": "amouyal:set_hyp5_11", "form": "CUE", "qtype": "OBS", "sentence": "While the girl scratched, the cat stared at the dog.", "question": "Did the girl scratch the cat?"}
+{"family_id": "amouyal:set_hyp5_11", "form": "CUE", "qtype": "FINAL", "sentence": "While the girl scratched, the cat stared at the dog.", "question": "Did the cat stare at the dog?"}
+{"family_id": "amouyal:set_hyp5_12", "form": "GP", "qtype": "OBS", "sentence": "While the mother calmed down the children sat on the bed.", "question": "Did the mother calm down the children?"}
+{"family_id": "amouyal:set_hyp5_12", "form": "GP", "qtype": "FINAL", "sentence": "While the mother calmed down the children sat on the bed.", "question": "Did the children sit on the bed?"}
+{"family_id": "amouyal:set_hyp5_12", "form": "CUE", "qtype": "OBS", "sentence": "While the mother calmed down, the children sat on the bed.", "question": "Did the mother calm down the children?"}
+{"family_id": "amouyal:set_hyp5_12", "form": "CUE", "qtype": "FINAL", "sentence": "While the mother calmed down, the children sat on the bed.", "question": "Did the children sit on the bed?"}
+{"family_id": "amouyal:set_hyp5_13", "form": "GP", "qtype": "OBS", "sentence": "While the artist changed the painting stood the test of time.", "question": "Did the artist change the painting?"}
+{"family_id": "amouyal:set_hyp5_13", "form": "GP", "qtype": "FINAL", "sentence": "While the artist changed the painting stood the test of time.", "question": "Did the painting stand the test of time?"}
+{"family_id": "amouyal:set_hyp5_13", "form": "CUE", "qtype": "OBS", "sentence": "While the artist changed, the painting stood the test of time.", "question": "Did the artist change the painting?"}
+{"family_id": "amouyal:set_hyp5_13", "form": "CUE", "qtype": "FINAL", "sentence": "While the artist changed, the painting stood the test of time.", "question": "Did the painting stand the test of time?"}
+{"family_id": "amouyal:set_hyp5_14", "form": "GP", "qtype": "OBS", "sentence": "While the child grew the tomatoes invaded the garden.", "question": "Did the child grow the tomatoes?"}
+{"family_id": "amouyal:set_hyp5_14", "form": "GP", "qtype": "FINAL", "sentence": "While the child grew the tomatoes invaded the garden.", "question": "Did the tomato invade the garden?"}
+{"family_id": "amouyal:set_hyp5_14", "form": "CUE", "qtype": "OBS", "sentence": "While the child grew, the tomatoes invaded the garden.", "question": "Did the child grow the tomatoes?"}
+{"family_id": "amouyal:set_hyp5_14", "form": "CUE", "qtype": "FINAL", "sentence": "While the child grew, the tomatoes invaded the garden.", "question": "Did the tomato invade the garden?"}
+{"family_id": "amouyal:set_hyp5_15", "form": "GP", "qtype": "OBS", "sentence": "While the toddler rolled the ball kept moving across the room.", "question": "Did the toddler roll the ball?"}
+{"family_id": "amouyal:set_hyp5_15", "form": "GP", "qtype": "FINAL", "sentence": "While the toddler rolled the ball kept moving across the room.", "question": "Did the ball keep moving across the room?"}
+{"family_id": "amouyal:set_hyp5_15", "form": "CUE", "qtype": "OBS", "sentence": "While the toddler rolled, the ball kept moving across the room.", "question": "Did the toddler roll the ball?"}
+{"family_id": "amouyal:set_hyp5_15", "form": "CUE", "qtype": "FINAL", "sentence": "While the toddler rolled, the ball kept moving across the room.", "question": "Did the ball keep moving across the room?"}
+{"family_id": "amouyal:set_hyp5_16", "form": "GP", "qtype": "OBS", "sentence": "While the mechanic turned the wheel made weird noises.", "question": "Did the mechanic turn the wheel?"}
+{"family_id": "amouyal:set_hyp5_16", "form": "GP", "qtype": "FINAL", "sentence": "While the mechanic turned the wheel made weird noises.", "question": "Did the wheel make weird noises?"}
+{"family_id": "amouyal:set_hyp5_16", "form": "CUE", "qtype": "OBS", "sentence": "While the mechanic turned, the wheel made weird noises.", "question": "Did the mechanic turn the wheel?"}
+{"family_id": "amouyal:set_hyp5_16", "form": "CUE", "qtype": "FINAL", "sentence": "While the mechanic turned, the wheel made weird noises.", "question": "Did the wheel make weird noises?"}
+{"family_id": "amouyal:set_hyp5_17", "form": "GP", "qtype": "OBS", "sentence": "While the ice cap shrank the river stayed warm.", "question": "Did the ice cap shrink the river?"}
+{"family_id": "amouyal:set_hyp5_17", "form": "GP", "qtype": "FINAL", "sentence": "While the ice cap shrank the river stayed warm.", "question": "Did the river stay warm?"}
+{"family_id": "amouyal:set_hyp5_17", "form": "CUE", "qtype": "OBS", "sentence": "While the ice cap shrank, the river stayed warm.", "question": "Did the ice cap shrink the river?"}
+{"family_id": "amouyal:set_hyp5_17", "form": "CUE", "qtype": "FINAL", "sentence": "While the ice cap shrank, the river stayed warm.", "question": "Did the river stay warm?"}
+{"family_id": "amouyal:set_hyp5_18", "form": "GP", "qtype": "OBS", "sentence": "While the gymnast swung the bat fell on the road.", "question": "Did the gymnast swing the bat?"}
+{"family_id": "amouyal:set_hyp5_18", "form": "GP", "qtype": "FINAL", "sentence": "While the gymnast swung the bat fell on the road.", "question": "Did the bat fall on the floor?"}
+{"family_id": "amouyal:set_hyp5_18", "form": "CUE", "qtype": "OBS", "sentence": "While the gymnast swung, the bat fell on the road.", "question": "Did the gymnast swing the bat?"}
+{"family_id": "amouyal:set_hyp5_18", "form": "CUE", "qtype": "FINAL", "sentence": "While the gymnast swung, the bat fell on the road.", "question": "Did the bat fall on the floor?"}
+{"family_id": "amouyal:set_hyp5_19", "form": "GP", "qtype": "OBS", "sentence": "While Bill trained the athletes started the game.", "question": "Did Bill train the athletes?"}
+{"family_id": "amouyal:set_hyp5_19", "form": "GP", "qtype": "FINAL", "sentence": "While Bill trained the athletes started the game.", "question": "Did the athletes start the game?"}
+{"family_id": "amouyal:set_hyp5_19", "form": "CUE", "qtype": "OBS", "sentence": "While Bill trained, the athletes started the game.", "question": "Did Bill train the athletes?"}
+{"family_id": "amouyal:set_hyp5_19", "form": "CUE", "qtype": "FINAL", "sentence": "While Bill trained, the athletes started the game.", "question": "Did the athletes start the game?"}
+{"family_id": "amouyal:set_hyp5_20", "form": "GP", "qtype": "OBS", "sentence": "While the dog moved the bone went bad.", "question": "Did the dog move the bone?"}
+{"family_id": "amouyal:set_hyp5_20", "form": "GP", "qtype": "FINAL", "sentence": "While the dog moved the bone went bad.", "question": "Did the bone go bad?"}
+{"family_id": "amouyal:set_hyp5_20", "form": "CUE", "qtype": "OBS", "sentence": "While the dog moved, the bone went bad.", "question": "Did the dog move the bone?"}
+{"family_id": "amouyal:set_hyp5_20", "form": "CUE", "qtype": "FINAL", "sentence": "While the dog moved, the bone went bad.", "question": "Did the bone go bad?"}
+{"family_id": "amouyal:set_hyp5_21", "form": "GP", "qtype": "OBS", "sentence": "While the river flooded the valley kept on living quietly.", "question": "Did the river flood the valley?"}
+{"family_id": "amouyal:set_hyp5_21", "form": "GP", "qtype": "FINAL", "sentence": "While the river flooded the valley kept on living quietly.", "question": "Did the valley keep on living quietly?"}
+{"family_id": "amouyal:set_hyp5_21", "form": "CUE", "qtype": "OBS", "sentence": "While the river flooded, the valley kept on living quietly.", "question": "Did the river flood the valley?"}
+{"family_id": "amouyal:set_hyp5_21", "form": "CUE", "qtype": "FINAL", "sentence": "While the river flooded, the valley kept on living quietly.", "question": "Did the valley keep on living quietly?"}
+{"family_id": "amouyal:set_hyp5_22", "form": "GP", "qtype": "OBS", "sentence": "While the log broke the window moved on its axis.", "question": "Did the log break the window?"}
+{"family_id": "amouyal:set_hyp5_22", "form": "GP", "qtype": "FINAL", "sentence": "While the log broke the window moved on its axis.", "question": "Did the window move on its axis?"}
+{"family_id": "amouyal:set_hyp5_22", "form": "CUE", "qtype": "OBS", "sentence": "While the log broke, the window moved on its axis.", "question": "Did the log break the window?"}
+{"family_id": "amouyal:set_hyp5_22", "form": "CUE", "qtype": "FINAL", "sentence": "While the log broke, the window moved on its axis.", "question": "Did the window move on its axis?"}
+{"family_id": "amouyal:set_hyp5_23", "form": "GP", "qtype": "OBS", "sentence": "While the match lit the fire warmed the children.", "question": "Did the match light the fire?"}
+{"family_id": "amouyal:set_hyp5_23", "form": "GP", "qtype": "FINAL", "sentence": "While the match lit the fire warmed the children.", "question": "Did the fire warm the children?"}
+{"family_id": "amouyal:set_hyp5_23", "form": "CUE", "qtype": "OBS", "sentence": "While the match lit, the fire warmed the children.", "question": "Did the match light the fire?"}
+{"family_id": "amouyal:set_hyp5_23", "form": "CUE", "qtype": "FINAL", "sentence": "While the match lit, the fire warmed the children.", "question": "Did the fire warm the children?"}
+{"family_id": "amouyal:set_hyp5_24", "form": "GP", "qtype": "OBS", "sentence": "While the wave crashed the boat was stranded in the ocean.", "question": "Did the wave crash the boat?"}
+{"family_id": "amouyal:set_hyp5_24", "form": "GP", "qtype": "FINAL", "sentence": "While the wave crashed the boat was stranded in the ocean.", "question": "Was the boat stranded in the ocean?"}
+{"family_id": "amouyal:set_hyp5_24", "form": "CUE", "qtype": "OBS", "sentence": "While the wave crashed, the boat was stranded in the ocean.", "question": "Did the wave crash the boat?"}
+{"family_id": "amouyal:set_hyp5_24", "form": "CUE", "qtype": "FINAL", "sentence": "While the wave crashed, the boat was stranded in the ocean.", "question": "Was the boat stranded in the ocean?"}
+{"family_id": "amouyal:set_1", "form": "GP", "qtype": "OBS", "sentence": "While the man hunted the deer ran into the woods.", "question": "Did the man hunt the deer?"}
+{"family_id": "amouyal:set_1", "form": "GP", "qtype": "FINAL", "sentence": "While the man hunted the deer ran into the woods.", "question": "Did the deer run into the woods?"}
+{"family_id": "amouyal:set_1", "form": "CUE", "qtype": "OBS", "sentence": "While the man hunted, the deer ran into the woods.", "question": "Did the man hunt the deer?"}
+{"family_id": "amouyal:set_1", "form": "CUE", "qtype": "FINAL", "sentence": "While the man hunted, the deer ran into the woods.", "question": "Did the deer run into the woods?"}
+{"family_id": "amouyal:set_2", "form": "GP", "qtype": "OBS", "sentence": "While the skipper sailed the boat veered off course.", "question": "Did the skipper sail the boat?"}
+{"family_id": "amouyal:set_2", "form": "GP", "qtype": "FINAL", "sentence": "While the skipper sailed the boat veered off course.", "question": "Did the boat veer off course?"}
+{"family_id": "amouyal:set_2", "form": "CUE", "qtype": "OBS", "sentence": "While the skipper sailed, the boat veered off course.", "question": "Did the skipper sail the boat?"}
+{"family_id": "amouyal:set_2", "form": "CUE", "qtype": "FINAL", "sentence": "While the skipper sailed, the boat veered off course.", "question": "Did the boat veer off course?"}
+{"family_id": "amouyal:set_3", "form": "GP", "qtype": "OBS", "sentence": "While the orchestra performed the symphony played on the radio.", "question": "Did the orchestra perform the symphony?"}
+{"family_id": "amouyal:set_3", "form": "GP", "qtype": "FINAL", "sentence": "While the orchestra performed the symphony played on the radio.", "question": "Did the symphony play on the radio?"}
+{"family_id": "amouyal:set_3", "form": "CUE", "qtype": "OBS", "sentence": "While the orchestra performed, the symphony played on the radio.", "question": "Did the orchestra perform the symphony?"}
+{"family_id": "amouyal:set_3", "form": "CUE", "qtype": "FINAL", "sentence": "While the orchestra performed, the symphony played on the radio.", "question": "Did the symphony play on the radio?"}
+{"family_id": "amouyal:set_4", "form": "GP", "qtype": "OBS", "sentence": "While the bridesmaid ordered the dress got delivered.", "question": "Did the bridesmaid order the dress?"}
+{"family_id": "amouyal:set_4", "form": "GP", "qtype": "FINAL", "sentence": "While the bridesmaid ordered the dress got delivered.", "question": "Did the dress get delivered?"}
+{"family_id": "amouyal:set_4", "form": "CUE", "qtype": "OBS", "sentence": "While the bridesmaid ordered, the dress got delivered.", "question": "Did the bridesmaid order the dress?"}
+{"family_id": "amouyal:set_4", "form": "CUE", "qtype": "FINAL", "sentence": "While the bridesmaid ordered, the dress got delivered.", "question": "Did the dress get delivered?"}
+{"family_id": "amouyal:set_5", "form": "GP", "qtype": "OBS", "sentence": "While Susan wrote the letter fell off the table.", "question": "Did Susan write the letter?"}
+{"family_id": "amouyal:set_5", "form": "GP", "qtype": "FINAL", "sentence": "While Susan wrote the letter fell off the table.", "question": "Did the letter fall off the table?"}
+{"family_id": "amouyal:set_5", "form": "CUE", "qtype": "OBS", "sentence": "While Susan wrote, the letter fell off the table.", "question": "Did Susan write the letter?"}
+{"family_id": "amouyal:set_5", "form": "CUE", "qtype": "FINAL", "sentence": "While Susan wrote, the letter fell off the table.", "question": "Did the letter fall off the table?"}
+{"family_id": "amouyal:set_6", "form": "GP", "qtype": "OBS", "sentence": "While the farmer steered the tractor pulled the car.", "question": "Did the farmer steer the tractor?"}
+{"family_id": "amouyal:set_6", "form": "GP", "qtype": "FINAL", "sentence": "While the farmer steered the tractor pulled the car.", "question": "Did the tractor pull the car?"}
+{"family_id": "amouyal:set_6", "form": "CUE", "qtype": "OBS", "sentence": "While the farmer steered, the tractor pulled the car.", "question": "Did the farmer steer the tractor?"}
+{"family_id": "amouyal:set_6", "form": "CUE", "qtype": "FINAL", "sentence": "While the farmer steered, the tractor pulled the car.", "question": "Did the tractor pull the car?"}
+{"family_id": "amouyal:set_7", "form": "GP", "qtype": "OBS", "sentence": "While the lawyer studied the contract lay on the roll-top desk.", "question": "Did the lawyer study the contract?"}
+{"family_id": "amouyal:set_7", "form": "GP", "qtype": "FINAL", "sentence": "While the lawyer studied the contract lay on the roll-top desk.", "question": "Did the contract lie on the roll-top desk?"}
+{"family_id": "amouyal:set_7", "form": "CUE", "qtype": "OBS", "sentence": "While the lawyer studied, the contract lay on the roll-top desk.", "question": "Did the lawyer study the contract?"}
+{"family_id": "amouyal:set_7", "form": "CUE", "qtype": "FINAL", "sentence": "While the lawyer studied, the contract lay on the roll-top desk.", "question": "Did the contract lie on the roll-top desk?"}
+{"family_id": "amouyal:set_8", "form": "GP", "qtype": "OBS", "sentence": "While the clown juggled the balls fell on the ground.", "question": "Did the clown juggle the balls?"}
+{"family_id": "amouyal:set_8", "form": "GP", "qtype": "FINAL", "sentence": "While the clown juggled the balls fell on the ground.", "question": "Did the balls fall on the ground?"}
+{"family_id": "amouyal:set_8", "form": "CUE", "qtype": "OBS", "sentence": "While the clown juggled, the balls fell on the ground.", "question": "Did the clown juggle the balls?"}
+{"family_id": "amouyal:set_8", "form": "CUE", "qtype": "FINAL", "sentence": "While the clown juggled, the balls fell on the ground.", "question": "Did the balls fall on the ground?"}
+{"family_id": "amouyal:set_9", "form": "GP", "qtype": "OBS", "sentence": "While Anne vacuumed the rug lost its colors.", "question": "Did Anne vacuum the rug?"}
+{"family_id": "amouyal:set_9", "form": "GP", "qtype": "FINAL", "sentence": "While Anne vacuumed the rug lost its colors.", "question": "Did the rug lose its colors?"}
+{"family_id": "amouyal:set_9", "form": "CUE", "qtype": "OBS", "sentence": "While Anne vacuumed, the rug lost its colors.", "question": "Did Anne vacuum the rug?"}
+{"family_id": "amouyal:set_9", "form": "CUE", "qtype": "FINAL", "sentence": "While Anne vacuumed, the rug lost its colors.", "question": "Did the rug lose its colors?"}
