@@ -2,6 +2,20 @@
 
 Living document. Each entry says what we believed, what changed it, and what is still open. Newest first. Experiments: `research/experiments/E00x_*` (cards are written before runs; post-hoc steps are labelled).
 
+## 2026-10-12 (night) — error force is causal within family; two-force structure is near-universal; net effect is not
+
+**New evidence:**
+- **E006 (within-family manipulation, prefix fixed so commitment is fixed):** more surprising disambiguations produce more negative A. Llama-3.2-3B t = −6.3, Qwen2.5-0.5B −6.4, Pythia-1.4b −4.1; GPT-2 −1.4 and Pythia-410m −1.3, which are exactly the models whose discovery error slope was ≈ 0. Robust to generated-only variants, a naturalness covariate, and auxiliary-vs-lexical first word. The relevant error is surprisal **at the disambiguation point**; surprisal summed over the whole continuation predicts little. So the error-driven component is a causal effect of the disambiguation event, not a between-family correlate.
+- **E005 (held-out, frozen rule):** 14/18 predictions confirmed in 8 models. Failures reported, notably Llama-3.2-3B's *between-family* error slope (null on held-out). Lesson: between-family regressions at n ≈ 24 per source are fragile; within-family manipulations carry the weight.
+- **E002 panel (17 models):** commitment slope > 0 in 17/17; error slope < 0 in 15/17 (exceptions: GPT-2, Pythia-160m, the weakest garden-pathers). Net A ranges from −0.33 to +0.37 and is not ordered by size.
+
+**Revised understanding:** "Does an LLM show van Gompel's lingering-parse priming?" has a model-dependent answer because it reads out the **net** of two opposing, separately measurable forces. Those forces are stable across 17 LMs. The commitment force is supported between families (17/17 discovery, 5/7 held-out) and by the E004 history test, but it has **no within-family causal manipulation yet**.
+
+**Open (priority order):**
+1. Generalization beyond NP/Z (NP/S, MV/RR), where the abandoned analysis and its error differ.
+2. A within-family commitment manipulation (peer session E003 crosses plausibility × length on Christianson items, which gives a partial handle).
+3. Human prediction: the error component implies that, in humans, garden paths with more surprising disambiguation should show *less* transitive priming. Testable with van Gompel-style designs plus cloze-normed items.
+
 ## 2026-10-12 (evening) — "Does the abandoned parse prime?" is the wrong unit of question
 
 **Before:** following van Gompel et al. (2006) and Pilot B, we asked whether a ruled-out NP/Z object analysis primes later transitive structure: yes/no, and how much relative to a real transitive.

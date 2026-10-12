@@ -30,3 +30,16 @@ The gp_strength effect is so far **between-family** (correlational). Families di
 
 - Variants differ in content as well as surprisal. The DiD cancels content main effects but not a content × GP interaction.
 - Generated text is model-made. Naturalness ratings come from a different model than the generator, and all tested models differ from both. Results will also be reported for originals vs generated separately.
+
+## Results (5 models; analysis as specified, robustness checks added after the first model)
+
+| Model | within-family slope b (per within-SD of err) | t | discovery b_gp t |
+|---|---|---|---|
+| Llama-3.2-3B | −0.143 | −6.3 | −5.5 |
+| Qwen2.5-0.5B | −0.122 | −6.4 | −5.3 |
+| Pythia-1.4b | −0.066 | −4.1 | −2.5 |
+| GPT-2 | −0.013 | −1.4 | +0.7 |
+| Pythia-410m | −0.016 | −1.3 | −0.6 |
+
+- Robustness: generated-only variants (t = −5.2 / −4.9 / −3.3); naturalness covariate (−5.8 / −6.2 / −3.6); auxiliary-first covariate (−5.0 / −4.6 / −3.8); lexical-verb-only variants (−4.1 / −4.0 / −2.8). Auxiliary-initial continuations carry somewhat more residue (t_aux > 0); not interpreted.
+- Whole-continuation surprisal (`err_cont`) predicts weakly or not at all. The effective error is local to the disambiguation point.
