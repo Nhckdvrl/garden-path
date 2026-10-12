@@ -70,7 +70,9 @@ def main():
                 # prime-internal probes: disambiguating word after the ambiguous NP region
                 probes = {"GP_dis": [f"{sub} {sv} {npx}", w1], "CUE_dis": [f"{sub} {sv}, {npx}", w1],
                           "NB_dis": [f"{sub} {subj} {intr} {npx}", w1], "NC_dis": [f"{sub} {subj} {intr}, {npx}", w1],
-                          "V_the": [f"{sub} {sv}", " " + np.split()[0]], "V_comma": [f"{sub} {sv}", ","]}
+                          "V_the": [f"{sub} {sv}", " " + np.split()[0]], "V_comma": [f"{sub} {sv}", ","],
+                          # commitment at the END of the ambiguous region (object reading: clause closes)
+                          "NPend_comma": [f"{sub} {sv} {npx}", ","], "NPend_period": [f"{sub} {sv} {npx}", "."]}
                 if f["alt_obj"]:
                     probes["CTL_dis"] = [f"{sub} {sv} {f['alt_obj']} {npx}", w1]
                 out.append({

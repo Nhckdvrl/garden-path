@@ -57,3 +57,9 @@ The parallel session reports a two-force pattern in E005 (held-out): priming ris
 - family-demeaned slopes of A on gp_eff and of lingering on gp_eff (family bootstrap).
 
 Prediction under the two-force account: slope(A) < 0. Human-like comprehension predicts slope(lingering) > 0, since in humans harder or longer garden paths leave *more* lingering. Opposite signs would be a clean dissociation of the two residues. A pipeline smoke test (GPT-2, CPU, 4 OT + 3 RAT families, 6 targets) ran end to end. Its numbers are not results.
+
+## Second addition before data (2026-10-12): commitment confound and the prefix-matched test
+
+Raised by the parallel session: length and plausibility can move commitment *over the NP* (digging-in) together with gp_eff. The two forces predict opposite signs on A, so the family-demeaned slope is a **net** effect. A slope < 0 supports error dominance; a slope ≥ 0 does not refute the error force. Two fixes, both specified before data:
+1. **Prefix-matched slope (primary within-family test).** Christianson's plausibility manipulation changes only the main-clause *continuation*, so within (family, length) the GP prefix, and hence commitment over the NP, is identical. Demeaning by family × length leaves only the P/I variation in gp_eff. This is the same logic as E006, on human-normed items.
+2. **Commitment covariate.** `commit_end = log(P(",") + P("."))` at the end of the ambiguous region (probes NPend_comma / NPend_period). It enters a two-covariate family-demeaned regression with gp_eff. Interpretive caveat: P/I differ in semantic plausibility as well as surprisal, so the prefix-matched slope is "error + plausibility of the misreading". It cannot separate those two.

@@ -142,17 +142,46 @@ def cell_level(p, q, g):
     lin = (x.GP - x.CUE).rename("linger")
     w = q[q.verb_class == "OT"].pivot_table(index=["family", "length", "plaus"], columns="probe", values="lp")
     ge = (w.CUE_dis - w.GP_dis).rename("gp_eff")
-    d = pd.concat([A, lin, ge], axis=1).dropna().reset_index()
-    for k in ("A", "linger", "gp_eff"):
+    # commitment over the NP: log P(clause close) at the end of the ambiguous region, i.e.
+    # log(P(",") + P(".")) minus log P(disambiguating word) is NOT used (it contains gp_eff);
+    # we use the closure mass itself.
+    ce = np.logaddexp(w.NPend_comma, w.NPend_period).rename("commit_end")
+    d = pd.concat([A, lin, ge, ce], axis=1).dropna().reset_index()
+    for k in ("A", "linger", "gp_eff", "commit_end"):
         d[k + "_w"] = d[k] - d.groupby("family")[k].transform("mean")
 
     def slope(dd, y):
         v = (dd.gp_eff_w ** 2).sum()
         return float((dd.gp_eff_w * dd[y + "_w"]).sum() / v) if v else np.nan
 
+    def slopes2(dd, y):
+        X = dd[["gp_eff_w", "commit_end_w"]].to_numpy()
+        try:
+            return np.linalg.lstsq(X, dd[y + "_w"].to_numpy(), rcond=None)[0]
+        except np.linalg.LinAlgError:
+            return np.array([np.nan, np.nan])
+
     fams = d.family.unique()
     rng = np.random.default_rng(0)
     rows = []
+    for y in ("A", "linger"):
+        est = slopes2(d, y)
+        bs = np.array([slopes2(pd.concat([d[d.family == f] for f in rng.choice(fams, len(fams))]), y) for _ in range(300)])
+        for k, name in enumerate(("gp_eff", "commit_end")):
+            lo, hi = np.nanpercentile(bs[:, k], [2.5, 97.5])
+            rows.append({"part": "cell_level", "verb_class": "OT", "stat": f"partial_{y}_on_{name}", "est": float(est[k]),
+                         "lo": lo, "hi": hi, "n": len(fams)})
+    # prefix-matched: within (family, length) only plausibility varies; the prefix (V + NP region)
+    # is identical, so commitment over the NP is constant and gp_eff varies through the continuation.
+    dl = d.copy()
+    for k in ("A", "linger", "gp_eff"):
+        dl[k + "_w"] = dl[k] - dl.groupby(["family", "length"])[k].transform("mean")
+    for y in ("A", "linger"):
+        est = slope(dl, y)
+        bs = [slope(pd.concat([dl[dl.family == f] for f in rng.choice(fams, len(fams))]), y) for _ in range(300)]
+        lo, hi = np.nanpercentile(bs, [2.5, 97.5])
+        rows.append({"part": "cell_level", "verb_class": "OT", "stat": f"prefixmatched_{y}_on_gp_eff", "est": est,
+                     "lo": lo, "hi": hi, "n": len(fams)})
     for y in ("A", "linger"):
         est = slope(d, y)
         bs = [slope(pd.concat([d[d.family == f] for f in rng.choice(fams, len(fams))]), y) for _ in range(300)]
@@ -195,6 +224,10 @@ def main():
               "| OT GP-REORD_LP", f(("comp_OBS_author", "OT", "GP-REORD_LP")))
         print("  within-family slopes on gp_eff: A", f(("cell_level", "OT", "slope_A_on_gp_eff")),
               "linger", f(("cell_level", "OT", "slope_linger_on_gp_eff")))
+        print("  PREFIX-MATCHED slopes on gp_eff: A", f(("cell_level", "OT", "prefixmatched_A_on_gp_eff")),
+              "linger", f(("cell_level", "OT", "prefixmatched_linger_on_gp_eff")))
+        print("  partial (gp_eff | commit_end): A", f(("cell_level", "OT", "partial_A_on_gp_eff")), f(("cell_level", "OT", "partial_A_on_commit_end")),
+              "linger", f(("cell_level", "OT", "partial_linger_on_gp_eff")), f(("cell_level", "OT", "partial_linger_on_commit_end")))
     pd.concat(allrows).to_csv(RES / "summary_v2.csv", index=False)
 
 
