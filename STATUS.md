@@ -1,6 +1,8 @@
 # garden-path 当前状态
 
-日期：2026-10-12。状态：**RESEARCH_DESIGN_V0.1 / NO_NEW_MODEL_RUNS**（保留2026-10-09重启授权）。
+日期：2026-10-12。状态：**EXPLORATORY_RUNS_ACTIVE**（保留2026-10-09重启授权）。
+
+> **2026-10-12 更新：** 首批真实模型实验已运行（E001–E005，NP/Z 错误解析启动）。当前认识与变化原因见 **[research/CURRENT_UNDERSTANDING.md](research/CURRENT_UNDERSTANDING.md)**；实验卡片见 `research/experiments/`。核心发现（探索性，held-out 验证进行中）：GP 启动的净效应是“残余激活（+）”与“预测误差驱动适应（−）”两种相反力量的平衡，其平衡随模型而变。下文“尚未运行”的描述已过时，保留为历史。
 
 用户明确决定重启，指出此前研究方式存在重大问题。仓库改名为 `garden-path`，迁至 `/home/xiang/garden-path`，以当前完整快照建立新的 Git 历史并上传到 `Nhckdvrl/garden-path`。
 
