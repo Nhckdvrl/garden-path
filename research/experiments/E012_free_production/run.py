@@ -73,15 +73,14 @@ def main():
             sp = SamplingParams(n=a.n, temperature=1.0, top_p=1.0, max_tokens=24, seed=0, stop=["\n"])
             outs = llm.generate(prompts, sp)
             tg = time.time() - t0
-            from transitivity import classify  # imported after generation (spaCy pulls in torch)
             with gzip.open(OUT / f"{tag}.gen.csv.gz", "wt") as f:
                 f.write("prime_family\tcond\ttarget_family\tsample\tcls\tcomma\tgp_style\tcontinuation\n")
                 for (pf, c, tf, frag), o in zip(keys, outs):
                     for k, comp in enumerate(o.outputs):
                         cont = first_sentence(comp.text)
-                        r = classify(frag, cont)
                         cont_s = cont.replace("\t", " ").replace("\n", " ")
-                        f.write(f"{pf}\t{c}\t{tf}\t{k}\t{r['cls']}\t{int(r['comma'])}\t{int(r['gp_style'])}\t{cont_s}\n")
+                        # coding is done offline by reclassify.py (keeps the GPU free)
+                        f.write(f"{pf}\t{c}\t{tf}\t{k}\tNA\t-1\t-1\t{cont_s}\n")
             meta = {"tag": tag, "model": path, "n_prompts": len(prompts), "n": a.n,
                     "gen_seconds": tg, "total_seconds": time.time() - t0}
             json.dump(meta, open(OUT / f"{tag}.meta.json", "w"))

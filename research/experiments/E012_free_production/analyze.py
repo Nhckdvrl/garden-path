@@ -27,11 +27,12 @@ R = {"r_gen": ("GP-NB", "TB-NB")}
 CS = {"style_GP-CUE": {"GP": 1, "CUE": -1}, "style_NB-NC": {"NB": 1, "NC": -1}}
 
 
-def main(B=1000):
+def main(B=1000, version=1):
     rows = []
-    for f in sorted(glob.glob(str(RES / "*.meta.json"))):
-        t = Path(f).name[: -len(".meta.json")]
-        g = pd.read_csv(RES / f"{t}.gen.csv.gz", sep="\t", quoting=3, keep_default_na=False)
+    for f in sorted(glob.glob(str(RES / "*.coded.csv.gz"))):
+        t = Path(f).name[: -len(".coded.csv.gz")]
+        g = pd.read_csv(f, sep="\t", quoting=3, keep_default_na=False)
+        g["cls"], g["gp_style"] = g[f"cls_v{version}"], g[f"gp_v{version}"]
         g["trans"] = (g.cls == "TRANS").astype(float)
         amb = g.groupby("cond").cls.apply(lambda s: (s == "AMBIG").mean())
         v = g[g.cls != "AMBIG"].groupby(["prime_family", "cond", "target_family"]).trans.mean().rename("L").reset_index()
@@ -43,12 +44,12 @@ def main(B=1000):
         rows += [r, rs]
         pt = g[g.cls != "AMBIG"].groupby("cond").trans.mean()
         st = g.groupby("cond").gp_style.mean()
-        print(f"== {t}: p(TRANS) " + " ".join(f"{c}={pt[c]:.3f}" for c in ["NONE", "GP", "CUE", "TB", "TC", "NB", "NC"]))
+        print(f"== {t} [coding v{version}]: p(TRANS) " + " ".join(f"{c}={pt[c]:.3f}" for c in ["NONE", "GP", "CUE", "TB", "TC", "NB", "NC"]))
         print(f"   vG={fmt(r,'vG')} A_gen={fmt(r,'A_gen')} r_gen={fmt(r,'r_gen')} TB-NB={fmt(r,'TB-NB')} | "
               f"gp_style GP={st['GP']:.3f} CUE={st['CUE']:.3f} NB={st['NB']:.3f} NC={st['NC']:.3f} "
               f"style_GP-CUE={fmt(rs,'style_GP-CUE')} | AMBIG max={amb.max():.3f}", flush=True)
     out = pd.concat(rows)
-    out.to_csv(RES / "summary.csv", index=False)
+    out.to_csv(RES / f"summary_v{version}.csv", index=False)
     w = out.set_index(["model", "stat"])
     models = out.model.unique()
     p1 = sum(w.loc[(m, "A_gen")].lo > 0 for m in models)
@@ -58,4 +59,4 @@ def main(B=1000):
 
 
 if __name__ == "__main__":
-    main()
+    main(version=int(sys.argv[1]) if len(sys.argv) > 1 else 1)
