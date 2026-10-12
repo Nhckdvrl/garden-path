@@ -30,3 +30,11 @@ For each model, with NP/Z discovery slopes from `results/gp/E005/predictions.jso
 - **G2:** if NP/Z discovery t_gp ≤ −2, predict NP/S b_gp < 0.
 
 Same OLS `A ~ z(obj_expect) + z(gp_strength)` over the 64 prime families; one-sided t > 1.645. Pooled sign test across models per prediction. Net A sign: no prediction (model-dependent in NP/Z).
+
+## Result (within-construction targets, 6 models): generalization FAILED under the frozen rule
+
+G1 (b_obj > 0): 1/5 confirmed (GPT-2 only). G2 (b_gp < 0): 0/4 confirmed. Net A ≈ 0 in all models (−0.14 to +0.11), while the true-transitive control still primes (Afull 0.3–0.95). The instrument works; the two-force structure is absent.
+
+**Post-hoc diagnostics (do not alter the verdict):** A is reliable in NP/S (split-half r = 0.77–0.94) and the predictors have NP/Z-like spread (SD of gp_strength ≈ 2.0 vs 2.3), so the null is not a reliability or range artefact. NP/S garden paths are weaker on average (2.3–3.0 nats vs ≈ 5 in NP/Z).
+
+**Interpretation to test next (not established):** NP/S reanalysis is classically *monotonic* or "easy" (Gorrell 1995; Sturt, Pickering & Crocker 1999): the NP stays inside the verb's complement and is lowered into a clause, and no committed structure is destroyed. NP/Z is *non-monotonic*: the NP must be detached from the verb. Hypothesis: the commitment residue and error-driven adaptation arise only when committed structure must be destroyed. Decisive test: MV/RR (non-monotonic), see E008.

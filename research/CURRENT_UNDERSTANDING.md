@@ -11,8 +11,10 @@ Living document. Each entry says what we believed, what changed it, and what is 
 
 **Revised understanding:** "Does an LLM show van Gompel's lingering-parse priming?" has a model-dependent answer because it reads out the **net** of two opposing, separately measurable forces. Those forces are stable across 17 LMs. The commitment force is supported between families (17/17 discovery, 5/7 held-out) and by the E004 history test, but it has **no within-family causal manipulation yet**.
 
+**Update (E007, NP/S):** the two-force structure did **not** generalize to NP/S under a frozen rule (G1 1/5, G2 0/4; net A ≈ 0), although A is reliable there and the predictors vary as much as in NP/Z. So the structure is not a property of every garden path. Candidate explanation from classic reanalysis theory: NP/S reanalysis is monotonic (no committed structure destroyed), NP/Z is non-monotonic. Test: MV/RR (E008).
+
 **Open (priority order):**
-1. Generalization beyond NP/Z (NP/S, MV/RR), where the abandoned analysis and its error differ.
+1. Does MV/RR (non-monotonic) show the two-force structure (E008)? If yes, the boundary is plausibly reanalysis type; if no, NP/Z-specific factors (clause boundary, comma-less style) are the better explanation.
 2. A within-family commitment manipulation (peer session E003 crosses plausibility × length on Christianson items, which gives a partial handle).
 3. Human prediction: the error component implies that, in humans, garden paths with more surprising disambiguation should show *less* transitive priming. Testable with van Gompel-style designs plus cloze-normed items.
 
