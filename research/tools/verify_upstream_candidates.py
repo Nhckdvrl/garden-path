@@ -9,6 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 from build_amouyal_candidates import build_candidates
+from validate_manifest import check_rows
 
 ROOT = Path(__file__).resolve().parents[2]
 SRC = ROOT / "data/gp_behavior/upstream/amouyal"
@@ -44,6 +45,9 @@ def verify() -> dict[str, int]:
         if actual != rebuilt:
             first = next((i for i, (a,b) in enumerate(zip(actual,rebuilt)) if a!=b), None)
             raise ValueError(f"{path}: source/candidate mismatch at index {first}")
+        issues = check_rows(actual, "A", require_review=False)
+        if issues:
+            raise ValueError(f"{path}: pending structural audit failed; first: {issues[:5]}")
         if any(r["review_status"] != "PENDING" or
                r["usage_status"] != "DISCOVERY_CANDIDATE_ONLY" or
                any(c["truth_status"] != "UNRESOLVED" for c in r["gold_claims"])
