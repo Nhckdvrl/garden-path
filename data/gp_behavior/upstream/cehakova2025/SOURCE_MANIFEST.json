@@ -1,0 +1,11 @@
+{
+ "source": "https://zenodo.org/records/16358492 (Stimuli.zip)",
+ "obtained_at": "2026-10-12",
+ "paper": "Cehakova & Chromy (2025) Beyond initial misanalysis, Discourse Processes, doi:10.1080/0163853X.2025.2513210",
+ "license": "CC-BY-4.0",
+ "files": {
+  "data/gp_behavior/upstream/cehakova2025/Stimuli.zip": "a6aefcd55945e195c26912bb386b3980272ab2b034fcf152911ce3e1b4fcd25d",
+  "data/gp_behavior/upstream/cehakova2025/exp_items.csv": "2ab0c1c1c06c28595445e277cc2e79b01eccd6cdc7bac77f86bdef2794a8b54a"
+ },
+ "note": "exp_items.csv extracted unchanged from Stimuli.zip"
+}

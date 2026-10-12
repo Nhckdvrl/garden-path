@@ -27,12 +27,15 @@ import lmscore  # noqa: E402
 FAMS = ROOT / "data/gp_behavior/derived/npz_prime_families_v1.jsonl"
 
 
-def build(spec_path):
-    fams = {json.loads(l)["family_id"]: json.loads(l) for l in open(FAMS)}
+def build(spec_path, prime_fams_path=None):
+    fams = {json.loads(l)["family_id"]: json.loads(l) for l in open(FAMS)}  # targets
+    pf = dict(fams)
+    if prime_fams_path:
+        pf.update({json.loads(l)["family_id"]: json.loads(l) for l in open(prime_fams_path)})
     spec = [json.loads(l) for l in open(spec_path)]
     items, keys, probes, pkeys = [], [], [], []
     for s in spec:
-        fi = fams[s["family_id"]]
+        fi = pf[s["family_id"]]
         st = set(fi["content_stems"]) | set(s.get("extra_stems", []))
         ctx = s["prime"] + " " if s["prime"] else ""
         for fj in fams.values():
@@ -83,10 +86,11 @@ def main():
     ap.add_argument("--exp", required=True)
     ap.add_argument("--batch", type=int, default=128)
     ap.add_argument("--models", nargs="+", required=True)
+    ap.add_argument("--prime_fams", default=None, help="extra prime-family file (held-out primes); targets stay FAMS")
     a = ap.parse_args()
     outdir = ROOT / "results/gp" / a.exp
     outdir.mkdir(parents=True, exist_ok=True)
-    items, keys, probes, pkeys = build(a.spec)
+    items, keys, probes, pkeys = build(a.spec, a.prime_fams)
     print(f"{len(items)} target items, {len(probes)} probes", flush=True)
     for m in a.models:
         tag, path = m.split("=", 1)

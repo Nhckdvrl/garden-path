@@ -1,0 +1,12 @@
+{
+ "upstream_repo": "cpllab/syntactic-generalization",
+ "upstream_commit": "43f1f86b746254406dafc89bd17b9d4976607ef6",
+ "obtained_at": "2026-10-12",
+ "paper": "Hu, Gauthier, Qian, Wilcox, Levy (2020) A systematic assessment of syntactic generalization in neural language models, ACL; NP/Z items after Futrell et al. 2019 / Staub 2007",
+ "license": "MIT (copy included)",
+ "files": {
+  "data/gp_behavior/upstream/syntaxgym/LICENSE": "58349ba6415bab546a8937e45a42ed2be94c368d36d0603bd2d12c37a203124f",
+  "data/gp_behavior/upstream/syntaxgym/npz_ambig.json": "2b46dd51f5985e62527e59e7f536656e28f462e33de9e3459cd635f73d5ca5e3",
+  "data/gp_behavior/upstream/syntaxgym/npz_obj.json": "6852eddee888fce984dbe7734f90bfccd185e8b4d11affb8141434d5362b5cb6"
+ }
+}
