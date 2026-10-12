@@ -2,6 +2,17 @@
 
 Living document. Each entry says what we believed, what changed it, and what is still open. Newest first. Experiments: `research/experiments/E00x_*` (cards are written before runs; post-hoc steps are labelled).
 
+## 2026-10-13 (early) — the "commitment residue" is entangled with comma-omission salience; error-driven adaptation is the robust finding
+
+**What changed:**
+- **E008 (MV/RR, interim):** the error slope generalizes (3/4 predicted models), the commitment slope does not (0/5). NP/S (E007) shows neither, despite larger disambiguation errors than MV/RR. So the error component follows **non-monotonic reanalysis** (structure destroyed: NP/Z, MV/RR), not merely surprise size.
+- **Post-hoc check prompted by E007/E008:** the NP/Z commitment proxy (log P(the) − log P(,) at the verb) splits into a weak object part (+ in 17/17 models, t > 2 in 5) and a comma part (− in 17/17, t < −2 in 8). Direct test on **unambiguous** NB/NC pairs: omitting a comma that the verb made likely lowers target S in **17/17** models. Comma-omission salience is a real, itself error-driven, *stylistic* adaptation, and it can mimic a "lingering-object residue" in NP/Z. It also explains why the commitment slope appeared only in NP/Z (the only construction with comma omission).
+
+**Revised understanding:**
+1. The most robust phenomenon is **prediction-error-driven adaptation toward what the garden-path sentence actually turned out to be**: structurally (the resolved parse; causal in E006; NP/Z and MV/RR, not monotonic NP/S) and stylistically (omitted commas).
+2. Evidence for a van Gompel-type **lingering abandoned-parse residue** in these LMs is weaker than the evening entry claimed: a weak object-expectation part, plus E004's history result, which comma salience also explains. E009 (case disambiguation, punctuation-free) tests whether any residue survives.
+3. Humans show a net *transitive* (residue) effect (van Gompel 2006). If E009 finds no residue in LMs, the LM–human contrast becomes the headline: **LMs adapt to the resolved structure where humans retain the abandoned one** (in production priming).
+
 ## 2026-10-12 (night) — error force is causal within family; two-force structure is near-universal; net effect is not
 
 **New evidence:**
