@@ -4,6 +4,8 @@ on:
     paths:
       - "research/tools/**"
       - "research/tests/**"
+      - "data/gp_behavior/candidates/**"
+      - "data/gp_behavior/upstream/amouyal/**"
       - ".github/workflows/gp-material-integrity.yml"
   pull_request:
     paths:
@@ -23,3 +25,5 @@ jobs:
           python-version: "3.11"
       - name: Validate offline-only source and schema unit tests
         run: python -m unittest discover -s research/tests -p "test_*.py" -v
+      - name: Check source blob hashes and generated candidate identity
+        run: python research/tools/verify_upstream_candidates.py
