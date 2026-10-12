@@ -27,8 +27,13 @@ import lmscore  # noqa: E402
 FAMS = ROOT / "data/gp_behavior/derived/npz_prime_families_v1.jsonl"
 
 
-def build(spec_path, prime_fams_path=None):
+def build(spec_path, prime_fams_path=None, targets_path=None):
     fams = {json.loads(l)["family_id"]: json.loads(l) for l in open(FAMS)}  # targets
+    if targets_path:
+        keep = set(json.load(open(targets_path)))
+        tf = {k: v for k, v in fams.items() if k in keep}
+    else:
+        tf = fams
     pf = dict(fams)
     if prime_fams_path:
         pf.update({json.loads(l)["family_id"]: json.loads(l) for l in open(prime_fams_path)})
@@ -38,7 +43,7 @@ def build(spec_path, prime_fams_path=None):
         fi = pf[s["family_id"]]
         st = set(fi["content_stems"]) | set(s.get("extra_stems", []))
         ctx = s["prime"] + " " if s["prime"] else ""
-        for fj in fams.values():
+        for fj in tf.values():
             if fj["family_id"] == fi["family_id"] or st & set(fj["content_stems"]):
                 continue
             th = f"{fj['subord']} {fj['subj_v']}"
@@ -86,11 +91,12 @@ def main():
     ap.add_argument("--exp", required=True)
     ap.add_argument("--batch", type=int, default=128)
     ap.add_argument("--models", nargs="+", required=True)
+    ap.add_argument("--targets", default=None, help="JSON list of target family ids (subset)")
     ap.add_argument("--prime_fams", default=None, help="extra prime-family file (held-out primes); targets stay FAMS")
     a = ap.parse_args()
     outdir = ROOT / "results/gp" / a.exp
     outdir.mkdir(parents=True, exist_ok=True)
-    items, keys, probes, pkeys = build(a.spec, a.prime_fams)
+    items, keys, probes, pkeys = build(a.spec, a.prime_fams, a.targets)
     print(f"{len(items)} target items, {len(probes)} probes", flush=True)
     for m in a.models:
         tag, path = m.split("=", 1)
