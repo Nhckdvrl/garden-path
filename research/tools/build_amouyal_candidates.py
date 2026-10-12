@@ -31,7 +31,7 @@ SOURCE_BASE = ("https://github.com/samsam3232/"
 def _group_key(filename: str, r: dict[str, str]) -> str:
     original = r["set_id"]
     if filename == "extended_gardenpath_experiments.csv":
-        if not re.fullmatch(r"set_\d+", original):
+        if not re.fullmatch(r"set_[A-Za-z0-9_]+", original):
             raise ValueError(f"Unexpected extended set_id: {original}")
         return original
     match = re.fullmatch(r"s(\d+)_[1234]", original)
