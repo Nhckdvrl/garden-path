@@ -1,0 +1,14 @@
+{
+  "upstream_repo": "samsam3232/comparing_humans_llms_processing_difficulties",
+  "upstream_commit": "072efefa01cb9716c2d14752eb1d4bf9830b0b81",
+  "obtained_at": "2026-10-12",
+  "license": "MIT (copy included); verify original study stimulus licensing separately if reused",
+  "files": [
+    "data/gp_behavior/upstream/amouyal/LICENSE",
+    "data/gp_behavior/upstream/amouyal/extended_gardenpath_experiments.csv",
+    "data/gp_behavior/upstream/amouyal/nps_human_base_data.csv",
+    "data/gp_behavior/upstream/amouyal/reduced_relative_human_base_data.csv",
+    "data/gp_behavior/upstream/amouyal/npvp_human_base_data.csv"
+  ],
+  "note": "These are immutable upstream CSV bytes, not syntactically/semantically reaudited gold. Material errors and answer convention must be addressed in derived files."
+}
