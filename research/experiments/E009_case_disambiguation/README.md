@@ -23,3 +23,10 @@
 - Net A_case: no directional prediction; reported with CIs.
 
 If C1 fails while C3 holds, the NP/Z "commitment" residue was punctuation-driven. In that case, the evidence for a van Gompel-type lingering residue in these LMs reduces to the E004 history result (which comma salience also explains) and E002's weak "the" part.
+
+## Result (17 models)
+
+- **C1 confirmed:** commitment slope > 0 in **17/17** models (sign test p < 1e-4; one-sided significant in 12). The object-expectation residue survives a disambiguation that uses case (*they*) instead of punctuation, with the verb and the omitted comma identical within the pair.
+- **C2 confirmed:** error slope < 0 in **15/17** (p = .001; significant in 11).
+- **C3 refuted:** the comma part of the proxy remains negative in 15/17 even though punctuation salience cancels within pairs. So the comma coefficient was **not** comma-omission salience. It indexes the other side of object commitment: a verb that predicts a clause boundary is a verb whose following NP is less committed as an object.
+- Net A_case: −0.41 (Qwen2.5-0.5B) to +0.24 (Gemma-3-12B-it, Qwen2.5-7B-Instruct); model-dependent, as in E002.

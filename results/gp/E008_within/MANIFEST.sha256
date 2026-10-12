@@ -1,0 +1,11 @@
+1e305792516a2da546aba22a1b280a299e798611cc2392d010b176b933a31a1a  gemma2-2b.scores.csv.gz
+d088adaf06e779e5cf68cb38b01f9d85d31fee7af4f6b60e5acec5b717665e97  gpt2.scores.csv.gz
+28c36f3f3cc7eee34ce9eb32bfc4a4adb5588937b269787d050886b0320d4ca5  llama2-7b.scores.csv.gz
+e0b1ce845fc52fb22c2a4559350b2ce673385c47b09f1a3daa2cef9839253469  llama3.2-3b.scores.csv.gz
+cc4acd08449b34b8be0da00283eb01c45f3388f7db8b5f76b490cbd4faba6a53  mistral-7b.scores.csv.gz
+f1e9d105c4daa4b299e419363451b906c55683ddebafde27cc72b24f0f4b0eda  pythia-1.4b.scores.csv.gz
+1c71f1a2307e1614ce7e1981619014078df0be72370c4c400c73b1a2b8a94792  pythia-2.8b.scores.csv.gz
+54c9a1ae78aedc39a2c605febed98630f08669104099c1426c9f22f52f3ccaca  pythia-410m-s1.scores.csv.gz
+d21c8bff4a250dd9e5f70b84e1ecd437618f165263abc5b12bc1e6ba222e35b5  qwen2.5-0.5b.scores.csv.gz
+7f994024e571ee7c1075e7d6638c19f829380e25cd10ce714a93a08b19469e6f  qwen2.5-7b.scores.csv.gz
+a42d5993911959cf1e0dacfae49fe96f9b8bf9c5f1d18e5e5c3cdb56358974ad  qwen3-1.7b-base.scores.csv.gz

@@ -2,7 +2,17 @@
 
 Living document. Each entry says what we believed, what changed it, and what is still open. Newest first. Experiments: `research/experiments/E00x_*` (cards are written before runs; post-hoc steps are labelled).
 
-## 2026-10-13 (early) — the "commitment residue" is entangled with comma-omission salience; error-driven adaptation is the robust finding
+## 2026-10-13 (morning) — CORRECTION: the commitment residue survives punctuation-free disambiguation (E009)
+
+The previous entry claimed the NP/Z commitment residue was "entangled with comma-omission salience" and that evidence for a lingering residue was weak. **E009 tested that and refuted it.** With case disambiguation (*hunted they ran* vs *hunted the deer ran*: same verb, same omitted comma), the commitment slope is positive in **17/17** models (12 significant) and the error slope negative in 15/17. The comma coefficient persists even where punctuation salience cancels, so it reflects low object commitment, not punctuation. Comma-omission salience (NB/NC, 17/17) is real, but it is a separate stylistic adaptation, not the source of the residue.
+
+**Current picture (NP/Z):** two forces with opposite signs, both robust and both punctuation-independent: (+) residue scaling with how strongly the model committed to the object reading; (−) adaptation scaling with the disambiguation error (causal within family, E006). The net effect is model-dependent.
+
+**Across constructions:** the error force appears in non-monotonic MV/RR (E008: 6/9 predicted models) and not in monotonic NP/S (E007: 0–2/9). The commitment force has been detected only in NP/Z (MV/RR 0/8; NP/S 1/8). Whether that reflects construction or the weaker verb-position commitment proxies used outside NP/Z is unresolved.
+
+**Lesson recorded:** a post-hoc decomposition (the "the" vs "," parts of the proxy) suggested a confound. The right move was a discriminating experiment (E009), not a narrative revision. The narrative revision in the previous entry was premature and is superseded.
+
+## 2026-10-13 (early) — [SUPERSEDED by the morning correction] the "commitment residue" is entangled with comma-omission salience; error-driven adaptation is the robust finding
 
 **What changed:**
 - **E008 (MV/RR, interim):** the error slope generalizes (3/4 predicted models), the commitment slope does not (0/5). NP/S (E007) shows neither, despite larger disambiguation errors than MV/RR. So the error component follows **non-monotonic reanalysis** (structure destroyed: NP/Z, MV/RR), not merely surprise size.
