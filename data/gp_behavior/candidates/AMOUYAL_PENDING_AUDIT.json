@@ -1,0 +1,50 @@
+{
+  "status": "PENDING_CANDIDATE_ONLY",
+  "as_of": "2026-10-12",
+  "upstream_commit": "072efefa01cb9716c2d14752eb1d4bf9830b0b81",
+  "breakdown": [
+    {
+      "construction": "NPZ",
+      "fn": "extended_gardenpath_experiments.csv",
+      "original_rows": 276,
+      "candidates": 138,
+      "families": 69,
+      "bytes": 195255
+    },
+    {
+      "construction": "NPS",
+      "fn": "nps_human_base_data.csv",
+      "original_rows": 160,
+      "candidates": 80,
+      "families": 40,
+      "bytes": 109070
+    },
+    {
+      "construction": "MVRR",
+      "fn": "reduced_relative_human_base_data.csv",
+      "original_rows": 160,
+      "candidates": 80,
+      "families": 40,
+      "bytes": 112891
+    },
+    {
+      "construction": "NPVP",
+      "fn": "npvp_human_base_data.csv",
+      "original_rows": 160,
+      "candidates": 80,
+      "families": 40,
+      "bytes": 107733
+    }
+  ],
+  "total_rows": 378,
+  "total_families": 189,
+  "model_inference_run": false,
+  "missing": [
+    "source_entailment_gold",
+    "review_of_grammaticality_and_naturalness",
+    "audited_disambiguator",
+    "INDEPENDENT_and_BRIDGE_claims",
+    "model-specific_capability_controls"
+  ],
+  "note": "CUE is a dataset-provided unambiguous control, NOT always punctuation. NPZ reorder; NPS overt that; MVRR unreduced RC; NPVP morphological control."
+}
