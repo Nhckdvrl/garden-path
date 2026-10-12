@@ -2,6 +2,14 @@
 
 Living document. Each entry says what we believed, what changed it, and what is still open. Newest first. Experiments: `research/experiments/E00x_*` (cards are written before runs; post-hoc steps are labelled).
 
+## 2026-10-13 (afternoon) — E011: the production-like residue needs a licensed object analysis (configuration account rejected)
+
+**Frozen test (17 models, 81 families):** passive primes (*While the man was hunted the deer ran…*) contain the same adjacency `hunted the deer` but never license an object reading. On L, A_pass / A_GP has median **0.10** (plausible half −0.08). A_pass > 0 in only 5/17 and **< 0 in 7/17**. Pre-registered verdict: **analysis account**. The post-hoc configuration hypothesis from E004 (L) is rejected for the panel as a whole.
+
+**Revised understanding:** the production-like residue is a genuine abandoned-analysis effect (van Gompel 2006 transfers): it scales with commitment (E002/E005/E009/E010) and requires that the object analysis was actually available (E011). It coexists with error-driven adaptation toward the resolved parse on comprehension-like measures (E006 causal; E010 prospective).
+
+**Open:** (i) the 5 models with partial passive residue are the larger or instruction-tuned ones (ratio 0.22–0.55). A configuration-level contribution may grow with model strength; check with the remaining large models. (ii) Generation-based production evidence (free completions, as in the human paradigm) is still missing. (iii) The commitment force still lacks a within-family causal manipulation.
+
 ## 2026-10-13 (late morning) — the two forces separate by MEASURE: production-like residue vs comprehension-like adaptation (post-hoc; prospective test E010 pending)
 
 Checking the item-level structure on the second target measure (L = comma-placement attachment choice, comma-matched within A's pairs) against S (target disambiguation surprisal):

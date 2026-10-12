@@ -27,3 +27,13 @@ Manipulation check: the disambiguator surprisal effect for PASS_B vs PASS_C shou
 Plausibility: passive sentences are rated by Llama-3.1-8B-Instruct (same protocol as E006). Results are reported for all families and for the plausible half (rating ≥ median).
 
 **Exclusion rule (fixed before scoring):** families whose ambiguous verb has a past form different from its participle (rode, drew, drank, ate, wrote, woke, grew, shrank, broke, hid, began) are excluded, because the passive would be ungrammatical or would change the GP substring.
+
+## Results (2026-10-13; 17 models; frozen rule applied as written)
+
+**Verdict: P-ANAL = YES, P-CONF = no** (all families: median ratio A_pass / A_GP on L = 0.10; A_pass CI > 0 in 5/17. Plausible half: median −0.08; 2/17).
+- Manipulation check passes: the passive barely garden-paths (disambiguator effect PASS_B vs PASS_C 0.5–2.8 nats vs GP vs CUE 3.4–8.1).
+- A_pass on L is significantly **negative** in 7/17 (GPT-2, Pythia ×4, Qwen2.5-3B, Qwen3-8B-Base).
+- **Heterogeneity (exploratory, not part of the rule):** the 5 models with A_pass > 0 are the larger or instruction-tuned ones (Gemma-3-12B-it 0.27, Llama-3.1-8B-Instruct 0.28, Mistral-7B 0.22, Qwen2.5-7B 0.53, Qwen2.5-7B-Instruct 0.55; ratios). A configuration-level component may exist in stronger models. Unconfirmed.
+- On S, A_pass is positive in most models, but A_GP on S is near zero, so the S ratio is uninterpretable. S is the adaptation measure and shares the comma-omission component; not used for the verdict.
+
+**Reading:** the production-like residue (net A_L > 0 in every model in E002/E005/E009/E010) needs a *licensed* object analysis of the NP. The local adjacency `V the N` without a possible object reading does not reproduce it. This refutes the post-hoc configuration hypothesis from E004 (L). The van Gompel-type abandoned-analysis account stands for most models.
