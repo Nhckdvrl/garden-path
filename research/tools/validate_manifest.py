@@ -13,7 +13,7 @@ import json
 from collections import defaultdict
 from pathlib import Path
 
-CONSTRUCTIONS = {"NPZ", "MVRR", "NPS"}
+CONSTRUCTIONS = {"NPZ", "MVRR", "NPS", "NPVP"}
 A_CONDITIONS = {"GP", "CUE"}
 B_CONDITIONS = {"GP", "CUE", "NONAMB_BARE", "NONAMB_CUE"}
 TRUTH = {"ENTAILED", "CONTRADICTED", "NOT_ENTAILED", "UNRESOLVED"}
@@ -60,38 +60,64 @@ def check_rows(rows: list[dict], pilot: str, require_review: bool = True) -> lis
             errors.append(f"{mark}: review_status must be PASSED/PENDING/FAILED")
         elif require_review and row["review_status"] != "PASSED":
             errors.append(f"{mark}: review_status not PASSED; do not run this material")
-        if not isinstance(row.get("disambiguator"), str) or not row["disambiguator"].strip():
-            errors.append(f"{mark}: explicit disambiguator required")
-        elif row["disambiguator"] not in row.get("sentence", ""):
+        # Candidate-stage data are deliberately NOT runnable. For the local
+        # --allow-pending check only, a disambiguator may remain unreviewed;
+        # --pilot A without --allow-pending requires a true source substring.
+        disamb = row.get("disambiguator")
+        if not isinstance(disamb, str) or not disamb.strip():
+            errors.append(f"{mark}: explicit disambiguator field required")
+        elif (disamb not in row.get("sentence", "") and
+              not (not require_review and disamb == "UNREVIEWED")):
             errors.append(f"{mark}: disambiguator not found verbatim in sentence")
+
         claims = row.get("gold_claims")
-        if not isinstance(claims, list) or not claims:
-            errors.append(f"{mark}: gold_claims must be a nonempty list")
+        if pilot == "A" and (not isinstance(claims, list) or not claims):
+            errors.append(f"{mark}: Pilot A requires source-grounded gold_claims")
+        elif claims is not None and not isinstance(claims, list):
+            errors.append(f"{mark}: gold_claims must be a list when present")
         else:
-            relation_ids: set[str] = set()
-            for claim in claims:
+            seen_relations: set[str] = set()
+            seen_probe_types: set[str] = set()
+            for claim in (claims or []):
                 if not isinstance(claim, dict):
                     errors.append(f"{mark}: gold claim is not an object")
                     continue
-                if claim.get("truth_status") not in TRUTH:
+                truth, probe = claim.get("truth_status"), claim.get("probe_type")
+                if truth not in TRUTH:
                     errors.append(f"{mark}: invalid claim truth_status")
-                if claim.get("probe_type") not in PROBE_TYPES:
+                elif require_review and truth == "UNRESOLVED":
+                    errors.append(f"{mark}: gold truth still UNRESOLVED; cannot run")
+                if probe not in PROBE_TYPES:
                     errors.append(f"{mark}: invalid claim probe_type")
+                elif probe in seen_probe_types:
+                    errors.append(f"{mark}: duplicate probe_type {probe}")
+                else:
+                    seen_probe_types.add(probe)
                 rid = claim.get("relation_id")
                 if not isinstance(rid, str) or not rid:
                     errors.append(f"{mark}: missing relation_id")
-                elif rid in relation_ids:
+                elif rid in seen_relations:
                     errors.append(f"{mark}: duplicate claim {rid}")
-                relation_ids.add(rid)
+                else:
+                    seen_relations.add(rid)
                 for field in ("predicate", "arguments"):
                     if field not in claim:
                         errors.append(f"{mark}: claim missing {field}")
+                if require_review and claim.get("predicate") == "UNREVIEWED":
+                    errors.append(f"{mark}: placeholder predicate may not be run")
+            if pilot == "A" and require_review:
+                missing_types = PROBE_TYPES - seen_probe_types
+                if missing_types:
+                    errors.append(f"{mark}: A requires audited four-probe coverage; "
+                                  f"missing {','.join(sorted(missing_types))}")
         if pilot == "B":
-            if row.get("lexical_disjoint_review") != "PASSED":
+            if require_review and row.get("lexical_disjoint_review") != "PASSED":
                 errors.append(f"{mark}: lexically disjoint target review not PASSED")
             for k in ("target_id", "target_prefix", "transitive_candidate", "intransitive_candidate"):
                 if not isinstance(row.get(k), str) or not row[k].strip():
                     errors.append(f"{mark}: missing B target field {k}")
+            if (require_review and row.get("target_structure_review") != "PASSED"):
+                errors.append(f"{mark}: target structure review not PASSED")
             if row.get("transitive_candidate") == row.get("intransitive_candidate"):
                 errors.append(f"{mark}: identical B target candidates")
 
@@ -99,6 +125,8 @@ def check_rows(rows: list[dict], pilot: str, require_review: bool = True) -> lis
         missing = required_conditions - set(conds)
         if missing:
             errors.append(f"family {fam}: missing {','.join(sorted(missing))}")
+        if len({r.get("control_type") for r in conds.values()}) > 1:
+            errors.append(f"family {fam}: control_type changes across conditions")
         if len({r.get("construction") for r in conds.values()}) > 1:
             errors.append(f"family {fam}: mixed constructions across paired conditions")
         # GP/CUE in A/B must *report* identical intended source claim judgments.
@@ -106,7 +134,7 @@ def check_rows(rows: list[dict], pilot: str, require_review: bool = True) -> lis
             def claims_for(row: dict) -> dict[str, str]:
                 return {c["relation_id"]: c["truth_status"] for c in row.get("gold_claims", [])
                         if isinstance(c, dict) and "relation_id" in c and "truth_status" in c}
-            if claims_for(conds["GP"]) != claims_for(conds["CUE"]):
+            if pilot == "A" and claims_for(conds["GP"]) != claims_for(conds["CUE"]):
                 errors.append(f"family {fam}: GP/CUE claim truth mismatch; inspect source semantics")
         if pilot == "B":
             keys = ("target_id", "target_prefix", "transitive_candidate", "intransitive_candidate")
