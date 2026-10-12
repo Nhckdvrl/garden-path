@@ -86,3 +86,20 @@ Primary statistic: `reread = (GP2 − GP1) − (CUE2 − CUE1)` on OBS (author),
 - 2026-10-12, 16/21 models done (exploratory). **Second correction:** the interim claim "comprehension lingering is huge but the priming residue is small" holds only for the S measure (target GP surprisal, adaptation-like). On L (comma placement, production-like, the van Gompel analogue), the residue is large: rA_L = 0.89 (Llama-3.1-8B-Instruct), 0.96 (Mistral-7B), 0.70 (Gemma-3-12B-it), and A_L > 0 in 16/16 models (`report_for_E010.csv`). This matches the parallel session's frozen E010 card (scored there: D1 16/16, D3 14/16, D2 partially failed).
 - **Family-level link** (`itemlink.py`; reliabilities ≥ .90, ceiling ≈ .96): corr(lingering, A_L) = −.31 (Mistral, CI excludes 0), −.25 (Qwen3-8B), −.16 (Llama-Instruct), +.14 (Gemma); corr(lingering, A_S) ≈ 0 in all four. Both residues are large on average, but the items with the most lingering are not the items with the most priming.
 - **What drives each** (`item_predictors.py`): A_L tracks commitment at V (obj_expect, r = +.27 to +.59, 4/4 models). Lingering measured as GP − CUE correlates −.79 to −.95 with the CUE baseline, but this is largely a **shared-term + ceiling artefact**: P(yes | GP) = .74–.93 with about half the between-family SD of CUE. Using GP alone, the yes-rate correlates with the CUE baseline (+.45 to +.78; a pragmatic prior that V acted on NP) and not with obj_expect, gp_eff or A_L. Working interpretation (to be tested, not established): in LMs, yes/no lingering is a near-ceiling GP effect whose item variance is pragmatic, while production priming tracks syntactic commitment.
+
+### E003b first results (2 instruction models; exploratory)
+
+Manipulation check passes in both: GP1 disambiguator effect +9.8 (Gemma-3-12B-it) / +7.5 (Llama-3.1-8B-Instruct) nats. The second copy in GP2 **and in CUE_GP** is not garden-pathed (effect −4.7 to −6.3: the word is copied). So CUE_GP is valid for these models, unlike GPT-2/Pythia in E002.
+
+OT, OBS_author (logodds, family bootstrap): GP1−CUE1 = +10.05 / +3.79. reread = **+3.56 / +1.15** (rereading *increases* lingering). GP_CUE−CUE1 = +6.90 / +2.62 (the punctuated version only partly corrects). CUE_GP−CUE1 = **+3.85 / −0.46** (the same two sentences in the other order: little or no lingering). qfirst = −3.29 / −2.59. FINAL is impaired in every condition that contains the GP string, including CUE_GP (−2.7 / −1.3).
+
+Reading: with identical content, lingering depends on whether the GP string was processed with a garden path (GP first) or without one (after its disambiguated twin). Recency predicts the opposite order effect, and surface string match predicts none. **Open alternative: primacy / label role** ("Sentence:" holds GP in GP_CUE but CUE in CUE_GP), which predicts the same order effect. E003c separates them.
+
+## E003c — processing history vs primacy (designed before data)
+
+The GP sentence is always the labelled primary sentence, preceded by a context line that either removes the garden path without answering the question, or is neutral:
+- `CTX_DIS`: "Context: The deer ran into the woods." → Sentence: GP (or CUE)
+- `CTX_NEU`: "Context: The weather was mild that day." → Sentence: GP (or CUE)
+- `CTX_REORD`: "Context: {REORD}" (full disambiguated paraphrase; still does not assert the obsolete relation)
+- Neutral-label order test: "Version 1: X / Version 2: Y" for (GP, CUE) and (CUE, GP).
+Statistic: `hist = [(GP−CUE) | CTX_DIS] − [(GP−CUE) | CTX_NEU]`. Processing history predicts hist < 0, tracking the per-family reduction in the disambiguator surprisal. Primacy predicts hist ≈ 0. Manipulation check: disambiguator surprisal in GP after each context.
