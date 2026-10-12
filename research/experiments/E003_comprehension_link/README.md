@@ -67,3 +67,17 @@ Raised by the parallel session: length and plausibility can move commitment *ove
 ## Running log (exploratory; models analysed as they finish)
 
 - 2026-10-12, after 4 models: an interim statement to the user, "LM lingering is insensitive to plausibility, unlike humans", was **wrong** and has been corrected. The original `plaus_eff` was the difference-in-differences `(GP−CUE)_P − (GP−CUE)_I`, which is ≈ 0. The simple GP plausibility effect is positive and human-like in direction (Mistral-7B +0.42 [0.22, 0.61], Llama-3.1-8B-Instruct +1.76 [1.10, 2.44] logodds). It is about equally large in CUE, REORD and even TC, where the hunting is *asserted*. So in these models plausibility acts as an additive world-knowledge prior on the answer, not as a GP-specific correction. Christianson varied plausibility only in GP items (controls were plausible only), so the human interaction is unknown. Stats renamed: `plaus_x_GPCUE` (DiD), `plaus_GP/CUE/TC/REORD` (simple effects); `plaus_check.py` prints all forms.
+
+## E003b — does rereading / processing history change lingering? (designed 2026-10-12, before data)
+
+Motivation from E003 so far: in instruction-following models lingering is far larger than in humans (Llama-3.1-8B-Instruct P(yes) ≈ 0.87–1.00 vs human 0.29–0.44), and the final relation is also weakened. E004 (parallel session) showed that an exact second copy of a GP sentence is not garden-pathed. That gives a clean processing-history manipulation for *comprehension*. Runner: `run_reread.py`; output `results/gp/E003b/`. Same 192 cells, OBS/FINAL × author/template questions × 2 formats × 2 answer orders.
+
+Presentations: GP1, GP2 (read again), CUE1, CUE2, GP_CUE (GP then the punctuated version), CUE_GP, QFIRST_GP / QFIRST_CUE (question before the sentence; cf. Christianson 2024 Exp. 2), TC1.
+
+| Account of LM lingering | GP2 − GP1 (vs CUE2 − CUE1) | GP_CUE vs CUE1 | QFIRST_GP vs GP1 |
+|---|---|---|---|
+| Processing-episode residue (states built under the object analysis) | lingering drops | ≈ CUE1 | lingering drops if the question changes how the NP is encoded |
+| Surface / lexical match to the adjacent string *hunted the deer* | no drop (or rise: two matches) | stays above CUE1 | no change |
+| Final parse never built (incomplete reanalysis; string-level repetition adds no information) | no drop | ≈ CUE1 (punctuation supplies the parse) | no change |
+
+Primary statistic: `reread = (GP2 − GP1) − (CUE2 − CUE1)` on OBS (author), family bootstrap, per model. Secondary: the same on FINAL (sign flipped: does rereading restore the final relation?), and GP_CUE − CUE1.
