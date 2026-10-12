@@ -34,3 +34,9 @@ Same regression as discovery: `A ~ z(obj_expect) + z(gp_strength)` (OLS over pri
 - P1 replicates, P2 fails → the negative A in strong models is not error-driven at the item level; look for construction-level adaptation instead.
 - P2 replicates, P1 fails → "residual commitment" was a verb-property artefact of the discovery set.
 - Neither replicates → the item-level structure is set-specific. Keep only the net-effect descriptions.
+
+## Interim results (8 models; frozen rule unchanged)
+
+14/18 predictions confirmed: P1 commitment 5/7, P2 error 3/4, P3 net sign 4/5, P4 history 2/2. Failures, reported as-is: Llama-3.2-3B P2 (held-out b_gp t = −0.85); Pythia-2.8b P1 (b_obj ≈ 0); Qwen2.5-0.5B P3 (A = +0.09, predicted negative); Qwen2.5-3B P1 (this model already failed the discovery instrument check, Afull < 0).
+
+**Post-hoc diagnostic (not part of the confirmation):** the two held-out sources differ strongly in object expectation at the verb (Ceháková reflexive-absolute verbs ≈ −0.3; SyntaxGym ≈ +1.5), so pooled between-family slopes partly encode a source contrast, and each source alone has only n = 24. With source fixed effects, the error slope is negative in Pythia-1.4b, Pythia-2.8b, Qwen2.5-0.5B and GPT-2 (t = −2.3 to −3.6). In Llama-3.2-3B it is null within both sources. Between-family item regressions at n ≈ 24 per source are fragile; within-family manipulations (E004, E006) carry more weight.
