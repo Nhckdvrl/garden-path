@@ -2,7 +2,7 @@
 
 On 2026-10-09 the user explicitly reversed the 2026-09-30 whole-topic termination and authorized restarting the repository as garden-path. README.md and STATUS.md describe the current state. The previous termination remains a historical record in archive/abandoned_unring_the_bell_2026_09_30/.
 
-As of 2026-10-12 the new syntax Garden Path **behavior-first research DESIGN** is documented in research/RESEARCH_PLAN.md, library/README.md, research/MEASUREMENT_PROTOCOL.md and research/DECISIONS.md. NO new model experiment has yet run. Historical plans remain records; do not automatically resume old G0–G33 experiments or paper plans.
+As of 2026-10-12 the new syntax Garden Path **behavior-first research DESIGN** is documented in research/RESEARCH_PLAN.md, library/README.md, research/MEASUREMENT_PROTOCOL.md and research/DECISIONS.md. Since then, experiments E001–E012 have run (see research/experiments/README.md). **As of 2026-10-13 the project is PAUSED by the user**; read research/PAUSE_HANDOFF_2026-10-13.md before resuming. Historical plans remain records; do not automatically resume old G0–G33 experiments or paper plans.
 
 Preserve frozen data, registrations, actual results, audit records and failed execution artifacts. Do not recast failed confirmations as successes or silently revise historical numbers. The user requested a fresh Git history containing only the current project snapshot; preserving old commit chronology is not required. Keep unrelated existing file changes intact.
 

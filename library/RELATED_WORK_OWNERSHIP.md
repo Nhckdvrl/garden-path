@@ -41,3 +41,13 @@ This is **not** an automatic kill list or a mandate to invent a totally untouche
 3. **Method-first:** 'We measured feature angles / patched a head and noticed QA changed.' Without a newly explained behavior and functional specificity, the mechanism claim is underspecified.
 
 **Potential contribution:** a reliable modern-LLM manifestation, absence, or reversal of an established human pattern, or a structured new behavioral law. Mechanism is an optional depth, not a prerequisite. Prior-work ownership should calibrate claims, not mechanically veto transfer studies. If the data refuse a specific prediction, revise the explanation instead of building tools to rescue it.
+
+## Our results (2026-10-13) and their nearest owners
+
+| Our claim (experiments) | Nearest owner | Distance |
+|---|---|---|
+| Abandoned-object residue in LM production, licensed-analysis dependent (E002/E005/E009–E012) | van Gompel et al. 2006 (humans); Sinclair 2022 / Pucci 2026 (generic LM priming) | first LM transfer of the GP-specific effect, with punctuation, verb-bias and local-coherence controls and free generation |
+| Error-driven adaptation toward the resolved parse, causal within family (E006–E008) | Jumelet 2024, Zhou et al. 2025 (error-driven / IFE priming in LMs); Fine et al. 2013 (human adaptation) | GP-specific; opposite sign to the residue on the same prime; tied to non-monotonic reanalysis |
+| Measure dependence of which force dominates (E010) | none found | new |
+| Comprehension lingering dissociates from priming item by item (E003) | Fujita & Cunnings 2020 (human, by measure) | item-level, LM, 10 models |
+| Raw van Gompel statistic invalid for LMs because of punctuation-style alignment (E012) | none found | methodological |

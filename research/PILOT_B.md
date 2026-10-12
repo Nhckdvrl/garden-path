@@ -1,5 +1,8 @@
 # Pilot B — does an inappropriate parse prime later production beyond ordinary context?
 
+> **Status note (2026-10-13):** this plan was the starting design. Pilot B (misparse priming) was executed as E001–E012, and Pilot A's comprehension question was partly pursued in E003. The project is now **PAUSED**. Current results: [experiment index](experiments/README.md), [current understanding](CURRENT_UNDERSTANDING.md), [pause handoff](PAUSE_HANDOFF_2026-10-13.md). The text below is kept as the original design record.
+
+
 **DESIGN DRAFT v0.2; no current run.** A strong human→LLM transfer of the *specific 2006 wrong-parse priming paradigm* is potentially scientifically original, even before a detailed mechanism. [Scientific novelty standard](SCIENTIFIC_NOVELTY_STANDARD.md) and [data strategy](DATA_STRATEGY.md). Nearest direct human ancestor: [van Gompel et al. 2006](https://doi.org/10.1016/j.jml.2006.06.004). Nearest LM instrument: [Prime-LM / Sinclair et al. 2022](https://aclanthology.org/2022.tacl-1.60/).
 
 ## B1. A precise direction (Gemini's earlier proposal inverted it)

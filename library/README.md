@@ -22,6 +22,7 @@ These are **curated imports**, not newly certified full-text reading. The header
 - [Ceháková & Chromý 2025](papers/behavior/cehakova2025-disrupted-final-interpretations.md), [Lee 2026 paraphrasing](papers/behavior/lee2026-good-enough-paraphrase.md), [Wang 2026 grammaticality](papers/behavior/wang2026-implicit-grammaticality.md).
 
 ### Human reanalysis, lingering meaning and revision cost
+- [Christianson 2001 (full read; E003 items)](papers/human/christianson2001-thematic-roles-linger.md), [Fujita & Cunnings 2020 (priming vs lingering)](papers/human/fujita-cunnings2020-priming-and-lingering.md), [Tabor 2004 local coherence (search-level)](papers/human/tabor2004-local-coherence.md).
 - [Slattery 2013](papers/human/slattery2013-competing-representations.md), [Huang & Ferreira 2021](papers/human/huang-ferreira2021-memory-versus-parse.md), [van Gompel 2006](papers/human/vangompel2006-garden-path-priming.md), [Christianson 2024](papers/human/christianson2024-rereading-and-question-order.md).
 - [Sturt 2007](papers/human/sturt2007-semantic-persistence.md), [Malyutina 2016](papers/human/malyutina2016-blended-interpretations.md), [Maina-Kilaas 2026](papers/human/mainakilaas2026-digging-in.md).
 

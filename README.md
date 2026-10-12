@@ -5,9 +5,11 @@
 - 本地位置：`/home/xiang/garden-path`
 - GitHub：<https://github.com/Nhckdvrl/garden-path>
 - Git 历史：仅当前完整工作区快照作为新的初始提交，不继承旧提交历史。
-- 当前阶段（2026-10-12）：**Garden Path 行为研究方案 v0.1 已建立**，包括两个可证伪 Pilot、测量协议、文献知识库与来源迁移。**尚未运行新的模型实验**；旧 G0–G33 仅为历史研究。
+- 当前阶段（2026-10-13）：**暂停（PAUSED）**。已完成 E001–E012 共 12 个实验（最多 21 个模型），结论与下一步见 [暂停交接文档](research/PAUSE_HANDOFF_2026-10-13.md)、[当前认识](research/CURRENT_UNDERSTANDING.md) 和 [实验索引](research/experiments/README.md)。旧 G0–G33 仅为历史研究。
 
 ## 当前研究入口
+
+- **[暂停交接文档](research/PAUSE_HANDOFF_2026-10-13.md)** / **[实验索引 E001–E012](research/experiments/README.md)** / **[当前认识](research/CURRENT_UNDERSTANDING.md)**：最新结论、意义评估、下一步与运行环境说明。
 
 - **[新研究问题与路线](research/RESEARCH_PLAN.md)** — 先从行为规律寻找解释空白，不预设机制故事。
 - **[测量与金标协议](research/MEASUREMENT_PROTOCOL.md)** — 源蕴含、关系依赖、独立问答/生成、材料质量。

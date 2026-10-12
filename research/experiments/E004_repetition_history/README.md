@@ -22,6 +22,8 @@ Statistic (S = −lpD, comma-free target measure; L also reported):
 
 Unit = prime family (93), two-way bootstrap. Same targets as E002.
 
+> **Superseded in part (2026-10-13):** the configuration-level hypothesis below was tested in E011 (frozen passive test) and **rejected** (median A_pass/A_GP = 0.10 on L). The production-like residue needs a licensed object analysis.
+
 ## Post-hoc reading of the L measure (recorded 2026-10-13; L was reported, not the primary measure)
 
 - **S (primary, 10 models):** the exact second GP copy (manipulation check passes: garden-path effect ≈ 0) never adds transitive residue (dA −0.23 to +0.07), while TB copies add where repetition adds at all. The adaptation/residue on S depends on the garden-path episode.

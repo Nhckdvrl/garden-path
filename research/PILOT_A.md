@@ -1,5 +1,8 @@
 # Pilot A — what survives: local wrong attachment vs disrupted sentence-wide interpretation?
 
+> **Status note (2026-10-13):** this plan was the starting design. Pilot B (misparse priming) was executed as E001–E012, and Pilot A's comprehension question was partly pursued in E003. The project is now **PAUSED**. Current results: [experiment index](experiments/README.md), [current understanding](CURRENT_UNDERSTANDING.md), [pause handoff](PAUSE_HANDOFF_2026-10-13.md). The text below is kept as the original design record.
+
+
 **Pre-experiment DESIGN DRAFT v0.2 (2026-10-12).** Human→LLM translation may be a contribution; detailed explanatory topology is a *stretch question*, not a mandatory prerequisite. [Data/sample-size strategy](DATA_STRATEGY.md). Not preregistered/frozen. No data have been newly collected, evaluated or run. [Rationale](RESEARCH_PLAN.md), [semantic measurement contract](MEASUREMENT_PROTOCOL.md), [closest existing result](../imports/ssn-incremental-revision/README.md).
 
 ## A1. Core estimand (cannot be reduced to “final question also wrong”)

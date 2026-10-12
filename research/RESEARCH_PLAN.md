@@ -1,5 +1,8 @@
 # Garden Path: from transient misinterpretation to a predictive theory of revision behavior
 
+> **Status note (2026-10-13):** this plan was the starting design. Pilot B (misparse priming) was executed as E001–E012, and Pilot A's comprehension question was partly pursued in E003. The project is now **PAUSED**. Current results: [experiment index](experiments/README.md), [current understanding](CURRENT_UNDERSTANDING.md), [pause handoff](PAUSE_HANDOFF_2026-10-13.md). The text below is kept as the original design record.
+
+
 **Scientific program v0.2 — 2026-10-12. No new model experiments have been run.** **[Scientific novelty calibration](SCIENTIFIC_NOVELTY_STANDARD.md)** and **[data strategy](DATA_STRATEGY.md)** supersede earlier overly restrictive gates. Human→modern LLM translation may itself be original research. Primary working repository: this repository. Historical source: [SSN imported assets](../imports/ssn-incremental-revision/README.md). Literature understanding: [genesis atlas](../library/RESEARCH_GENESIS_ATLAS.md), [ownership table](../library/RELATED_WORK_OWNERSHIP.md).
 
 ## 0. Question, not a pre-written paper story

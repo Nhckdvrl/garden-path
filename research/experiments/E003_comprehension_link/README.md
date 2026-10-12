@@ -1,6 +1,6 @@
 # E003 — Lingering misinterpretation vs misparse priming on the *same* human items
 
-**Status:** v2 design, 2026-10-12. Not yet run (GPU: per the user, waits for freed cards; no extra cards). Owner: this session. E001/E002/E004 belong to the parallel session; E003 reads nothing from them except, optionally, per-family A for the Amouyal subset.
+**Status (2026-10-13): COMPLETE.** E003 main: 21 models (Mistral-Small excluded, incomplete local cache). E003b (re-reading): 10 models. E003c (processing history vs primacy): 7 models. Results are in the running log below. The design was written on 2026-10-12 before any E003 data; later additions are dated and marked pre-data or post-hoc. (Historical note: E001/E002/E004–E011 were run by a duplicate process of this same conversation, which was later merged; see research/PAUSE_HANDOFF_2026-10-13.md.)
 
 ## Why the design changed (v1 → v2, before any E003 data existed)
 
