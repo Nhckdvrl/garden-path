@@ -27,3 +27,13 @@ p(c) = proportion TRANS among non-AMBIG continuations in condition c.
 - **P4:** across models, A_gen correlates positively with A on L from E002 (Spearman, same model set).
 
 Failure of P1/P2 would mean the log-prob residue does not reach actual production, which would be a major correction to the current understanding.
+
+## Run notes (2026-10-13)
+
+- vLLM 0.11.0 bug: the sampled-token pinned buffer is sized by `max_model_len`, so the engine crashes whenever `max_num_seqs` > `max_model_len`. Fixed by max_model_len 1024 and max_num_seqs 512; workers spawn; one process per model. The first launches of all 8 models failed on this before any generation; no data was lost.
+- Coding moved offline (`reclassify.py`, batched). **v1** = the frozen coding (primary). **v2** = a post-hoc refinement that resolves coordination after the NP ('the dishes and left' → TRANS; 'the baby and the dog cried' → INTR). It is applied uniformly to all models as a sensitivity analysis. AMBIG on Llama-3.2-3B: v1 9.1%, v2 2.0%.
+- **Coding audit on real generations** (Llama-3.2-3B, 30 random per v2 class; audited by the research assistant, Claude, not a human):
+  - TRANS correct 27–29/30. One clear error: a comma-less garden-path sentence ("…taught algebra and geometry in the forties … both were essential") coded TRANS. Two arguable cases: *began jamming*, a gerund complement.
+  - INTR correct 29/30. One error: a participial modifier read as the main verb ("dressed the bathroom mirror downloaded from…").
+  - AMBIG (2%) is mostly resolvable: "V and V" is usually intransitive; NP + VBG/relative clause is usually transitive. Excluded as frozen.
+  There is no reason for these errors to differ by prime condition, but this is not tested.
