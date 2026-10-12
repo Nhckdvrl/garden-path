@@ -1,0 +1,12 @@
+{
+  "upstream_repo": "caplabnyu/sapbenchmark",
+  "upstream_commit": "15e61066d510b5349e17740e6488c976abc3e1ac",
+  "obtained_at": "2026-10-12",
+  "paper": "Huang, Staub, Linzen et al. (2024) Large-scale benchmark yields no evidence that language model surprisal explains syntactic disambiguation difficulty. JML 137:104510",
+  "license": "MIT (copy included)",
+  "files": {
+    "data/gp_behavior/upstream/sap/Items_for_all_subsets.xlsx": "967a0e79ac6337bdba62c9c0c5e56e66ddfd8b7bb6a496b4fc220014e6e992c4",
+    "data/gp_behavior/upstream/sap/LICENSE": "43e8c6ddd8961b25ccd8942bf0e81fb92d320da15249ce994b81ff8db9fd8e96"
+  },
+  "note": "Immutable upstream bytes. NPZ_UAMB rows give author-built comma-disambiguated controls (true comma minimal pairs), unlike Amouyal REORDERED NP/Z controls."
+}

@@ -1,0 +1,9 @@
+{
+ "tag": "pythia-410m-s1",
+ "model": "EleutherAI/pythia-410m-seed1",
+ "n_items": 98256,
+ "n_pairs": 8188,
+ "straddle_tokens": 81880,
+ "seconds": 81.57864022254944,
+ "materials": "data/gp_behavior/derived/npz_prime_families_v1.jsonl"
+}

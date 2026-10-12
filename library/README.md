@@ -26,7 +26,7 @@ These are **curated imports**, not newly certified full-text reading. The header
 - [Sturt 2007](papers/human/sturt2007-semantic-persistence.md), [Malyutina 2016](papers/human/malyutina2016-blended-interpretations.md), [Maina-Kilaas 2026](papers/human/mainakilaas2026-digging-in.md).
 
 ### Structural priming / production
-- [Sinclair et al. TACL 2022](papers/priming/sinclair2022-structural-persistence.md) ([actual public corpus audit](papers/priming/sinclair2022-data-asset-audit.md)), [Jumelet 2024](papers/priming/jumelet2024-structural-priming.md), [Sinclair et al. JML 2026](papers/priming/sinclair2026-human-lm-priming.md), [Pucci et al. 2026](papers/priming/pucci2026-primed-production.md), [Zhou 2025](papers/priming/zhou2025-error-driven-priming.md).
+- [Sinclair et al. TACL 2022](papers/priming/sinclair2022-structural-persistence.md) ([actual public corpus audit](papers/priming/sinclair2022-data-asset-audit.md)), [Jumelet 2024](papers/priming/jumelet2024-structural-priming.md), [Sinclair et al. JML 2026](papers/priming/sinclair2026-human-lm-priming.md), [Pucci et al. 2026](papers/priming/pucci2026-primed-production.md), [Zhou 2025](papers/priming/zhou2025-error-driven-priming.md), [Frank CogSci 2021 (RNN GP-target priming via adaptation; full read)](papers/priming/frank2021-crosslanguage-priming-rnn.md).
 
 ### Measurement and noisy-channel reasoning
 - [Yoshida ACL 2026](papers/psychometrics/yoshida2026-surprisal-existence.md), [Hu & Levy 2023](papers/psychometrics/hu2023-metalinguistic-measurement.md), [Hu & Frank 2024](papers/psychometrics/hu-frank2024-task-demands.md), [McGee 2026](papers/psychometrics/mcgee2026-syntactic-encapsulation.md).

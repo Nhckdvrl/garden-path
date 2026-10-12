@@ -1,0 +1,9 @@
+{
+ "tag": "pythia-160m",
+ "model": "EleutherAI/pythia-160m",
+ "n_items": 98256,
+ "n_pairs": 8188,
+ "straddle_tokens": 81880,
+ "seconds": 60.991007804870605,
+ "materials": "data/gp_behavior/derived/npz_prime_families_v1.jsonl"
+}

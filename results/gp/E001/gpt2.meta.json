@@ -1,0 +1,9 @@
+{
+ "tag": "gpt2",
+ "model": "gpt2",
+ "n_items": 98256,
+ "n_pairs": 8188,
+ "straddle_tokens": 81880,
+ "seconds": 284.1521143913269,
+ "materials": "data/gp_behavior/derived/npz_prime_families_v1.jsonl"
+}
