@@ -37,4 +37,4 @@ A replicated item-level phenomenon with distinct, precommitted predictions that 
 
 ## Decision discipline
 
-Do not assume the two pilots form one narrative. Missing effects with wide CIs are inconclusive, not a hidden falsehood; a precise null with valid positive controls is a real boundary. Results that reproduce an existing 2022/2023/2025 human phenomenon only, even in a newer LM, deserve proper ownership and may be insufficient for a full paper.
+Do not assume the two pilots form one narrative. Missing effects with wide CIs are inconclusive, not a hidden falsehood; a precise null with valid positive controls is a real boundary. A well-controlled **new LLM application of a classic HUMAN phenomenon** can be a scientifically worthwhile, potentially publishable contribution even without a new mechanistic law, provided the same LLM task was not already settled. Cite the human owner, differentiate generic LM priming, and make the data/model boundaries explicit. See [novelty calibration](SCIENTIFIC_NOVELTY_STANDARD.md).

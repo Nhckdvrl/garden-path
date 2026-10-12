@@ -34,6 +34,7 @@ Created 2026-10-12. **尚未实际调用 OpenCode 模型、尚未产生新标注
 ## 3. 具体执行流程（推荐）
 
 1. 运行 `research/tools/make_review_queue.py` 生成有固定 seed 的随机和高风险 family 队列；输出不会包含后验 model-success 筛选。
+1a. 用 `research/tools/make_model_review_batches.py` 将审查队列拆为每批 2–4 条成对 source 的固定 JSON，附 SHA。审查模型响应另用 `research/tools/check_model_review.py` 验证字段/ID/源哈希（**不会自动把外部标注提升为 Gold**）。
 2. 对现成原题仅复核风险队列和事前随机质量样本；对**新增关键 Gold** 做每项一次独立审核；新增整句材料需验证自然性。
 3. 先用**现成 golden calibration**（约 20 条已核实的正、负、不蕴含及真实争议例子）评估所选免费模型的 Gold 错误率；高错误率则只做建议，不能用于直接授权自动通过。
 4. 对有冲突的标注或高风险部分用第二个独立免费模型审阅；仍不一致再提交人工/来源研究的语义判定。**禁止投票直接冲掉真实歧义**。
@@ -44,6 +45,7 @@ Created 2026-10-12. **尚未实际调用 OpenCode 模型、尚未产生新标注
 
 - [Source-grounded audit prompt](model_assisted/REVIEW_PROMPT.md)
 - [Natural construction prompt](model_assisted/CONSTRUCTION_PROMPT.md)
+- [Batch builder](tools/make_model_review_batches.py) / [Response schema check](tools/check_model_review.py) — **off-line only**, no API execution or hidden spending
 
 示例（**手动选择已验证免费 model ID**，切勿把下面的示例当作当前可用性保证）：
 

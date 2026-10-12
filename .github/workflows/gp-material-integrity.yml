@@ -27,3 +27,10 @@ jobs:
         run: python -m unittest discover -s research/tests -p "test_*.py" -v
       - name: Check source blob hashes and generated candidate identity
         run: python research/tools/verify_upstream_candidates.py
+      - name: Dry-run stratified review queue and no-cost packets
+        run: |
+          python research/tools/make_review_queue.py --source data/gp_behavior/candidates --output /tmp/source_review_queue.jsonl
+          python research/tools/make_model_review_batches.py --queue /tmp/source_review_queue.jsonl --outdir /tmp/opencode-review
+          python research/tools/sample_size_sensitivity.py --sd 0.25 --min-effect 0.08 --available-families 69
+          echo "No external model calls, no GPU, no inference. Sample-size values illustrate assumptions only."
+

@@ -10,7 +10,7 @@
 | [Ceháková & Chromý 2025](https://zenodo.org/records/16358492) | **48** （NP/Z24、MV/RR24） | 8 实验条件/item；不同区域、正误问句 | 局部/全局理解的强现成材料 | 有原材料哈希与任务编码审计；**zip 未导入**，待原文件检查 |
 | [Li et al. 2024](https://arxiv.org/abs/2405.16042) | 24 | 五段增量与多模型指标 | 增量对照 | 文献，非当前主材料 |
 | [van Gompel et al. 2006](https://doi.org/10.1016/j.jml.2006.06.004) | Exp.2 36; Exp.3 40 | GP/cue × plausibility/verb variation; human completion trials | **Pilot B 的自然实验范式** | 已精读主要实验，但原句完整材料尚未结构化导入 |
-| [Sinclair et al. TACL 2022 Prime-LM](https://aclanthology.org/2022.tacl-1.60/) | **1,500 独立 target sentences × 10 prime** / 某些子数据设置 | 整体约 **1.3M** prime-target rows（含大量重复与扩展语料） | 一般 LM priming 的基线、metric、生成/审查实践 | 可参考方法和代码；**1.3M 不等于 1.3M 独立统计样本** |
+| [Sinclair et al. TACL 2022 Prime-LM](https://aclanthology.org/2022.tacl-1.60/) | 每种主语料设置约 **1,500 distinct target × 10 primes** | 整体约 **1.3M** prime-target rows（含大量重复与扩展语料） | 一般 LM priming 的基线、metric、生成/审查实践 | 可参考方法和代码；**1.3M 不等于 1.3M 独立统计样本** |
 | [Ceháková & Chromý 2026](https://doi.org/10.1111/cogs.70208) | 66 Czech families (11 constructions×6) | N≈295 human reading participants plus independent cloze/plausibility norming | 如何分别测初始误读、正确新读、消歧区处理 | 捷克语人类 RT，不能替代英语 LLM Gold |
 
 **当前可直接用于新模型的已审核 GP 实验集为 0。** 但这不代表 189 个已发表 family 都要重新逐项全量审核：先核原始来源/已知错误、批量结构检查；对**新增真值/关键修改**和高风险来源优先定点审核。
@@ -79,3 +79,7 @@
 三个不同层级分别冻结：原始源（只读）、候选材料（含 PENDING）、正式已审核分析集（PASS）；保留所有排除/替换/数据修复时间戳。正式结果必须报告总体及构式内 family 数、多少为社区原题/衍生/新造、每个模型有效答复率、上下界、重复 target 的嵌套。若出现坏材料，先审计修正并标记 POST-HOC，不能悄悄改原集或只删使效应下降的句子。
 
 **核心：先让高质量数据匹配自然重要的问题，再让实验揭示未知，而不是在十几条人造句子里寻找有利于论文故事的变化。**
+
+## 8. Prime-LM 现成素材能直接借用哪些？
+
+已检查[官方源码库 dmg-illc/prime-lm](https://github.com/dmg-illc/prime-lm)：`PrimeLM/corpora/` 提供 CORE、LEXBOOST、SEMSIM、RECENCY、COMPLEX 等公开 CSV；`vocabulary_lists/` 具有 48 个 transitive、16 ditransitive 动词及 noun/adj lists；`scripts/pipeline.py` 给出条件 log probability 的评分范式。但其“transitive”实验主要是 **active vs passive**，其“dative”是 **double-object vs prepositional-object**；并不是我们 NP/Z 需要的 **transitive vs intransitive** 同动词目标！所以可以**借用评分管线、词汇库和可复用指标**，不能直接把已有 Prime-LM targets 当成 Pilot B 有效目标。详见[资产审计卡](../library/papers/priming/sinclair2022-data-asset-audit.md)。源码仓库顶层没有明显许可证文件，此次不盲目复制整个大语料，需再核对可用性/署名条件。

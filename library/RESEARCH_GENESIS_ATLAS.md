@@ -23,7 +23,7 @@
 - **Critical distinction:** 对 NP/Z，早期错误解是及物结构（把 NP 当作前动词宾语），最终正确解是前动词不及物＋新主句；**不能把后续更偏正确结构误称为错误路径残留**。
 - **Competing post-results:** 一种是部分 reanalysis，一种是 episodic memory trace；即使有 priming，也不唯一识别神经/计算存储。
 - **Scale:** 把旧解析残留变成**跨任务行为读数**；不是新增 parser。
-- **LM research distance:** Sinclair 2022 已证明一般 LM priming；2026 production works进一步建立词汇/语义混合。我们只有在验证 **GP-specific priming beyond ordinary contextual priming** 时才有增量。
+- **LM research distance:** Sinclair 2022 已证明一般 LM priming；2026 production works进一步建立词汇/语义混合。**把经典人类范式迁移到现代 LLM 本身也可能是增量**，因为一般 LM priming 并未直接回答被推翻的初始句法解析是否产生后效应。GP-specific 交互可进一步提高解释力，但不是必须先完成的机制门槛。
 - **Read scope:** 当前仅原 SSN 卡的摘要/介绍片段和出版社摘要，**未假装全文精读**；正式 protocol 需补全文及条件表。
 - [Note](papers/human/vangompel2006-garden-path-priming.md), [publisher](https://doi.org/10.1016/j.jml.2006.06.004).
 
@@ -35,7 +35,7 @@
 - **Experiment logic (RECONSTRUCTED):** 先用 canonical GP/control 确认有困难 → 语义合理性拉开预测 → 论元需求测试传统“错绑定”解释 → 其他下游表现挑战仅响应格式伪影 → 2026 横跨七类困难结构/多模型比较边界。
 - **Owned contribution:** 语言模型确实存在很大的结构相关理解困难；更大模型与人类有时更加接近；跨结构差异。
 - **Critical unresolved measurement:** 一些问题如 'Did the man hunt the deer?' 严格来说是 NOT ENTAILED，不是 CONTRADICTED。答 Yes 有时是语用推断；不能强行把原 GoldNo 全称为虚假世界信念。
-- **Distance for us:** 不能再只做“更多模型也错”；必须用更细的**关系类型、依赖结构、未被提问用途**给出一个原工作不能预测的行为规律。
+- **Distance for us:** 人类与 LLM 在**相同、足够自然且可靠的材料**上的直接比较有研究价值；如果此前 LLM 已有近邻，则关系类型、依赖结构和未被提问用途可进一步扩大认知。后者是深入方向，不是未经检验时的入场硬门槛。
 - [2025](papers/behavior/amouyal2025-garden-path-humans-llms.md), [2026](papers/behavior/amouyal-2026-processing-difficulties.md).
 
 ## 4. Ceháková & Chromý 2025：为什么不只问最初误读？
@@ -122,3 +122,7 @@
 6. 内部机制测量只有在能独立验证行为解释时才有资格进入主线。
 
 **题目不需要无人研究；需要的是能够让现有理论作出不同预测，并最终迫使它们更新的实验。**
+
+## 科学标准修正（2026-10-12）
+
+任何关于“2006 年已做，所以迁移到 LLM 不够新”的旧说法，都须以 [当前创新性标准](../research/SCIENTIFIC_NOVELTY_STANDARD.md) 为准。前人范式是资产，不是自动否决。也要遵守 [数据战略](../research/DATA_STRATEGY.md)：真实且有代表性的样本与证据质量比故事复杂程度更重要。
