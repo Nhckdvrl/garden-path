@@ -18,3 +18,13 @@ Test set: Christianson et al. 2001 NP/Z appendix items as implemented in the pee
 - **D3:** within each model, error slope(S) < error slope(L) in the majority of models (sign test).
 
 Failure of D1 or D3 means the dissociation is set-specific and is reported as such.
+
+## Result (Christianson OT items, n = 42 families, 16/21 models; numbers from peer session E003 `report_for_E010.csv`, scored here against the frozen card)
+
+Provenance: the E003 per-model raw files were readable on the shared disk from about 14:15, before this card was frozen (15:55). No L/S numbers were computed or seen by this session before the peer's report. Recorded as requested.
+
+- **D1 confirmed:** net A_L > 0 in **16/16** models, every family-bootstrap CI above 0 (0.14 to 1.84).
+- **D2 split:** prefix-matched error slope on S negative in **13/16** (sign p = .011), confirmed. Error slope on L "not negative in most" **failed**: 10/16 negative, but only 2 significant (Llama-3.1-8B-Instruct t = −3.15; Mistral-7B t = −2.08).
+- **D3 confirmed:** slope(S) < slope(L) in **14/16** models (sign p = .002), despite A_L's larger scale.
+
+**Verdict:** the measure dissociation is **quantitative, not absolute**. Error-driven adaptation is much stronger on the comprehension-like measure (S), with a weak same-sign tendency on the production-like measure (L). The production-like net residue (the van Gompel pattern) is positive in every model on all three independent item sets (E002, E005, Christianson). The five remaining models will be appended when the peer reports them; the verdict above is not revised unless they change a count's significance.

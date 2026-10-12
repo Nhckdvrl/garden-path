@@ -14,7 +14,9 @@ Checking the item-level structure on the second target measure (L = comma-placem
 
 **Revised understanding:** a garden-path prime (i) **raises production-like choice of the abandoned object attachment**, net positive in every model on every item set, scaling with commitment and showing no error slope: the van Gompel (2006) human pattern transfers robustly. (ii) It also **lowers the surprise of later garden-path resolutions**, scaled by the disambiguation error and causal within family (E006): the human syntactic-adaptation pattern (Fine et al. 2013). In humans these come from different literatures and tasks. In LMs they coexist in one context and the **measure** determines which dominates. The earlier conclusion that the net effect is model-dependent was a property of S alone.
 
-**Caveats:** discovered post-hoc (E009 L analysis), then checked on existing E002/E005 data, so not yet confirmatory. Prospective test on independent Christianson items (peer session E003) is frozen in E010. The commitment slope on S is weak on held-out items (8/17), so commitment is more robust on L. The constructions beyond NP/Z (E007/E008) have only S.
+**Prospective test (E010, Christianson items, 16 models):** net A_L > 0 in 16/16 (confirmed); error slope more negative on S than L in 14/16 (confirmed); the error slope on L is not zero but weak (10/16 negative, 2 significant). So the dissociation is quantitative: adaptation dominates comprehension-like measures, residue dominates production-like ones.
+
+**Caveats:** first discovered post-hoc; E010 is the prospective check. The commitment slope on S is weak on held-out items (8/17), so commitment is more robust on L. The constructions beyond NP/Z (E007/E008) have only S.
 
 ## 2026-10-13 (morning) — CORRECTION: the commitment residue survives punctuation-free disambiguation (E009)
 
