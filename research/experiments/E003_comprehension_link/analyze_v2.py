@@ -9,8 +9,12 @@ import glob
 import sys
 from pathlib import Path
 
+import warnings
+
 import numpy as np
 import pandas as pd
+
+warnings.filterwarnings("ignore", category=RuntimeWarning)  # empty slices / zero denominators in bootstrap
 
 ROOT = Path(__file__).resolve().parents[3]
 RES = ROOT / "results/gp/E003"
