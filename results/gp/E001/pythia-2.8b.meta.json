@@ -1,0 +1,9 @@
+{
+ "tag": "pythia-2.8b",
+ "model": "EleutherAI/pythia-2.8b",
+ "n_items": 98256,
+ "n_pairs": 8188,
+ "straddle_tokens": 81880,
+ "seconds": 147.16401982307434,
+ "materials": "data/gp_behavior/derived/npz_prime_families_v1.jsonl"
+}

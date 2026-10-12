@@ -46,3 +46,9 @@ The no-comma intransitive baseline needed to scale this (`NB`, a strictly intran
 DiD controls comma style but not the surface adjacency `V the N`. A transient *analysis* account and a *surface-string* account both predict r ≈ 1. Discriminating follow-ups: verbs that cannot take an object (adjacency without an object analysis); item-level relation to the prime-internal garden-path surprisal; and manipulations that let later positions re-process the sentence.
 
 Code: `build_materials.py`, `run.py`, `analyze.py`. Raw: `results/gp/E001/`.
+
+## Run record
+
+- Panel completed for 9 models (gpt2, pythia-160m, pythia-410m-s1, pythia-1.4b, pythia-2.8b, qwen2.5-0.5b, llama3.2-3b, mistral-7b, gemma2-2b), then **stopped deliberately** (2026-10-12). E002 contains every E001 condition plus a comma-free target measure, so the remaining E001 models would add nothing. Not stopped because of results.
+- Raw per-pair scores are gitignored (regenerable). SHA-256 values are in `results/gp/E001/MANIFEST.sha256`.
+- Finding that carries forward: on the comma-placement target, GP ≈ TB for most models (Mistral-7B: GP < TB), but this target is dominated by comma-position copying, so E001 is superseded by E002/E004.

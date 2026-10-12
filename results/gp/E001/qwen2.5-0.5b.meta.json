@@ -1,0 +1,9 @@
+{
+ "tag": "qwen2.5-0.5b",
+ "model": "Qwen/Qwen2.5-0.5B",
+ "n_items": 98256,
+ "n_pairs": 8188,
+ "straddle_tokens": 81880,
+ "seconds": 132.15897512435913,
+ "materials": "data/gp_behavior/derived/npz_prime_families_v1.jsonl"
+}

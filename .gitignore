@@ -29,3 +29,8 @@ results/raw/*g33*.jsonl.lock
 .agents/
 .codex/
 .aws/
+
+# Garden-path behavioral runs: per-pair raw scores are large and regenerable
+# (deterministic, code + materials committed); SHA-256 recorded in results/gp/<exp>/MANIFEST.sha256
+results/gp/*/*.scores.csv.gz
+logs/gp/

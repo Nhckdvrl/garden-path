@@ -1,0 +1,9 @@
+{
+ "tag": "gemma2-2b",
+ "model": "google/gemma-2-2b",
+ "n_items": 98256,
+ "n_pairs": 8188,
+ "straddle_tokens": 81880,
+ "seconds": 243.6042721271515,
+ "materials": "data/gp_behavior/derived/npz_prime_families_v1.jsonl"
+}
