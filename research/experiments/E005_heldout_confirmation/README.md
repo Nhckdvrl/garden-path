@@ -48,6 +48,8 @@ The held-out scores for all 17 models existed by 2026-10-12, but only the 8-mode
 
 With overlapping lexical material excluded: P1 4/12, P2 4/13, P3 4/7, P4 2/2.
 
+**Scale extension (2026-10-23; 20 models: + Gemma-2-9B, Qwen2.5-32B, Qwen3-32B, each with predictions frozen by `scale_lane.sh` before its held-out scoring):** P1 **6/15** (p = .50), P2 **9/15** (p = .0005), P3 5/9, P4 2/3. With overlap excluded: P1 4/15, P2 5/15, P3 5/9, P4 2/3. The verdict above is unchanged.
+
 **Reading:** with the full panel, the frozen between-family held-out test confirms the error force only weakly and **does not confirm the commitment force on S**. This agrees with the item-level summary in CURRENT_UNDERSTANDING (commitment slope on S > 0 in only 8/17 held-out). The commitment force is reliable on the production-like measure L (13/17 held-out, 15–18/17–18 elsewhere), not on S. The 8-model interim (14/18) overstated the held-out support, and this table supersedes it. A within-family causal test of commitment is E014.
 
 ## Interim results (8 models; frozen rule unchanged)

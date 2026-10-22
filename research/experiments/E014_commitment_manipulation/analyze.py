@@ -49,13 +49,21 @@ def within(t, y, xs):
 
 
 def boot(t, y, xs, B=1000, seed=0):
+    """Family bootstrap of the within-family OLS. Demeaning is within family, so a resampled family
+    keeps its demeaned rows; the estimate is (sum X'X)^-1 (sum X'y) over the drawn families."""
     rng = np.random.default_rng(seed)
-    fams = t.prime_family.unique()
-    g = {f: t[t.prime_family == f] for f in fams}
-    est = within(t, y, xs)
-    bs = np.array([within(pd.concat([g[f].assign(prime_family=i) for i, f in enumerate(rng.choice(fams, len(fams)))]), y, xs)
-                   for _ in range(B)])
-    lo, hi = np.percentile(bs, [2.5, 97.5], axis=0)
+    cols = [y] + xs
+    d = t.copy()
+    d[cols] = d[cols] - d.groupby("prime_family")[cols].transform("mean")
+    fams = d.prime_family.unique()
+    XtX = np.stack([g[xs].to_numpy().T @ g[xs].to_numpy() for _, g in d.groupby("prime_family")])
+    Xty = np.stack([g[xs].to_numpy().T @ g[y].to_numpy() for _, g in d.groupby("prime_family")])
+    est = np.linalg.solve(XtX.sum(0), Xty.sum(0))
+    bs = []
+    for _ in range(B):
+        i = rng.integers(0, len(fams), len(fams))
+        bs.append(np.linalg.solve(XtX[i].sum(0), Xty[i].sum(0)))
+    lo, hi = np.percentile(np.array(bs), [2.5, 97.5], axis=0)
     return est, lo, hi
 
 
