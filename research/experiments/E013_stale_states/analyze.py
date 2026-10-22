@@ -27,6 +27,8 @@ def main(B=1000):
     rows, tally = [], {"M1": [], "M2": []}
     for f in sorted(glob.glob(str(RES / "*.scores.csv.gz"))):
         t = Path(f).name[: -len(".scores.csv.gz")]
+        if "__" in t:  # E013b variants (tag__<variant>) are analysed by analyze_b.py
+            continue
         df = pd.read_csv(f)
         df["S"] = -df.lpD
         out = {}

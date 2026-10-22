@@ -65,12 +65,13 @@ def enc_prime(tok, text, np_str):
 @torch.no_grad()
 def run_prefix(model, ids, patch=None):
     """Forward the prime once. Records every decoder layer's output (raw residual stream).
-    patch: (positions, per-layer donor states [n_pos, d]) written into every layer's output."""
+    patch: (positions, per-layer donor states [n_pos, d][, first layer]) written into every layer's
+    output from the first layer on (default 0)."""
     hooks, rec = [], []
     for li, layer in enumerate(layers_of(model)):
         def hook(mod, inp, out, li=li):
             h = out[0] if isinstance(out, tuple) else out
-            if patch is not None:
+            if patch is not None and li >= (patch[2] if len(patch) > 2 else 0):
                 h[0, patch[0]] = patch[1][li].to(h.dtype)
             rec.append(h[0].detach().clone())
             return out
@@ -104,6 +105,10 @@ def main():
     ap.add_argument("--bs", type=int, default=256)
     ap.add_argument("--suffix", default="")
     ap.add_argument("--dtype", default="float32", help="float32 (exact) or bfloat16 (large models)")
+    # E013b (exploratory): NB as donor for GP (no comma imported; NB<-NB is an identity patch), and
+    # NP patches applied only from a fraction of the depth onward (cells "NPfrom<frac>")
+    ap.add_argument("--donor", default="CUE", choices=["CUE", "NB"])
+    ap.add_argument("--from_layers", default="", help="comma-separated depth fractions, e.g. 0,0.25,0.5,0.75")
     a = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     fams = {json.loads(l)["family_id"]: json.loads(l) for l in open(FAMS)}
@@ -128,7 +133,9 @@ def main():
             for c in ["CUE", "NC"]:
                 kv, _, last = run_prefix(model, enc[c][0])
                 jobs[c] = (kv, len(enc[c][0]), last)
-            for rec, don in [("GP", "CUE"), ("NB", "NC")]:
+            pairs = [("GP", "CUE"), ("NB", "NC")] if a.donor == "CUE" else [("GP", "NB"), ("NB", "NB")]
+            nL = len(layers_of(model))
+            for rec, don in pairs:
                 ids, npp, mcp = enc[rec]
                 dids, dnp, _ = enc[don]
                 if len(npp) != len(dnp):
@@ -142,6 +149,9 @@ def main():
                 for cell, pos, last in [("none", [], lastB), ("NP", npp, lastB), ("MC", mcp, lastA),
                                         ("both", npp + mcp, lastA)]:
                     jobs[f"{rec}|{cell}"] = (mix(kvB, kvA, pos), len(ids), last)
+                for frac in [float(x) for x in a.from_layers.split(",") if x]:
+                    kvF, _, _ = run_prefix(model, ids, patch=(npp, donor_states, int(round(frac * nL))))
+                    jobs[f"{rec}|NPfrom{frac:g}"] = (mix(kvB, kvF, npp), len(ids), lastB)
             for cond, (kv, plen, last) in jobs.items():
                 sc = score_tails(model, tok, kv, plen, last, tails, a.bs)
                 acc = defaultdict(dict)

@@ -35,6 +35,21 @@ Same regression as discovery: `A ~ z(obj_expect) + z(gp_strength)` (OLS over pri
 - P2 replicates, P1 fails → "residual commitment" was a verb-property artefact of the discovery set.
 - Neither replicates → the item-level structure is set-specific. Keep only the net-effect descriptions.
 
+## Final frozen-rule results (17 models; analysed 2026-10-23; rule and predictions unchanged)
+
+The held-out scores for all 17 models existed by 2026-10-12, but only the 8-model interim below had been reported. Full panel, `exclude_overlap = False` (primary):
+
+| Prediction (held-out, between-family, S measure) | confirmed / predicted | sign test |
+|---|---|---|
+| P1 commitment slope > 0 | **5/12** | p = .61 (fails) |
+| P2 error slope sign as predicted | **8/13** | p = .002 |
+| P3 net A sign as predicted | 4/7 | p = .23 |
+| P4 history | 2/2 | p = .25 |
+
+With overlapping lexical material excluded: P1 4/12, P2 4/13, P3 4/7, P4 2/2.
+
+**Reading:** with the full panel, the frozen between-family held-out test confirms the error force only weakly and **does not confirm the commitment force on S**. This agrees with the item-level summary in CURRENT_UNDERSTANDING (commitment slope on S > 0 in only 8/17 held-out). The commitment force is reliable on the production-like measure L (13/17 held-out, 15–18/17–18 elsewhere), not on S. The 8-model interim (14/18) overstated the held-out support, and this table supersedes it. A within-family causal test of commitment is E014.
+
 ## Interim results (8 models; frozen rule unchanged)
 
 14/18 predictions confirmed: P1 commitment 5/7, P2 error 3/4, P3 net sign 4/5, P4 history 2/2. Failures, reported as-is: Llama-3.2-3B P2 (held-out b_gp t = −0.85); Pythia-2.8b P1 (b_obj ≈ 0); Qwen2.5-0.5B P3 (A = +0.09, predicted negative); Qwen2.5-3B P1 (this model already failed the discovery instrument check, Afull < 0).

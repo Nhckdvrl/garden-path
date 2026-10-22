@@ -3,7 +3,7 @@
 # E002 -> E004 -> E005 (frozen per-model prediction, then held-out scoring) -> E009 -> E011 -> E003.
 # Usage: GPUS=0,1 [LMSCORE_DEVICE_MAP=auto] scale_lane.sh <log> tag=path [...]
 cd "$(dirname "$0")/../.."
-export HF_HUB_OFFLINE=1 CUDA_VISIBLE_DEVICES=${GPUS:-0}
+export HF_HUB_OFFLINE=1 CUDA_VISIBLE_DEVICES=${GPUS:-${CUDA_VISIBLE_DEVICES:-0}}
 PY=/home/xiang/miniconda3/envs/verl-clean/bin/python
 E=research/experiments
 log=$1; shift
