@@ -1,0 +1,92 @@
+\documentclass[11pt]{article}
+\usepackage[review]{acl}
+\usepackage{times}
+\usepackage{latexsym}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{inconsolata}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{amsmath}
+\usepackage{xcolor}
+\newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
+\newcommand{\ex}[1]{\textit{#1}}
+
+\title{Language Models Cannot Unread a Garden Path:\\ Abandoned Analyses Persist While Errors Drive Adaptation}
+
+\author{Anonymous}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+After reading \ex{While the man hunted the deer ran into the woods}, a reader must abandon the analysis in which \ex{the deer} is the object of \ex{hunted}. In humans, such abandoned analyses still prime later production \citep{vangompel2006}. This is a rare case where the two main theories of structural priming disagree. Residual activation predicts priming of the \emph{abandoned} analysis. Error-driven learning predicts adaptation toward the \emph{resolved} one, because the prediction error falls on the resolved structure. We use this case to ask how language models (LMs) carry an interpretation forward after giving it up. Across \TODO{N} open LMs (0.1B--70B), 241 garden-path item families and free generation, we find both forces at once:
+\begin{itemize}
+\item a residue of the abandoned object analysis that biases later production;
+\item an error-driven adaptation toward the resolved parse.
+\end{itemize}
+Each force responds to its own causal manipulation, and the measure determines which one dominates. Activation patching locates the residue in the noun phrase's pre-disambiguation states. A causal LM cannot recompute these states, so they persist in context as the object reading. We also show that the human paradigm's raw statistic reverses sign in LMs because models copy the prime's punctuation, and that question-answering ``lingering misinterpretation'' is a separate phenomenon.
+\end{abstract}
+
+\section{Introduction}
+
+Garden-path sentences force a reader to build an analysis and then abandon it. In \ex{While the man hunted the deer ran into the woods}, \ex{the deer} is first taken as the object of \ex{hunted}. The verb \ex{ran} shows that it is the subject of the main clause. How much of the abandoned analysis survives reanalysis is a long-standing question in psycholinguistics \citep{christianson2001,sturt2007,slattery2013}. It has recently been asked of LMs too, mostly through comprehension questions \citep{li2024incremental,amouyal2025,amouyal2026} and surprisal at the disambiguating word \citep{huang2024,yoshida2026}.
+
+We study a different trace of the abandoned analysis: its effect on what comes \emph{next}. \citet{vangompel2006} showed that after reading a garden-path sentence, people complete a new fragment (\ex{While the nurse washed}) with a transitive structure more often than after a comma-disambiguated control. The ruled-out object analysis primes later production. The case matters for theory as well as for the specific phenomenon, for the following reason. The two dominant accounts of structural priming are residual activation \citep{pickering1998} and error-driven implicit learning \citep{chang2006,jaeger2013}. For ordinary primes they predict the same direction, which is why decades of work, including all LM priming studies \citep{sinclair2022,jumelet2024,zhou2025icl,pucci2026}, cannot tell them apart. In a garden path they disagree. Residual activation predicts priming of the abandoned transitive analysis. Error-driven learning predicts adaptation toward the resolved intransitive-plus-new-clause structure, because that is where the prediction error falls. Humans show only the net effect.
+
+LMs let us measure both forces separately. We score next-word probabilities and free generations after garden-path primes, with controls for punctuation, verb bias, case marking and local coherence. We make four contributions:
+
+\begin{enumerate}
+\item \textbf{The abandoned analysis persists.} In every model we test, a garden-path prime raises later object attachment in production, both in log-probabilities and in sampled completions. This holds on held-out items, with case instead of punctuation as the disambiguator, and only when an object analysis was actually licensed (\S\ref{sec:residue}).
+\item \textbf{A second, error-driven force pushes the other way.} The same prime lowers the surprise of later garden-path resolutions, in proportion to its own disambiguation error. We manipulate the error and the initial commitment within item families, and each manipulation moves its own force. Which force dominates depends on whether the measure is production-like or comprehension-like (\S\ref{sec:twoforces}).
+\item \textbf{The residue lives in stale states.} A causal transformer computes the representation of \ex{the deer} before it sees \ex{ran} and never recomputes it. Replacing these states with states computed under the subject analysis, leaving everything else unchanged, \TODO{removes most of} the residue. Patching the post-disambiguation states instead \TODO{does not}; those states carry the adaptation (\S\ref{sec:mechanism}).
+\item \textbf{Methodological consequences.} Transferred naively, the human statistic reverses sign in several model families: models copy the prime's punctuation and write garden-path sentences themselves. QA-based ``lingering misinterpretation'' is item-by-item unrelated to the production residue (\S\ref{sec:method-lessons}).
+\end{enumerate}
+
+These results speak to three communities. For psycholinguistics, they give a working system in which both classical accounts of priming operate at once and in opposite directions, and they yield a testable prediction for humans: more surprising disambiguations should produce \emph{less} abandoned-analysis priming. For LM science, they show that ``in-context learning is error-driven learning'' \citep{zhou2025icl} is incomplete: next to error-driven adaptation, LMs carry forward representations built under interpretations they have since abandoned, for an architectural reason. For evaluation, they show that a human paradigm can give the opposite answer when its statistic is transferred without the controls the model's own behaviour requires.
+
+\section{Background}
+\TODO{residual activation vs error-driven priming; human GP priming (van Gompel 2006, Fujita \& Cunnings 2020); adaptation (Fine et al. 2013); LM priming; LM garden paths; mechanisms (Hanna \& Mueller 2025).}
+
+\section{Method}
+\label{sec:method}
+\paragraph{Materials.} NP/Z garden-path families from \citet{amouyal2025} (69) and the SAP benchmark \citep{huang2024} (24) form the discovery set. Held-out families come from \citet{cehakova2025} and SyntaxGym (48). Further families come from the appendix of \citet{christianson2001} (54). Each family $f$ provides primes in four conditions:
+\begin{itemize}
+\item GP: \ex{While the man hunted the deer ran\ldots};
+\item CUE: \ex{\ldots hunted, the deer ran\ldots};
+\item NB and NC: the same sentence with a strictly intransitive verb (\ex{slept}), without and with the comma;
+\end{itemize}
+plus a full transitive prime (TB: \ex{\ldots hunted the deer it ran\ldots}).
+
+\paragraph{Targets and measures.} Each prime is followed by targets from every other family that shares no content word with it. The production-like measure $L$ is the log-probability preference for attaching the target NP as an object: $L=\log P(\ex{While the nurse washed the baby,})-\log P(\ex{While the nurse washed, the baby})$. The comprehension-like measure $S$ is the surprisal of the disambiguating word in a garden-path target. In free production, the model continues \ex{While the nurse washed} by pure sampling, and the continuation is coded as transitive or intransitive by a part-of-speech rule system (99.7\% accuracy on 1,066 gold sentences).
+
+\paragraph{The residue contrast.} Comparing GP with CUE confounds the analysis with punctuation, and comparing GP with NB confounds it with the verb. We use
+\begin{equation}
+A=(\mathrm{GP}-\mathrm{NB})-(\mathrm{CUE}-\mathrm{NC}),
+\end{equation}
+which is matched for punctuation within pairs and for verb across pairs. Inference uses a two-way bootstrap over prime and target families. Cross-model summaries use random-effects meta-analysis. Every confirmatory experiment had its predictions frozen in a dated card before data collection; exploratory steps are labelled as such.
+
+\paragraph{Models.} \TODO{table: N models, families, sizes 0.1B--70B, base and instruction-tuned.}
+
+\section{The abandoned analysis persists}\label{sec:residue}
+\TODO{E002/E005/E009/E011/E012 results}
+
+\section{Two forces with opposite signs}\label{sec:twoforces}
+\TODO{E006, E014, E010; boundary E007/E008}
+
+\section{The residue lives in stale states}\label{sec:mechanism}
+\TODO{E013}
+
+\section{Consequences for transferring human paradigms}\label{sec:method-lessons}
+\TODO{E012 punctuation alignment; E003 QA lingering dissociation}
+
+\section{Discussion}
+\TODO{}
+
+\section*{Limitations}
+\TODO{}
+
+\bibliography{refs}
+
+\end{document}

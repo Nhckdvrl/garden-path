@@ -10,12 +10,16 @@ part of the continuation).
 """
 from __future__ import annotations
 
+import os
+
 import torch
 import torch.nn.functional as F
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
-def load(model_path: str, device: str = "cuda", dtype=torch.bfloat16):
+def load(model_path: str, device: str | None = None, dtype=torch.bfloat16):
+    # LMSCORE_DEVICE_MAP=auto spreads a large model (e.g. 70B) over all visible GPUs
+    device = device or os.environ.get("LMSCORE_DEVICE_MAP", "cuda")
     try:
         tok = AutoTokenizer.from_pretrained(model_path, use_fast=True)
     except Exception:
