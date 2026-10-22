@@ -1,6 +1,6 @@
 # Experiment index (garden-path, NP/Z misparse priming and lingering)
 
-State on 2026-10-13: **project paused** (see [PAUSE_HANDOFF](../PAUSE_HANDOFF_2026-10-13.md)). Each card states its question, its design, the predictions written before data, and its results. Post-hoc steps are labelled. Living synthesis: [CURRENT_UNDERSTANDING](../CURRENT_UNDERSTANDING.md).
+State: paused 2026-10-13, **resumed 2026-10-23** for top-venue completion (see [TOPVENUE_PLAN](../TOPVENUE_PLAN_2026-10-23.md)). Each card states its question, its design, the predictions written before data, and its results. Post-hoc steps are labelled. Living synthesis: [CURRENT_UNDERSTANDING](../CURRENT_UNDERSTANDING.md).
 
 Measures used throughout:
 - **L**: comma-placement attachment choice on a target fragment (production-like).
@@ -17,7 +17,7 @@ Unit of inference = prime family. Two-way bootstrap over prime × target familie
 | E003b | Does re-reading change lingering? | same items; 10 models | Order effect with identical content; label confound; superseded by E003c | complete |
 | E003c | Processing history vs primacy | context lines DIS / NEU / REORD; 7 models | DIS reduces lingering 7/7, **but REORD removes the garden path more and reduces lingering less**. Not processing history. | complete |
 | [E004](E004_repetition_history/) | Does the residue need a garden-path episode? (exact repetition) | 93 families; 10–17 models | S: the repeated GP copy adds no residue. L: post-hoc configuration hypothesis, **later rejected by E011** | done |
-| [E005](E005_heldout_confirmation/) | Held-out confirmation of the two forces | 48 new families (Ceháková + SyntaxGym); frozen per-model predictions | 14/18 predictions confirmed (8 models); failures reported | interim (8 models) |
+| [E005](E005_heldout_confirmation/) | Held-out confirmation of the two forces | 48 new families (Ceháková + SyntaxGym); frozen per-model predictions | 20-model panel: error sign 9/15 (p = .0005); **commitment on S not confirmed (6/15)**; the 8-model interim (14/18) overstated support | done |
 | [E006](E006_error_manipulation/) | Is the error force causal? | within-family manipulation of disambiguation surprisal; 5 models | within-family slope t = −4 to −6 in the predicted models; ≈ 0 where discovery predicted ≈ 0 | done |
 | [E007](E007_nps_generalization/) | Do the two forces generalize to NP/S? | NP/S families; frozen rule | **Failed** (G1 1/5, G2 0/4): monotonic reanalysis shows neither force | done |
 | [E008](E008_mvrr_monotonicity/) | MV/RR (non-monotonic) | 64 families; frozen rule; 9 models | error force 6/9; commitment 0/8 | done |
@@ -25,11 +25,12 @@ Unit of inference = prime family. Two-way bootstrap over prime × target familie
 | [E010](E010_measure_dissociation/) | Production-like vs comprehension-like dissociation (prospective) | Christianson items; frozen; 16 models | net A_L > 0 in 16/16; error slope stronger on S than L 14/16; dissociation is quantitative | done |
 | [E011](E011_local_coherence/) | Residue: local coherence or licensed analysis? (passive) | *While the man was hunted the deer…*; frozen; 17 models | **Analysis account**: median A_pass/A_GP = 0.10 (positive only in 5 larger/instruct models) | done |
 | [E012](E012_free_production/) | Does the residue reach free production? | vLLM sampling, 57k prompts × 2 per model; POS-rule coding (99.7% gold, audited); 8 models | A_gen > 0 in **8/8**; across models ρ = .81 with A_L; the raw van Gompel contrast is driven by punctuation-style alignment (models write garden-path sentences, up to 25%) | done |
+| [E013](E013_stale_states/) | Where is the residue carried? | activation/KV patching of the prime: NP states vs main-clause states replaced by subject-analysis states; 8 models; E013b: no-comma donor, depth | **stale NP states carry the residue** (ρ_NP 0.01–0.71, ρ_MC 0.74–1.94; M1 6/8, M2 7/8, direction 8/8); main-clause states carry the adaptation; lower layers | done |
+| [E014](E014_commitment_manipulation/) | Is commitment causal (behavioural)? | identical prime after OBJ/INT/NEU contexts; 87 families; 10 models | frozen manipulation check **failed** (0/10), so the test is uninformative; post-hoc, a stronger NP garden path raises A_S 9/10 (against an error-only account) | done |
+| scale | Do the core results hold at 9–32B? | E002/E004/E005/E009/E011/E012 on Gemma-2-9B, Qwen2.5-32B, Qwen3-32B (+ Qwen3-30B-A3B, Llama-3.1-70B) | A_L > 0 20/20; E009 20/20; E011 holds; A_gen 10/11 | running (30B-A3B, 70B) |
 
 ## Proposed next experiments (not started)
 
-- **E013 (mechanism):** where is the production residue carried? Block the target's attention to, or patch, the prime's pre-disambiguation NP states vs its main-clause states.
-- **E014 (commitment, causal):** an identical GP prime preceded by a context that raises or lowers V's object expectation.
 - **E003d:** decompose comprehension lingering. Context "The man hunted." alone vs main clause alone vs both as separate sentences.
 
 ## Reproduction

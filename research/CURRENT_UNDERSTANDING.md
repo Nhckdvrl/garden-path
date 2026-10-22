@@ -2,6 +2,27 @@
 
 Living document. Each entry says what we believed, what changed it, and what is still open. Newest first. Experiments: `research/experiments/E00x_*` (cards are written before runs; post-hoc steps are labelled).
 
+## 2026-10-23 — mechanism found: the residue is read from stale NP states, the adaptation from main-clause states (E013); scale to 32B; E014 inconclusive as frozen
+
+**E013 (activation patching, 8 models, frozen M1/M2):** replacing only the NP's pre-disambiguation states with subject-analysis states removes most of the production residue (ρ_NP 0.01–0.71; Qwen2.5-32B 0.01). Replacing the main-clause states removes none (ρ_MC 0.74–1.94). M1 6/8, M2 7/8; direction 8/8. On S the two spans push in opposite directions in 8/8: NP states carry the residue (+), main-clause states carry the error-driven adaptation (−).
+- **E013b (exploratory):** the same holds with a no-comma donor (ρ_NP 0.34–0.46), so it is not imported punctuation. The target reads the abandoned analysis from the NP's lower-half (Llama, Mistral) or lower-three-quarter (Qwen) layers.
+- **Reading:** "residual activation" in LMs has a concrete architectural form. A causal transformer never recomputes states built before the disambiguation, and later text reads them.
+
+**Scale (+ Gemma-2-9B, Qwen2.5-32B, Qwen3-32B; Qwen3-30B-A3B and Llama-3.1-70B running):**
+- A_L > 0 20/20; E009 commitment slope 20/20; E011 analysis account holds (median ratio 0.10).
+- E012 A_gen > 0 10/11 (v1) / 11/11 (v2), style alignment 11/11.
+- The two 32B Qwen models show net A_S < 0: adaptation dominates S at scale.
+
+**E014 (commitment by context, 10 models):** the frozen verb-level manipulation check failed (0/10), so the confirmatory test is uninformative. Post-hoc: the contexts strengthened the NP-specific garden path (+0.9 to +1.7 nats, 10/10), and that *raised* A_S in 9/10 (7 significant). This contradicts an error-only account. On L the effect is model-dependent.
+
+**E005 final (20-model panel):** the frozen held-out between-family test confirms the error sign (9/15, p = .0005), not commitment on S (6/15). The 8-model interim (14/18) overstated support.
+
+**Paper spine now (see research/TOPVENUE_PLAN_2026-10-23.md):**
+- C1: the residue persists (L, free generation, controls, 20 models);
+- C2: two opposite forces (error causal E006; residue causal E013; E014 supporting), with measure dependence (E010);
+- C3: stale-state mechanism (E013/E013b);
+- method point: punctuation alignment (E012) and the QA-lingering dissociation (E003).
+
 ## 2026-10-13 (evening) — the residue reaches free production (E012); comprehension lingering is not processing history (E003c)
 
 **E012 (free production, 8 models, frozen predictions):** with punctuation style and verb bias controlled, garden-path primes raise transitive *completions* in 8/8 models (A_gen +0.03 to +0.10). The cross-model size tracks the log-prob production measure L (ρ = .81). The raw human statistic (GP vs comma) is dominated by punctuation-style alignment: models reproduce the prime's comma-less resolved structure, writing garden-path sentences themselves in up to 25% of completions, so vG is negative in Llama/Qwen and positive in Gemma/Mistral/Pythia. Transfer of the van Gompel paradigm to LMs therefore *requires* the style control.

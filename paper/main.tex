@@ -85,7 +85,18 @@ which is matched for punctuation within pairs and for verb across pairs. Inferen
 \paragraph{It reaches free generation.} \TODO{scaled panel.} We sampled two continuations of \ex{While the nurse washed} for every prime--target pair (pure sampling, 57k prompts per model). With the same contrast, garden-path primes raise transitive completions in 8/8 models. The pooled $A_{gen}$ is $+0.056$ [0.039, 0.072], 21\% of the effect of a true transitive prime. Across models, $A_{gen}$ correlates with $A_L$ ($\rho=.81$).
 
 \section{Two forces with opposite signs}\label{sec:twoforces}
-\TODO{E006, E014, E010; boundary E007/E008}
+
+The residue is not the only thing a garden-path prime leaves behind. On the comprehension-like measure $S$, the net contrast $A_S$ is close to zero on average (pooled $+0.05$ [$-0.03$, 0.13]) and varies in sign across models. The two largest Qwen models show significantly negative values, meaning \emph{less} expectation of a transitive continuation after a garden-path prime. Two opposite forces explain this pattern.
+
+\paragraph{Item level.} Across families, $A$ rises with the model's object expectation at the ambiguous verb. This is the \emph{commitment} slope, positive in 20/20 models in the punctuation-free E009 design. $A$ falls with the prime's own disambiguation surprisal. This is the \emph{error} slope, negative in 18/20 models. The two predictors are nearly uncorrelated, and they correspond to the residual-activation and error-driven accounts.
+
+\paragraph{The error force is causal.} Holding the prime prefix fixed, we varied only the continuation after the NP, and with it the surprisal at the disambiguation point (E006). More surprising disambiguations produce less residue within a family ($t$ from $-4.1$ to $-6.4$ in the three models with a clear discovery-set error slope; $\approx 0$ in the two models where discovery predicted $\approx 0$). Surprisal summed over the whole continuation predicts little. The relevant error is the one at the disambiguation point.
+
+\paragraph{The commitment force is causal.} E013 (\S\ref{sec:mechanism}) intervenes on the commitment directly: removing the object-analysis states of the NP removes the residue. A behavioural manipulation (E014) gave weaker evidence. Preceding contexts that made the NP a likely object strengthened the garden path by 0.9--1.7 nats in all ten models, and they \emph{raised} $A_S$ in 9/10 (7 significant). An error-only account predicts a decrease, because a stronger garden path also means a larger disambiguation error. The pre-registered manipulation check on verb-level transitivity failed, so we report E014 as supporting rather than confirmatory evidence.
+
+\paragraph{The measure decides which force dominates.} The residue dominates the production-like measure. $A_L$ is positive in every model on three independent item sets, and its error slope is weak. Adaptation dominates the comprehension-like measure. In a prospective test on the Christianson items (E010), the error slope was more negative on $S$ than on $L$ in 14/16 models. In human terms, van Gompel's production paradigm sees the residue, and adaptation studies in comprehension \citep{fine2013} see the error-driven force. LMs show both, from the same prime, depending on the readout.
+
+\paragraph{Boundary.} With the same frozen rule, neither force appears for NP/S garden paths (\ex{The man knew the answer was wrong}). There the reanalysis is monotonic: the NP is reattached, not stripped of its role. The error force does appear for main-verb/reduced-relative garden paths (6/9 models), which, like NP/Z, are non-monotonic. The two-force structure therefore belongs to reanalyses that destroy a committed structure.
 
 \section{The residue lives in stale states}\label{sec:mechanism}
 
@@ -130,7 +141,10 @@ Qwen2.5-32B & .61 & .01 & 1.94 & $-$.72 & +1.56\\
 \end{table}
 
 \section{Consequences for transferring human paradigms}\label{sec:method-lessons}
-\TODO{E012 punctuation alignment; E003 QA lingering dissociation}
+
+\paragraph{The human statistic reverses.} \citet{vangompel2006} compared transitive completions after GP and comma primes. In LMs this raw contrast is positive in only 4/11 models, and it is significantly \emph{negative} in 6 of the 7 Llama and Qwen models. The reason is visible in the completions. After a comma-less prime, models reproduce its style: up to 28\% of completions after a GP prime are themselves comma-less garden-path sentences, against 0.4--2.4\% after a comma prime (11/11 models). Human participants completed fragments orally, so punctuation could not align. A naive transfer would conclude that LMs show the \emph{opposite} of the human effect. Matching punctuation and verb (our $A$) recovers the residue in 10/11 models.
+
+\paragraph{QA lingering is a different phenomenon.} LMs answer \ex{Did the man hunt the deer?} with Yes after the garden path, often and more so for longer ambiguous regions, as humans do \citep{christianson2001}. But item by item, this comprehension ``lingering'' is unrelated to the production residue: $r$ from $-.30$ to $+.15$ in 10/10 models that pass the comprehension controls, with split-half reliabilities of .77--.98 for both measures. It also fails to track the garden path itself. A context sentence that restates the main clause reduces it in 7/7 models. A full reordered paraphrase, which removes the garden path more thoroughly, reduces it less. Reports of LM ``lingering'' based on QA \citep{li2024incremental,amouyal2025} and the representational persistence we measure here are therefore not the same thing. A claim that LMs are human-like or unlike humans on garden paths has to say which of the two it measures.
 
 \section{Discussion}
 \TODO{}
