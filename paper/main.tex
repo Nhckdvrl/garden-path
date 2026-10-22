@@ -147,10 +147,23 @@ Qwen2.5-32B & .61 & .01 & 1.94 & $-$.72 & +1.56\\
 \paragraph{QA lingering is a different phenomenon.} LMs answer \ex{Did the man hunt the deer?} with Yes after the garden path, often and more so for longer ambiguous regions, as humans do \citep{christianson2001}. But item by item, this comprehension ``lingering'' is unrelated to the production residue: $r$ from $-.30$ to $+.15$ in 10/10 models that pass the comprehension controls, with split-half reliabilities of .77--.98 for both measures. It also fails to track the garden path itself. A context sentence that restates the main clause reduces it in 7/7 models. A full reordered paraphrase, which removes the garden path more thoroughly, reduces it less. Reports of LM ``lingering'' based on QA \citep{li2024incremental,amouyal2025} and the representational persistence we measure here are therefore not the same thing. A claim that LMs are human-like or unlike humans on garden paths has to say which of the two it measures.
 
 \section{Discussion}
-\TODO{}
+
+\paragraph{What garden paths reveal about priming.} The residual-activation and error-driven accounts of priming have mostly been treated as rivals, and they make the same prediction for ordinary primes. Garden-path primes separate them. In LMs both forces are present in the same context window, with opposite signs. Each responds to its own manipulation, and each is read from a different part of the prime. The residue lives in the abandoned constituent's states. The adaptation lives in the states that processed the disambiguation. A human prediction follows from this two-force picture. If people show the same superposition, then garden paths whose disambiguation is more surprising should yield \emph{less} abandoned-analysis priming in production, and more adaptation in comprehension. The van Gompel paradigm combined with cloze-normed disambiguation strength can test this directly.
+
+\paragraph{Why an LM cannot unread.} In humans, ``residual activation'' is a metaphor for a memory trace whose substrate is unknown. In a causal transformer the substrate is concrete. Representations are written once, at the time each token is read, and later tokens consult them through attention without revising them. A reanalysis can change what later positions compute, but it cannot change what the earlier positions hold. Our patching results show that this architectural fact has behavioural consequences: a later sentence reads the abandoned analysis from those positions. The same logic applies to any interpretation an LM builds and later rejects within its context. Examples include a misread instruction, a retracted claim in a dialogue, or an abandoned hypothesis in a reasoning trace. The garden path is the cleanest case in which the abandoned interpretation, its strength and its rejection can all be measured.
+
+\paragraph{In-context learning is not only error-driven.} \citet{zhou2025icl} showed an inverse-frequency effect in LM priming and concluded that in-context learning is a form of error-driven learning. Our error force, causal within families and located in the post-disambiguation states, supports that conclusion. But an error-driven learner would not prime the analysis that was \emph{rejected}. The residue shows that context effects in LMs also include persistence of representations that the error signal has already overruled.
 
 \section*{Limitations}
-\TODO{}
+
+\begin{itemize}
+\item We study English NP/Z garden paths in depth. MV/RR and NP/S serve as boundary cases only, and we test neither other languages nor other ambiguity types.
+\item The models are open-weight models up to 70B, scored with exact log-probabilities. Closed models cannot be patched and were not tested.
+\item The free-production coding is rule-based (99.7\% on gold material sentences). The audit on real generations was done by a single annotator, not by independent human annotators.
+\item The behavioural commitment manipulation (E014) failed its pre-registered manipulation check. Our causal evidence for the residue force therefore rests mainly on activation patching.
+\item The two-force account and the contrast $A$ were first formulated after inspecting two models in the discovery set. Confirmation comes from held-out items, prospective tests and frozen predictions; held-out tests that failed are reported in the appendix.
+\item We make a prediction for humans but run no human experiment.
+\end{itemize}
 
 \bibliography{refs}
 

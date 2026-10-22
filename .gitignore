@@ -36,3 +36,7 @@ results/gp/*/*.scores.csv.gz
 # E012 raw generations: superseded by <tag>.coded.csv.gz (same rows + coding); SHA-256 in results/gp/E012/MANIFEST.sha256
 results/gp/E012/*.gen.csv.gz
 logs/gp/
+
+# paper build artifacts
+paper/build/
+paper/build.log
