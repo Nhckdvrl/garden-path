@@ -75,13 +75,59 @@ which is matched for punctuation within pairs and for verb across pairs. Inferen
 \paragraph{Models.} \TODO{table: N models, families, sizes 0.1B--70B, base and instruction-tuned.}
 
 \section{The abandoned analysis persists}\label{sec:residue}
-\TODO{E002/E005/E009/E011/E012 results}
+
+\paragraph{Log-probability production.} On the production-like measure $L$, a garden-path prime raises the later preference for object attachment more than the controls do. In the discovery set the residue $A_L$ is positive in 17/17 models, with a pooled estimate of $+0.70$ nats [0.53, 0.86] (random-effects meta-analysis). That is 86\% of the effect of a prime in which the NP really is the object ($r=A/A_{\text{full}}$). The residue is positive in every model on the held-out NP/Z families (17/17) and on the Christianson items (16/16). \TODO{update with the scaled panel.}
+
+\paragraph{It is not punctuation.} Comma omission is a salient property of garden-path primes, and models adapt to it: NB primes without a comma change later comma use in 17/17 models. We therefore replaced the comma with case (E009). In \ex{While the man hunted they ran\ldots} the nominative \ex{they} rules out the object analysis, and the verb and the missing comma stay identical within the pair. The item-level relation between object expectation at the verb and the residue stays positive in 17/17 models.
+
+\paragraph{It needs a licensed analysis.} The string \ex{hunted the deer} might prime by local coherence alone \citep{tabor2004}. A passive prime (\ex{While the man was hunted the deer ran\ldots}) contains the same string but never licenses an object reading. Its residue is a median 10\% of the garden-path residue, and it is significantly negative in 7/17 models (E011). The residue therefore reflects an analysis that the model actually entertained.
+
+\paragraph{It reaches free generation.} \TODO{scaled panel.} We sampled two continuations of \ex{While the nurse washed} for every prime--target pair (pure sampling, 57k prompts per model). With the same contrast, garden-path primes raise transitive completions in 8/8 models. The pooled $A_{gen}$ is $+0.056$ [0.039, 0.072], 21\% of the effect of a true transitive prime. Across models, $A_{gen}$ correlates with $A_L$ ($\rho=.81$).
 
 \section{Two forces with opposite signs}\label{sec:twoforces}
 \TODO{E006, E014, E010; boundary E007/E008}
 
 \section{The residue lives in stale states}\label{sec:mechanism}
-\TODO{E013}
+
+Why should an abandoned analysis persist in an LM at all? A causal transformer computes the states at \ex{the deer} before it reaches \ex{ran}, and it never revisits them. In \ex{While the man hunted the deer ran\ldots} these states are exactly the states of the transitive prime \ex{While the man hunted the deer it ran\ldots}, because the two share the prefix. Everything later in the context, including the next sentence, attends to keys and values built under the object analysis. Call this the \emph{stale-state} hypothesis. The alternative is that the residue is carried by the main-clause states (\ex{ran into the woods.}), which processed the disambiguation and could encode the reanalysis episode.
+
+\paragraph{Design.} We construct a counterfactual prime in which the NP was analysed as a subject from the start.
+\begin{itemize}
+\item The residual stream at the NP tokens is overwritten, at every layer, with the states of the same tokens in the comma version (\ex{While the man hunted, the deer}).
+\item The rest of the prime is recomputed (run A); the unpatched prime is run B.
+\item The target then attends to a hybrid cache. It takes run-A keys and values on one span (NP, main clause MC, or both) and run-B keys and values elsewhere.
+\item The same procedure is applied to the NB prime with the NC prime as donor. This control removes anything the patch does merely by importing ``after a comma'' information.
+\end{itemize}
+We report the retained fraction $\rho_s=A_s/A$ on $L$, and the change $\Delta_s=A_s-A$ on $S$. Predictions were frozen before the runs.
+
+\paragraph{Results.} Table~\ref{tab:mech} shows the results for eight models.
+\begin{itemize}
+\item \textbf{The NP states carry the production residue.} Replacing only the NP's states removes most of the residue: $\rho_{NP}$ ranges from 0.01 (Qwen2.5-32B) to 0.71. Replacing the main-clause states removes little or nothing ($\rho_{MC}$ 0.74--1.94). $\rho_{NP}<\rho_{MC}$ in 8/8 models; the frozen magnitude criterion $\rho_{NP}\le .5$ holds in 6/8.
+\item \textbf{The two forces sit in different spans.} On the comprehension-like measure, the two spans push in opposite directions in every model. Removing the stale NP states lowers $A_S$ ($\Delta_{NP}<0$, 8/8): they carry the residue. Removing the garden-pathed main-clause states raises $A_S$ by 0.2--2.0 nats ($\Delta_{MC}>0$, 8/8): they carry the error-driven adaptation.
+\end{itemize}
+The two forces of \S\ref{sec:twoforces} are therefore not an analysis construct. They are read from different positions of the same prime. In the larger models, removing the main-clause states even \emph{raises} the production residue ($\rho_{MC}=1.34$ in Qwen2.5-7B, 1.94 in Qwen2.5-32B). The observed net residue thus understates the persistence of the abandoned analysis wherever the error-driven force is strong.
+
+\begin{table}[t]
+\centering\small
+\begin{tabular}{lrrrrr}
+\toprule
+ & \multicolumn{3}{c}{$L$ (production-like)} & \multicolumn{2}{c}{$S$ (compr.-like)}\\
+\cmidrule(lr){2-4}\cmidrule(lr){5-6}
+Model & $A$ & $\rho_{NP}$ & $\rho_{MC}$ & $\Delta_{NP}$ & $\Delta_{MC}$\\
+\midrule
+Pythia-1.4B & .46 & .65 & .85 & $-$.26 & +.22\\
+Pythia-2.8B & .49 & .50 & .74 & $-$.35 & +.40\\
+Llama-3.2-3B & .82 & .39 & .83 & $-$.50 & +1.12\\
+Mistral-7B & .86 & .40 & .89 & $-$.55 & +.93\\
+Qwen2.5-7B & .90 & .14 & 1.34 & $-$.84 & +1.13\\
+Llama-3.1-8B-Inst. & 1.09 & .29 & 1.03 & $-$.83 & +1.33\\
+Qwen3-8B-Base & .95 & .71 & .96 & $-$1.11 & +2.00\\
+Qwen2.5-32B & .61 & .01 & 1.94 & $-$.72 & +1.56\\
+\bottomrule
+\end{tabular}
+\caption{Activation patching of the garden-path prime (E013). $\rho$: fraction of the residue $A_L$ retained when the target reads counterfactual subject-analysis states on the NP or on the main clause (MC). $\Delta$: change in $A_S$ (nats). \TODO{CIs; no-comma donor and depth controls (E013b).}}
+\label{tab:mech}
+\end{table}
 
 \section{Consequences for transferring human paradigms}\label{sec:method-lessons}
 \TODO{E012 punctuation alignment; E003 QA lingering dissociation}

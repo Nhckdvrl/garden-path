@@ -5,6 +5,8 @@ over targets. Predictors from the scored model itself, per (f, c):
   commit = log P(" the") - log P(",") after c + "While <subj> <verb>"
   error  = -log P(disambiguating word | c + GP prefix up to the NP)
 Within-family regression (family-demeaned, no intercept): A ~ commit + error; bootstrap over families.
+POST-HOC (labelled PH_, added after two models): gp_eff = log P(w|CUE prefix) - log P(w|GP prefix), the
+NP-specific garden-path strength, as an alternative manipulation check and predictor.
 K0: commit(OBJ) > commit(INT) on average and in > 70% of families.
 K1: commit coefficient on A_L > 0; A_L(OBJ) - A_L(INT) > 0.
 K2: on A_S, error coefficient < 0 and commit coefficient > 0.
@@ -31,7 +33,9 @@ def cell_table(tag):
     p["ctx"] = p.cond.str.split(":").str[0]
     p = p.pivot_table(index=["family", "ctx"], columns="probe", values="lp")
     pr = pd.DataFrame({"commit": p.V_the - p.V_comma, "error": -p.GP_dis,
-                       "intr_commit": p.NV_the - p.NV_comma})
+                       "intr_commit": p.NV_the - p.NV_comma,
+                       # POST-HOC (added after 2 models, 2026-10-23): NP-specific garden-path strength
+                       "gp_eff": p.CUE_dis - p.GP_dis})
     pr.index.names = ["prime_family", "ctx"]
     return out.join(pr).reset_index()
 
@@ -61,12 +65,14 @@ def main(B=1000):
         tag = Path(f).name[: -len(".scores.csv.gz")]
         t = cell_table(tag)
         t["grp"] = t.ctx.str[:3]
-        fam = t.groupby(["prime_family", "grp"])[["commit", "error", "A_L", "A_S"]].mean().unstack("grp")
+        fam = t.groupby(["prime_family", "grp"])[["commit", "error", "gp_eff", "A_L", "A_S"]].mean().unstack("grp")
         dC = fam[("commit", "OBJ")] - fam[("commit", "INT")]
         dE = fam[("error", "OBJ")] - fam[("error", "INT")]
         dAL = fam[("A_L", "OBJ")] - fam[("A_L", "INT")]
         dAS = fam[("A_S", "OBJ")] - fam[("A_S", "INT")]
+        dG = fam[("gp_eff", "OBJ")] - fam[("gp_eff", "INT")]
         r = {"model": tag, "n_fam": t.prime_family.nunique(), "dCommit": dC.mean(), "pFam_dCommit>0": (dC > 0).mean(),
+             "PH_dGPeff": dG.mean(), "PH_pFam_dGPeff>0": (dG > 0).mean(),
              "dError": dE.mean(), "dA_L(OBJ-INT)": dAL.mean(), "dA_L_se": dAL.std() / np.sqrt(len(dAL)),
              "dA_S(OBJ-INT)": dAS.mean(), "dA_S_se": dAS.std() / np.sqrt(len(dAS))}
         for y in ("A_L", "A_S"):
@@ -75,7 +81,13 @@ def main(B=1000):
                       f"{y}_error": e[1], f"{y}_error_lo": lo[1], f"{y}_error_hi": hi[1]})
             e1, lo1, hi1 = boot(t, y, ["commit"], B)
             r.update({f"{y}_commitonly": e1[0], f"{y}_commitonly_lo": lo1[0], f"{y}_commitonly_hi": hi1[0]})
+        # POST-HOC: within-family slope of A on NP-specific garden-path strength
+        for y in ("A_L", "A_S"):
+            e, lo, hi = boot(t, y, ["gp_eff"], B)
+            r.update({f"PH_{y}_gpeff": e[0], f"PH_{y}_gpeff_lo": lo[0], f"PH_{y}_gpeff_hi": hi[0]})
         rows.append(r)
+        print(f"{tag:22s} POST-HOC dGPeff(OBJ-INT)={r['PH_dGPeff']:+.2f} ({r['PH_pFam_dGPeff>0']:.0%} fams); gp_eff slope: A_L {r['PH_A_L_gpeff']:+.3f} [{r['PH_A_L_gpeff_lo']:+.3f},{r['PH_A_L_gpeff_hi']:+.3f}] "
+              f"A_S {r['PH_A_S_gpeff']:+.3f} [{r['PH_A_S_gpeff_lo']:+.3f},{r['PH_A_S_gpeff_hi']:+.3f}]", flush=True)
         print(f"{tag:22s} K0 dCommit={r['dCommit']:+.2f} ({r['pFam_dCommit>0']:.0%} fams) dError={r['dError']:+.2f} | "
               f"dA_L={r['dA_L(OBJ-INT)']:+.3f}±{r['dA_L_se']:.3f} dA_S={r['dA_S(OBJ-INT)']:+.3f}±{r['dA_S_se']:.3f} | "
               f"L: commit {r['A_L_commit']:+.3f} [{r['A_L_commit_lo']:+.3f},{r['A_L_commit_hi']:+.3f}] "

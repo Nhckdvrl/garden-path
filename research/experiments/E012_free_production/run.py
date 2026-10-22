@@ -54,6 +54,7 @@ def main():
     ap.add_argument("--models", nargs="+", required=True)
     ap.add_argument("--n", type=int, default=2)
     ap.add_argument("--gpu_mem", type=float, default=0.85)
+    ap.add_argument("--tp", type=int, default=1, help="tensor-parallel GPUs (e.g. 2 for a 70B model)")
     a = ap.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     prompts, keys = build()
@@ -69,7 +70,7 @@ def main():
             # vLLM 0.11.0 sizes its sampled-token pinned buffer by max_model_len, not max_num_seqs:
             # keep max_model_len >= max_num_seqs or the engine crashes in _to_list.
             llm = LLM(model=path, dtype="bfloat16", max_model_len=1024, max_num_seqs=512,
-                      gpu_memory_utilization=a.gpu_mem, seed=0)
+                      gpu_memory_utilization=a.gpu_mem, tensor_parallel_size=a.tp, seed=0)
             sp = SamplingParams(n=a.n, temperature=1.0, top_p=1.0, max_tokens=24, seed=0, stop=["\n"])
             outs = llm.generate(prompts, sp)
             tg = time.time() - t0
