@@ -43,7 +43,7 @@ def fig_residue():
     g = pd.read_csv(R / "E012/summary_v1.csv")
     g = g[g.stat == "A_gen"].set_index("model")
     models = [m for m in ORDER if m in set(rs.model)]
-    fig, (a, b) = plt.subplots(1, 2, figsize=(6.3, 4.1), gridspec_kw={"width_ratios": [1.6, 1]}, sharey=True)
+    fig, (a, b) = plt.subplots(1, 2, figsize=(6.3, 3.7), gridspec_kw={"width_ratios": [1.6, 1]}, sharey=True)
     for k, (s, col, lab) in enumerate((("E002", BLUE, "discovery (93 fam.)"), ("E005", ORANGE, "held-out (48 fam.)"),
                                        ("E003_christianson", AQUA, "Christianson (42 items)"))):
         d = rs[rs.set == s].set_index("model")
@@ -94,8 +94,58 @@ def fig_patching():
     fig.savefig(OUT / "fig_patching.pdf")
 
 
+def fig_slopes():
+    d = pd.read_csv(T / "item_slopes.csv")
+    t = d.pivot_table(index="model", columns=["measure", "predictor"], values="t")
+    models = [m for m in ORDER if m in t.index]
+    fig, axes = plt.subplots(1, 2, figsize=(6.3, 3.25), sharey=True)
+    for ax, v, title in zip(axes, ("L", "S"), ("production-like $L$", "comprehension-like $S$")):
+        for k, (pr, col, lab) in enumerate((("commit", BLUE, "object expectation at the verb"),
+                                             ("err", ORANGE, "garden-path strength of the prime"))):
+            ys = [i + (k - 0.5) * 0.3 for i in range(len(models))]
+            ax.scatter(t[(v, pr)][models], ys, s=14, color=col, label=lab, zorder=3)
+        ylabels(ax, models)
+        for x in (-1.96, 1.96):
+            ax.axvline(x, color="#bbbbbb", lw=0.6, ls=":")
+        ax.set_title(title, fontsize=8, color=INK)
+        ax.set_xlabel("item-level slope ($t$)")
+    axes[1].tick_params(labelleft=False)
+    h, l = axes[0].get_legend_handles_labels()
+    fig.legend(h, l, frameon=False, loc="upper center", ncol=2, fontsize=7)
+    fig.tight_layout(rect=(0, 0, 1, 0.93))
+    fig.savefig(OUT / "fig_slopes.pdf")
+
+
+def fig_generation():
+    g = pd.read_csv(R / "E012/summary_v1.csv").pivot_table(index="model", columns="stat", values=["est", "lo", "hi"])
+    models = [m for m in ORDER if m in g.index]
+    rates = {}
+    for m in models:
+        c = pd.read_csv(R / f"E012/{m}.coded.csv.gz", sep="\t", quoting=3, keep_default_na=False, usecols=["cond", "gp_v1"])
+        rates[m] = c.groupby("cond").gp_v1.mean()
+    fig, (a, b) = plt.subplots(1, 2, figsize=(6.3, 2.6), sharey=True, gridspec_kw={"width_ratios": [1.3, 1]})
+    for k, (st, col, lab) in enumerate((("A_gen", BLUE, "controlled contrast $A_{gen}$"), ("vG", ORANGE, "raw GP $-$ comma contrast"))):
+        ys = [i + (k - 0.5) * 0.3 for i in range(len(models))]
+        est, lo, hi = g[("est", st)][models], g[("lo", st)][models], g[("hi", st)][models]
+        a.errorbar(est, ys, xerr=[est - lo, hi - est], fmt="o", ms=3, mfc=col, mec=col, ecolor=col, elinewidth=1.0, label=lab)
+    ylabels(a, models)
+    a.set_xlabel("difference in proportion transitive")
+    a.legend(frameon=False, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2, fontsize=7)
+    for k, (cond, col, lab) in enumerate((("GP", ORANGE, "after GP prime"), ("CUE", BLUE, "after comma prime"))):
+        ys = [i + (k - 0.5) * 0.3 for i in range(len(models))]
+        b.scatter([rates[m][cond] for m in models], ys, s=14, color=col, label=lab, zorder=3)
+    ylabels(b, models)
+    b.tick_params(labelleft=False)
+    b.set_xlabel("completions that are GP sentences")
+    b.legend(frameon=False, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2, fontsize=7)
+    fig.tight_layout()
+    fig.savefig(OUT / "fig_generation.pdf")
+
+
 if __name__ == "__main__":
     fig_patching()
     if (T / "residue_sets.csv").exists():
         fig_residue()
+    fig_slopes()
+    fig_generation()
     print("figures written to", OUT)
