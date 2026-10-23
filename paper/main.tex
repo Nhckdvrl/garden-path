@@ -9,7 +9,12 @@
 \usepackage{graphicx}
 \usepackage{booktabs}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,fit}
+\definecolor{gpblue}{HTML}{2A78D6}
+\definecolor{gporange}{HTML}{EB6834}
 \newcommand{\TODO}[1]{\textcolor{red}{[TODO: #1]}}
 \newcommand{\ex}[1]{\textit{#1}}
 
@@ -21,15 +26,35 @@
 \maketitle
 
 \begin{abstract}
-After reading \ex{While the man hunted the deer ran into the woods}, a reader must abandon the analysis in which \ex{the deer} is the object of \ex{hunted}. In humans, such abandoned analyses still prime later production \citep{vangompel2006}. This is a rare case where the two main theories of structural priming disagree. Residual activation predicts priming of the \emph{abandoned} analysis. Error-driven learning predicts adaptation toward the \emph{resolved} one, because the prediction error falls on the resolved structure. We use this case to ask how language models (LMs) carry an interpretation forward after giving it up. Across \TODO{N} open LMs (0.1B--70B), 241 garden-path item families and free generation, we find both forces at once:
-\begin{itemize}
-\item a residue of the abandoned object analysis that biases later production;
-\item an error-driven adaptation toward the resolved parse.
-\end{itemize}
-Each force responds to its own causal manipulation, and the measure determines which one dominates. Activation patching locates the residue in the noun phrase's pre-disambiguation states. A causal LM cannot recompute these states, so they persist in context as the object reading. We also show that the human paradigm's raw statistic reverses sign in LMs because models copy the prime's punctuation, and that question-answering ``lingering misinterpretation'' is a separate phenomenon.
+After reading \ex{While the man hunted the deer ran into the woods}, a reader must abandon the analysis in which \ex{the deer} is the object of \ex{hunted}. In humans, such abandoned analyses still prime later production. This is a rare case where the two main theories of structural priming disagree. Residual activation predicts priming of the \emph{abandoned} analysis. Error-driven learning predicts adaptation toward the \emph{resolved} one, because the prediction error falls there.
+
+We test 22 open language models (124M--70B) on 195 garden-path item families, scoring both log-probabilities and free generation, and find both forces at once. A residue of the abandoned object analysis biases later production in every model. It survives controls for punctuation and verb bias, and in most models it appears only when the object analysis was licensed. An error-driven adaptation toward the resolved parse pushes the other way. It is causal within item families, and it dominates comprehension-like measures. Activation patching shows where each force lives. The residue is read from the noun phrase's pre-disambiguation states, which a causal model never recomputes; replacing them removes the residue entirely in the 32B and 70B models. The adaptation is read from the states that processed the disambiguation.
+
+Two methodological lessons follow. Transferred naively, the human paradigm's statistic reverses sign, because models copy the prime's punctuation and write garden-path sentences themselves. And question-answering ``lingering misinterpretation'' is unrelated to the residue, item by item.
 \end{abstract}
 
 \section{Introduction}
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[font=\footnotesize, >=Stealth, box/.style={text width=3.1cm, align=center, rounded corners, inner sep=3pt}]
+\node[anchor=west, inner sep=1pt] (pre) at (0,0) {While the man hunted};
+\node[anchor=west, inner sep=1.5pt, fill=gpblue!15, draw=gpblue] (np) at (pre.east) {the deer};
+\node[anchor=west, inner sep=1.5pt, fill=gporange!15, draw=gporange] (mc) at ([xshift=2pt]np.east) {ran into the woods.};
+\node[box, text=gpblue] (npl) at (1.7,-1.0) {computed as \emph{object},\\ never recomputed};
+\node[box, text=gporange] (mcl) at (5.6,-1.0) {disambiguation:\\ prediction error};
+\draw[->, gpblue] (np.south) -- (npl.north);
+\draw[->, gporange] (mc.south) -- (mcl.north);
+\node[box, draw=gpblue] (r) at (1.7,-2.15) {\textbf{residue} of the abandoned analysis ($+$)};
+\node[box, draw=gporange] (a) at (5.6,-2.15) {\textbf{adaptation} toward the resolved parse ($-$)};
+\draw[->, gpblue] (npl) -- (r); \draw[->, gporange] (mcl) -- (a);
+\node[text width=7.4cm, align=center] (t) at (3.65,-3.45) {next sentence: \emph{While the nurse washed \ldots}\\[1pt]
+production ($L$, free generation): residue dominates\\ comprehension ($S$): adaptation dominates};
+\draw[->] (r.south) -- (r.south |- t.north); \draw[->] (a.south) -- (a.south |- t.north);
+\end{tikzpicture}
+\caption{The two traces a garden-path prime leaves in a causal LM. The NP's states are written under the object analysis and are never revised (\S\ref{sec:mechanism}). Later text reads them as a residue of the abandoned analysis. The main-clause states carry the error-driven adaptation toward the resolved parse. Which trace dominates depends on the measure (\S\ref{sec:twoforces}).}
+\label{fig:schema}
+\end{figure}
 
 Garden-path sentences force a reader to build an analysis and then abandon it. In \ex{While the man hunted the deer ran into the woods}, \ex{the deer} is first taken as the object of \ex{hunted}. The verb \ex{ran} shows that it is the subject of the main clause. How much of the abandoned analysis survives reanalysis is a long-standing question in psycholinguistics \citep{christianson2001,sturt2007,slattery2013}. It has recently been asked of LMs too, mostly through comprehension questions \citep{li2024incremental,amouyal2025,amouyal2026} and surprisal at the disambiguating word \citep{huang2024,yoshida2026}.
 
@@ -39,8 +64,8 @@ LMs let us measure both forces separately. We score next-word probabilities and 
 
 \begin{enumerate}
 \item \textbf{The abandoned analysis persists.} In every model we test, a garden-path prime raises later object attachment in production, both in log-probabilities and in sampled completions. This holds on held-out items, with case instead of punctuation as the disambiguator, and only when an object analysis was actually licensed (\S\ref{sec:residue}).
-\item \textbf{A second, error-driven force pushes the other way.} The same prime lowers the surprise of later garden-path resolutions, in proportion to its own disambiguation error. We manipulate the error and the initial commitment within item families, and each manipulation moves its own force. Which force dominates depends on whether the measure is production-like or comprehension-like (\S\ref{sec:twoforces}).
-\item \textbf{The residue lives in stale states.} A causal transformer computes the representation of \ex{the deer} before it sees \ex{ran} and never recomputes it. Replacing these states with states computed under the subject analysis, leaving everything else unchanged, \TODO{removes most of} the residue. Patching the post-disambiguation states instead \TODO{does not}; those states carry the adaptation (\S\ref{sec:mechanism}).
+\item \textbf{A second, error-driven force pushes the other way.} The same prime lowers the surprise of later garden-path resolutions, in proportion to its own disambiguation error, and this effect is causal within item families. The residue grows with the model's commitment to the object reading. Which force dominates depends on whether the measure is production-like or comprehension-like (\S\ref{sec:twoforces}).
+\item \textbf{The residue lives in stale states.} A causal transformer computes the representation of \ex{the deer} before it sees \ex{ran} and never recomputes it. Replacing these states with states computed under the subject analysis, leaving everything else unchanged, removes most of the residue (all of it in Qwen2.5-32B and Llama-3.1-70B). Patching the post-disambiguation states instead does not; those states carry the adaptation (\S\ref{sec:mechanism}).
 \item \textbf{Methodological consequences.} Transferred naively, the human statistic reverses sign in several model families: models copy the prime's punctuation and write garden-path sentences themselves. QA-based ``lingering misinterpretation'' is item-by-item unrelated to the production residue (\S\ref{sec:method-lessons}).
 \end{enumerate}
 
@@ -70,29 +95,67 @@ plus a full transitive prime (TB: \ex{\ldots hunted the deer it ran\ldots}).
 \begin{equation}
 A=(\mathrm{GP}-\mathrm{NB})-(\mathrm{CUE}-\mathrm{NC}),
 \end{equation}
-which is matched for punctuation within pairs and for verb across pairs. Inference uses a two-way bootstrap over prime and target families. Cross-model summaries use random-effects meta-analysis. Every confirmatory experiment had its predictions frozen in a dated card before data collection; exploratory steps are labelled as such.
+which is matched for punctuation within pairs and for verb across pairs. Inference uses a two-way bootstrap over prime and target families. Cross-model summaries use random-effects meta-analysis. Every confirmatory experiment had its predictions frozen in a dated card before data collection; exploratory steps are labelled as such, and all outcomes, including failures, are listed in Appendix~\ref{app:prereg}. Table~\ref{tab:summary} summarizes the evidence.
 
-\paragraph{Models.} \TODO{table: N models, families, sizes 0.1B--70B, base and instruction-tuned.}
+\paragraph{Models.} 22 open-weight causal LMs from six families (GPT-2, Pythia, Llama, Mistral, Gemma, Qwen), 124M to 70B parameters, base and instruction-tuned, including a mixture-of-experts model (Qwen3-30B-A3B). Free generation and patching use subsets of 12 and 9 models. Table~\ref{tab:models} lists the models.
 
 \section{The abandoned analysis persists}\label{sec:residue}
 
-\paragraph{Log-probability production.} On the production-like measure $L$, a garden-path prime raises the later preference for object attachment more than the controls do. In the discovery set the residue $A_L$ is positive in 17/17 models, with a pooled estimate of $+0.70$ nats [0.53, 0.86] (random-effects meta-analysis). That is 86\% of the effect of a prime in which the NP really is the object ($r=A/A_{\text{full}}$). The residue is positive in every model on the held-out NP/Z families (17/17) and on the Christianson items (16/16). \TODO{update with the scaled panel.}
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{3.9cm}p{5.0cm}cp{4.3cm}}
+\toprule
+Claim & Evidence (experiment) & Models & Result\\
+\midrule
+\multicolumn{4}{l}{\emph{C1: the abandoned analysis persists}}\\
+Residue on production-like $L$ & discovery / held-out / Christianson families & 22/22/24 & $A_L>0$ in all; pooled $+0.70$ [0.56, 0.84]\\
+\quad not punctuation & case disambiguation (\ex{hunted they ran}) & 22 & commitment slope $>0$ in 22/22\\
+\quad needs an entertained analysis & passive prime with the same string & 22 & median 12\% of the GP residue\\
+\quad reaches generation & sampled completions & 12 & $A_{gen}>0$ in 11/12; $+0.050$ [0.037, 0.063]\\
+\midrule
+\multicolumn{4}{l}{\emph{C2: two forces with opposite signs}}\\
+Error force is causal & within-family disambiguation surprisal & 5 & $t=-4.1$ to $-6.4$ where predicted\\
+Residue grows with commitment & item level (E009); context manipulation (E014, post-hoc) & 22; 11 & 22/22; $\Delta A_S>0$ in 10/11\\
+Measure decides & prospective test, Christianson items & 16 & error slope $S<L$ in 14/16\\
+\midrule
+\multicolumn{4}{l}{\emph{C3: stale states}}\\
+Residue read from NP states & activation patching & 9 & $\rho_{NP}$ pooled .37; .01 at 32B/70B\\
+Adaptation read from main clause & activation patching & 9 & $\Delta_{MC}>0$, $\Delta_{NP}<0$ on $S$ in 9/9\\
+\midrule
+\multicolumn{4}{l}{\emph{Methodological}}\\
+Raw human statistic reverses & GP vs.\ comma completions & 12 & positive in only 4/12; models write GP sentences (up to 29\%)\\
+QA lingering $\neq$ residue & item-level correlation & 10 & $|r|\le .30$, reliabilities .77--.98\\
+\bottomrule
+\end{tabular}
+\caption{Summary of evidence. Counts are models with the predicted sign; brackets are 95\% CIs of random-effects meta-analyses over models.}
+\label{tab:summary}
+\end{table*}
 
-\paragraph{It is not punctuation.} Comma omission is a salient property of garden-path primes, and models adapt to it: NB primes without a comma change later comma use in 17/17 models. We therefore replaced the comma with case (E009). In \ex{While the man hunted they ran\ldots} the nominative \ex{they} rules out the object analysis, and the verb and the missing comma stay identical within the pair. The item-level relation between object expectation at the verb and the residue stays positive in 17/17 models.
+\paragraph{Log-probability production.} On the production-like measure $L$, a garden-path prime raises the later preference for object attachment more than the controls do. In the discovery set the residue $A_L$ is positive in 22/22 models (21 significant), with a pooled estimate of $+0.70$ nats [0.56, 0.84] (random-effects meta-analysis). That is 76\% [65, 88] of the effect of a prime in which the NP really is the object ($r=A/A_{\text{full}}$). The residue is also positive in every model on the 48 held-out NP/Z families (22/22; 20 significant) and on the items of \citet{christianson2001} (24/24, all significant; Figure~\ref{fig:residue}).
 
-\paragraph{It needs a licensed analysis.} The string \ex{hunted the deer} might prime by local coherence alone \citep{tabor2004}. A passive prime (\ex{While the man was hunted the deer ran\ldots}) contains the same string but never licenses an object reading. Its residue is a median 10\% of the garden-path residue, and it is significantly negative in 7/17 models (E011). The residue therefore reflects an analysis that the model actually entertained.
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_residue.pdf}
+\caption{The residue of the abandoned object analysis. Left: $A_L=(\mathrm{GP}-\mathrm{NB})-(\mathrm{CUE}-\mathrm{NC})$ on the production-like log-probability measure, per model and item set (95\% two-way bootstrap CIs over prime and target families). Right: the same contrast on sampled completions, as the proportion of transitive continuations. Models are ordered roughly by size.}
+\label{fig:residue}
+\end{figure*}
 
-\paragraph{It reaches free generation.} \TODO{scaled panel.} We sampled two continuations of \ex{While the nurse washed} for every prime--target pair (pure sampling, 57k prompts per model). With the same contrast, garden-path primes raise transitive completions in 8/8 models. The pooled $A_{gen}$ is $+0.056$ [0.039, 0.072], 21\% of the effect of a true transitive prime. Across models, $A_{gen}$ correlates with $A_L$ ($\rho=.81$).
+\paragraph{It is not punctuation.} Comma omission is a salient property of garden-path primes, and models adapt to it: NB primes without a comma change later comma use in 22/22 models. We therefore replaced the comma with case (E009). In \ex{While the man hunted they ran\ldots} the nominative \ex{they} rules out the object analysis, and the verb and the missing comma stay identical within the pair. The item-level relation between object expectation at the verb and the residue stays positive in 22/22 models (16 significant).
+
+\paragraph{It needs a licensed analysis.} The string \ex{hunted the deer} might prime by local coherence alone \citep{tabor2004}. A passive prime (\ex{While the man was hunted the deer ran\ldots}) contains the same string but never licenses an object reading. Its residue is a median 12\% of the garden-path residue across 22 models (E011), so in most models the residue reflects an analysis that was actually entertained. The passive ratio grows with model strength, however (0.27--0.55 in the larger Qwen models, 0.45 in Llama-3.1-70B): in strong models, a locally computed object reading of \ex{hunted the deer} also leaves a trace, as local coherence would predict.
+
+\paragraph{It reaches free generation.} We sampled two continuations of \ex{While the nurse washed} for every prime--target pair (pure sampling, 57k prompts per model). With the same contrast, garden-path primes raise transitive completions in 11/12 models under the frozen coding (12/12 with the refined coding). The pooled $A_{gen}$ is $+0.050$ [0.037, 0.063]. Across the first eight models, $A_{gen}$ correlated with $A_L$ ($\rho=.81$).
 
 \section{Two forces with opposite signs}\label{sec:twoforces}
 
 The residue is not the only thing a garden-path prime leaves behind. On the comprehension-like measure $S$, the net contrast $A_S$ is close to zero on average (pooled $+0.05$ [$-0.03$, 0.13]) and varies in sign across models. The two largest Qwen models show significantly negative values, meaning \emph{less} expectation of a transitive continuation after a garden-path prime. Two opposite forces explain this pattern.
 
-\paragraph{Item level.} Across families, $A$ rises with the model's object expectation at the ambiguous verb. This is the \emph{commitment} slope, positive in 20/20 models in the punctuation-free E009 design. $A$ falls with the prime's own disambiguation surprisal. This is the \emph{error} slope, negative in 18/20 models. The two predictors are nearly uncorrelated, and they correspond to the residual-activation and error-driven accounts.
+\paragraph{Item level.} Across families, $A$ rises with the model's object expectation at the ambiguous verb. This is the \emph{commitment} slope, positive in 22/22 models in the punctuation-free E009 design. $A$ falls with the prime's own disambiguation surprisal. This is the \emph{error} slope, negative in 20/22 models. The two predictors are nearly uncorrelated, and they correspond to the residual-activation and error-driven accounts.
 
 \paragraph{The error force is causal.} Holding the prime prefix fixed, we varied only the continuation after the NP, and with it the surprisal at the disambiguation point (E006). More surprising disambiguations produce less residue within a family ($t$ from $-4.1$ to $-6.4$ in the three models with a clear discovery-set error slope; $\approx 0$ in the two models where discovery predicted $\approx 0$). Surprisal summed over the whole continuation predicts little. The relevant error is the one at the disambiguation point.
 
-\paragraph{The commitment force is causal.} E013 (\S\ref{sec:mechanism}) intervenes on the commitment directly: removing the object-analysis states of the NP removes the residue. A behavioural manipulation (E014) gave weaker evidence. Preceding contexts that made the NP a likely object strengthened the garden path by 0.9--1.7 nats in all ten models, and they \emph{raised} $A_S$ in 9/10 (7 significant). An error-only account predicts a decrease, because a stronger garden path also means a larger disambiguation error. The pre-registered manipulation check on verb-level transitivity failed, so we report E014 as supporting rather than confirmatory evidence.
+\paragraph{The commitment force is causal.} E013 (\S\ref{sec:mechanism}) intervenes on the commitment directly: removing the object-analysis states of the NP removes the residue. A behavioural manipulation (E014) gave weaker evidence. Preceding contexts that made the NP a likely object strengthened the garden path by 0.9--1.7 nats in all eleven models, and they \emph{raised} $A_S$ in 10/11 (8 significant; pooled $+0.19$ [0.10, 0.28]). An error-only account predicts a decrease, because a stronger garden path also means a larger disambiguation error. The pre-registered manipulation check on verb-level transitivity failed, so we report E014 as supporting rather than confirmatory evidence.
 
 \paragraph{The measure decides which force dominates.} The residue dominates the production-like measure. $A_L$ is positive in every model on three independent item sets, and its error slope is weak. Adaptation dominates the comprehension-like measure. In a prospective test on the Christianson items (E010), the error slope was more negative on $S$ than on $L$ in 14/16 models. In human terms, van Gompel's production paradigm sees the residue, and adaptation studies in comprehension \citep{fine2013} see the error-driven force. LMs show both, from the same prime, depending on the readout.
 
@@ -111,38 +174,23 @@ Why should an abandoned analysis persist in an LM at all? A causal transformer c
 \end{itemize}
 We report the retained fraction $\rho_s=A_s/A$ on $L$, and the change $\Delta_s=A_s-A$ on $S$. Predictions were frozen before the runs.
 
-\paragraph{Results.} Table~\ref{tab:mech} shows the results for eight models.
+\paragraph{Results.} Figure~\ref{fig:mech} and Table~\ref{tab:mech} show the results for nine models.
 \begin{itemize}
-\item \textbf{The NP states carry the production residue.} Replacing only the NP's states removes most of the residue: $\rho_{NP}$ ranges from 0.01 (Qwen2.5-32B) to 0.71. Replacing the main-clause states removes little or nothing ($\rho_{MC}$ 0.74--1.94). $\rho_{NP}<\rho_{MC}$ in 8/8 models; the frozen magnitude criterion $\rho_{NP}\le .5$ holds in 6/8.
-\item \textbf{The two forces sit in different spans.} On the comprehension-like measure, the two spans push in opposite directions in every model. Removing the stale NP states lowers $A_S$ ($\Delta_{NP}<0$, 8/8): they carry the residue. Removing the garden-pathed main-clause states raises $A_S$ by 0.2--2.0 nats ($\Delta_{MC}>0$, 8/8): they carry the error-driven adaptation.
+\item \textbf{The NP states carry the production residue.} Replacing only the NP's states removes most of the residue: $\rho_{NP}$ ranges from 0.01 (Qwen2.5-32B, Llama-3.1-70B) to 0.71, pooled 0.37 [0.24, 0.50]. Replacing the main-clause states removes nothing on average ($\rho_{MC}$ 0.74--1.94, pooled 1.01). $\rho_{NP}<\rho_{MC}$ in 9/9 models; the frozen magnitude criterion $\rho_{NP}\le .5$ holds in 7/9. With a donor that has no comma (\ex{While the man slept the deer}), $\rho_{NP}$ stays at 0.34--0.46 (3 models), and replacing the NP states only in the upper half of the network has no effect: the residue is read from lower and middle layers.
+\item \textbf{The two forces sit in different spans.} On the comprehension-like measure, the two spans push in opposite directions in every model. Removing the stale NP states lowers $A_S$ ($\Delta_{NP}<0$, 9/9): they carry the residue. Removing the garden-pathed main-clause states raises $A_S$ by 0.2--2.0 nats ($\Delta_{MC}>0$, 9/9): they carry the error-driven adaptation.
 \end{itemize}
-The two forces of \S\ref{sec:twoforces} are therefore not an analysis construct. They are read from different positions of the same prime. In the larger models, removing the main-clause states even \emph{raises} the production residue ($\rho_{MC}=1.34$ in Qwen2.5-7B, 1.94 in Qwen2.5-32B). The observed net residue thus understates the persistence of the abandoned analysis wherever the error-driven force is strong.
+The two forces of \S\ref{sec:twoforces} are therefore not an analysis construct. They are read from different positions of the same prime. In the larger models, removing the main-clause states even \emph{raises} the production residue ($\rho_{MC}=1.34$ in Qwen2.5-7B, 1.94 in Qwen2.5-32B, 1.89 in Llama-3.1-70B). The observed net residue thus understates the persistence of the abandoned analysis wherever the error-driven force is strong.
 
-\begin{table}[t]
-\centering\small
-\begin{tabular}{lrrrrr}
-\toprule
- & \multicolumn{3}{c}{$L$ (production-like)} & \multicolumn{2}{c}{$S$ (compr.-like)}\\
-\cmidrule(lr){2-4}\cmidrule(lr){5-6}
-Model & $A$ & $\rho_{NP}$ & $\rho_{MC}$ & $\Delta_{NP}$ & $\Delta_{MC}$\\
-\midrule
-Pythia-1.4B & .46 & .65 & .85 & $-$.26 & +.22\\
-Pythia-2.8B & .49 & .50 & .74 & $-$.35 & +.40\\
-Llama-3.2-3B & .82 & .39 & .83 & $-$.50 & +1.12\\
-Mistral-7B & .86 & .40 & .89 & $-$.55 & +.93\\
-Qwen2.5-7B & .90 & .14 & 1.34 & $-$.84 & +1.13\\
-Llama-3.1-8B-Inst. & 1.09 & .29 & 1.03 & $-$.83 & +1.33\\
-Qwen3-8B-Base & .95 & .71 & .96 & $-$1.11 & +2.00\\
-Qwen2.5-32B & .61 & .01 & 1.94 & $-$.72 & +1.56\\
-\bottomrule
-\end{tabular}
-\caption{Activation patching of the garden-path prime (E013). $\rho$: fraction of the residue $A_L$ retained when the target reads counterfactual subject-analysis states on the NP or on the main clause (MC). $\Delta$: change in $A_S$ (nats). \TODO{CIs; no-comma donor and depth controls (E013b).}}
-\label{tab:mech}
-\end{table}
+\begin{figure}[t]
+\centering
+\includegraphics[width=\columnwidth]{figures/fig_patching.pdf}
+\caption{Activation patching of the garden-path prime (E013). Left: fraction of the production residue $A_L$ retained when the target reads counterfactual subject-analysis states on the NP (blue) or on the main clause (orange). Right: NP states replaced only from a given depth onward (E013b, exploratory). Estimates with CIs, and the changes on $S$, are in Table~\ref{tab:mech} (Appendix).}
+\label{fig:mech}
+\end{figure}
 
 \section{Consequences for transferring human paradigms}\label{sec:method-lessons}
 
-\paragraph{The human statistic reverses.} \citet{vangompel2006} compared transitive completions after GP and comma primes. In LMs this raw contrast is positive in only 4/11 models, and it is significantly \emph{negative} in 6 of the 7 Llama and Qwen models. The reason is visible in the completions. After a comma-less prime, models reproduce its style: up to 28\% of completions after a GP prime are themselves comma-less garden-path sentences, against 0.4--2.4\% after a comma prime (11/11 models). Human participants completed fragments orally, so punctuation could not align. A naive transfer would conclude that LMs show the \emph{opposite} of the human effect. Matching punctuation and verb (our $A$) recovers the residue in 10/11 models.
+\paragraph{The human statistic reverses.} \citet{vangompel2006} compared transitive completions after GP and comma primes. In LMs this raw contrast is positive in only 4/12 models, and it is significantly \emph{negative} in 7 of the 8 Llama and Qwen models, most strongly in Llama-3.1-70B ($-0.18$). The reason is visible in the completions. After a comma-less prime, models reproduce its style: up to 29\% of completions after a GP prime are themselves comma-less garden-path sentences, against 0.2--2.4\% after a comma prime (12/12 models). Human participants completed fragments orally, so punctuation could not align. A naive transfer would conclude that LMs show the \emph{opposite} of the human effect. Matching punctuation and verb (our $A$) recovers the residue in 11/12 models.
 
 \paragraph{QA lingering is a different phenomenon.} LMs answer \ex{Did the man hunt the deer?} with Yes after the garden path, often and more so for longer ambiguous regions, as humans do \citep{christianson2001}. But item by item, this comprehension ``lingering'' is unrelated to the production residue: $r$ from $-.30$ to $+.15$ in 10/10 models that pass the comprehension controls, with split-half reliabilities of .77--.98 for both measures. It also fails to track the garden path itself. A context sentence that restates the main clause reduces it in 7/7 models. A full reordered paraphrase, which removes the garden path more thoroughly, reduces it less. Reports of LM ``lingering'' based on QA \citep{li2024incremental,amouyal2025} and the representational persistence we measure here are therefore not the same thing. A claim that LMs are human-like or unlike humans on garden paths has to say which of the two it measures.
 
@@ -166,5 +214,98 @@ Qwen2.5-32B & .61 & .01 & 1.94 & $-$.72 & +1.56\\
 \end{itemize}
 
 \bibliography{refs}
+
+\appendix
+
+\section{Models}\label{app:models}
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{3pt}\footnotesize
+\begin{tabular}{lllcccccccc}
+\toprule
+Model & Size & Type & E002 & E005 & E009 & E011 & E003 & E012 & E013 & E014\\
+\midrule
+GPT-2 & 0.12B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \\
+Pythia-160M & 0.16B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \\
+Pythia-410M & 0.41B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \\
+Pythia-1.4B & 1.4B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+Pythia-2.8B & 2.8B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  & \checkmark & \checkmark\\
+Qwen2.5-0.5B & 0.5B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \\
+Qwen3-1.7B-Base & 1.7B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \\
+Gemma-2-2B & 2.6B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  & \checkmark\\
+Qwen2.5-3B & 3B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \\
+Llama-3.2-3B & 3.2B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+Llama-2-7B & 7B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \\
+Mistral-7B-v0.3 & 7B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+Qwen2.5-7B & 7.6B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+Qwen2.5-7B-Instruct & 7.6B & instruct & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  & \checkmark\\
+Llama-3.1-8B-Instruct & 8B & instruct & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+Qwen3-8B-Base & 8.2B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+Qwen3-8B & 8.2B & post-trained &  &  &  &  & \checkmark &  &  & \\
+Gemma-2-9B & 9.2B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  & \checkmark\\
+Gemma-3-12B-it & 12B & instruct & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \\
+Qwen2.5-14B-Instruct & 14.7B & instruct &  &  &  &  & \checkmark &  &  & \\
+Qwen3-30B-A3B & 30B (3B active) & post-trained MoE & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  &  & \\
+Qwen2.5-32B & 32B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \\
+Qwen3-32B & 32B & post-trained & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark &  & \\
+Llama-3.1-70B & 70B & base & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark\\
+\bottomrule
+\end{tabular}
+\caption{Models and the experiments they enter. E002: discovery residue; E005: held-out families; E009: case disambiguation; E011: passive (local coherence) control; E003: Christianson items and QA lingering; E012: free generation; E013: patching; E014: context manipulation. All weights are public Hugging Face checkpoints; scoring is exact log-probability in bfloat16 (patching in float32 up to 8B).}
+\label{tab:models}
+\end{table*}
+
+\section{Patching results with confidence intervals}
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{lccccc}
+\toprule
+Model & $A_L$ & $\rho_{NP}$ & $\rho_{MC}$ & $\Delta_{NP}$ on $S$ & $\Delta_{MC}$ on $S$\\
+\midrule
+Pythia-1.4B & 0.46 [0.33, 0.59] & 0.65 [0.56, 0.73] & 0.85 [0.76, 0.92] & $-$0.26 [$-$0.30, $-$0.22] & 0.22 [0.11, 0.34]\\
+Pythia-2.8B & 0.49 [0.34, 0.65] & 0.50 [0.41, 0.59] & 0.74 [0.64, 0.83] & $-$0.35 [$-$0.42, $-$0.29] & 0.40 [0.25, 0.55]\\
+Llama-3.2-3B & 0.82 [0.62, 1.03] & 0.39 [0.30, 0.48] & 0.83 [0.72, 0.95] & $-$0.51 [$-$0.60, $-$0.42] & 1.12 [0.92, 1.33]\\
+Mistral-7B & 0.86 [0.64, 1.09] & 0.40 [0.28, 0.49] & 0.89 [0.74, 1.10] & $-$0.55 [$-$0.66, $-$0.46] & 0.93 [0.74, 1.11]\\
+Qwen2.5-7B & 0.90 [0.66, 1.16] & 0.14 [$-$0.05, 0.27] & 1.34 [1.12, 1.71] & $-$0.84 [$-$0.99, $-$0.71] & 1.13 [0.93, 1.33]\\
+Llama-3.1-8B-Inst. & 1.09 [0.87, 1.36] & 0.28 [0.17, 0.38] & 1.03 [0.91, 1.17] & $-$0.83 [$-$0.96, $-$0.71] & 1.33 [1.11, 1.55]\\
+Qwen3-8B-Base & 0.95 [0.68, 1.22] & 0.71 [0.55, 0.92] & 0.96 [0.80, 1.16] & $-$1.11 [$-$1.32, $-$0.95] & 2.00 [1.67, 2.34]\\
+Qwen2.5-32B & 0.61 [0.40, 0.83] & 0.01 [$-$0.35, 0.21] & 1.94 [1.55, 2.63] & $-$0.72 [$-$0.83, $-$0.60] & 1.55 [1.32, 1.79]\\
+Llama-3.1-70B & 0.52 [0.34, 0.71] & 0.01 [$-$0.36, 0.22] & 1.89 [1.47, 2.63] & $-$0.79 [$-$0.93, $-$0.66] & 1.46 [1.21, 1.69]\\
+\bottomrule
+\end{tabular}
+\caption{E013 with 95\% two-way bootstrap CIs. Frozen predictions: M1 ($\rho_{NP}\le .5$ and $\rho_{NP}<\rho_{MC}$) holds in 7/9 models; M2 ($|\Delta_{MC}|>|\Delta_{NP}|$ on $S$) in 8/9.}
+\label{tab:mech}
+\end{table*}
+
+\section{Pre-registered predictions and their outcomes}\label{app:prereg}
+Every confirmatory experiment had a card with frozen predictions committed before its data were collected. Table~\ref{tab:prereg} lists the outcomes, failures included.
+\begin{table*}[t]
+\centering\small
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{p{2.0cm}p{6.6cm}p{5.6cm}}
+\toprule
+Experiment & Frozen prediction & Outcome\\
+\midrule
+E005 held-out & between-family commitment slope on $S$ $>0$; error slope sign; net sign; history & commitment 6/15 (\emph{not confirmed}); error 9/15 (sign test $p=.0005$); net 5/9; history 2/3\\
+E007 NP/S & two-force structure generalizes to NP/S & \emph{failed} (G1 1/5, G2 0/4)\\
+E008 MV/RR & error and commitment slopes in non-monotonic MV/RR & error 6/9; commitment 0/8\\
+E009 case & commitment slope $>0$ without punctuation; error slope $<0$; comma coefficient vanishes & 22/22; 20/22; comma part \emph{not} vanished (re-interpreted as commitment)\\
+E010 measures & net $A_L>0$; error slope on $S$ but not $L$; slope($S$) $<$ slope($L$) & 16/16; split (error on $L$ weak, 10/16 negative); 14/16\\
+E011 passive & residue needs a licensed analysis (ratio small) & median ratio .12 (confirmed); larger models .2--.55\\
+E012 generation & $A_{gen}>0$; raw contrast $>0$; style alignment; $A_{gen}$ tracks $A_L$ & 11/12; \emph{4/12}; 12/12; $\rho=.81$ (8 models)\\
+E013 patching & M1, M2 (above) & 7/9; 8/9\\
+E014 context & manipulation check on verb-level commitment; commitment and error coefficients & \emph{manipulation check failed} (0/11); test uninformative; post-hoc analysis reported as such\\
+\bottomrule
+\end{tabular}
+\caption{Frozen predictions and outcomes. Failed or unconfirmed predictions in italics.}
+\label{tab:prereg}
+\end{table*}
+
+\section{Free-production coding}
+Continuations (max.\ 24 tokens, temperature 1, top-$p$ 1, two samples per prime--target pair) are coded from part-of-speech tags only, because a dependency parser is itself garden-pathed by comma-less input. The rules: punctuation first $\rightarrow$ intransitive; object pronoun $\rightarrow$ transitive; NP followed by a finite verb $\rightarrow$ intransitive (and flagged as a garden-path sentence when no comma intervenes); coordination resolved in a refined version (v2). Accuracy on 1,066 material sentences with known structure is 99.7\%. On 180 sampled generations, 27--29/30 transitive and 29/30 intransitive codes were judged correct by a single annotator. Ambiguous codes (relative clause or coordination after the NP; 1.5--13\%) are excluded.
+
+\section{Materials}
+NP/Z families: 69 from \citet{amouyal2025} and 24 from the SAP benchmark \citep{huang2024} (discovery); 24 from \citet{cehakova2025} and 24 from SyntaxGym \citep{gauthier2020} (held-out); 42 optionally transitive and 12 reflexive-absolute items from the appendix of \citet{christianson2001}, crossed with ambiguous-region length and plausibility. Intransitive control verbs (\ex{slept, yawned, sneezed, \ldots}) are strictly intransitive. Targets are content-disjoint from the prime. All materials, cards, code and per-item scores are released.
 
 \end{document}
