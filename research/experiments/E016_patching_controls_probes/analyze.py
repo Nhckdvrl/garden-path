@@ -35,12 +35,13 @@ def main(B=1000):
         cells = [c for c in CELLS if f"GP|{c}" in set(df.cond)]
         C = {f"A_{c}": {f"GP|{c}": 1, f"NB|{c}": -1, "CUE": -1, "NC": 1} for c in cells}
         R = {f"rho_{c}": (f"A_{c}", "A_none") for c in cells if c != "none"}
-        out = {}
+        out, raw = {}, {}
         for v in ("L", "S"):
             r = bootstrap(df, C, R, B=B, value=v)
             r.insert(0, "measure", v)
             r.insert(0, "model", t)
             rows.append(r)
+            raw[v] = r
             out[v] = r.set_index("stat")
         L, S = out["L"], out["S"]
         pr = pd.read_csv(RES / f"{t}.probe.csv")
@@ -59,7 +60,7 @@ def main(B=1000):
              "pobj_NB_mid": mid.p_obj_NB.mean(), "pobj_PASS_mid": mid.p_obj_PASS.mean(),
              "e011_ratio": e11.get(t, np.nan)}
         summ.append(s)
-        print(f"{t:22s} L: rho SAME={fmt(L,'rho_SAME')} NBD={fmt(L,'rho_NBD')} ROLE={fmt(L,'rho_ROLE')} RAND={s['rho_RAND']:.2f} "
+        print(f"{t:22s} L: rho SAME={fmt(raw['L'],'rho_SAME')} NBD={fmt(raw['L'],'rho_NBD')} ROLE={fmt(raw['L'],'rho_ROLE')} RAND={s['rho_RAND']:.2f} "
               f"(E013 CUE donor {s['rho_CUE_E013']:.2f}) | S: dROLE={s['dS_ROLE']:+.2f} dRAND={s['dS_RAND']:+.2f} | "
               f"probe best={s['probe_best']:.2f} first>=.9 at {first90}/{nL} P(obj) NB={s['pobj_NB_mid']:.2f} PASS={s['pobj_PASS_mid']:.2f}",
               flush=True)

@@ -16,3 +16,13 @@ A reviewer argued that the stale-state account predicts a residue for NP/S garde
 ## Frozen predictions (new models)
 - **N1:** A_L > 0 in the majority of the new models (sign test).
 - **N2:** the residue is smaller relative to the real-object prime than for NP/Z primes (ratio below the NP/Z ratio of the same model) in the majority of models, because cross-construction priming dilutes the effect.
+
+## Results (21 models; Llama-3.1-70B running)
+
+- NP/S primes leave a residue of the abandoned object analysis on NP/Z targets.
+  - A_L > 0 in 18 of 21 models (sign test p = .0007); interval above 0 in 6 (7 by the meta-analysis SE), none below.
+  - Pooled +0.031 nats [0.018, 0.043], z = 4.6, I² = 0.28.
+- New models: N1 8/10 positive (confirmed by sign). N2: the ratio to the true-object prime is below the NP/Z ratio in 7/10 (confirmed).
+- The cross-construction effect of a true object prime is itself small (A_L^TB 0.03–0.20), so ratios are noisy.
+
+**Reading:** the residue of an abandoned object analysis is not specific to NP/Z. An NP/S garden path, whose noun phrase is first analysed as the verb's object, also raises later object attachment, although measured across constructions the effect is small. This removes the apparent conflict between the stale-state account and the NP/S null of E007, which concerned only the error-driven adaptation on S.

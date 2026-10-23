@@ -40,3 +40,32 @@
 - **P5 (exploratory, no prediction):**
   - P(object) of PASS NP states per model;
   - its relation across models to the E011 passive/GP residue ratio.
+
+## Results (6 models; Llama-3.1-70B running)
+
+| model | ρ_NP, same-analysis donor | ρ_NP, NB donor | ρ_NP, CUE donor (E013) | ρ, role direction | ρ, random directions | probe acc | P(object) NB / PASS (mid layers) |
+|---|---|---|---|---|---|---|---|
+| Llama-3.2-3B | 0.94 | 0.45 | 0.39 | 0.63 | 0.76 | 1.00 | 0.33 / 0.54 |
+| Llama-3.1-8B-Instruct | 0.95 | 0.36 | 0.28 | 0.68 | 0.81 | 1.00 | 0.39 / 0.67 |
+| Mistral-7B | 0.93 | 0.46 | 0.40 | 0.71 | 0.77 | 1.00 | 0.36 / 0.62 |
+| Qwen2.5-7B | 0.85 | 0.34 | 0.14 | 0.74 | 0.76 | 1.00 | 0.23 / 0.41 |
+| Qwen3-8B-Base | 1.11 | 0.47 | 0.71 | 0.40 | 0.79 | 1.00 | 0.55 / 0.59 |
+| Qwen2.5-32B (bf16) | 0.70 | 0.08 | 0.01 | 0.31 | 0.80 | 1.00 | 0.29 / 0.61 |
+
+**Frozen predictions:**
+- P1: ρ_SAME ≥ .8 in 5/6, and above the CUE-donor value in 6/6. **Confirmed.**
+- P2: ρ_NBD ≤ .6 in 6/6. **Confirmed.**
+- P3: probe accuracy ≥ .9 in 6/6, and NB classified as subject in 5/6. **Confirmed.**
+- P4: ρ_ROLE ≤ .7 in 4/6, and below random in 6/6. **Confirmed.**
+- P5 (exploratory): PASS P(object) is unrelated to the E011 ratio across models (ρ = 0.03).
+
+**Reading:**
+1. Patching is not destructive in itself. Replacing the NP states with object-analysis states from another context leaves 70–111% of the residue, so the residue disappears in E013 because the object analysis is replaced, not because the states are replaced.
+2. The NP states encode the role.
+   - A linear probe separates object from subject NPs perfectly.
+   - It classifies comma-less NB noun phrases as subjects, so it does not just read the comma.
+   - Passive noun phrases fall in between (0.41–0.67).
+3. Moving only the NP's object-role component to the subject mean, in the middle half of the layers, removes 26–69% of the residue. Random directions with the same displacement remove 19–24%.
+   - Role information carries a substantial part of the residue.
+   - The rest is carried by other components of the NP states, since the full replacement removes more.
+4. Caveat: the probe already separates the classes at the first layer, so the probe alone cannot show *where* the role is computed. The depth result of E013b remains the evidence for that.

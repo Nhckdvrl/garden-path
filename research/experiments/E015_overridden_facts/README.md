@@ -41,3 +41,33 @@ Item bootstrap (resampling items). **Models:** Llama-3.2-3B, Llama-3.1-8B-Instru
 - **F3 (stale states):** re-encoding only the overridden statement's states (CLAIM) reduces the residue, ρ ≤ 0.7, in the majority of models.
 
 If F1 fails, overridden statements do not persist the way abandoned analyses do, and the paper's broader claim is restricted to syntax. If F1 holds but F3 fails, the persistence is carried by later positions rather than by the stale states.
+
+## Results (8 models; Llama-3.1-70B running)
+
+| model | R (CORR − CTRL) | O (CORR − PRE) | ρ CLAIM | ρ FULL |
+|---|---|---|---|---|
+| Llama-3.2-3B | +1.65 | +0.53 | 1.00 | 0.72 |
+| Llama-3.1-8B-Instruct | +1.79 | +2.04 | 0.72 | −0.16 |
+| Mistral-7B | +2.17 | +0.14 | 0.81 | 0.55 |
+| Qwen2.5-7B | +1.35 | +0.41 | 0.98 | 0.57 |
+| Qwen2.5-7B-Instruct | **−2.23** | −1.17 | 1.13 | 1.86 |
+| Qwen3-8B-Base | +2.26 | +0.55 | 1.00 | 1.13 |
+| Gemma-2-9B | +1.57 | −0.01 | 0.86 | 0.33 |
+| Qwen2.5-32B (bf16) | +0.56 | −0.42 | 1.08 | 0.13 |
+
+(nats; item bootstrap intervals in `results/gp/E015/summary.csv`. All R values except Qwen2.5-7B-Instruct have intervals above 0 and are positive in 9–10 of 10 frames.)
+
+**Frozen predictions:**
+- F1 (persistence): **7/8 confirmed.**
+- F2 (order): 5/8.
+- F3 (re-encoding the overridden statement removes the pull): **0/8, not confirmed.**
+
+**Reading:**
+1. An overridden statement keeps pulling later predictions toward the overridden value, 0.6–2.3 nats beyond a matched mention of the same value, in every base model and in Llama-3.1-8B-Instruct.
+2. Qwen2.5-7B-Instruct does the opposite: it moves away from a value that has been corrected.
+3. The mechanism differs from the garden path.
+   - Re-encoding the overridden statement's own states under the "Mistake:" warning leaves the pull intact (ρ_CLAIM 0.72–1.13).
+   - Recomputing the rest of the context after it reduces the pull in most models (ρ_FULL −0.16 to 0.72).
+   - For a stated value, the value itself is represented whatever the warning, and the pull is carried by the positions that follow.
+   - In the garden path, what is overridden is a structural role that can be re-encoded at the NP.
+   - So the behavioural persistence generalizes beyond syntax, while the stale-state localization is specific to analyses computed at the abandoned constituent.
