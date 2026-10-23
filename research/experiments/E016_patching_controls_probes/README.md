@@ -70,3 +70,19 @@
    - Role information carries a substantial part of the residue.
    - The rest is carried by other components of the NP states, since the full replacement removes more.
 4. Caveat: the probe already separates the classes at the first layer, so the probe alone cannot show *where* the role is computed. The depth result of E013b remains the evidence for that.
+
+## E016b (frozen 2026-10-24 before running; round-2 review)
+
+**Objection:** the probe and the role direction were fit on object primes without a comma (TB, TC) against subject primes with a comma (CUE, NC), so they could partly encode the comma.
+
+**Design:**
+- Comma-matched fit: object TB versus subject NB, neither with a comma (`--obj TB --subj NB`).
+- The probe is tested on all four conditions, including TC (object, comma) and CUE (subject, comma), which it never saw.
+- The intervention uses the comma-matched direction (cells ROLE and RAND only).
+- Same 7 models.
+
+**Predictions:**
+- **Q1:** the comma-matched probe classifies TC as object and CUE as subject (test accuracy ≥ .8 in some layer) in the majority of models.
+- **Q2:** the comma-matched role direction removes more of the residue than random directions in the majority of models.
+
+**Precision check (round-2 review):** E013 rerun in bfloat16 for Qwen2.5-7B and Llama-3.1-8B-Instruct (`run.py --dtype bfloat16 --suffix __bf16`). ρ_NP and ρ_MC are compared with the float32 values. No prediction; |Δρ| is reported.

@@ -64,14 +64,21 @@ def main():
     ap.add_argument("--dtype", default="float32")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--bs", type=int, default=256)
+    # E016b: comma-matched probe/direction (object TB vs subject NB, both without a comma), only the
+    # direction cells, written with a suffix
+    ap.add_argument("--obj", default="TB,TC")
+    ap.add_argument("--subj", default="CUE,NC")
+    ap.add_argument("--cells", default="SAME,NBD,ROLE,RAND")
+    ap.add_argument("--suffix", default="")
     a = ap.parse_args()
+    OBJ, SUBJ, CELLS_ON = a.obj.split(","), a.subj.split(","), set(a.cells.split(","))
     OUT.mkdir(parents=True, exist_ok=True)
     fams = {json.loads(l)["family_id"]: json.loads(l) for l in open(FAMS)}
     intr = {json.loads(l)["family_id"]: json.loads(l) for l in open(INTR)}
     order = list(fams)[: a.limit] if a.limit else list(fams)
     for m in a.models:
         tag, path = m.split("=", 1)
-        if (OUT / f"{tag}.scores.csv.gz").exists():
+        if (OUT / f"{tag}{a.suffix}.scores.csv.gz").exists():
             print(f"[{tag}] exists, skip", flush=True)
             continue
         t0 = time.time()
@@ -94,23 +101,24 @@ def main():
             acc, p_nb, p_pass = [], [], []
             for k in (0, 1):
                 tr, te = folds[1 - k], folds[k]
-                Xtr = torch.stack([S[c][f][li] for f in tr for c in ["TB", "TC", "CUE", "NC"]]).numpy()
-                ytr = np.array([1, 1, 0, 0] * len(tr))
+                Xtr = torch.stack([S[c][f][li] for f in tr for c in OBJ + SUBJ]).numpy()
+                ytr = np.array(([1] * len(OBJ) + [0] * len(SUBJ)) * len(tr))
                 mu, sd = Xtr.mean(0), Xtr.std(0) + 1e-6
                 clf = LogisticRegression(max_iter=2000, C=0.1).fit((Xtr - mu) / sd, ytr)
-                Xte = torch.stack([S[c][f][li] for f in te for c in ["TB", "TC", "CUE", "NC"]]).numpy()
+                held = [c for c in ["TB", "TC", "CUE", "NC"]]  # always test on all four, incl. classes not trained on
+                Xte = torch.stack([S[c][f][li] for f in te for c in held]).numpy()
                 acc.append(clf.score((Xte - mu) / sd, np.array([1, 1, 0, 0] * len(te))))
                 p_nb += list(clf.predict_proba((torch.stack([S["NB"][f][li] for f in te]).numpy() - mu) / sd)[:, 1])
                 pf = [f for f in te if f in S["PASS"]]
                 if pf:
                     p_pass += list(clf.predict_proba((torch.stack([S["PASS"][f][li] for f in pf]).numpy() - mu) / sd)[:, 1])
-                obj = torch.stack([S[c][f][li] for f in tr for c in ["TB", "TC"]]).mean(0)
-                sub = torch.stack([S[c][f][li] for f in tr for c in ["CUE", "NC"]]).mean(0)
+                obj = torch.stack([S[c][f][li] for f in tr for c in OBJ]).mean(0)
+                sub = torch.stack([S[c][f][li] for f in tr for c in SUBJ]).mean(0)
                 u = (obj - sub) / (obj - sub).norm()
                 for f in te:  # direction fit without the family itself
                     dirs[(f, li)] = (u, float(sub @ u))
             probe_rows.append(f"{li},{np.mean(acc):.4f},{np.mean(p_nb):.4f},{np.mean(p_pass) if p_pass else float('nan'):.4f}")
-        with open(OUT / f"{tag}.probe.csv", "w") as fo:
+        with open(OUT / f"{tag}{a.suffix}.probe.csv", "w") as fo:
             fo.write("layer,cv_acc,p_obj_NB,p_obj_PASS\n" + "\n".join(probe_rows) + "\n")
         print(f"[{tag}] probes done ({time.time()-t0:.0f}s); best acc {max(float(r.split(',')[1]) for r in probe_rows):.3f}", flush=True)
         del S
@@ -131,7 +139,7 @@ def main():
                 ids, npp, mcp = enc_prime(tok, P[fid][rec], f["np"])
                 kvB, lastB = run_hooked(model, ids)
                 jobs[f"{rec}|none"] = (kvB, len(ids), lastB)
-                for cell, dtext in [("SAME", NEUTRAL + P[fid][rec]), ("NBD", P[fid]["NB"])]:
+                for cell, dtext in [(c, t) for c, t in [("SAME", NEUTRAL + P[fid][rec]), ("NBD", P[fid]["NB"])] if c in CELLS_ON]:
                     dids, dnp, _ = enc_prime(tok, dtext, f["np"])
                     if len(dnp) != len(npp):
                         continue
@@ -153,7 +161,7 @@ def main():
                         d = uu if kind is None else rand[kind].to(h.device, h.dtype)
                         h[0, npp] = hh + shift[:, None] * d[None]
                     return edit
-                for cell, kind in [("ROLE", None), ("RAND0", 0), ("RAND1", 1), ("RAND2", 2)]:
+                for cell, kind in [(c, k) for c, k in [("ROLE", None), ("RAND0", 0), ("RAND1", 1), ("RAND2", 2)] if c.rstrip("012") in CELLS_ON]:
                     kv, last = run_hooked(model, ids, edit=make_edit(kind))
                     jobs[f"{rec}|{cell}"] = (kv, len(ids), last)
             for cond, (kv, plen, last) in jobs.items():
@@ -164,10 +172,10 @@ def main():
                 for tf, d in acc.items():
                     rows.append(f"{fid},{cond},{tf},{d['T']:.5f},{d['I']:.5f},{d['T']-d['I']:.5f},{d['D']:.5f},{d['Dc']:.5f}")
             print(f"[{tag}] {fid} done ({time.time()-t0:.0f}s)", flush=True)
-        with gzip.open(OUT / f"{tag}.scores.csv.gz", "wt") as fo:
+        with gzip.open(OUT / f"{tag}{a.suffix}.scores.csv.gz", "wt") as fo:
             fo.write("prime_family,cond,target_family,lpT,lpI,L,lpD,lpDc\n" + "\n".join(rows) + "\n")
         json.dump({"tag": tag, "model": path, "dtype": a.dtype, "seconds": time.time() - t0, "layers_edited": [lo, hi]},
-                  open(OUT / f"{tag}.meta.json", "w"))
+                  open(OUT / f"{tag}{a.suffix}.meta.json", "w"))
         print(f"[{tag}] wrote scores", flush=True)
         del model
         torch.cuda.empty_cache()
