@@ -2,6 +2,25 @@
 
 Living document. Each entry says what we believed, what changed it, and what is still open. Newest first. Experiments: `research/experiments/E00x_*` (cards are written before runs; post-hoc steps are labelled).
 
+## 2026-10-24 — review-driven experiments: the residue is role information at the NP; it generalizes to NP/S; overridden statements persist through a different carrier
+
+A simulated 5-reviewer ARR review (main/Findings borderline) raised: a punctuation-habit alternative; non-clean patching counterfactuals; no evidence of role encoding; NP/S apparently contradicting the mechanism; "so what" beyond syntax untested. Answered with data rather than by narrowing the claims:
+- **Punctuation habit:** the case contrast on L (same verb and missing comma as GP, no possible object) is positive 22/22 (E009 re-analysed on L).
+- **Generic uncertainty:** the error slope is absent on the comma version of the target (median t −0.6 vs −2.8 on S). With a punctuation covariate it is 22/22 negative on S.
+- **Raw-statistic reversal:** after removing self-written garden-path completions, the raw GP−CUE contrast is positive 12/12. Across models the reversal tracks the self-written GP rate (ρ = −0.82).
+- **E016 (7 models incl. 70B):**
+  - a same-analysis donor keeps 70–111% of the residue, so patching is not destructive;
+  - an NB donor removes it;
+  - a linear probe reads the role, not the comma;
+  - moving only the object-role direction removes 26–69%, against 7–24% for random directions.
+- **E017:** NP/S primes leave a residue on NP/Z targets in 19/22 models (pooled +0.03 nats, p = .0004).
+- **E015 (9 models):**
+  - overridden statements keep pulling later predictions in 8/9;
+  - re-encoding the overridden statement does not remove the pull (0/9), so the carrier is the later positions, unlike the garden path;
+  - Qwen2.5-7B-Instruct reverses (moves away from corrected values).
+
+Paper revised accordingly (paper/main.tex, 8 full pages): new §7 on overridden statements and the mechanism controls in §6.
+
 ## 2026-10-23 — mechanism found: the residue is read from stale NP states, the adaptation from main-clause states (E013); scale to 32B; E014 inconclusive as frozen
 
 **E013 (activation patching, 8 models, frozen M1/M2):** replacing only the NP's pre-disambiguation states with subject-analysis states removes most of the production residue (ρ_NP 0.01–0.71; Qwen2.5-32B 0.01). Replacing the main-clause states removes none (ρ_MC 0.74–1.94). M1 6/8, M2 7/8; direction 8/8. On S the two spans push in opposite directions in 8/8: NP states carry the residue (+), main-clause states carry the error-driven adaptation (−).

@@ -45,7 +45,7 @@ An adaptation toward the resolved structure scales with the sentence's disambigu
 Activation patching separates the two.
 Later text reads the residue from the role information in the noun phrase's states, which were computed under the object analysis before the disambiguation, and replacing these states removes almost all of the residue in the 32B and 70B models.
 The adaptation is read from the states that processed the disambiguation.
-Overridden statements show the same persistence (a corrected value keeps pulling later predictions in 7 of 8 models), but there the pull is carried by the positions after the statement.
+Overridden statements show the same persistence (a corrected value keeps pulling later predictions in 8 of 9 models), but there the pull is carried by the positions after the statement.
 Finally, the human paradigm transfers only with controls for punctuation, because the models also write garden-path sentences themselves, which reverses the paradigm's raw statistic.
 \end{abstract}
 
@@ -253,7 +253,7 @@ The human raw contrast between garden-path and comma primes was 4.5 points \cite
 \paragraph{A second garden path.}
 In an NP/S garden path (\ex{The student forgot the solution was in the back of the book}) the noun phrase is also first analysed as an object.
 We built the same contrast for 64 NP/S families, with \ex{that} as the disambiguating cue and a verb that takes only a clausal complement (\ex{hoped}) as the control, and measured it on the NP/Z targets.
-The residue is positive in 18 of 21 models (sign test $p<0.001$) with a pooled value of 0.03 nats.
+The residue is positive in 19 of 22 models (sign test $p<0.001$) with a pooled value of 0.03 nats.
 It is smaller than for NP/Z primes because the prime and target structures differ, and even a real object in an NP/S prime moves the NP/Z targets only by 0.03 to 0.20 nats.
 
 \section{Two Effects with Opposite Signs}
@@ -318,16 +318,16 @@ We report the retained residue $\rho = A_L^{\text{patched}}/A_L$ and the change 
 Replacing the noun-phrase states removes most of the residue in every model (Figure~\ref{fig:mech}, left).
 The retained fraction is 0.37 on average and falls to 0.01 in Qwen2.5-32B and Llama-3.1-70B, with upper interval bounds of 0.21 and 0.22.
 Replacing the main-clause states leaves the residue largely intact (1.01 on average), removing 15\% to 26\% in the three smallest models and none in the others.
-With \cond{nb} as donor, where \ex{the deer} follows an intransitive verb without a comma, the retained fraction is still 0.08 to 0.47 in the six models tested, so the effect is not imported information about the comma.
+With \cond{nb} as donor, where \ex{the deer} follows an intransitive verb without a comma, the retained fraction is still 0.04 to 0.47 in the seven models tested, so the effect is not imported information about the comma.
 Replacing the noun-phrase states only in the upper half of the network has no effect in Llama-3.1-8B-Instruct and Mistral-7B, and only in the upper quarter none in Qwen2.5-7B (Figure~\ref{fig:mech}, right).
 Later text thus reads the abandoned analysis from the noun phrase's keys and values in the lower and middle layers.
 
 \paragraph{What the noun-phrase states carry.}
-Three further tests, run on six models, ask whether this is role information and not an artefact of replacing states.
+Three further tests, run on seven models up to 70B, ask whether this is role information and not an artefact of replacing states.
 First, replacing the noun-phrase states with states of the same tokens computed under the object analysis in a different context (\ex{It was a quiet morning.} before the prime) leaves 70\% to 111\% of the residue, so replacing states as such does not remove it.
-Second, a linear probe on the noun phrase's last token separates object noun phrases (\cond{tb}) from subject noun phrases (\cond{cue}, \cond{nc}) with perfect cross-validated accuracy and classifies the comma-less noun phrases of \cond{nb} as subjects in five of six models, so it reads the role and not the comma.
+Second, a linear probe on the noun phrase's last token separates object noun phrases (\cond{tb}) from subject noun phrases (\cond{cue}, \cond{nc}) with perfect cross-validated accuracy and classifies the comma-less noun phrases of \cond{nb} as subjects in six of seven models, so it reads the role and not the comma.
 Third, we moved only the component of the noun-phrase states along the probe's object direction to the subject mean, in the middle half of the layers, and left all other components unchanged.
-This removes 26\% to 69\% of the residue, more than norm-matched random directions in all six models (19\% to 24\%).
+This removes 26\% to 69\% of the residue, more than norm-matched random directions in all seven models (7\% to 24\%).
 The role encoded at the abandoned noun phrase carries a large part of what later text reads as the residue.
 
 \paragraph{The adaptation is read from the main clause.}
@@ -343,7 +343,7 @@ Even on the production-like measure, the observed residue is the abandoned analy
 Does content that a context explicitly overrides also keep influencing an LM?
 We built 200 items from ten frames (for example \ex{The meeting is on Thursday. Correction: The meeting is on Monday.}) and measured, after the probe \ex{To confirm, the meeting is on}, how much more likely the overridden value is than the correct one.
 A control replaces the overridden statement with the same statement about another entity (\ex{The dinner is on Thursday.}), which matches exposure to the overridden value.
-Relative to this control, the overridden value pulls later predictions toward itself by 0.6 to 2.3 nats in seven of eight models, in nine or ten of the ten frames each, and the pull is smaller when a warning (\ex{Mistake:}) precedes the statement in five of eight.
+Relative to this control, the overridden value pulls later predictions toward itself by 0.6 to 2.3 nats in eight of nine models up to 70B, in nine or ten of the ten frames each, and the pull is smaller when a warning (\ex{Mistake:}) precedes the statement in six of nine.
 Qwen2.5-7B-Instruct is the exception and moves away from a corrected value.
 
 The carrier differs from the garden path.

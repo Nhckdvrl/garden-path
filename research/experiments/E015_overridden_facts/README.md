@@ -42,7 +42,7 @@ Item bootstrap (resampling items). **Models:** Llama-3.2-3B, Llama-3.1-8B-Instru
 
 If F1 fails, overridden statements do not persist the way abandoned analyses do, and the paper's broader claim is restricted to syntax. If F1 holds but F3 fails, the persistence is carried by later positions rather than by the stale states.
 
-## Results (8 models; Llama-3.1-70B running)
+## Results (9 models)
 
 | model | R (CORR − CTRL) | O (CORR − PRE) | ρ CLAIM | ρ FULL |
 |---|---|---|---|---|
@@ -54,13 +54,14 @@ If F1 fails, overridden statements do not persist the way abandoned analyses do,
 | Qwen3-8B-Base | +2.26 | +0.55 | 1.00 | 1.13 |
 | Gemma-2-9B | +1.57 | −0.01 | 0.86 | 0.33 |
 | Qwen2.5-32B (bf16) | +0.56 | −0.42 | 1.08 | 0.13 |
+| Llama-3.1-70B (bf16) | +1.88 | +0.43 | 0.80 | 0.49 |
 
 (nats; item bootstrap intervals in `results/gp/E015/summary.csv`. All R values except Qwen2.5-7B-Instruct have intervals above 0 and are positive in 9–10 of 10 frames.)
 
 **Frozen predictions:**
-- F1 (persistence): **7/8 confirmed.**
-- F2 (order): 5/8.
-- F3 (re-encoding the overridden statement removes the pull): **0/8, not confirmed.**
+- F1 (persistence): **8/9 confirmed.**
+- F2 (order): 6/9.
+- F3 (re-encoding the overridden statement removes the pull): **0/9, not confirmed.**
 
 **Reading:**
 1. An overridden statement keeps pulling later predictions toward the overridden value, 0.6–2.3 nats beyond a matched mention of the same value, in every base model and in Llama-3.1-8B-Instruct.
