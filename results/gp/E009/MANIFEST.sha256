@@ -1,7 +1,9 @@
 58c6f78748304881a0f8c60a3b7a2db51a495c1a56b06836c3a991ceb2f003b1  gemma2-2b.scores.csv.gz
+aab8d365cd73cde9cdeffda6950ccb7fbb6a4a4a8f6d9ccd59c94f111de079a1  gemma2-9b.scores.csv.gz
 592893629e406c66872d13dc7ce3653d25f5b0267e1be476007e87e74d6976ed  gemma3-12b-it.scores.csv.gz
 9e4de7c6ca7c92a58bedce79edf3582b4d90a88ef79cff851856b7fd45076a33  gpt2.scores.csv.gz
 ff85a8ee80c604af6e48c90feccb9a40f6580ae399347574f757ddd858a86d83  llama2-7b.scores.csv.gz
+dcc8f407c3e48839eaf4f67b851d1fab4752c559b13cf9f23bdd7fcedfc4ae5a  llama3.1-70b.scores.csv.gz
 4f44811dfaa9131b92762e6b87bf525dc32a6e597bc1c6d23b5939a4cb1e656b  llama3.1-8b-instruct.scores.csv.gz
 b86124ee61f10deed9672cf9338393b50ffc798daa26675bc335a7b9e49286ca  llama3.2-3b.scores.csv.gz
 32d3a92d3dabc8fed5086acce2bbc171aabd0a22606e23496e17954f4dd54493  mistral-7b.scores.csv.gz
@@ -10,8 +12,11 @@ d58ef4663509c10e8e0ce31a66f52b9697c60d9d81ec3569b5fba469c58f2f3e  pythia-1.4b.sc
 4ac136cae2521caba6badb2e17a4e4830d77fb3a60472b37c200b2814697c4fc  pythia-2.8b.scores.csv.gz
 0a8cb17c3a4e7d13ac44c1e0b0b556cc60ce399484fcf044f328475922ea4848  pythia-410m-s1.scores.csv.gz
 a7ded61a2e9707926df116c29ccc2f74dc71c2d8a5e0d401170aa703e132434e  qwen2.5-0.5b.scores.csv.gz
+1bf2085b4c5cad8d3502d76050d976579d367e7beae59c90175b59fbee767527  qwen2.5-32b.scores.csv.gz
 360e51f338dc6a0cb92715b478bb85ff19773e71fc2ca21a5d967391c98c388c  qwen2.5-3b.scores.csv.gz
 92782fb77e8f10bfee5ba8a58778752208e0acbd85fd385715fe0e9889509186  qwen2.5-7b-instruct.scores.csv.gz
 d048369308cbece6e025a7890864bfaa37c3334d9fea8cf844b8c0bc7bdcc385  qwen2.5-7b.scores.csv.gz
 5ec6353ec31a4a6302fd0528a3334ed40327a4538529f9bd3dabf1d235f3f9fc  qwen3-1.7b-base.scores.csv.gz
+2e236ac9a0cbb71dad0c8e0b23b6579fa629f5dff0f6e0ff2e3254c191a63db4  qwen3-30b-a3b.scores.csv.gz
+b8ba5646c8348c515d95667d3cba743796edd6cb1c8471d0a47aa547b5de6400  qwen3-32b.scores.csv.gz
 f11ad7eac19339c21aa03e0de0a98b417ddefa6ef90da878485d7e64adcd210c  qwen3-8b-base.scores.csv.gz
