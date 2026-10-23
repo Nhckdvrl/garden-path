@@ -43,9 +43,9 @@ def fig_residue():
     g = pd.read_csv(R / "E012/summary_v1.csv")
     g = g[g.stat == "A_gen"].set_index("model")
     models = [m for m in ORDER if m in set(rs.model)]
-    fig, (a, b) = plt.subplots(1, 2, figsize=(6.3, 3.7), gridspec_kw={"width_ratios": [1.6, 1]}, sharey=True)
+    fig, (a, b) = plt.subplots(1, 2, figsize=(6.3, 3.35), gridspec_kw={"width_ratios": [1.6, 1]}, sharey=True)
     for k, (s, col, lab) in enumerate((("E002", BLUE, "discovery (93 fam.)"), ("E005", ORANGE, "held-out (48 fam.)"),
-                                       ("E003_christianson", AQUA, "Christianson (42 items)"))):
+                                       ("E003_christianson", AQUA, "Christianson (42 items x 4 cells)"))):
         d = rs[rs.set == s].set_index("model")
         ys = [i + (k - 1) * 0.24 for i, m in enumerate(models) if m in d.index]
         ms = [m for m in models if m in d.index]
@@ -68,7 +68,7 @@ def fig_patching():
     e = pd.read_csv(R / "E013/summary.csv")
     e = e[e.measure == "L"].pivot_table(index="model", columns="stat", values=["est", "lo", "hi"])
     models = [m for m in ORDER if m in e.index]
-    fig, (a, b) = plt.subplots(1, 2, figsize=(6.3, 2.5), gridspec_kw={"width_ratios": [1.3, 1]})
+    fig, (a, b) = plt.subplots(1, 2, figsize=(6.3, 2.0), gridspec_kw={"width_ratios": [1.3, 1]})
     for k, (st, col, lab) in enumerate((("rho_NP", BLUE, "NP states replaced"), ("rho_MC", ORANGE, "main-clause states replaced"))):
         ys = [i + (k - 0.5) * 0.3 for i in range(len(models))]
         est, lo, hi = e[("est", st)][models], e[("lo", st)][models], e[("hi", st)][models]
@@ -83,13 +83,15 @@ def fig_patching():
         d = d.set_index("stat")
         xs = [0, 0.25, 0.5, 0.75]
         ys = [d.est["rho_NP"]] + [d.est[f"rho_NPfrom{x:g}"] for x in xs[1:]]
-        b.plot(xs, ys, "-o", color=col, lw=2, ms=4, label=NAMES[run.split("__")[0]])
+        short = {"llama3.1-8b-instruct": "Llama-8B-I", "mistral-7b": "Mistral-7B", "qwen2.5-7b": "Qwen-7B"}
+        b.plot(xs, ys, "-o", color=col, lw=2, ms=4, label=short[run.split("__")[0]])
     b.axhline(1, color="#999999", lw=0.8, ls=":")
     b.set_xticks([0, 0.25, 0.5, 0.75])
     b.set_xlabel("first patched layer / depth")
     b.set_ylabel(r"retained residue $\rho$")
     b.grid(axis="y", color=GRID, lw=0.6)
-    b.legend(frameon=False, fontsize=7, loc="lower right")
+    b.set_ylim(0.0, 1.12)
+    b.legend(frameon=False, fontsize=6.5, loc="lower right", handlelength=1.2)
     fig.tight_layout()
     fig.savefig(OUT / "fig_patching.pdf")
 
@@ -98,7 +100,7 @@ def fig_slopes():
     d = pd.read_csv(T / "item_slopes.csv")
     t = d.pivot_table(index="model", columns=["measure", "predictor"], values="t")
     models = [m for m in ORDER if m in t.index]
-    fig, axes = plt.subplots(1, 2, figsize=(6.3, 3.25), sharey=True)
+    fig, axes = plt.subplots(1, 2, figsize=(6.3, 3.0), sharey=True)
     for ax, v, title in zip(axes, ("L", "S"), ("production-like $L$", "comprehension-like $S$")):
         for k, (pr, col, lab) in enumerate((("commit", BLUE, "object expectation at the verb"),
                                              ("err", ORANGE, "garden-path strength of the prime"))):
@@ -123,7 +125,7 @@ def fig_generation():
     for m in models:
         c = pd.read_csv(R / f"E012/{m}.coded.csv.gz", sep="\t", quoting=3, keep_default_na=False, usecols=["cond", "gp_v1"])
         rates[m] = c.groupby("cond").gp_v1.mean()
-    fig, (a, b) = plt.subplots(1, 2, figsize=(6.3, 2.6), sharey=True, gridspec_kw={"width_ratios": [1.3, 1]})
+    fig, (a, b) = plt.subplots(1, 2, figsize=(6.3, 2.05), sharey=True, gridspec_kw={"width_ratios": [1.3, 1]})
     for k, (st, col, lab) in enumerate((("A_gen", BLUE, "controlled contrast $A_{gen}$"), ("vG", ORANGE, "raw GP $-$ comma contrast"))):
         ys = [i + (k - 0.5) * 0.3 for i in range(len(models))]
         est, lo, hi = g[("est", st)][models], g[("lo", st)][models], g[("hi", st)][models]

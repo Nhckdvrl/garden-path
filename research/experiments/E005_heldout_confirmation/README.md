@@ -50,6 +50,14 @@ With overlapping lexical material excluded: P1 4/12, P2 4/13, P3 4/7, P4 2/2.
 
 **Scale extension (2026-10-23; 20 models: + Gemma-2-9B, Qwen2.5-32B, Qwen3-32B, each with predictions frozen by `scale_lane.sh` before its held-out scoring):** P1 **6/15** (p = .50), P2 **9/15** (p = .0005), P3 5/9, P4 2/3. With overlap excluded: P1 4/15, P2 5/15, P3 5/9, P4 2/3. The verdict above is unchanged.
 
+**Final panel (2026-10-24; + Qwen3-30B-A3B, Llama-3.1-70B; 17 models with a frozen prediction, overlap not excluded):** "confirmed" means significant in the predicted direction, "same sign" means the estimate has the sign of the panel mean (the sign test the script prints):
+- P1: 7/17 confirmed, 10/17 same sign (p = .31);
+- P2: 11/17 confirmed, 16/17 same sign (p = .0001);
+- P3: 5/9 confirmed;
+- P4: 2/3 confirmed.
+
+The earlier "9/15 (p = .0005)" mixed the two counts. The confirmed count and the sign-test count are now reported separately.
+
 **Reading:** with the full panel, the frozen between-family held-out test confirms the error force only weakly and **does not confirm the commitment force on S**. This agrees with the item-level summary in CURRENT_UNDERSTANDING (commitment slope on S > 0 in only 8/17 held-out). The commitment force is reliable on the production-like measure L (13/17 held-out, 15–18/17–18 elsewhere), not on S. The 8-model interim (14/18) overstated the held-out support, and this table supersedes it. A within-family causal test of commitment is E014.
 
 ## Interim results (8 models; frozen rule unchanged)

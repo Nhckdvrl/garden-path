@@ -1,0 +1,43 @@
+{
+ "collinearity": {
+  "corr_median": 0.21758244393271298,
+  "corr_range": [
+   -0.0521963133956029,
+   0.45216155355122567
+  ],
+  "vif_max": 1.2569921295083106
+ },
+ "error_slope": {
+  "S_neg": 21,
+  "S_sig_neg": 15,
+  "Sc_neg": 12,
+  "Sc_sig_neg": 6,
+  "Sc_sig_pos": 0,
+  "Sc_median_t": -0.5781167745680352,
+  "S_median_t": -2.8208144648576337,
+  "S_with_punct_cov_neg": 22,
+  "S_with_punct_cov_sig_neg": 19,
+  "n": 22
+ },
+ "panel_mean_A_L": [
+  0.714570843944072,
+  0.5647122470960287,
+  0.8823679596014925
+ ],
+ "panel_mean_A_S": [
+  0.04766183112804378,
+  -0.0910183444860218,
+  0.18913717392286977
+ ],
+ "sampled": {
+  "vG_raw_pos": 5,
+  "vG_noGPstyle_pos": 12,
+  "n": 12,
+  "vG_noGPstyle_median": 0.10135839979119571,
+  "vG_raw_median": -0.06477186308892907,
+  "rho_vG_style": -0.8181818181818183,
+  "rho_Agen_AL": 0.4825174825174825,
+  "rho_Agen_AL_p": 0.11210929146889187,
+  "rho_n": 12
+ }
+}
