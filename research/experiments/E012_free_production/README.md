@@ -60,12 +60,13 @@ Failure of P1/P2 would mean the log-prob residue does not reach actual productio
 2. The raw van Gompel contrast (GP vs comma), the human paradigm's statistic, is **not** a valid LM statistic. It is dominated by punctuation-style alignment, which differs by model family: Llama and Qwen produce comma-less garden-path sentences after comma-less primes (21–25% vs 0.4–2.4%), so vG < 0. Gemma-2, Mistral and Pythia do so much less, so vG > 0. Humans completed orally, without punctuation.
 3. **Models write garden-path sentences after reading one.** Up to a quarter of completions after a GP prime are themselves comma-less NP/Z garden paths. This is production-level alignment to the prime's *resolved* structure plus its punctuation style.
 
-## Scale extension (2026-10-23; + Gemma-2-9B, Qwen2.5-32B, Qwen3-32B; same code, frozen predictions unchanged)
+## Scale extension (2026-10-23; + Gemma-2-9B, Qwen2.5-32B, Qwen3-32B, Llama-3.1-70B; same code, frozen predictions unchanged)
 
 | model | p(TRANS) GP / CUE / NB / NC / TB | vG | A_gen | gp_style GP vs CUE |
 |---|---|---|---|---|
 | gemma2-9b | .49 / .45 / .48 / .47 / .59 | +.036* | +.025* | .089 vs .006 |
 | qwen2.5-32b | .57 / .69 / .53 / .72 / .74 | −.126* | +.070* | .282 vs .018 |
 | qwen3-32b | .62 / .68 / .63 / .71 / .78 | −.060* | +.024 [−.002, +.054] (v1) | .206 vs .007 |
+| llama3.1-70b (TP=2) | .53 / .70 / .49 / .71 / .72 | −.176* | +.049* | .287 vs .021 |
 
-Totals over 11 models: **P1 10/11 (coding v1), 11/11 (v2)**; P2 4/11; P3 11/11. Qwen3-32B's A_gen is positive, but its CI touches 0 under the frozen coding (v1) and excludes 0 under v2. The style alignment holds at 32B: after a GP prime, Qwen2.5-32B writes a comma-less garden-path sentence itself in 28% of completions.
+Totals over 12 models: **P1 11/12 (coding v1), 12/12 (v2)**; P2 4/12; P3 12/12. Qwen3-32B's A_gen is positive, but its CI touches 0 under the frozen coding (v1) and excludes 0 under v2. The style alignment grows with scale: after a GP prime, Qwen2.5-32B writes a comma-less garden-path sentence itself in 28% of completions and Llama-3.1-70B in 29%. The raw van Gompel contrast is most negative in the 70B model (−0.18), while A_gen stays positive (+0.05).
