@@ -6,6 +6,7 @@ middle half of the layers (L/4..3L/4, the layers edited in the role intervention
 P1 rho_SAME >= .8 (majority) and rho_SAME > rho_CUE-donor (E013) in every model; P2 rho_NBD <= .6 (majority);
 P3 best acc >= .9 in every model and NB mean P(object) < .5 in the majority; P4 rho_ROLE <= .7 (majority) and
 rho_ROLE < mean rho_RAND in every model; P5 PASS P(object) vs E011 ratio (exploratory).
+Usage: python analyze.py [suffix]; with suffix __cm it analyses the E016b comma-matched runs (ROLE, RAND only).
 """
 import glob
 import sys
@@ -23,13 +24,15 @@ RES = ROOT / "results/gp/E016"
 CELLS = ["none", "SAME", "NBD", "ROLE", "RAND0", "RAND1", "RAND2"]
 
 
-def main(B=1000):
+def main(B=1000, suffix=""):
     e13 = pd.read_csv(ROOT / "results/gp/E013/summary.csv")
     e11 = pd.read_csv(ROOT / "results/gp/E011/summary.csv")
     e11 = e11[(e11.subset == "all") & (e11.measure == "L")].set_index("model").ratio
     rows, summ = [], []
-    for f in sorted(glob.glob(str(RES / "*.scores.csv.gz"))):
+    for f in sorted(glob.glob(str(RES / f"*{suffix}.scores.csv.gz"))):
         t = Path(f).name[: -len(".scores.csv.gz")]
+        if "__" in t and not suffix:  # E016b runs (e.g. __cm) are analysed with --suffix
+            continue
         df = pd.read_csv(f)
         df["S"] = -df.lpD
         cells = [c for c in CELLS if f"GP|{c}" in set(df.cond)]
@@ -45,6 +48,7 @@ def main(B=1000):
             out[v] = r.set_index("stat")
         L, S = out["L"], out["S"]
         pr = pd.read_csv(RES / f"{t}.probe.csv")
+        t = t[: len(t) - len(suffix)] if suffix else t
         nL = len(pr)
         mid = pr.iloc[nL // 4: (3 * nL) // 4]
         first90 = int(pr[pr.cv_acc >= 0.9].layer.min()) if (pr.cv_acc >= 0.9).any() else -1
@@ -60,13 +64,15 @@ def main(B=1000):
              "pobj_NB_mid": mid.p_obj_NB.mean(), "pobj_PASS_mid": mid.p_obj_PASS.mean(),
              "e011_ratio": e11.get(t, np.nan)}
         summ.append(s)
-        print(f"{t:22s} L: rho SAME={fmt(raw['L'],'rho_SAME')} NBD={fmt(raw['L'],'rho_NBD')} ROLE={fmt(raw['L'],'rho_ROLE')} RAND={s['rho_RAND']:.2f} "
+        f_ = lambda k: fmt(raw["L"], k) if k in set(raw["L"].stat) else "n/a"  # noqa: E731
+        s["probe_mid"] = mid.cv_acc.mean()
+        print(f"{t:22s} L: rho SAME={f_('rho_SAME')} NBD={f_('rho_NBD')} ROLE={f_('rho_ROLE')} RAND={s['rho_RAND']:.2f} "
               f"(E013 CUE donor {s['rho_CUE_E013']:.2f}) | S: dROLE={s['dS_ROLE']:+.2f} dRAND={s['dS_RAND']:+.2f} | "
-              f"probe best={s['probe_best']:.2f} first>=.9 at {first90}/{nL} P(obj) NB={s['pobj_NB_mid']:.2f} PASS={s['pobj_PASS_mid']:.2f}",
+              f"probe best={s['probe_best']:.2f} mid={s['probe_mid']:.2f} first>=.9 at {first90}/{nL} P(obj) NB={s['pobj_NB_mid']:.2f} PASS={s['pobj_PASS_mid']:.2f}",
               flush=True)
-    pd.concat(rows).to_csv(RES / "summary.csv", index=False)
+    pd.concat(rows).to_csv(RES / f"summary{suffix}.csv", index=False)
     d = pd.DataFrame(summ)
-    d.to_csv(RES / "summary_models.csv", index=False)
+    d.to_csv(RES / f"summary_models{suffix}.csv", index=False)
     n = len(d)
     print(f"P1 rho_SAME>=.8: {(d.rho_SAME >= .8).sum()}/{n}; SAME>CUE-donor: {(d.rho_SAME > d.rho_CUE_E013).sum()}/{n}")
     print(f"P2 rho_NBD<=.6: {(d.rho_NBD <= .6).sum()}/{n}")
@@ -79,4 +85,4 @@ def main(B=1000):
 
 
 if __name__ == "__main__":
-    main()
+    main(suffix=sys.argv[1] if len(sys.argv) > 1 else "")

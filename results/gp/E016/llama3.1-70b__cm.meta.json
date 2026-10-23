@@ -1,0 +1,1 @@
+{"tag": "llama3.1-70b", "model": "/var/tmp/xiang_gp_models/Meta-Llama-3.1-70B", "dtype": "bfloat16", "seconds": 2738.1394510269165, "layers_edited": [20, 60]}

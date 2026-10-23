@@ -18,6 +18,11 @@ A simulated 5-reviewer ARR review (main/Findings borderline) raised: a punctuati
   - overridden statements keep pulling later predictions in 8/9;
   - re-encoding the overridden statement does not remove the pull (0/9), so the carrier is the later positions, unlike the garden path;
   - Qwen2.5-7B-Instruct reverses (moves away from corrected values).
+- **Round 2 (E015b, E016b, bf16 check):**
+  - attention knockout: in 6/9 models the answer gets the overridden value through positions after the statement; in Qwen2.5-7B, Qwen2.5-32B and Llama-3.1-70B it reads the statement directly, as later text reads the abandoned NP. The carrier depends on the model;
+  - a probe fit without any comma (TB vs NB) still separates TC from CUE at 0.96–0.99 in 7/7, so the NP states encode the role independently of punctuation;
+  - the comma-free role direction beats random directions only in 3/7 (Q2 not confirmed), so the role is not carried by one linear direction;
+  - bf16 changes E013 ρ by ≤ 0.007.
 
 Paper revised accordingly (paper/main.tex, 8 full pages): new §7 on overridden statements and the mechanism controls in §6.
 

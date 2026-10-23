@@ -1,0 +1,1 @@
+{"tag": "llama3.1-8b-instruct", "model": "NousResearch/Meta-Llama-3.1-8B-Instruct", "dtype": "bfloat16", "seconds": 1890.7203302383423, "np_len_mismatch": 0}

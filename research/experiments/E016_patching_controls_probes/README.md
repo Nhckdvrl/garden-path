@@ -86,3 +86,22 @@
 - **Q2:** the comma-matched role direction removes more of the residue than random directions in the majority of models.
 
 **Precision check (round-2 review):** E013 rerun in bfloat16 for Qwen2.5-7B and Llama-3.1-8B-Instruct (`run.py --dtype bfloat16 --suffix __bf16`). ρ_NP and ρ_MC are compared with the float32 values. No prediction; |Δρ| is reported.
+
+### E016b results
+
+- **Q1 (comma-matched probe): 7/7 confirmed.** A probe trained on object TB versus subject NB, neither with a comma, classifies TC (object, comma) and CUE (subject, comma) correctly at 0.96–0.99 (best layer), and 0.93–0.96 on average over the middle layers (Llama-3.1-70B 0.96 and 0.96). The NP states encode the role independently of punctuation.
+- **Q2 (comma-matched direction): 3/7, not confirmed.** ρ_ROLE is below the random-direction ρ in Llama-3.2-3B (0.74 vs 0.83), Llama-3.1-8B-Instruct (0.72 vs 0.83) and Qwen2.5-32B (0.50 vs 0.77). It is not below in Mistral-7B (0.76 vs 0.75), Qwen2.5-7B (0.89 vs 0.77), Qwen3-8B-Base (0.69 vs 0.42) or Llama-3.1-70B (0.92 vs 0.65).
+  - A single comma-free role direction carries part of the residue in some models only.
+  - The original direction (object TB, TC vs subject CUE, NC) removes more (ρ_ROLE 0.31–0.74, below random in 7/7), but it also separates comma from no comma.
+  - The full NP-state replacement (E013 ρ_NP 0.01–0.40 in six models) removes more than either direction except in Qwen3-8B-Base (ρ_NP 0.71), so the abandoned analysis is spread over more than one linear direction in most models.
+
+Analysis: `python analyze.py __cm` writes `results/gp/E016/summary__cm.csv` and `summary_models__cm.csv` (column `probe_mid`: mean accuracy over the middle half of the layers).
+
+**Precision check (bf16 vs fp32, E013):**
+
+| model | ρ_NP fp32 / bf16 | ρ_MC fp32 / bf16 |
+|---|---|---|
+| Qwen2.5-7B | 0.136 / 0.136 | 1.342 / 1.335 |
+| Llama-3.1-8B-Instruct | 0.285 / 0.287 | 1.033 / 1.034 |
+
+The bf16 runs of the 32B and 70B models are therefore not a concern.

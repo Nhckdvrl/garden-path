@@ -29,3 +29,28 @@ Measure: R_cell = M(CORR, cell) − M(CTRL, cell), and ρ_cell = R_cell / R_none
 Each model is classified as H-direct, H-later or neither. The paper's §7 interpretation follows the majority.
 
 **Control:** M(CORR, KO_ANS_CORR) > M(CORR, none) in the majority of models.
+
+## Results (9 models)
+
+| model | R | ρ, answer ↛ claim | ρ, answer ↛ value | ρ, all later ↛ claim | ρ, answer ↛ correction | class |
+|---|---|---|---|---|---|---|
+| Llama-3.2-3B | +1.65 | 1.10 | 0.94 | 0.12 | 1.18 | H-later |
+| Llama-3.1-8B-Instruct | +1.79 | 1.64 | 1.53 | 0.21 | 1.02 | H-later |
+| Mistral-7B | +2.17 | 1.34 | 1.10 | −0.06 | 0.99 | H-later |
+| Qwen2.5-7B | +1.35 | 0.16 | −0.04 | 1.13 | 2.01 | H-direct |
+| Qwen2.5-7B-Instruct | −2.23 | (R < 0) | | | | H-later (ratio not interpretable) |
+| Qwen3-8B-Base | +2.26 | 2.08 | 1.70 | −0.03 | 1.84 | H-later |
+| Gemma-2-9B | +1.57 | 1.12 | 1.11 | 0.16 | 1.47 | H-later |
+| Qwen2.5-32B | +0.56 | −3.02 | −3.39 | 2.90 | 8.44 | H-direct |
+| Llama-3.1-70B | +1.86 | 0.48 | 0.66 | −0.20 | 1.45 | H-direct |
+
+**Control:** blocking the answer's access to the correction raises the pull toward A in 9/9 models (M rises by 5–17 nats).
+
+**Classification:**
+- H-later in 6/9: 5 of the 8 models with R > 0, plus Qwen2.5-7B-Instruct, whose R < 0 makes the ratio uninterpretable.
+- H-direct in 3/9: Qwen2.5-7B, Qwen2.5-32B and Llama-3.1-70B.
+
+**Reading:**
+- In most models the overridden value reaches the answer through positions after the statement. Blocking the answer's own access to the statement changes nothing, while blocking all later access removes the pull.
+- In Qwen2.5-7B, Qwen2.5-32B and Llama-3.1-70B the answer reads the overridden statement directly, as later text reads the abandoned NP in the garden path.
+- The E015 conclusion "carried by later positions" holds for the majority, and the route depends on the model.

@@ -64,8 +64,14 @@ SRC = {
     "hartsuiker2008": ("doi", "10.1016/j.jml.2007.07.003", "Syntactic priming persists while the lexical boost decays"),
     "bock1986": ("doi", "10.1016/0010-0285(86)90004-6", "Syntactic persistence in language production"),
     "cehakova2025": ("doi", "10.1080/0163853X.2025.2513210", "Beyond initial misanalysis"),
+    "longpre2021": ("acl", "2021.emnlp-main.565", "Entity-Based Knowledge Conflicts in Question Answering"),
+    "xie2024conflict": ("arxiv", "2305.13300", "Adaptive Chameleon or Stubborn Sloth"),
     "kwon2023vllm": ("doi", "10.1145/3600006.3613165", "Efficient Memory Management for Large Language Model Serving with PagedAttention"),
 }
+
+
+# Known errors in the official metadata, corrected after fetching.
+AUTHOR_FIX = {"sturt1996": "Sturt, Patrick and Crocker, Matthew W."}
 
 
 def get(cmd):
@@ -161,6 +167,8 @@ def main():
             bad.append((key, f"title mismatch ({ratio:.2f}): got '{t[:90]}'"))
             continue
         new[key] = protect_title(clean(pretty(bib)) + "\n")
+        if key in AUTHOR_FIX:
+            new[key] = re.sub(r"author\s*=\s*\{[^}]*\}", "author = {" + AUTHOR_FIX[key] + "}", new[key], count=1)
     keep = {k: v for k, v in old.items() if k not in new}
     (HERE / "refs.bib").write_text("% Official BibTeX: ACL Anthology, arXiv and Crossref (fetched by fetch_bib.py).\n"
                                    + "".join(new[k] + "\n" for k in sorted(new))
