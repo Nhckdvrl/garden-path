@@ -53,7 +53,15 @@ Intervals resample prime families and target families independently with replace
 Item-level regressions (Figure~\ref{fig:slopes}) regress the family-level contrast on the two standardized predictors with heteroskedasticity-consistent standard errors.
 Across models we pool per-model estimates with the random-effects estimator of \citet{dersimonian1986}, taking the standard error of each model's estimate from its bootstrap interval.
 Models are not a random sample of language models, so we read the pooled value as the typical model of our panel and always report how many models show the effect.
-Table~\ref{tab:residue} gives the residue of every model on the three item sets.
+Table~\ref{tab:residue} gives the residue of every model on the three item sets, and Figure~\ref{fig:slopes} the item-level regressions of \S\ref{sec:twoforces}.
+
+\begin{figure*}[t]
+\centering
+\includegraphics[width=\textwidth]{figures/fig_slopes}
+\caption{Item-level predictors of the residue on the discovery set. Each point is the $t$ value of one predictor in a regression of the family-level contrast $A$ on the model's object expectation after the ambiguous verb (blue) and on the garden-path strength of the prime, the surprisal of its disambiguating word without versus with the comma (orange). Dotted lines mark $|t|=1.96$. Object expectation raises $A$ on both measures. Garden-path strength lowers it on the comprehension-like measure $S$ in 21 of 22 models.}
+\label{fig:slopes}
+\end{figure*}
+
 
 \begin{table}[t]
 \centering\footnotesize
@@ -163,6 +171,32 @@ Model & $\Delta$exp. & fam. & $\Delta$GP & $\Delta A_L$ & $\Delta A_S$\\
 \end{adjustbox}
 \caption{Context manipulation, goal minus unrelated contexts. $\Delta$exp.: object expectation at the verb (pre-specified check), and the share of families in which it rose. $\Delta$GP: garden-path strength. $\Delta A_L$, $\Delta A_S$: change of the residue, with standard errors over families.}
 \label{tab:e014}
+\end{table}
+
+\section{Overridden Statements}
+\label{app:facts}
+
+The 200 items combine ten frames (meeting day, location of objects, city of residence, start time, favourite colour, due month, profession, material, instrument, language) with five entities and two pairs of values in both orders.
+Every context starts with a short label (\ex{Note:}, \ex{Mistake:}), so that the overridden statement is tokenized identically in all conditions.
+The measure is $M=\log P(A)-\log P(B)$ after the probe, and $R=M_{\text{CORR}}-M_{\text{CTRL}}$.
+In the re-encoding test, the residual-stream states of the overridden statement's tokens in CORR are replaced at every layer by those of the same tokens in PRE, where \ex{Mistake:} precedes the statement, and the same replacement in CTRL is subtracted.
+In the CLAIM cell the probe reads the replaced states only at the statement, and in the FULL cell it reads the whole recomputed context.
+The pre-specified prediction that CLAIM would remove at least 30\% of $R$ failed in all models.
+
+\begin{table}[t]
+\centering\footnotesize
+\setlength{\tabcolsep}{3pt}
+\begin{adjustbox}{max width=\columnwidth}
+\begin{tabular}{lcccc}
+\toprule
+Model & $R$ & CORR$-$PRE & $\rho$ CLAIM & $\rho$ FULL\\
+\midrule
+\rows{tables/e015.tex}
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption{Overridden statements (nats). $R$: pull of the overridden value beyond a matched mention. $\rho$: retained fraction of $R$ after re-encoding the overridden statement (CLAIM) or the whole context (FULL).}
+\label{tab:facts}
 \end{table}
 
 \section{Coding of Sampled Completions}

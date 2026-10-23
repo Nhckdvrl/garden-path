@@ -144,10 +144,39 @@ def fig_generation():
     fig.savefig(OUT / "fig_generation.pdf")
 
 
+def fig_generation_col():
+    """Single-column version: raw GP-CUE contrast, the same without self-written garden-path completions,
+    and the controlled A_gen (values from review_checks.py / E012 summary)."""
+    import json as _json
+    g = pd.read_csv(R / "E012/summary_v1.csv").pivot_table(index="model", columns="stat", values="est")
+    rows = {}
+    for f in sorted(R.glob("E012/*.coded.csv.gz")):
+        t = f.name[: -len(".coded.csv.gz")]
+        c = pd.read_csv(f, sep="\t", quoting=3, keep_default_na=False, usecols=["cond", "cls_v1", "gp_v1"])
+        c = c[c.cls_v1 != "AMBIG"]
+        tr = lambda x: (x.cls_v1 == "TRANS").mean()  # noqa: E731
+        k = c[c.gp_v1.astype(str).isin(["0", "False", "0.0"])]
+        rows[t] = tr(k[k.cond == "GP"]) - tr(k[k.cond == "CUE"])
+    models = [m for m in ORDER if m in g.index]
+    fig, ax = plt.subplots(figsize=(3.15, 2.7))
+    for k, (vals, col, lab, mk) in enumerate((([g.loc[m, "vG"] for m in models], ORANGE, "raw GP $-$ comma", "o"),
+                                              ([rows[m] for m in models], "#888888", "raw, without self-written GP sentences", "s"),
+                                              ([g.loc[m, "A_gen"] for m in models], BLUE, "controlled $A_{gen}$", "D"))):
+        ys = [i + (k - 1) * 0.22 for i in range(len(models))]
+        ax.scatter(vals, ys, s=12, color=col, marker=mk, label=lab, zorder=3)
+    ylabels(ax, models)
+    ax.tick_params(axis="y", labelsize=7)
+    ax.set_xlabel("difference in proportion transitive", fontsize=7)
+    ax.legend(frameon=False, loc="lower center", bbox_to_anchor=(0.4, 1.0), ncol=1, fontsize=6.5)
+    fig.tight_layout()
+    fig.savefig(OUT / "fig_generation_col.pdf")
+
+
 if __name__ == "__main__":
     fig_patching()
     if (T / "residue_sets.csv").exists():
         fig_residue()
     fig_slopes()
     fig_generation()
+    fig_generation_col()
     print("figures written to", OUT)

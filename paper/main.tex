@@ -1,7 +1,7 @@
 % ACL Rolling Review long paper: 8 pages of content; Limitations, Ethical Considerations, references and appendices
 % do not count. Official *ACL style files, unmodified (byte-identical to ssn-group-papaer/workbench/*/paper).
 % Build both versions with ./build.sh: main.pdf (anonymous review copy) and main_arxiv.pdf (preprint, with authors).
-% Figures: ../research/analysis/paper_figures.py; numbers: ../research/analysis/{paper_tables,residue_sets,item_slopes}.py.
+% Figures: ../research/analysis/paper_figures.py; numbers: ../research/analysis/{paper_tables,residue_sets,item_slopes,review_checks}.py.
 \documentclass[11pt]{article}
 
 \usepackage[review]{acl}
@@ -28,7 +28,7 @@
 \newcommand{\ci}[2]{{\scriptsize\,(#1, #2)}}
 \makeatletter\newcommand{\rows}[1]{\@@input #1 }\makeatother
 
-\title{Language Models Cannot Unread a Garden Path:\\ Abandoned Analyses Persist While Errors Drive Adaptation}
+\title{Language Models Keep Abandoned Analyses:\\ Residue and Adaptation after Garden-Path Sentences}
 
 \author{Anonymous ACL submission}
 
@@ -36,16 +36,17 @@
 \maketitle
 
 \begin{abstract}
-When a reader meets \ex{While the man hunted the deer ran into the woods}, the analysis in which \ex{the deer} is the object of \ex{hunted} has to be given up.
-In people, such an abandoned analysis still primes the structure of the next sentence they produce.
-This is a case on which the two main accounts of structural priming disagree, since residual activation predicts priming of the abandoned analysis and error-driven learning predicts adaptation toward the analysis that replaced it.
-We ask whether language models keep using an analysis they have abandoned.
-Across 24 open models from 124M to 70B parameters, a garden-path sentence leaves both traces in the context.
-A residue of the abandoned object analysis raises object attachment in later production, in log-probabilities and in sampled text, and an error-driven adaptation toward the resolved structure lowers the surprise of later garden paths, with a size that follows the prime's own disambiguation error.
-The two traces have opposite signs, and which one dominates depends on whether the measure is production-like or comprehension-like.
-Activation patching locates them in different parts of the prime.
-The residue is read from the noun phrase's states, which were computed before the disambiguation and are never recomputed, and the adaptation is read from the states that processed the disambiguation.
-Transferring the human paradigm without these distinctions reverses its main statistic, because models also align with the punctuation of the garden-path sentence and reproduce it in their own completions.
+Reading \ex{While the man hunted the deer ran into the woods} requires giving up the analysis in which \ex{the deer} is the object of \ex{hunted}.
+People who have just read such a sentence still produce more transitive structures, so the abandoned analysis primes later language.
+We ask whether language models keep using an analysis they have abandoned, and what in the model carries it.
+In 24 open models from 124M to 70B parameters, a garden-path sentence leaves two traces in the context.
+A residue of the abandoned analysis raises later object attachment by about three quarters of the effect of a sentence in which the noun phrase really is an object, in log-probabilities and in sampled text, on held-out and human-normed items and for a second type of garden path.
+An adaptation toward the resolved structure scales with the sentence's disambiguation error and acts mainly on comprehension-like measures.
+Activation patching separates the two.
+Later text reads the residue from the role information in the noun phrase's states, which were computed under the object analysis before the disambiguation, and replacing these states removes almost all of the residue in the 32B and 70B models.
+The adaptation is read from the states that processed the disambiguation.
+Overridden statements show the same persistence (a corrected value keeps pulling later predictions in 7 of 8 models), but there the pull is carried by the positions after the statement.
+Finally, the human paradigm transfers only with controls for punctuation, because the models also write garden-path sentences themselves, which reverses the paradigm's raw statistic.
 \end{abstract}
 
 \begin{figure}[t]
@@ -54,21 +55,21 @@ Transferring the human paradigm without these distinctions reverses its main sta
 \node[anchor=west, inner sep=1pt] (pre) at (0,0) {While the man hunted};
 \node[anchor=west, inner sep=1.5pt, fill=gpblue!15, draw=gpblue] (np) at (pre.east) {the deer};
 \node[anchor=west, inner sep=1.5pt, fill=gporange!15, draw=gporange] (mc) at ([xshift=2pt]np.east) {ran into the woods.};
-\node[box, text=gpblue] (npl) at (1.7,-1.0) {computed as an \emph{object}\\ and never recomputed};
-\node[box, text=gporange] (mcl) at (5.6,-1.0) {disambiguation produces a prediction error};
+\node[box, text=gpblue] (npl) at (1.7,-1.0) {computed under the object analysis};
+\node[box, text=gporange] (mcl) at (5.6,-1.0) {computed after the disambiguation};
 \draw[->, gpblue] (np.south) -- (npl.north);
 \draw[->, gporange] (mc.south) -- (mcl.north);
-\node[box, draw=gpblue] (r) at (1.7,-2.2) {\textbf{residue} of the abandoned analysis ($+$)};
-\node[box, draw=gporange] (a) at (5.6,-2.2) {\textbf{adaptation} toward the resolved parse ($-$)};
+\node[box, draw=gpblue] (r) at (1.7,-2.2) {\textbf{residue} of the abandoned analysis};
+\node[box, draw=gporange] (a) at (5.6,-2.2) {\textbf{adaptation} toward the resolved structure};
 \draw[->, gpblue] (npl) -- (r); \draw[->, gporange] (mcl) -- (a);
 \node[text width=7.4cm, align=center] (t) at (3.65,-3.5) {next sentence: \emph{While the nurse washed \ldots}\\[1pt]
-production ($L$, sampled text): the residue dominates\\ comprehension ($S$): the adaptation dominates};
+object attachment in production: raised by the residue\\ surprise at a later garden path: lowered by the adaptation};
 \draw[->] (r.south) -- (r.south |- t.north); \draw[->] (a.south) -- (a.south |- t.north);
 \end{tikzpicture}
 \caption{Two traces of a garden-path sentence in a causal language model.
-The states of \ex{the deer} are written under the object analysis and never revised (\S\ref{sec:mechanism}), and later text reads them as a residue of that analysis.
+Later text reads a residue of the abandoned object analysis from the states of \ex{the deer}, which were computed before the disambiguation (\S\ref{sec:mechanism}).
 The main-clause states carry an adaptation toward the resolved structure.
-The two traces push later processing in opposite directions, and the measure decides which one is visible (\S\ref{sec:twoforces}).}
+The two traces push later processing in opposite directions, and their balance differs between production-like and comprehension-like measures (\S\ref{sec:twoforces}).}
 \label{fig:schema}
 \end{figure}
 
@@ -76,72 +77,71 @@ The two traces push later processing in opposite directions, and the measure dec
 
 Garden-path sentences make a reader build an analysis and then give it up.
 In \ex{While the man hunted the deer ran into the woods}, the noun phrase \ex{the deer} is first attached as the object of \ex{hunted}, and the verb \ex{ran} reveals that it is the subject of the main clause \citep{frazier1982}.
-Language models (LMs) have become a standard test bed for such sentences.
-Their surprisal at the disambiguating word predicts that garden-path effects occur but underestimates how large they are \citep{futrell2019,vanschijndel2021,arehalli2022,huang2024}, and when asked \ex{Did the man hunt the deer?} they often answer yes, like human readers who keep part of the initial interpretation \citep{christianson2001,li2024incremental,amouyal2025}.
+In language models (LMs), which have become a standard test bed for such sentences, surprisal at the disambiguating word predicts that garden-path effects occur but underestimates their size \citep{futrell2019,vanschijndel2021,arehalli2022,huang2024}.
+Asked \ex{Did the man hunt the deer?}, they often answer yes, like human readers who keep part of the initial interpretation \citep{christianson2001,li2024incremental,amouyal2025}.
 These studies examine the garden-path sentence itself, either the difficulty of its disambiguation or the accuracy of its final interpretation.
 
-An abandoned analysis can also affect what comes after the sentence.
+The abandoned analysis can also shape what comes after the sentence.
 \citet{vangompel2006} had participants read a garden-path sentence and then complete a fragment such as \ex{While the nurse washed}.
-Completions were more often transitive after the garden path than after a version disambiguated by a comma (33.6\% against 29.1\%), so the object analysis that had been ruled out still primed later production.
-For LMs the same question bears on how they handle any interpretation that is revised within a context, from a misread instruction to a hypothesis abandoned in a reasoning trace.
-A causal transformer computes the representation of each token once, when the token is read, and later tokens retrieve these representations by attention.
-When the disambiguation arrives, the states of \ex{the deer} have already been computed under the object analysis, and nothing in the architecture revises them.
+Completions were more often transitive after the garden path than after a version disambiguated by a comma (33.6\% against 29.1\% in their first experiment), so the object analysis that had been ruled out still primed later production.
+For LMs this question has a specific architectural form.
+A causal transformer computes the representation of each token when the token is read, and later tokens retrieve these representations through attention.
+When \ex{ran} arrives, the states of \ex{the deer} have already been computed under the object analysis, and they stay in the context unchanged.
+The states computed after the disambiguation, in contrast, can encode the corrected analysis.
+Whether later text is shaped by the abandoned analysis therefore depends on which of these states it reads, and this cannot be decided from the architecture alone.
 
-Work on structural priming in LMs offers two accounts of how a prime affects later text, and it has not been able to tell them apart.
-LMs reuse the structure of a preceding sentence \citep{sinclair2022,michaelov2023,pucci2026}, and they do so more after less expected primes, an inverse-frequency effect that has been taken as evidence that in-context learning is error-driven \citep{jumelet2024,zhou2025icl}.
-The alternative is residual activation, in which a processed structure stays available and is reused because it is active \citep{pickering1998}.
-For an ordinary prime both accounts predict priming of the prime's structure, so all existing LM studies, which use unambiguous primes, are compatible with either.
+Studies of structural priming in LMs have so far not been able to address this question.
+LMs reuse the structure of a preceding sentence \citep{sinclair2022,prasad2019,michaelov2023,pucci2026}, and they do so more after less expected primes, an inverse-frequency effect that \citet{zhou2025icl} take as evidence that in-context learning is error-driven \citep[see also][]{jumelet2024}.
+In human research the same effect separates two accounts of priming.
+Residual activation holds that a processed structure stays active and is reused because it is active \citep{pickering1998}.
+Error-driven learning holds that a prime adjusts expectations in proportion to its prediction error \citep{chang2006,jaeger2013}.
+With unambiguous primes, both accounts predict priming of the prime's structure, and only the scaling with prediction error tells them apart.
 
-Does an LM keep using an analysis it has abandoned?
-A garden-path prime turns this question into a test between the two accounts \citep{chang2006,jaeger2013}.
-Residual activation predicts priming of the abandoned object analysis.
-Error-driven learning predicts the opposite, because the prediction error occurs when the object analysis fails, and learning from it should strengthen the resolved structure in which \ex{the deer} begins a new clause.
-Human data show only the net of the two predictions.
-An LM lets us measure both, and the architectural argument above leads to a concrete hypothesis about where a residue would come from.
+Garden-path primes add a second contrast.
+For the abandoned object analysis, residual activation predicts reuse that grows with how strongly the analysis was built.
+Error-driven learning predicts the opposite tendency, because the error occurs when the object analysis fails, and learning from it should favour the resolved structure in which \ex{the deer} starts a new clause.
+Human data show only the net result.
+LMs let us measure the effect of a garden-path prime on later text, relate it to the strength of the abandoned analysis and to the disambiguation error, and locate in the context what carries each part.
 
-We pair garden-path primes from five published item sets with target fragments and measure how the prime changes two quantities.
-The first is production-like, the preference for attaching the target's noun phrase as an object, measured in log-probabilities and in sampled completions.
-The second is comprehension-like, the surprisal of the disambiguating word in a garden-path target.
-A contrast that matches primes for punctuation and verb isolates the effect of the abandoned analysis, and further controls replace the comma with case marking and remove the possibility of an object reading.
-We test 24 models from six families between 124M and 70B parameters, fix the predictions of each confirmatory experiment before collecting its data, and use activation patching to locate the effects inside the prime.
+We pair garden-path primes from five published item sets with target fragments and measure how a prime changes a production-like quantity, the preference for attaching the target's noun phrase as an object, and a comprehension-like quantity, the surprisal of the disambiguating word in a garden-path target.
+Across 24 models we compare primes matched for punctuation and verb, fix the predictions of each confirmatory experiment before collecting its data, and use activation patching to locate the effects inside the prime.
 
-The abandoned analysis persists in every model.
-A garden-path prime raises later object attachment on discovery, held-out and human-normed items, on the discovery set by 76\% of the effect of a prime in which the noun phrase really is an object, and the residue appears in sampled completions.
-The same prime drives an adaptation toward the resolved structure, which is causal within item families, grows with the prime's disambiguation error, and dominates the comprehension-like measure.
-Patching shows that the two forces are read from different positions.
-Replacing the states of \ex{the deer} with states computed under the subject analysis removes most of the residue, and all of it in the 32B and 70B models, whereas the states of the main clause carry the adaptation.
-The paradigm also has to be adapted to LMs, because the raw statistic of the human study reverses in most models: they align with the punctuation of the prime and often write a garden-path sentence themselves.
+A garden-path prime raises later object attachment by about three quarters of the effect of a prime whose noun phrase really is an object, and this residue does not arise from punctuation habits or from the local string \ex{hunted the deer}.
+The same prime produces an adaptation toward the resolved structure that grows with its disambiguation error and acts mainly on the comprehension-like measure, and patching shows that later text reads the two from different positions of the prime.
+To see how far the persistence extends, we also test statements that a later sentence corrects.
+The overridden value keeps influencing later predictions, but through a different route than the garden path.
 
 Our contributions are as follows.
-(1) We show that LMs carry an abandoned syntactic analysis into later production, across 24 models and three item sets, with controls for punctuation, verb bias, case and local string overlap.
-(2) We show that a garden-path prime produces both a residue of the abandoned analysis and an error-driven adaptation toward the resolved one, with opposite signs, and that the measure determines which of them is observed, which gives a single case in which the residual-activation and error-driven accounts of priming are both at work.
-(3) We locate the residue in noun-phrase states that a causal model computes before the disambiguation and never revises, and the adaptation in the states after it.
-(4) We show that the human paradigm's statistic reverses in LMs because of punctuation alignment, and that question-answering measures of lingering misinterpretation are unrelated to the residue item by item.
+(1) We show that LMs carry an abandoned syntactic analysis into later production, across 24 models, three item sets and two types of garden path, with controls that rule out punctuation, verb bias and local string overlap as its source.
+(2) We show that the same prime also produces an adaptation toward the resolved analysis, that the two effects scale with different properties of the prime (the strength of the abandoned analysis and the disambiguation error), and that their balance differs between production-like and comprehension-like measures.
+(3) We show by activation patching, probing and a role-direction intervention that later text reads the abandoned analysis from the role information in noun-phrase states computed before the disambiguation, even though the states after it encode the reanalysis.
+(4) We show that overridden statements also persist, carried by later positions, and that the human paradigm's statistic reverses in LMs unless punctuation is controlled.
 
 \section{Related Work}
 
 \paragraph{Garden paths in language models.}
 Garden-path sentences were among the first constructions used to ask whether neural LMs track syntactic state \citep{futrell2019}.
-Surprisal from such models predicts that the effects exist but underestimates their size and misorders constructions \citep{vanschijndel2021,arehalli2022,huang2024}, a gap that recent work attributes to how many parses a model keeps alive \citep{timkey2026} or closes with suitably trained models \citep{yoshida2026}.
-Comprehension studies ask whether the final interpretation is correct.
-LMs often accept the initial misreading, with plausibility and verb type modulating this as in humans \citep{li2024incremental,amouyal2025,amouyal2026}.
+Surprisal from such models predicts that the effects exist but underestimates their size and misorders constructions \citep{vanschijndel2021,arehalli2022,huang2024}.
+Recent work relates this gap to the number of parses a model keeps alive \citep{timkey2026} or closes it with suitably trained models \citep{yoshida2026}.
+Comprehension studies ask whether the final interpretation is correct, and find that LMs often accept the initial misreading, with plausibility and verb type modulating this as in humans \citep{li2024incremental,amouyal2025,amouyal2026}.
 \citet{hanna2025} found features for both readings of a garden-path prefix in small models and showed that the circuit that answers comprehension questions hardly reuses them.
-All of this work studies the garden-path sentence itself, and none asks what the abandoned analysis does to later text.
+None of this work asks what the abandoned analysis does to later text.
 
 \paragraph{Structural priming and adaptation.}
-In humans, recently processed structures are reused \citep{pickering1998}, and garden-path difficulty decreases with exposure \citep{fine2013}.
-Two accounts explain such effects.
-Residual activation holds that a processed structure remains active, and error-driven implicit learning holds that processing a prime adjusts expectations in proportion to its prediction error \citep{chang2006}, which predicts stronger priming from less expected primes \citep{jaeger2013}.
-\citet{vangompel2006} found priming of the abandoned analysis of garden-path sentences, and \citet{fujita2020} found that unambiguous primes ease the reading of later garden paths without removing lingering misinterpretation.
-In LMs, conditioning on a prime raises the probability of its structure in a target \citep{sinclair2022}, across languages \citep{michaelov2023} and in generation \citep{pucci2026}.
-The effect is larger for less expected primes and with lexical overlap \citep{jumelet2024}, which \citet{zhou2025icl} take as evidence that in-context learning is a form of error-driven learning, and gradient updates on garden-path sentences improve the fit of RNN surprisal to human adaptation \citep{vanschijndel2018}.
-These studies use unambiguous primes, for which the two accounts make the same prediction.
+Speakers reuse structures they have recently processed \citep{bock1986,pickering1998}.
+Residual activation and error-driven learning \citep{chang2006} are the two main accounts, and computational models combine short-lived activation with longer-lived learning \citep{reitter2011}, in line with a lexical boost that decays while abstract priming persists \citep{hartsuiker2008}.
+Less expected primes prime more \citep{jaeger2013}, and readers adapt to the main-verb/reduced-relative garden path with exposure \citep{fine2013}, although such rapid adaptation is small and hard to replicate \citep{harringtonstack2018,prasad2021}.
+\citet{vangompel2006} found priming of the abandoned analysis of NP/Z garden paths, and \citet{fujita2020} found that unambiguous primes ease the reading of later garden paths without removing lingering misinterpretation.
+In LMs, conditioning on a prime raises the probability of its structure in a target \citep{prasad2019,sinclair2022}, across languages \citep{michaelov2023} and in generation \citep{pucci2026}.
+The effect grows for less expected primes and with lexical overlap \citep{jumelet2024,zhou2025icl}, and gradient updates on garden-path sentences improve the fit of RNN surprisal to human adaptation \citep{vanschijndel2018}.
+All of these LM studies use unambiguous primes.
 
-\paragraph{Revising interpretations in context.}
-LMs rarely retract their own wrong answers, and the retractions they produce depend on internal belief representations \citep{yang2025retraction}, while self-correction without external feedback is unreliable \citep{kamoi2024}.
-Mechanistic work shows that later tokens retrieve earlier bindings by attending back to the positions where they were encoded \citep{prakash2026}.
-Activation patching, which replaces internal states with states from a counterfactual input, is the standard tool for locating such information \citep{vig2020causal,meng2022locating,zhang2024patching}.
-Garden paths offer a controlled instance of revision, since the overridden interpretation, its strength and the point at which it is overridden are all known.
+\paragraph{Overridden information in context.}
+Information that later context overrides can continue to affect LMs.
+Transformer models sometimes refer to discourse entities that a sentence did not introduce \citep{schuster2022}, and models rarely retract their own wrong answers \citep{yang2025retraction} or correct themselves without external feedback \citep{kamoi2024}.
+Later tokens retrieve earlier bindings by attending back to the positions where they were encoded \citep{prakash2026}, and activation patching, which replaces internal states with states from a counterfactual input, is the standard tool for locating such information \citep{vig2020causal,meng2022locating,zhang2024patching}.
+In human sentence processing, lingering misinterpretations have been attributed to competing representations of the two analyses \citep{slattery2013} and to shallow, good-enough interpretation \citep{ferreira2003}.
+Garden paths offer a case of overriding in which the overridden analysis, its strength and the point at which it is overridden are all known.
 
 \section{Experimental Setup}
 \label{sec:setup}
@@ -150,12 +150,11 @@ Garden paths offer a controlled instance of revision, since the overridden inter
 An item family is one garden-path sentence with its controls.
 The discovery set contains 93 NP/Z families, 69 from \citet{amouyal2025} and 24 from the SAP benchmark \citep{huang2024}.
 A held-out set of 48 families combines 24 items from \citet{cehakova2025} with 24 from SyntaxGym \citep{gauthier2020}, and was used only after the analyses had been fixed on the discovery set.
-A third set contains the 54 items of \citet{christianson2001}, crossed with the length of the ambiguous region and the plausibility of the object reading.
-Each family provides the prime conditions in Table~\ref{tab:conds}.
+A third set contains the 42 optionally transitive items of \citet{christianson2001}, each with a short and a long ambiguous region and a plausible and an implausible object.
+Each family provides the primes in Table~\ref{tab:conds}.
 \cond{gp} is the garden-path sentence and \cond{cue} its version with a comma after the verb.
 \cond{tb} replaces the main-clause subject with a pronoun, so that the noun phrase remains the object.
 \cond{nb} and \cond{nc} replace the ambiguous verb with a strictly intransitive one, without and with the comma.
-Further conditions are introduced with the experiments that use them.
 
 \begin{table}[t]
 \centering\small
@@ -178,21 +177,21 @@ $S$ & $-\log P(\text{\ex{cried}} \mid \text{\ex{While the nurse washed the baby}
 $G$ & sampled continuation of \ex{While the nurse washed}\\
 \bottomrule
 \end{tabular}
-\caption{Prime conditions and target quantities, illustrated with one prime and one target family. \cond{nom} and \cond{pass} are used only in the experiments that test punctuation and local coherence (\S\ref{sec:residue}).}
+\caption{Prime conditions and target quantities, illustrated with one prime and one target family. \cond{nom} and \cond{pass} test punctuation and local coherence (\S\ref{sec:residue}).}
 \label{tab:conds}
 \end{table}
 
 \paragraph{Targets and measures.}
-Each prime is followed by a target from every other family that shares no content word with it, so in the discovery set each prime is measured against 78 to 92 targets.
+Each prime is followed by a target from every other family that shares no content word with it, which removes lexical repetition and gives each discovery prime 78 to 92 targets.
 For a target family with subject $s$, verb $v$ and noun phrase $n$, the production-like measure is
 \begin{equation}
 L = \log P(\text{\ex{While}}\ s\ v\ n\text{,}) - \log P(\text{\ex{While}}\ s\ v\text{,}\ n),
 \end{equation}
-where both probabilities are conditioned on the prime.
+where both probabilities are conditioned on the prime and the two strings contain the same words.
 $L$ is the log-odds of attaching $n$ as the object of $v$ rather than starting a new clause with it.
-The comprehension-like measure $S$ is the surprisal of the first word of the target's main clause after the comma-less fragment \ex{While}~$s$~$v$~$n$.
-A high $S$ means that the model expected $n$ to be an object, so both $L$ and $S$ increase with object attachment.
-For sampled production we let the model continue \ex{While}~$s$~$v$ and code whether the continuation attaches a noun phrase as an object, with a rule system over part-of-speech tags that is correct on 99.7\% of 1,066 sentences of known structure (Appendix~\ref{app:coding}).
+The comprehension-like measure $S$ is the surprisal of the first word of the target's main clause after the comma-less fragment \ex{While}~$s$~$v$~$n$, a quantity that contains no punctuation choice.
+A high $S$ means that the model expected $n$ to be an object.
+For sampled production, the model continues \ex{While}~$s$~$v$, and a rule system over part-of-speech tags codes whether the continuation attaches a noun phrase as an object (Appendix~\ref{app:coding}).
 
 \paragraph{The residue contrast.}
 Comparing \cond{gp} with \cond{cue} confounds the abandoned analysis with the comma, and comparing \cond{gp} with \cond{nb} confounds it with the verb.
@@ -201,21 +200,23 @@ For any measure $X$ we use
 A_X = \big(X_{\cond{gp}} - X_{\cond{nb}}\big) - \big(X_{\cond{cue}} - X_{\cond{nc}}\big),
 \label{eq:A}
 \end{equation}
-where $X_c$ is the mean of $X$ over targets after primes of condition $c$.
-Within each bracket the two primes have the same punctuation, and across brackets the same verbs, so $A_X$ measures what is specific to a comma-less prime with a transitive verb, which is the condition under which the object analysis is first built and then abandoned.
-The same contrast with \cond{tb} in place of \cond{gp} gives the effect of a prime whose noun phrase really is an object, and we report the residue relative to it as $r = A_X/A_X^{\cond{tb}}$.
+where $X_c$ is the mean of $X$ over prime families and targets after primes of condition $c$.
+Within each bracket the two primes have the same punctuation, and across brackets the same verbs.
+$A_X$ is therefore the part of the prime's effect that requires both a missing comma and a verb that can take an object, the condition under which the object analysis is built and then abandoned.
+The same contrast with \cond{tb} in place of \cond{gp}, $A_X^{\cond{tb}}$, measures the effect of a noun phrase that really is an object, and we report $r=A_X/A_X^{\cond{tb}}$ as the size of the residue relative to it.
 
 \paragraph{Models and inference.}
 We use 24 open-weight causal LMs from the GPT-2, Pythia, Llama, Mistral, Gemma and Qwen families, base and instruction-tuned, between 124M and 70B parameters and including one mixture-of-experts model (Appendix~\ref{app:models}).
-Scoring uses exact log-probabilities without chat templates, and sampled completions use temperature 1 with no truncation.
-Primes and targets are both random factors, so intervals come from a two-way bootstrap that resamples prime families and target families independently.
-Summaries across models use random-effects meta-analysis \citep{dersimonian1986}.
-For every confirmatory experiment we fixed the predictions and the analysis in a dated record before collecting its data, and Appendix~\ref{app:prereg} lists all outcomes.
+22 of them enter every priming experiment, and two more enter the \citet{christianson2001} set.
+Scoring uses exact log-probabilities without chat templates, and sampling uses temperature 1 without truncation.
+Intervals come from a two-way bootstrap that resamples prime families and target families independently.
+For averages across models, each bootstrap draw applies the same resampled families to every model, which keeps the dependence that arises because all models see the same items.
+For every confirmatory experiment we fixed predictions and analysis in a dated record before collecting its data, and Appendix~\ref{app:prereg} lists every outcome.
 
 \begin{figure*}[t]
 \centering
 \includegraphics[width=\textwidth]{figures/fig_residue}
-\caption{The residue of the abandoned object analysis in every model. Left: $A_L$ (Eq.~\ref{eq:A}) per model on the discovery, held-out and \citet{christianson2001} item sets. Right: the same contrast on sampled completions, as a difference in the proportion of transitive continuations. Error bars are 95\% intervals from a two-way bootstrap over prime and target families. Models are ordered by size.}
+\caption{The residue of the abandoned object analysis. Left: $A_L$ (Eq.~\ref{eq:A}) per model on the discovery, held-out and \citet{christianson2001} item sets. Right: the same contrast on sampled completions, as a difference in the proportion of transitive continuations. Error bars are 95\% intervals from a two-way bootstrap over prime and target families. Models are ordered by size.}
 \label{fig:residue}
 \end{figure*}
 
@@ -223,169 +224,177 @@ For every confirmatory experiment we fixed the predictions and the analysis in a
 \label{sec:residue}
 
 \paragraph{The residue in production.}
-After a garden-path prime, all 24 models prefer object attachment in the target more than the controls predict (Figure~\ref{fig:residue}).
-On the discovery set $A_L$ is positive in 22 of 22 models and its interval excludes zero in 21, with a pooled value of 0.70 nats, which is 76\% of the effect of a prime in which the noun phrase really is the object.
-The residue replicates on the held-out families, where it is positive in all 22 models with a median of 0.36 nats, and on the human-normed items of \citet{christianson2001}, where it is positive in all 24 models with a median of 1.05 nats.
-Its size varies between models without a monotonic relation to model size, and the 70B model shows a residue of 0.52 nats.
+After a garden-path prime, models prefer object attachment in the target more than the controls predict (Figure~\ref{fig:residue}).
+On the discovery set $A_L$ is positive in all 22 models and excludes zero in 21, with Pythia-160M as the exception.
+Averaged over models it is 0.72 nats, which is 76\% of $A_L^{\cond{tb}}$, the effect of a prime whose noun phrase really is the object.
+The residue replicates on the held-out families, where it is positive in all 22 models (20 with intervals above zero) with a median of 0.36 nats, and on the items of \citet{christianson2001}, where it is positive in all 24 models with a median of 1.05 nats.
 
-\paragraph{Punctuation.}
-A comma-less prime is unusual in written English, and models adapt to this property.
-After an \cond{nb} prime, which contains no ambiguity but omits the comma, a later comma-less garden-path resolution is less surprising than after \cond{nc} in all 22 models, by 2.8 nats on average.
-Equation~\ref{eq:A} subtracts this adaptation, and a separate experiment removes punctuation as a disambiguator altogether.
-In \cond{nom} the nominative pronoun \ex{they} rules out the object reading while the verb and the missing comma stay the same as in \cond{gp}.
-Across families, the residue then still rises with the model's expectation of an object after the ambiguous verb, in 22 of 22 models (16 individually significant).
+\paragraph{Punctuation habits.}
+A comma-less prime is unusual in written text, and a model could learn from it that this writer omits commas after verbs that can take objects.
+Such a habit would raise $L$ without any object analysis.
+The \cond{nom} prime keeps the verb and the missing comma of \cond{gp} but replaces the noun phrase with the nominative pronoun \ex{they}, which cannot be an object.
+If the residue were a punctuation habit, \cond{gp} and \cond{nom} would prime alike.
+Instead, the contrast of Equation~\ref{eq:A} with \cond{nom} and its intransitive counterpart in place of \cond{cue} and \cond{nc} is positive in all 22 models (21 significant, 0.47 nats on average), and across families it grows with the model's expectation of an object after the ambiguous verb in all 22 models.
+A noun phrase that could be an object is needed.
 
-\paragraph{An entertained analysis.}
-The string \ex{hunted the deer} could prime object attachment by local coherence alone, as it does for human readers \citep{tabor2004}.
-In \cond{pass} the same string appears in a passive clause, where \ex{the deer} cannot be an object.
-Across 22 models the residue of \cond{pass} has a median of 12\% of the \cond{gp} residue, and it is reliably negative in seven, mostly small, models.
-The residue requires that the object analysis was licensed when the noun phrase was read.
-The ratio rises in the strongest models, to 0.45 in Llama-3.1-70B and above 0.5 in the two Qwen2.5-7B models, so that in these models a locally computed object reading also leaves a trace.
+\paragraph{Local string overlap.}
+The string \ex{hunted the deer} might prime \ex{washed the baby} by local coherence, as it disrupts human reading even where the grammar excludes an object reading \citep{tabor2004}.
+The \cond{pass} prime contains the same string inside a passive clause, where \ex{the deer} cannot be an object.
+Its residue has a median of 12\% of the \cond{gp} residue across 22 models and is reliably negative in seven, mostly small, models.
+The ratio is higher in the strongest models, 0.45 in Llama-3.1-70B and above 0.5 in the two Qwen2.5-7B models.
+In these models a locally computed object reading of the string also leaves a trace.
 
 \paragraph{Sampled production.}
-Log-probabilities of two fixed strings may not reflect what a model writes, so we sampled two continuations of every target fragment after every prime in 12 models, about 57,000 prompts per model.
-The residue appears in the proportion of transitive continuations in 11 of 12 models, with a pooled value of 5.0 percentage points (Figure~\ref{fig:residue}, right), and its size across models follows $A_L$ (Spearman $\rho=0.81$ in the first eight models).
-Relative to a real object prime, the residue is smaller in sampled text (about 20\%) than in $L$ (\S\ref{sec:transfer}).
+We sampled two continuations of every target fragment after every prime in 12 models, about 57,000 prompts per model.
+The residue appears in the proportion of transitive continuations in 11 of 12 models with the pre-specified coding and in all 12 with a refined coding, by 5.0 percentage points on average (Figure~\ref{fig:residue}, right).
+Its size across models followed $A_L$ in the eight models available when we specified this prediction (Spearman $\rho=0.81$), and the relation is weaker across all twelve ($\rho=0.48$).
+The human raw contrast between garden-path and comma primes was 4.5 points \citep{vangompel2006}, a statistic that cannot be compared directly with LMs (\S\ref{sec:transfer}).
 
-\section{Two Forces with Opposite Signs}
+\paragraph{A second garden path.}
+In an NP/S garden path (\ex{The student forgot the solution was in the back of the book}) the noun phrase is also first analysed as an object.
+We built the same contrast for 64 NP/S families, with \ex{that} as the disambiguating cue and a verb that takes only a clausal complement (\ex{hoped}) as the control, and measured it on the NP/Z targets.
+The residue is positive in 18 of 21 models (sign test $p<0.001$) with a pooled value of 0.03 nats.
+It is smaller than for NP/Z primes because the prime and target structures differ, and even a real object in an NP/S prime moves the NP/Z targets only by 0.03 to 0.20 nats.
+
+\section{Two Effects with Opposite Signs}
 \label{sec:twoforces}
 
-\begin{figure*}[t]
-\centering
-\includegraphics[width=\textwidth]{figures/fig_slopes}
-\caption{Item-level predictors of the residue $A$ on the discovery set, per model. Each point is the $t$ value of a predictor in a regression of family-level $A$ on the model's object expectation after the ambiguous verb (blue) and on the garden-path strength of the prime, the surprisal of its disambiguating word without versus with the comma (orange). Dotted lines mark $|t|=1.96$. Object expectation raises $A$ on both measures. Garden-path strength lowers it on the comprehension-like measure $S$ in 21 of 22 models.}
-\label{fig:slopes}
-\end{figure*}
 
-The residue is not the only effect of a garden-path prime.
-On the comprehension-like measure $S$ the contrast $A_S$ is close to zero on average (0.05 nats over 22 models) and varies in sign, significantly positive in five models and significantly negative in four.
-A negative value means that after a garden-path prime the model expects an object less than the controls predict, which is an adaptation toward the structure the prime turned out to have.
+On the comprehension-like measure the residue is small on average (0.05 nats over 22 models) and varies in sign, significantly positive in five models and significantly negative in four.
+A negative value means that after a garden-path prime the model expects an object less than the controls predict.
+This is what an adaptation toward the resolved structure would produce, and it suggests that a second effect of the prime offsets the residue.
 
-\paragraph{Two predictors with opposite effects.}
+\paragraph{Commitment and error.}
 The two accounts of priming tie the effect of a prime to different properties.
 Residual activation depends on how strongly the abandoned analysis was built, which we measure as the model's expectation of an object after the ambiguous verb, $\log P(\text{\ex{the}}) - \log P(\text{\ex{,}})$.
-Error-driven learning depends on the prediction error at the disambiguation, which we measure as the garden-path strength of the prime, the surprisal of its disambiguating word without the comma minus that with the comma.
-Figure~\ref{fig:slopes} regresses the family-level residue on both.
-Object expectation raises the residue on both measures in all 22 models.
-Garden-path strength lowers it on $S$ in 21 of 22 models (15 individually significant), and on $L$ it has the opposite sign in most models, so in 21 of 22 models its effect is more negative on $S$ than on $L$.
-A prime carries both forces, and their balance differs between the two measures.
+Error-driven learning depends on the error at the disambiguation, which we measure as the garden-path strength of the prime, the surprisal of its disambiguating word without the comma minus that with the comma.
+The two predictors are only weakly correlated (median $r=0.22$).
+In a regression of the family-level residue on both (Figure~\ref{fig:slopes} in Appendix~\ref{app:stats}), object expectation raises the residue on both measures in all 22 models.
+Garden-path strength lowers the residue on $S$ in 21 of 22 models, in all 22 when the family's adaptation to the missing comma enters as a covariate (19 significant), whereas on $L$ it raises the residue in most models.
+The error effect is specific to garden-path resolutions: on the comma version of the same target, where the disambiguating word is expected, garden-path strength has little effect (median $t=-0.6$, against $-2.8$ on $S$), so the adaptation is not a general loss of confidence after a surprising prime.
 
-\paragraph{The error force is causal.}
-Garden-path strength varies between families together with many other properties.
-To manipulate it within a family, we kept each prime up to the noun phrase fixed, which fixes the object analysis that the model builds, and varied only the continuation, which changes the surprisal at the disambiguation.
-More surprising disambiguations reduce the residue on $S$ within families, with $t$ values between $-4.1$ and $-6.4$ in the three models whose between-family analysis had shown an error effect, and close to zero in the two models whose between-family analysis had shown none.
-The surprisal summed over the whole continuation predicts little, so the relevant error is the one at the point of disambiguation (Appendix~\ref{app:prereg}).
-On the items of \citet{christianson2001}, plausibility changes only the main-clause continuation, which allows the same within-family test on human-normed material, and there the error effect is negative in 10 of 10 models that pass the comprehension controls.
-
-\paragraph{The residue grows with the abandoned analysis.}
-A context sentence before the prime that makes the noun phrase a likely object (\ex{The man had been tracking the deer since dawn.}) strengthens the garden path by 0.9 to 1.7 nats in all 11 models we tested.
-It raises the residue on $S$ in 10 of 11 models, 8 of them significantly, although the stronger garden path also means a larger disambiguation error, which on an error-only account would lower it.
-The check we had specified for this experiment, a change in object expectation at the verb, was not met, so we treat this result as converging evidence (Appendix~\ref{app:e014}).
+\paragraph{Causal tests.}
+Garden-path strength varies between families together with other properties.
+To manipulate it within a family, we kept each prime up to the noun phrase fixed, which fixes the object analysis, and varied only its continuation, which changes the surprisal at the disambiguation.
+More surprising disambiguations reduce the residue on $S$, with $t$ values between $-4.1$ and $-6.4$ in the three models whose between-family analysis had shown an error effect, and near zero in the two models in which it had not.
+Surprisal summed over the whole continuation predicts little, so the relevant error is the one at the disambiguation point.
+On the items of \citet{christianson2001}, where plausibility changes only the main-clause continuation, the same within-family relation is negative in all ten models that pass the comprehension controls of \S\ref{sec:transfer}.
+For the other effect, strengthening the abandoned analysis with a preceding context sentence raised the residue on $S$ in 10 of 11 models but failed its pre-specified manipulation check (Appendix~\ref{app:e014}).
 The direct test of the residue is the patching experiment of \S\ref{sec:mechanism}.
 
-\paragraph{The measure decides which force is seen.}
-The residue dominates the production-like measure, and the adaptation dominates the comprehension-like one.
-We tested this pattern prospectively on the items of \citet{christianson2001}, which were not used to discover it.
-The residue on $L$ was positive in 16 of 16 models, and the error effect was more negative on $S$ than on $L$ in 14 of 16.
-The human literature contains the same two forces in separate paradigms, priming of the abandoned analysis in production \citep{vangompel2006} and adaptation to garden paths in comprehension \citep{fine2013}.
-In LMs both arise from the same prime.
+\paragraph{Production and comprehension.}
+The residue dominates the production-like measure, and the adaptation shows mainly in the comprehension-like one.
+We tested this asymmetry prospectively on the items of \citet{christianson2001} with the 16 models available at that time.
+The residue on $L$ was positive in all 16, and the error relation was more negative on $S$ than on $L$ in 14.
+Human studies examine these two effects in separate paradigms \citep{vangompel2006,fine2013}, whereas in LMs they arise from the same prime.
 
-\paragraph{Scope.}
-With the same pre-specified analysis, the two forces do not appear for NP/S garden paths (\ex{The man knew the answer was wrong}), and the error force appears for main-verb/reduced-relative garden paths in six of nine models.
-NP/Z and main-verb/reduced-relative ambiguities both require the reader to undo an attachment, whereas NP/S reanalysis only adds structure to the analysis already built \citep{sturt1996}, so the two forces appear to be specific to reanalysis that destroys a committed structure.
+\paragraph{Other garden paths.}
+We tested the two item-level relations on $S$ for two further constructions with targets of the same construction.
+For NP/S garden paths neither relation appeared.
+For main-verb/reduced-relative garden paths the error relation appeared in six of nine models and the commitment relation in none.
+NP/S reanalysis keeps the noun phrase inside the verb's complement, whereas NP/Z and main-verb/reduced-relative reanalysis remove a committed attachment \citep{sturt1996}, which may explain why only the latter produce an adaptation, while the NP/S residue of \S\ref{sec:residue} shows that the abandoned object analysis persists in both.
 
 \section{Where the Residue Lives}
 \label{sec:mechanism}
 
-A causal transformer computes the states of \ex{the deer} before it reaches \ex{ran}.
-In the garden-path prime these states are identical to those of the transitive prime \cond{tb}, since the two share every preceding token, and later tokens, including those of the next sentence, attend to keys and values built under the object analysis.
-If the residue is read from these stale states, replacing them with states computed under the subject analysis should remove it.
-The alternative is that the residue is read from the main clause, whose states processed the disambiguation and could encode the reanalysis.
+In the garden-path prime, the states of \ex{the deer} are identical to those in the transitive prime \cond{tb}, since the two share every preceding token.
+Later tokens can read these states directly, or the main-clause states, which were computed after the disambiguation.
+If the residue is read from the noun-phrase states, replacing them with states computed under the subject analysis should remove it, while replacing the main-clause states should not.
 
 \paragraph{Patching design.}
-We construct a counterfactual prime in which the noun phrase was analysed as a subject from the start.
 At every layer, the residual-stream states of the noun-phrase tokens in \cond{gp} are replaced with the states of the same tokens in \cond{cue}, where the comma has already made the noun phrase a subject, and the rest of the prime is recomputed.
-The target then attends to a mixture of the original and the counterfactual prime.
-In the NP condition it reads counterfactual keys and values at the noun phrase and original ones elsewhere, in the MC condition counterfactual ones at the main clause (\ex{ran into the woods.}), and in the full condition both.
-The same procedure applied to \cond{nb} with \cond{nc} as donor estimates what the replacement does merely by importing information about the comma, and Equation~\ref{eq:A} subtracts it.
-We report the retained residue $\rho = A_L^{\text{patched}}/A_L$ on the production-like measure and the change $\Delta = A_S^{\text{patched}} - A_S$ on the comprehension-like measure, for nine models between 1.4B and 70B parameters.
+The target then attends to a mixture of the original and this counterfactual prime: counterfactual keys and values at the noun phrase (NP), at the main clause \ex{ran into the woods.} (MC), or at both, and original ones elsewhere.
+The same procedure applied to \cond{nb} with \cond{nc} as donor estimates what the replacement does by importing information about the comma, and Equation~\ref{eq:A} subtracts it.
+We report the retained residue $\rho = A_L^{\text{patched}}/A_L$ and the change $\Delta = A_S^{\text{patched}} - A_S$ for nine models between 1.4B and 70B parameters.
 
-\begin{figure}[t]
+\begin{figure*}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig_patching}
-\caption{Patching the garden-path prime. Left: residue on $L$ retained when the target reads counterfactual subject-analysis states at the noun phrase (blue) or at the main clause (orange). Right: noun-phrase states replaced only from a given fraction of the network's depth onward. Values and intervals for both measures are in Appendix~\ref{app:patching}.}
+\includegraphics[width=\textwidth]{figures/fig_patching}
+\caption{Patching the garden-path prime. Left: residue on $L$ retained when the target reads counterfactual subject-analysis states at the noun phrase (blue) or at the main clause (orange). Right: noun-phrase states replaced only from a given fraction of the network's depth onward. Values for both measures, with intervals, are in Appendix~\ref{app:patching}.}
 \label{fig:mech}
-\end{figure}
+\end{figure*}
 
-\paragraph{The noun phrase carries the residue.}
-Replacing the noun-phrase states removes most of the residue (Figure~\ref{fig:mech}, left).
-The retained fraction ranges from 0.71 to 0.01, with a pooled value of 0.37, and in Qwen2.5-32B and Llama-3.1-70B the residue disappears.
-Replacing the main-clause states leaves it intact on average (pooled $\rho=1.01$), and the noun phrase carries more of the residue than the main clause in all nine models.
-The effect does not come from the comma of the donor: when the donor is \cond{nb}, in which the noun phrase follows an intransitive verb without a comma, the retained fraction is 0.34 to 0.46 in the three models tested.
-Replacing the noun-phrase states only in the upper half of the network has no effect in Llama-3.1-8B-Instruct and Mistral-7B, and replacing them in the upper quarter has none in Qwen2.5-7B (Figure~\ref{fig:mech}, right), so the next sentence reads the abandoned analysis from the lower and middle layers, where the noun phrase's syntactic role is computed.
+\paragraph{The residue is read from the noun phrase.}
+Replacing the noun-phrase states removes most of the residue in every model (Figure~\ref{fig:mech}, left).
+The retained fraction is 0.37 on average and falls to 0.01 in Qwen2.5-32B and Llama-3.1-70B, with upper interval bounds of 0.21 and 0.22.
+Replacing the main-clause states leaves the residue largely intact (1.01 on average), removing 15\% to 26\% in the three smallest models and none in the others.
+With \cond{nb} as donor, where \ex{the deer} follows an intransitive verb without a comma, the retained fraction is still 0.08 to 0.47 in the six models tested, so the effect is not imported information about the comma.
+Replacing the noun-phrase states only in the upper half of the network has no effect in Llama-3.1-8B-Instruct and Mistral-7B, and only in the upper quarter none in Qwen2.5-7B (Figure~\ref{fig:mech}, right).
+Later text thus reads the abandoned analysis from the noun phrase's keys and values in the lower and middle layers.
 
-\paragraph{The main clause carries the adaptation.}
+\paragraph{What the noun-phrase states carry.}
+Three further tests, run on six models, ask whether this is role information and not an artefact of replacing states.
+First, replacing the noun-phrase states with states of the same tokens computed under the object analysis in a different context (\ex{It was a quiet morning.} before the prime) leaves 70\% to 111\% of the residue, so replacing states as such does not remove it.
+Second, a linear probe on the noun phrase's last token separates object noun phrases (\cond{tb}) from subject noun phrases (\cond{cue}, \cond{nc}) with perfect cross-validated accuracy and classifies the comma-less noun phrases of \cond{nb} as subjects in five of six models, so it reads the role and not the comma.
+Third, we moved only the component of the noun-phrase states along the probe's object direction to the subject mean, in the middle half of the layers, and left all other components unchanged.
+This removes 26\% to 69\% of the residue, more than norm-matched random directions in all six models (19\% to 24\%).
+The role encoded at the abandoned noun phrase carries a large part of what later text reads as the residue.
+
+\paragraph{The adaptation is read from the main clause.}
 On the comprehension-like measure the two parts of the prime act in opposite directions in all nine models.
-Replacing the noun-phrase states lowers $A_S$ by 0.26 to 1.11 nats, removing the residue's positive contribution, and replacing the main-clause states raises it by 0.22 to 2.00 nats, removing the adaptation.
-The two forces of \S\ref{sec:twoforces} are read from different positions of the same prime.
-In the larger models the main-clause replacement also raises the residue on $L$, to 1.34 times its original value in Qwen2.5-7B and 1.9 times in Qwen2.5-32B and Llama-3.1-70B, so that even on the production-like measure the observed residue is reduced by the adaptation, and the persistence of the abandoned analysis is larger than the net effect shows.
+Replacing the noun-phrase states lowers $A_S$ by 0.26 to 1.11 nats, which removes the residue's contribution, and replacing the main-clause states raises it by 0.22 to 2.00 nats, which removes the adaptation.
+The two effects of \S\ref{sec:twoforces} are read from different positions of the same prime.
+In the larger models the main-clause replacement also raises the residue on $L$, to 1.34 times its original value in Qwen2.5-7B and about 1.9 times in Qwen2.5-32B and Llama-3.1-70B.
+Even on the production-like measure, the observed residue is the abandoned analysis minus part of the adaptation, so the net effect understates how much of the abandoned analysis remains available.
+
+\section{Beyond Syntax: Overridden Statements}
+\label{sec:facts}
+
+Does content that a context explicitly overrides also keep influencing an LM?
+We built 200 items from ten frames (for example \ex{The meeting is on Thursday. Correction: The meeting is on Monday.}) and measured, after the probe \ex{To confirm, the meeting is on}, how much more likely the overridden value is than the correct one.
+A control replaces the overridden statement with the same statement about another entity (\ex{The dinner is on Thursday.}), which matches exposure to the overridden value.
+Relative to this control, the overridden value pulls later predictions toward itself by 0.6 to 2.3 nats in seven of eight models, in nine or ten of the ten frames each, and the pull is smaller when a warning (\ex{Mistake:}) precedes the statement in five of eight.
+Qwen2.5-7B-Instruct is the exception and moves away from a corrected value.
+
+The carrier differs from the garden path.
+Re-encoding only the overridden statement under the warning, as the noun phrase was re-encoded in \S\ref{sec:mechanism}, leaves the pull intact (72\% to 113\% retained), whereas recomputing the context after it reduces the pull in most models.
+A stated value is represented in the same way whether or not it is marked as wrong, so the later positions that integrate it carry its influence, whereas a garden path overrides a structural role that is read from where it was assigned (Appendix~\ref{app:facts}).
 
 \section{Transferring the Human Paradigm}
 \label{sec:transfer}
 
 \begin{figure}[t]
 \centering
-\includegraphics[width=\columnwidth]{figures/fig_generation}
-\caption{Sampled production. Left: the controlled residue $A$ (blue) and the raw contrast between garden-path and comma primes used in the human study (orange). Right: proportion of completions that are themselves comma-less garden-path sentences, after a garden-path prime (orange) and after a comma prime (blue).}
+\includegraphics[width=\columnwidth]{figures/fig_generation_col}
+\caption{Sampled production after garden-path primes. The raw contrast with comma primes used in the human study (orange) is negative in most Llama and Qwen models. Without the completions that are themselves comma-less garden-path sentences it is positive in every model (gray), and so is the controlled residue $A_{gen}$ (blue).}
 \label{fig:generation}
 \end{figure}
 
 \paragraph{The raw statistic reverses.}
-The human study compared completions after \cond{gp} and \cond{cue} primes.
-In LMs this contrast is reliably positive in only 4 of 12 models and significantly negative in 7 of the 8 Llama and Qwen models, most strongly in Llama-3.1-70B, where garden-path primes lower the proportion of transitive completions by 17.6 points (Figure~\ref{fig:generation}, left).
-The completions show why.
-After a garden-path prime, up to 29\% of the completions are themselves comma-less garden-path sentences, against 0.2\% to 2.4\% after a comma prime, in all 12 models (Figure~\ref{fig:generation}, right).
-A model that has just read a sentence without the expected comma writes one, and since the raw contrast counts these completions as intransitive, it mixes the residue with this stylistic alignment.
-Participants in the human study completed fragments aloud, where punctuation plays no role.
-The contrast of Equation~\ref{eq:A} matches primes for punctuation, and with it the residue is positive in 11 of 12 models.
-The same alignment explains why the residue is smaller in sampled text than in $L$, which compares two strings with identical words and fixed punctuation.
+The human study compared transitive completions after \cond{gp} and \cond{cue} primes.
+In LMs this contrast is reliably positive in only 4 of 12 models and significantly negative in 7 of the 8 Llama and Qwen models, most strongly in Llama-3.1-70B, where garden-path primes lower the proportion of transitive completions by 17.6 points (Figure~\ref{fig:generation}).
+After a garden-path prime, up to 29\% of completions are themselves comma-less garden-path sentences, against 0.2\% to 2.4\% after a comma prime .
+These completions produce the resolved structure of the prime, a new clause after an object-less verb, in the prime's comma-less style.
+They are the adaptation of \S\ref{sec:twoforces} expressed in production, and the raw contrast counts them as evidence against the residue.
+Across models, the more such completions a model writes, the more negative its raw contrast ($\rho=-0.82$).
+Without them, the raw contrast is positive in all 12 models (median 10 points).
+Human participants completed the fragments aloud, without punctuation.
+Matching primes for punctuation, as Equation~\ref{eq:A} does, is necessary to transfer the paradigm.
 
-\paragraph{Lingering comprehension is a separate phenomenon.}
+\paragraph{Lingering comprehension is a different measure.}
 LMs answer \ex{Did the man hunt the deer?} with yes after the garden-path sentence much more often than after its comma version, and more so when the ambiguous region is longer, as human readers do \citep{christianson2001}.
-This lingering misinterpretation could be another expression of the residue.
-On the items of \citet{christianson2001} it is not, since across items its correlation with the priming residue lies between $-0.30$ and $0.15$ in the ten models that pass the comprehension controls, although both measures are reliable (split-half reliabilities of 0.77 to 0.98).
-A context sentence that restates the main clause reduces lingering in seven of seven models, whereas a reordered paraphrase that removes the garden path more completely reduces it less, so lingering does not follow the garden-path processing in the way the residue does.
-Studies that measure lingering in LMs by question answering \citep{li2024incremental,amouyal2025} and the residue measured here describe different properties of the model.
+Across the items of \citet{christianson2001}, however, this lingering is unrelated to the priming residue ($r$ between $-0.30$ and $0.15$ in the ten models that answer the unambiguous control questions correctly), although both measures have split-half reliabilities between 0.77 and 0.98.
+Question answering and priming measure different properties of the model, so studies of lingering in LMs \citep{li2024incremental,amouyal2025} and the residue measured here are not interchangeable.
 
 \section{Discussion and Conclusion}
 
-Garden-path primes separate two accounts of priming that ordinary primes cannot, and in LMs both accounts describe part of what happens.
-The residue of the abandoned analysis follows the strength of that analysis and is read from the positions where it was built.
-The adaptation follows the prediction error and is read from the positions where the error occurred.
-This yields a prediction for human readers.
-If the same superposition holds in people, garden paths with a more surprising disambiguation should produce less priming of the abandoned analysis in production and more adaptation in comprehension, which can be tested by combining the paradigm of \citet{vangompel2006} with cloze norms for the disambiguating word.
+A garden-path sentence leaves both analyses in an LM's context.
+The abandoned one is read from the noun phrase, whose states were computed before the disambiguation, and its effect on later production grows with how strongly it was built.
+The resolved one is read from the states after the disambiguation, and its effect grows with the disambiguation error.
+Residual activation describes the first effect and error-driven learning the second, so in LMs both accounts of priming hold at once, and the two representations of the competing-representations view of lingering \citep{slattery2013} occupy different positions of the context.
 
-Neither force is confined to small or base models.
-The residue is positive in all 22 models of the discovery set and reliably so in all except Pythia-160M, which together with GPT-2 has the weakest garden-path effect of the panel.
-Instruction tuning does not remove it, and the three instruction-tuned models show the largest residues (1.08 to 1.11 nats, against 0.90 for the base version of Qwen2.5-7B).
-Model size mainly shifts the balance between the two forces.
-In the 32B and 70B models the residue is confined to the noun phrase more completely than in smaller ones, and their main-clause adaptation is strong enough to hide about half of the residue on the production-like measure.
+The patching result was not a foregone conclusion, since later text could have relied on the main-clause states, which are more recent and encode the corrected analysis, and in the 32B and 70B models it reads almost the whole residue from the noun phrase instead.
+A disambiguating word or a correcting sentence changes what later positions compute without removing the earlier representation, so appending a correction is a weaker intervention than removing the corrected text, which bears on why models refer to entities a sentence never introduced \citep{schuster2022} and rarely retract wrong answers \citep{yang2025retraction}.
 
-For LMs, the residue has a concrete source.
-In human processing, residual activation names a memory trace of unknown substrate.
-In a causal transformer, representations are written when each token is read, and later tokens consult them through attention without revising them.
-A reanalysis can change what later positions compute, but it cannot change what earlier positions hold, and our patching results show that later text reads the abandoned analysis from there.
-This adds a qualification to the view that in-context learning is error-driven \citep{zhou2025icl}.
-The error force we find fits that view, but an error-driven learner would not reuse the analysis that was rejected, and the residue shows that context effects in LMs also include persistence of representations that the error signal has already overruled.
-The same argument applies to any interpretation that a model builds and later revises within its context, such as a misread instruction or a hypothesis abandoned during reasoning, and garden paths provide a case in which the abandoned interpretation and the moment of its revision are known exactly.
+For human research, varying only the continuation of a fixed garden-path prefix would separate the two accounts: residual activation predicts no change in later comprehension of garden paths, whereas error-driven learning predicts more adaptation after more surprising disambiguations, as in LMs.
 
 \section*{Limitations}
 
-We study English garden paths, mostly of the NP/Z type, and use NP/S and main-verb/reduced-relative sentences only to delimit the scope of the two forces.
-Other languages and other kinds of temporary ambiguity may behave differently.
+We study English garden paths of the NP/Z and NP/S types in depth and use main-verb/reduced-relative sentences only for the adaptation effect, so other languages and ambiguity types may behave differently.
 Our models are open-weight models up to 70B parameters, because the analyses require exact log-probabilities and access to internal states, and closed models were not tested.
-The behavioural manipulation of the abandoned analysis (Appendix~\ref{app:e014}) did not pass its pre-specified check, so the causal evidence for the residue comes from activation patching, and patching was run on nine of the 24 models.
+The behavioural manipulation of the abandoned analysis (Appendix~\ref{app:e014}) did not pass its pre-specified check, so the causal evidence for the residue comes from patching and the role-direction intervention, which were run on six to nine of the 24 models.
 The contrast of Equation~\ref{eq:A} was defined after inspecting the first two models of the discovery set, and its confirmation rests on held-out items, a prospective test and pre-specified predictions, some of which failed (Appendix~\ref{app:prereg}).
+The overridden statements are templated, and one pre-specified prediction about their mechanism failed, which led to the different-carrier interpretation of \S\ref{sec:facts}.
 The coding of sampled completions is rule-based and was checked against gold sentences and by one annotator on a sample of generations.
 We derive a prediction for human readers but do not test it.
 
