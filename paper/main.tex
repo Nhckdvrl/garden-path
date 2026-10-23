@@ -28,7 +28,7 @@
 \begin{abstract}
 After reading \ex{While the man hunted the deer ran into the woods}, a reader must abandon the analysis in which \ex{the deer} is the object of \ex{hunted}. In humans, such abandoned analyses still prime later production. This is a rare case where the two main theories of structural priming disagree. Residual activation predicts priming of the \emph{abandoned} analysis. Error-driven learning predicts adaptation toward the \emph{resolved} one, because the prediction error falls there.
 
-We test 22 open language models (124M--70B) on 195 garden-path item families, scoring both log-probabilities and free generation, and find both forces at once. A residue of the abandoned object analysis biases later production in every model. It survives controls for punctuation and verb bias, and in most models it appears only when the object analysis was licensed. An error-driven adaptation toward the resolved parse pushes the other way. It is causal within item families, and it dominates comprehension-like measures. Activation patching shows where each force lives. The residue is read from the noun phrase's pre-disambiguation states, which a causal model never recomputes; replacing them removes the residue entirely in the 32B and 70B models. The adaptation is read from the states that processed the disambiguation.
+We test 24 open language models (124M--70B) on 195 garden-path item families, scoring both log-probabilities and free generation, and find both forces at once. A residue of the abandoned object analysis biases later production in every model. It survives controls for punctuation and verb bias, and in most models it appears only when the object analysis was licensed. An error-driven adaptation toward the resolved parse pushes the other way. It is causal within item families, and it dominates comprehension-like measures. Activation patching shows where each force lives. The residue is read from the noun phrase's pre-disambiguation states, which a causal model never recomputes; replacing them removes the residue entirely in the 32B and 70B models. The adaptation is read from the states that processed the disambiguation.
 
 Two methodological lessons follow. Transferred naively, the human paradigm's statistic reverses sign, because models copy the prime's punctuation and write garden-path sentences themselves. And question-answering ``lingering misinterpretation'' is unrelated to the residue, item by item.
 \end{abstract}
@@ -97,7 +97,7 @@ A=(\mathrm{GP}-\mathrm{NB})-(\mathrm{CUE}-\mathrm{NC}),
 \end{equation}
 which is matched for punctuation within pairs and for verb across pairs. Inference uses a two-way bootstrap over prime and target families. Cross-model summaries use random-effects meta-analysis. Every confirmatory experiment had its predictions frozen in a dated card before data collection; exploratory steps are labelled as such, and all outcomes, including failures, are listed in Appendix~\ref{app:prereg}. Table~\ref{tab:summary} summarizes the evidence.
 
-\paragraph{Models.} 22 open-weight causal LMs from six families (GPT-2, Pythia, Llama, Mistral, Gemma, Qwen), 124M to 70B parameters, base and instruction-tuned, including a mixture-of-experts model (Qwen3-30B-A3B). Free generation and patching use subsets of 12 and 9 models. Table~\ref{tab:models} lists the models.
+\paragraph{Models.} 24 open-weight causal LMs from six families (GPT-2, Pythia, Llama, Mistral, Gemma, Qwen), 124M to 70B parameters, base and instruction-tuned, including a mixture-of-experts model (Qwen3-30B-A3B). 22 enter every priming experiment; two more enter only the Christianson set. Free generation and patching use subsets of 12 and 9 models. Table~\ref{tab:models} lists the models.
 
 \section{The abandoned analysis persists}\label{sec:residue}
 
@@ -141,15 +141,15 @@ QA lingering $\neq$ residue & item-level correlation & 10 & $|r|\le .30$, reliab
 \label{fig:residue}
 \end{figure*}
 
-\paragraph{It is not punctuation.} Comma omission is a salient property of garden-path primes, and models adapt to it: NB primes without a comma change later comma use in 22/22 models. We therefore replaced the comma with case (E009). In \ex{While the man hunted they ran\ldots} the nominative \ex{they} rules out the object analysis, and the verb and the missing comma stay identical within the pair. The item-level relation between object expectation at the verb and the residue stays positive in 22/22 models (16 significant).
+\paragraph{It is not punctuation.} Comma omission is a salient property of garden-path primes, and models adapt to it: after a comma-less NB prime, a later comma-less garden-path resolution is less surprising in 22/22 models (pooled $-2.8$ nats). We therefore replaced the comma with case (E009). In \ex{While the man hunted they ran\ldots} the nominative \ex{they} rules out the object analysis, and the verb and the missing comma stay identical within the pair. The item-level relation between object expectation at the verb and the residue stays positive in 22/22 models (16 significant).
 
 \paragraph{It needs a licensed analysis.} The string \ex{hunted the deer} might prime by local coherence alone \citep{tabor2004}. A passive prime (\ex{While the man was hunted the deer ran\ldots}) contains the same string but never licenses an object reading. Its residue is a median 12\% of the garden-path residue across 22 models (E011), so in most models the residue reflects an analysis that was actually entertained. The passive ratio grows with model strength, however (0.27--0.55 in the larger Qwen models, 0.45 in Llama-3.1-70B): in strong models, a locally computed object reading of \ex{hunted the deer} also leaves a trace, as local coherence would predict.
 
-\paragraph{It reaches free generation.} We sampled two continuations of \ex{While the nurse washed} for every prime--target pair (pure sampling, 57k prompts per model). With the same contrast, garden-path primes raise transitive completions in 11/12 models under the frozen coding (12/12 with the refined coding). The pooled $A_{gen}$ is $+0.050$ [0.037, 0.063]. Across the first eight models, $A_{gen}$ correlated with $A_L$ ($\rho=.81$).
+\paragraph{It reaches free generation.} We sampled two continuations of \ex{While the nurse washed} for every prime--target pair (pure sampling, 57k prompts per model). With the same contrast, garden-path primes raise transitive completions in 11/12 models under the frozen coding (12/12 with the refined coding). The pooled $A_{gen}$ is $+0.050$ [0.037, 0.063]. Across the first eight models, $A_{gen}$ correlated with $A_L$ ($\rho=.81$). In generation the residue is smaller relative to a true transitive prime (about 20\%, against 76\% on $L$). This is expected if sampled continuations are also shaped by forces that $L$ holds constant, chiefly the punctuation alignment of \S\ref{sec:method-lessons}.
 
 \section{Two forces with opposite signs}\label{sec:twoforces}
 
-The residue is not the only thing a garden-path prime leaves behind. On the comprehension-like measure $S$, the net contrast $A_S$ is close to zero on average (pooled $+0.05$ [$-0.03$, 0.13]) and varies in sign across models. The two largest Qwen models show significantly negative values, meaning \emph{less} expectation of a transitive continuation after a garden-path prime. Two opposite forces explain this pattern.
+The residue is not the only thing a garden-path prime leaves behind. On the comprehension-like measure $S$, the net contrast $A_S$ is close to zero on average (pooled $+0.05$ [$-0.03$, 0.12], 22 models) and varies in sign across models. It is significantly positive in 5 models and significantly \emph{negative} in 4 (among them Qwen3-32B), where a garden-path prime leaves \emph{less} expectation of a transitive continuation than the controls. Two opposite forces explain this pattern.
 
 \paragraph{Item level.} Across families, $A$ rises with the model's object expectation at the ambiguous verb. This is the \emph{commitment} slope, positive in 22/22 models in the punctuation-free E009 design. $A$ falls with the prime's own disambiguation surprisal. This is the \emph{error} slope, negative in 20/22 models. The two predictors are nearly uncorrelated, and they correspond to the residual-activation and error-driven accounts.
 
@@ -212,6 +212,10 @@ The two forces of \S\ref{sec:twoforces} are therefore not an analysis construct.
 \item The two-force account and the contrast $A$ were first formulated after inspecting two models in the discovery set. Confirmation comes from held-out items, prospective tests and frozen predictions; held-out tests that failed are reported in the appendix.
 \item We make a prediction for humans but run no human experiment.
 \end{itemize}
+
+
+\section*{Ethics Statement}
+This work involves no human participants and no personal data. All models are public open-weight checkpoints, used with exact log-probability scoring and sampling on local hardware. The item materials come from published studies and benchmarks (MIT-licensed releases or published appendices used for research with citation). We do not release model generations beyond the coded continuations needed to reproduce our analyses.
 
 \bibliography{refs}
 
