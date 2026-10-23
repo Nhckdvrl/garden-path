@@ -27,9 +27,9 @@ The alternative: the residue is carried by the **main-clause** states (*ran into
 
 If M1 fails (MC carries the L residue), the residue is a property of the garden-path *episode* encoded downstream, not of stale states. The "LM residual activation = non-recomputation" story is then false, and we report that.
 
-## Results (8 models; frozen analysis unchanged)
+## Results (9 models; frozen analysis unchanged)
 
-All runs: 93 families, 0 NP-length mismatches. fp32 except Qwen2.5-32B (bf16).
+All runs: 93 families, 0 NP-length mismatches. fp32 except Qwen2.5-32B and Llama-3.1-70B (bf16; 70B on 2 GPUs).
 
 | model | A_L (none) | ρ_NP (L) | ρ_MC (L) | ρ_both (L) | Δ_NP on S | Δ_MC on S | M1 | M2 |
 |---|---|---|---|---|---|---|---|---|
@@ -41,16 +41,17 @@ All runs: 93 families, 0 NP-length mismatches. fp32 except Qwen2.5-32B (bf16).
 | Pythia-2.8b | +0.49 | **0.50** [.41,.59] | 0.74 | 0.40 | −0.35 | **+0.40** | ✓ | ✓ |
 | Pythia-1.4b | +0.46 | 0.65 [.56,.73] | 0.85 | 0.59 | −0.26 | +0.22 | ✗ (ρ_NP > .5) | ✗ (|Δ_MC| < |Δ_NP|) |
 | Qwen2.5-32B (bf16) | +0.61 | **0.01** [−.35,.21] | 1.94 | 0.68 | −0.72 | **+1.56** | ✓ | ✓ |
+| Llama-3.1-70B (bf16) | +0.52 | **0.01** [−.36,.22] | 1.89 | 0.64 | −0.79 | **+1.46** | ✓ | ✓ |
 
-**Frozen predictions:** M1 **6/8**, M2 **7/8**. Directional pattern without the magnitude threshold:
-- ρ_NP < ρ_MC on L in **8/8**;
-- on S, Δ_NP < 0 in **8/8** and Δ_MC > 0 in **8/8**, all CIs excluding 0.
+**Frozen predictions:** M1 **7/9**, M2 **8/9**. Directional pattern without the magnitude threshold:
+- ρ_NP < ρ_MC on L in **9/9**;
+- on S, Δ_NP < 0 in **9/9** and Δ_MC > 0 in **9/9**, all CIs excluding 0.
 
 **Reading:**
 1. The production-like residue is read mostly from the NP's pre-disambiguation states, which a causal LM never recomputes. Replacing only those states (subject-analysis states from the comma twin, comma import controlled by NB←NC) removes 30–86% of A_L. Replacing the post-disambiguation main-clause states removes little or nothing; in Qwen2.5-7B it *raises* the residue (ρ_MC = 1.34), consistent with the main clause carrying an opposite-signed force.
 2. On the comprehension-like measure the two spans push in **opposite directions** in every model. Stale NP states contribute the residue (+, removing them lowers A_S). Main-clause states, which processed the disambiguation, contribute the error-driven adaptation (−, removing them raises A_S by +0.2 to +2.0). This is a mechanistic counterpart of the two-force account: the forces are carried by different positions of the same prime.
 3. The ratio on S is not interpretable where A_S ≈ 0 (wide CIs). The Δ values carry the S result.
-4. (Post-hoc observation.) In the largest models, patching the main clause *raises* the production residue: ρ_MC is 1.34 in Qwen2.5-7B and 1.94 in Qwen2.5-32B. In Qwen2.5-32B, patching only the NP removes the residue entirely (ρ_NP = 0.01). So even on L the observed net residue is the sum of a stale-NP contribution (+) and a main-clause contribution (−). The raw A_L *under*states the abandoned-analysis residue where the error-driven force is strong.
+4. (Post-hoc observation.) In the largest models, patching the main clause *raises* the production residue: ρ_MC is 1.34 in Qwen2.5-7B and 1.94 in Qwen2.5-32B. In Qwen2.5-32B and Llama-3.1-70B, patching only the NP removes the residue entirely (ρ_NP = 0.01 in both). So even on L the observed net residue is the sum of a stale-NP contribution (+) and a main-clause contribution (−). The raw A_L *under*states the abandoned-analysis residue where the error-driven force is strong.
 
 Sanity check (Llama-3.2-3B): cell "none" vs E002 family means differ by up to 0.045 nats (card threshold 0.02). The fp32 cache scorer equals the fp32 full-sequence scorer to 1e-4 (checked). The difference comes from E002's bf16 scoring, not from the pipeline. Recorded as a deviation from the stated threshold.
 
