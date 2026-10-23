@@ -40,3 +40,4 @@ logs/gp/
 # paper build artifacts
 paper/build/
 paper/build.log
+!paper/figures/
