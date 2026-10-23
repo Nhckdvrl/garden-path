@@ -17,7 +17,7 @@ sed -e 's/\\usepackage\[review\]{acl}/\\usepackage[preprint]{acl}/' \
 for job in main main_arxiv; do
   pdflatex -interaction=nonstopmode -halt-on-error $job > /dev/null || { tail -30 $job.log; exit 1; }
   bibtex $job > bibtex_$job.log || true
-  for i in 1 2 3; do pdflatex -interaction=nonstopmode -halt-on-error $job > /dev/null; done
+  for i in 1 2 3; do pdflatex -interaction=nonstopmode -halt-on-error $job > /dev/null || { grep -A5 "^!" $job.log; exit 1; }; done
   echo "== $job: $(pdfinfo $job.pdf | awk '/^Pages/ {print $2}') pages"
   grep -E "^!|LaTeX Error|undefined|Overfull" $job.log | sort | uniq -c || true
   grep -i -E "^warning|error" bibtex_$job.log || true
