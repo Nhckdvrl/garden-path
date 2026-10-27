@@ -45,7 +45,7 @@ An adaptation toward the resolved structure scales with the sentence's disambigu
 Activation patching separates the two.
 Later text reads the residue from the role information in the noun phrase's states, which were computed under the object analysis before the disambiguation, and replacing these states removes almost all of the residue in the 32B and 70B models.
 The adaptation is read from the states that processed the disambiguation.
-Overridden statements show the same persistence (a corrected value keeps pulling later predictions in 8 of 9 models), but there the pull is carried by the positions after the statement.
+Overridden statements show the same persistence (a corrected value keeps pulling later predictions in 8 of 9 models), and in most models the pull is carried by the positions after the statement.
 Finally, the human paradigm transfers only with controls for punctuation, because the models also write garden-path sentences themselves, which reverses the paradigm's raw statistic.
 \end{abstract}
 
@@ -115,7 +115,7 @@ Our contributions are as follows.
 (1) We show that LMs carry an abandoned syntactic analysis into later production, across 24 models, three item sets and two types of garden path, with controls that rule out punctuation, verb bias and local string overlap as its source.
 (2) We show that the same prime also produces an adaptation toward the resolved analysis, that the two effects scale with different properties of the prime (the strength of the abandoned analysis and the disambiguation error), and that their balance differs between production-like and comprehension-like measures.
 (3) We show by activation patching, probing and a role-direction intervention that later text reads the abandoned analysis from the role information in noun-phrase states computed before the disambiguation, even though the states after it encode the reanalysis.
-(4) We show that overridden statements also persist, carried by later positions, and that the human paradigm's statistic reverses in LMs unless punctuation is controlled.
+(4) We show that overridden statements also persist, in most models through later positions, and that the human paradigm's statistic reverses in LMs unless punctuation is controlled.
 
 \section{Related Work}
 
