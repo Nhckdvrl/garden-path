@@ -9,6 +9,8 @@
 
 ## 当前研究入口
 
+- **[2026-11-23 研究理论发散与多轮讨论备忘录](research/IDEATION_2026-11-23_REJECTED_HYPOTHESES.md)** — 记录 ACL 升级讨论、竞争假说、纠偏、隐式假设修正/路径依赖/可寻址性方向；仅作探索性记录，未授权新实验。
+
 - **[暂停交接文档](research/PAUSE_HANDOFF_2026-10-13.md)** / **[实验索引 E001–E012](research/experiments/README.md)** / **[当前认识](research/CURRENT_UNDERSTANDING.md)**：最新结论、意义评估、下一步与运行环境说明。
 
 - **[新研究问题与路线](research/RESEARCH_PLAN.md)** — 先从行为规律寻找解释空白，不预设机制故事。
